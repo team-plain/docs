@@ -1,4 +1,4 @@
-```graphql filename="Mutation"
+```graphql Mutation
 mutation addLabels($input: AddLabelsInput!) {
   addLabels(input: $input) {
     labels {
@@ -11,7 +11,7 @@ mutation addLabels($input: AddLabelsInput!) {
 }
 ```
 
-```json filename="Variables"
+```json Variables
 {
   "input": {
     "labelTypeIds": ["lt_01HB8BTNTZ58730MX8H5VMKFD5", "lt_01HB8BTNKSCF1FK5ETFVRSDC6G"],
