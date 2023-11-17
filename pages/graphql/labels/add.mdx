@@ -1,6 +1,6 @@
 ---
-title: "Add labels"
-description: "You can add multiple labels to a thread with a call to `addLabels`. Label type IDs passed to this endpoint should not be archived, we return a validation error with code `cannot_add_label_using_archived_label_type` for any which are submitted."
+title: 'Add labels'
+description: 'You can add multiple labels to a thread with a call to `addLabels`. Label type IDs passed to this endpoint should not be archived, we return a validation error with code `cannot_add_label_using_archived_label_type` for any which are submitted.'
 ---
 
 If a label type you provide is already added to the thread we will return a validation error with code `label_with_given_type_already_added_to_thread`.
@@ -113,10 +113,7 @@ mutation addLabels($input: AddLabelsInput!) {
 ```json Variables
 {
   "input": {
-    "labelTypeIds": [
-      "lt_01HB8BTNTZ58730MX8H5VMKFD5",
-      "lt_01HB8BTNKSCF1FK5ETFVRSDC6G"
-    ],
+    "labelTypeIds": ["lt_01HB8BTNTZ58730MX8H5VMKFD5", "lt_01HB8BTNKSCF1FK5ETFVRSDC6G"],
     "threadId": "th_01H8H46YPB2S4MAJM382FG9423"
   }
 }

@@ -1,7 +1,7 @@
-import { Tab, Tabs } from "nextra-theme-docs";
+import { Tab, Tabs } from 'nextra-theme-docs';
 
-import ReplyEmailTypescriptSDK from "../../../snippets/typescript-sdk/reply-email.mdx";
-import ReplyEmailGraphQL from "../../../snippets/graphql/reply-email.mdx";
+import ReplyEmailTypescriptSDK from '../../../snippets/typescript-sdk/reply-email.mdx';
+import ReplyEmailGraphQL from '../../../snippets/graphql/reply-email.mdx';
 
 # Reply to emails
 
@@ -16,15 +16,15 @@ You can reply to an inbound email with the `replyToEmail` API.
         - `attachment:read`
 
 ```typescript
-import { PlainClient } from "@team-plain/typescript-sdk";
+import { PlainClient } from '@team-plain/typescript-sdk';
 
-const client = new PlainClient({ apiKey: "plainApiKey_xxx" });
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
 client.replyToEmail({
-  customerId: "c_01GTC6ZHCMAGR06FMPN9VY5J95",
-  inReplyToEmailId: "em_01GM2X8K7D3RZ7ZFGHZ2AYG3SA",
-  textContent: "The plain text version of your reply goes here.",
-  markdownContent: "The markdown **version** of your _reply_ goes here.",
+  customerId: 'c_01GTC6ZHCMAGR06FMPN9VY5J95',
+  inReplyToEmailId: 'em_01GM2X8K7D3RZ7ZFGHZ2AYG3SA',
+  textContent: 'The plain text version of your reply goes here.',
+  markdownContent: 'The markdown **version** of your _reply_ goes here.',
 });
 
 if (res.error) {

@@ -1,12 +1,12 @@
 ```tsx
-import { PlainClient } from "@team-plain/typescript-sdk";
+import { PlainClient } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({
-  apiKey: "XXX",
+  apiKey: 'XXX',
 });
 
 const res = await client.markThreadAsDone({
-  threadId: "th_01HB924RWAW8H3Q8KZDFWYBJHZ",
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
 });
 
 if (res.error) {

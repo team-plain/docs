@@ -1,6 +1,6 @@
 ---
-title: "Customer groups"
-description: "Customer groups can be used to group and segment your customers, e.g. pricing tier: free, paying, enterprise etc."
+title: 'Customer groups'
+description: 'Customer groups can be used to group and segment your customers, e.g. pricing tier: free, paying, enterprise etc.'
 ---
 
 Customers can belong to one or many groups. You can filter your customers by group, allowing you to quickly focus on a subset of your customers.
@@ -25,18 +25,18 @@ This operation requires the following permissions:
     <Tab title="Typescript SDK">
 
 ```typescript
-import { PlainClient } from "@team-plain/typescript-sdk";
+import { PlainClient } from '@team-plain/typescript-sdk';
 
-const client = new PlainClient({ apiKey: "plainApiKey_xxx" });
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
 const res = await client.addCustomerToCustomerGroups({
-  customerId: "c_01GTC6ZHCMAGR06FMPN9VY5J95",
+  customerId: 'c_01GTC6ZHCMAGR06FMPN9VY5J95',
   customerGroupIdentifiers: [
     {
-      customerGroupKey: "free-tier",
+      customerGroupKey: 'free-tier',
     },
     {
-      customerGroupKey: "design-partner",
+      customerGroupKey: 'design-partner',
     },
   ],
 });
@@ -208,20 +208,20 @@ A customer can be removed from a customer group by using the `removeCustomerFrom
     <Tab title="Typescript SDK">
 
 ```typescript
-import { PlainClient } from "@team-plain/typescript-sdk";
+import { PlainClient } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({
-  apiKey: "plainApiKey_rO6tIKWU2w0gD_ek9HwjsHMiq1MHsgAn7mhVrcC7MGw",
+  apiKey: 'plainApiKey_rO6tIKWU2w0gD_ek9HwjsHMiq1MHsgAn7mhVrcC7MGw',
 });
 
 const res = await client.removeCustomerFromCustomerGroups({
-  customerId: "c_01H1P4TE62AS5KZ4CZFC0578ED",
+  customerId: 'c_01H1P4TE62AS5KZ4CZFC0578ED',
   customerGroupIdentifiers: [
     {
-      customerGroupKey: "free-tier",
+      customerGroupKey: 'free-tier',
     },
     {
-      customerGroupKey: "design-partner",
+      customerGroupKey: 'design-partner',
     },
   ],
 });
@@ -239,9 +239,7 @@ if (res.error) {
     <Tab title="GraphQL">
 
 ```graphql Mutation
-mutation removeCustomerFromCustomerGroup(
-  $input: RemoveCustomerFromCustomerGroupsInput!
-) {
+mutation removeCustomerFromCustomerGroup($input: RemoveCustomerFromCustomerGroupsInput!) {
   removeCustomerFromCustomerGroups(input: $input) {
     error {
       message

@@ -1,13 +1,13 @@
 ```tsx
-import { PlainClient } from "@team-plain/typescript-sdk";
+import { PlainClient } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({
-  apiKey: "XXX",
+  apiKey: 'XXX',
 });
 
 const res = await client.assignThread({
-  threadId: "th_01H8H46YPB2S4MAJM382FG9423",
-  userId: "u_01FSVKMHFDHJ3H5XFM20EMCBQN",
+  threadId: 'th_01H8H46YPB2S4MAJM382FG9423',
+  userId: 'u_01FSVKMHFDHJ3H5XFM20EMCBQN',
 
   // You could instead assign to a machine user by doing:
   // machineUserId: 'XXX'

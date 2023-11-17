@@ -1,6 +1,6 @@
 ```js
-const axios = require("axios");
-const FormData = require("form-data");
+const axios = require('axios');
+const FormData = require('form-data');
 
 /**
  * Upload an attachment.
@@ -15,7 +15,7 @@ function uploadAttachment(fileBuffer, uploadFormUrl, uploadFormData) {
     form.append(key, value);
   });
 
-  form.append("file", fileBuffer, { filename: "file" });
+  form.append('file', fileBuffer, { filename: 'file' });
 
   console.log(`Uploading attachment to ${uploadFormUrl}`);
 
@@ -23,7 +23,7 @@ function uploadAttachment(fileBuffer, uploadFormUrl, uploadFormData) {
     .post(uploadFormUrl, form, {
       headers: {
         ...form.getHeaders(),
-        "Content-Length": form.getLengthSync(),
+        'Content-Length': form.getLengthSync(),
       },
     })
     .then((res) => {
@@ -32,7 +32,7 @@ function uploadAttachment(fileBuffer, uploadFormUrl, uploadFormData) {
     .catch((err) => {
       console.log(
         `There was an error uploading the file: %s`,
-        err.response ? err.response.data : err,
+        err.response ? err.response.data : err
       );
     });
 }

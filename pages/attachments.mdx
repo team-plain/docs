@@ -1,5 +1,5 @@
 ---
-title: "File Attachments"
+title: 'File Attachments'
 description: "When using Plain's API to send emails or [create threads](/graphql/threads/create), you can add file attachments."
 ---
 
@@ -27,13 +27,13 @@ To try this, you will need an [API key](/graphql/authentication/) with the follo
         <Tab title="Typescript SDK">
 
 ```typescript
-import { AttachmentType, PlainClient } from "@team-plain/typescript-sdk";
+import { AttachmentType, PlainClient } from '@team-plain/typescript-sdk';
 
-const client = new PlainClient({ apiKey: "XXX" });
+const client = new PlainClient({ apiKey: 'XXX' });
 
 const res = await client.createAttachmentUploadUrl({
-  customerId: "c_XXXXXXXXXXXXXXXXXXXXXXXXXX",
-  fileName: "the-filename.jpeg",
+  customerId: 'c_XXXXXXXXXXXXXXXXXXXXXXXXXX',
+  fileName: 'the-filename.jpeg',
   fileSizeBytes: 32318,
   attachmentType: AttachmentType.CustomTimelineEntry,
 });
@@ -41,7 +41,7 @@ const res = await client.createAttachmentUploadUrl({
 if (res.error) {
   console.error(res.error);
 } else {
-  console.log("Attachment upload url created");
+  console.log('Attachment upload url created');
   console.log(res.data);
 }
 ```
@@ -229,13 +229,13 @@ function uploadAttachment(fileBlob, uploadFormUrl, uploadFormData) {
     form.append(key, value);
   });
 
-  const file = new File([fileBlob], "file");
-  form.append("file", file);
+  const file = new File([fileBlob], 'file');
+  form.append('file', file);
 
   console.log(`Uploading attachment to ${uploadFormUrl}`);
 
   fetch(uploadFormUrl, {
-    method: "POST",
+    method: 'POST',
     body: form,
   })
     .then((res) => {
@@ -245,10 +245,7 @@ function uploadAttachment(fileBlob, uploadFormUrl, uploadFormData) {
       console.log(`File successfully uploaded! (code=${res.status})`);
     })
     .catch((err) => {
-      console.log(
-        `There was an error uploading the file: %s`,
-        err.message ? err.message : err,
-      );
+      console.log(`There was an error uploading the file: %s`, err.message ? err.message : err);
     });
 }
 ```
@@ -257,8 +254,8 @@ function uploadAttachment(fileBlob, uploadFormUrl, uploadFormData) {
         <Tab title="Node">
 
 ```typescript
-const axios = require("axios");
-const FormData = require("form-data");
+const axios = require('axios');
+const FormData = require('form-data');
 
 /**
  * Upload an attachment.
@@ -273,7 +270,7 @@ function uploadAttachment(fileBuffer, uploadFormUrl, uploadFormData) {
     form.append(key, value);
   });
 
-  form.append("file", fileBuffer, { filename: "file" });
+  form.append('file', fileBuffer, { filename: 'file' });
 
   console.log(`Uploading attachment to ${uploadFormUrl}`);
 
@@ -281,7 +278,7 @@ function uploadAttachment(fileBuffer, uploadFormUrl, uploadFormData) {
     .post(uploadFormUrl, form, {
       headers: {
         ...form.getHeaders(),
-        "Content-Length": form.getLengthSync(),
+        'Content-Length': form.getLengthSync(),
       },
     })
     .then((res) => {
@@ -290,7 +287,7 @@ function uploadAttachment(fileBuffer, uploadFormUrl, uploadFormData) {
     .catch((err) => {
       console.log(
         `There was an error uploading the file: %s`,
-        err.response ? err.response.data : err,
+        err.response ? err.response.data : err
       );
     });
 }

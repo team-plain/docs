@@ -1,17 +1,17 @@
 ```tsx
-import { PlainClient, uiComponent } from "@team-plain/typescript-sdk";
+import { PlainClient, uiComponent } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({
-  apiKey: "XXX",
+  apiKey: 'XXX',
   debug: true,
 });
 
 const res = await client.createCustomerEvent({
-  title: "API key generated",
+  title: 'API key generated',
 
   customerIdentifier: {
     // You can use the email:
-    email: "jane@acme.com",
+    email: 'jane@acme.com',
 
     // ...or if you set external id on customers:
     // externalId: 'YOUR_ID',
@@ -22,14 +22,14 @@ const res = await client.createCustomerEvent({
 
   components: [
     uiComponent.text({
-      text: "New API key was added with the fingerprint **3b7896975ee9fd15eeb7** with 4 associated roles.",
+      text: 'New API key was added with the fingerprint **3b7896975ee9fd15eeb7** with 4 associated roles.',
     }),
     uiComponent.spacer({
-      size: "M",
+      size: 'M',
     }),
     uiComponent.linkButton({
-      label: "View in admin",
-      url: "https://admin.your-app.com",
+      label: 'View in admin',
+      url: 'https://admin.your-app.com',
     }),
   ],
 
@@ -37,11 +37,11 @@ const res = await client.createCustomerEvent({
   // be created once and fail on the second time. This external id acts
   // as an idempotency key while also letting you correlate an event to
   // something your systems.
-  externalId: "XXX",
+  externalId: 'XXX',
 
   // Optional - if provided then the event will only be shown
   // in a single thread vs all threads from a customer
-  threadId: "th_01HB924RWAW8H3Q8KZDFWYBJHZ",
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
 });
 
 if (res.error) {

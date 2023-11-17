@@ -1,5 +1,5 @@
 ---
-title: "Create Threads"
+title: 'Create Threads'
 description: Creating a thread is useful in scenarios where you want to programatically start a support interaction."
 ---
 
@@ -25,18 +25,18 @@ To create a thread you need a `customerId`. You can get a customer id by [creati
       - `user:read`
 
 ```typescript
-import { PlainClient } from "@team-plain/typescript-sdk";
+import { PlainClient } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({
-  apiKey: "XXX",
+  apiKey: 'XXX',
   debug: true,
 });
 
 const res = await client.createThread({
-  title: "Bug Report",
+  title: 'Bug Report',
   customerIdentifier: {
     // You can use the email:
-    email: "jane@acme.com",
+    email: 'jane@acme.com',
 
     // ...or if you set external id on customers:
     // externalId: '',
@@ -53,7 +53,7 @@ const res = await client.createThread({
   ],
   // Label types are created in settings where you can also copy
   // their ID.
-  labelTypeIds: ["lt_01HB924PME9C0YWKW1N4AK3BZA"],
+  labelTypeIds: ['lt_01HB924PME9C0YWKW1N4AK3BZA'],
 });
 
 if (res.error) {

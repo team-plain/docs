@@ -1,6 +1,6 @@
 ---
-title: "Error handling"
-description: "GraphQL queries and mutations require different error handling."
+title: 'Error handling'
+description: 'GraphQL queries and mutations require different error handling.'
 ---
 
 This is because we expect:
@@ -67,19 +67,19 @@ You can see the [full error types in the code of the Typescript SDK](https://git
 This is how you can access the error when using the SDK:
 
 ```typescript
-import { PlainClient } from "../client";
+import { PlainClient } from '../client';
 
 export async function createCustomer() {
-  const client = new PlainClient({ apiKey: "XXX" });
+  const client = new PlainClient({ apiKey: 'XXX' });
 
   const res = await client.upsertCustomer({
     identifier: {
-      emailAddress: "jane@gmail.com",
+      emailAddress: 'jane@gmail.com',
     },
     onCreate: {
-      fullName: "Jane Fargate",
+      fullName: 'Jane Fargate',
       email: {
-        email: "jane@gmail.com",
+        email: 'jane@gmail.com',
         isVerified: true,
       },
     },
