@@ -30,35 +30,36 @@ This will:
 <Tabs>
 
     <Tab title="Typescript SDK">
+
 ```typescript
-import { PlainClient } from '@team-plain/typescript-sdk';
- 
-const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
- 
+import { PlainClient } from "@team-plain/typescript-sdk";
+
+const client = new PlainClient({ apiKey: "plainApiKey_xxx" });
+
 const res = await client.upsertCustomer({
   identifier: {
-    emailAddress: 'donald@example.com',
+    emailAddress: "donald@example.com",
   },
   // If the customer is not found and should be created then
   // these details will be used:
   onCreate: {
-    fullName: 'Donald Duck',
-    shortName: 'Donald',
+    fullName: "Donald Duck",
+    shortName: "Donald",
     email: {
-      email: 'donald@example.com',
+      email: "donald@example.com",
       isVerified: true,
     },
- 
+
     // This is the id of the customer in your own backend.
     // Filling this out makes it easy to link customers in Plain
     // back to customer in your own systems.
-    externalId: 'c_123',
- 
+    externalId: "c_123",
+
     // This is optional but if you want to put a customer into a group
     // on creation, this is how you do it.
     customerGroupIdentifiers: [
       {
-        customerGroupKey: 'enterprise',
+        customerGroupKey: "enterprise",
       },
     ],
   },
@@ -67,21 +68,21 @@ const res = await client.upsertCustomer({
   // just providing some of the fields below.
   onUpdate: {
     fullName: {
-      value: 'Donald Duck',
+      value: "Donald Duck",
     },
     shortName: {
-      value: 'Donald',
+      value: "Donald",
     },
     email: {
-      email: 'donald@example.com',
+      email: "donald@example.com",
       isVerified: true,
     },
     externalId: {
-      value: 'c_123',
+      value: "c_123",
     },
   },
 });
- 
+
 if (res.error) {
   console.error(res.error);
 } else {
@@ -100,7 +101,11 @@ if (res.error) {
     "fullName": "Donald Duck",
     "shortName": "Donald",
     "externalId": "c_123",
-    "email": { "email": "donald@example.com", "isVerified": false, "verifiedAt": null },
+    "email": {
+      "email": "donald@example.com",
+      "isVerified": false,
+      "verifiedAt": null
+    },
     "status": "IDLE",
     "statusChangedAt": {
       "__typename": "DateTime",
@@ -128,6 +133,7 @@ if (res.error) {
   }
 }
 ```
+
     </Tab>
 
     <Tab title="GraphQL">
@@ -244,6 +250,7 @@ mutation upsertCustomer($input: UpsertCustomerInput!) {
   }
 }
 ```
+
     </Tab>
 
 </Tabs>

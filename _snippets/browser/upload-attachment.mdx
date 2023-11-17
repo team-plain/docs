@@ -12,13 +12,13 @@ function uploadAttachment(fileBlob, uploadFormUrl, uploadFormData) {
     form.append(key, value);
   });
 
-  const file = new File([fileBlob], 'file');
-  form.append('file', file);
+  const file = new File([fileBlob], "file");
+  form.append("file", file);
 
   console.log(`Uploading attachment to ${uploadFormUrl}`);
 
   fetch(uploadFormUrl, {
-    method: 'POST',
+    method: "POST",
     body: form,
   })
     .then((res) => {
@@ -28,7 +28,10 @@ function uploadAttachment(fileBlob, uploadFormUrl, uploadFormData) {
       console.log(`File successfully uploaded! (code=${res.status})`);
     })
     .catch((err) => {
-      console.log(`There was an error uploading the file: %s`, err.message ? err.message : err);
+      console.log(
+        `There was an error uploading the file: %s`,
+        err.message ? err.message : err,
+      );
     });
 }
 ```

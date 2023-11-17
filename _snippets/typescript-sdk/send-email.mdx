@@ -1,14 +1,14 @@
 ```tsx
-import { PlainClient } from '@team-plain/typescript-sdk';
+import { PlainClient } from "@team-plain/typescript-sdk";
 
-const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
+const client = new PlainClient({ apiKey: "plainApiKey_xxx" });
 
 client.sendNewEmail({
-  customerId: 'c_01GTC6ZHCMAGR06FMPN9VY5J95',
-  threadId: 'th_01HD44FHMCDSSWE38N14FSYV6K',
-  subject: 'Your account has a problem',
-  textContent: 'The plain text version of your email goes here.',
-  markdownContent: 'The markdown **version** of your _email_ goes here.',
+  customerId: "c_01GTC6ZHCMAGR06FMPN9VY5J95",
+  threadId: "th_01HD44FHMCDSSWE38N14FSYV6K",
+  subject: "Your account has a problem",
+  textContent: "The plain text version of your email goes here.",
+  markdownContent: "The markdown **version** of your _email_ goes here.",
 });
 
 if (res.error) {

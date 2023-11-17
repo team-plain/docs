@@ -25,22 +25,23 @@ To try this, you will need an [API key](/graphql/authentication/) with the follo
 
     <Tabs>
         <Tab title="Typescript SDK">
+
 ```typescript
-import { AttachmentType, PlainClient } from '@team-plain/typescript-sdk';
- 
-const client = new PlainClient({ apiKey: 'XXX' });
- 
+import { AttachmentType, PlainClient } from "@team-plain/typescript-sdk";
+
+const client = new PlainClient({ apiKey: "XXX" });
+
 const res = await client.createAttachmentUploadUrl({
-  customerId: 'c_XXXXXXXXXXXXXXXXXXXXXXXXXX',
-  fileName: 'the-filename.jpeg',
+  customerId: "c_XXXXXXXXXXXXXXXXXXXXXXXXXX",
+  fileName: "the-filename.jpeg",
   fileSizeBytes: 32318,
   attachmentType: AttachmentType.CustomTimelineEntry,
 });
- 
+
 if (res.error) {
   console.error(res.error);
 } else {
-  console.log('Attachment upload url created');
+  console.log("Attachment upload url created");
   console.log(res.data);
 }
 ```
@@ -54,7 +55,11 @@ if (res.error) {
     "__typename": "Attachment",
     "id": "att_01H3970W7XG1716AVNGQ6FWYGD",
     "fileName": "the-filename.jpeg",
-    "fileSize": { "__typename": "FileSize", "kiloBytes": 32.32, "megaBytes": 0.03 },
+    "fileSize": {
+      "__typename": "FileSize",
+      "kiloBytes": 32.32,
+      "megaBytes": 0.03
+    },
     "fileExtension": null,
     "updatedAt": {
       "__typename": "DateTime",
@@ -101,6 +106,7 @@ if (res.error) {
   }
 }
 ```
+
         </Tab>
 
         <Tab title="GraphQL">
@@ -144,6 +150,7 @@ Variables
   }
 }
 ```
+
 ```json Response
 {
   "data": {
@@ -193,6 +200,7 @@ Variables
 
         </Tab>
     </Tabs>
+
   </Step>
   <Step title="Uploading the attachment">
     In the `AttachmentUploadUrl` we created in the previous step we get back 2 fields which are needed to actually upload our attachment:
@@ -206,6 +214,7 @@ Variables
 
     <Tabs>
         <Tab title="Browser">
+
 ```typescript
 /**
  * Upload an attachment.
@@ -219,14 +228,14 @@ function uploadAttachment(fileBlob, uploadFormUrl, uploadFormData) {
   uploadFormData.forEach(({ key, value }) => {
     form.append(key, value);
   });
- 
-  const file = new File([fileBlob], 'file');
-  form.append('file', file);
- 
+
+  const file = new File([fileBlob], "file");
+  form.append("file", file);
+
   console.log(`Uploading attachment to ${uploadFormUrl}`);
- 
+
   fetch(uploadFormUrl, {
-    method: 'POST',
+    method: "POST",
     body: form,
   })
     .then((res) => {
@@ -236,16 +245,21 @@ function uploadAttachment(fileBlob, uploadFormUrl, uploadFormData) {
       console.log(`File successfully uploaded! (code=${res.status})`);
     })
     .catch((err) => {
-      console.log(`There was an error uploading the file: %s`, err.message ? err.message : err);
+      console.log(
+        `There was an error uploading the file: %s`,
+        err.message ? err.message : err,
+      );
     });
 }
 ```
+
         </Tab>
         <Tab title="Node">
+
 ```typescript
-const axios = require('axios');
-const FormData = require('form-data');
- 
+const axios = require("axios");
+const FormData = require("form-data");
+
 /**
  * Upload an attachment.
  *
@@ -258,16 +272,16 @@ function uploadAttachment(fileBuffer, uploadFormUrl, uploadFormData) {
   uploadFormData.forEach(({ key, value }) => {
     form.append(key, value);
   });
- 
-  form.append('file', fileBuffer, { filename: 'file' });
- 
+
+  form.append("file", fileBuffer, { filename: "file" });
+
   console.log(`Uploading attachment to ${uploadFormUrl}`);
- 
+
   axios
     .post(uploadFormUrl, form, {
       headers: {
         ...form.getHeaders(),
-        'Content-Length': form.getLengthSync(),
+        "Content-Length": form.getLengthSync(),
       },
     })
     .then((res) => {
@@ -276,16 +290,17 @@ function uploadAttachment(fileBuffer, uploadFormUrl, uploadFormData) {
     .catch((err) => {
       console.log(
         `There was an error uploading the file: %s`,
-        err.response ? err.response.data : err
+        err.response ? err.response.data : err,
       );
     });
 }
 ```
+
         </Tab>
     </Tabs>
+
   </Step>
 </Steps>
-
 
 ## Limitations
 

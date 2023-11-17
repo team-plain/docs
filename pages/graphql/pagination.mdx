@@ -47,10 +47,12 @@ if (firstPage.error) {
   }
 }
 ```
+
     </Tab>
 
     <Tab title="GraphQL">
         This will fetch a subsequent page of 50 entries by passing in the `endCursor` from an initial query.
+
 ```grapql Second page
 query getCustomers($cursor: String!) {
   customers(after: $cursor, first: 50) {

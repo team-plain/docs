@@ -1,17 +1,17 @@
 ```tsx {21}
-import { PlainClient } from '../client';
+import { PlainClient } from "../client";
 
 export async function createCustomer() {
-  const client = new PlainClient({ apiKey: 'XXX' });
+  const client = new PlainClient({ apiKey: "XXX" });
 
   const res = await client.upsertCustomer({
     identifier: {
-      emailAddress: 'jane@gmail.com',
+      emailAddress: "jane@gmail.com",
     },
     onCreate: {
-      fullName: 'Jane Fargate',
+      fullName: "Jane Fargate",
       email: {
-        email: 'jane@gmail.com',
+        email: "jane@gmail.com",
         isVerified: true,
       },
     },

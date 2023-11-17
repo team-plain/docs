@@ -1,16 +1,16 @@
 ```tsx
-import { PlainClient } from '@team-plain/typescript-sdk';
+import { PlainClient } from "@team-plain/typescript-sdk";
 
-const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
+const client = new PlainClient({ apiKey: "plainApiKey_xxx" });
 
 const res = await client.addCustomerToCustomerGroups({
-  customerId: 'c_01GTC6ZHCMAGR06FMPN9VY5J95',
+  customerId: "c_01GTC6ZHCMAGR06FMPN9VY5J95",
   customerGroupIdentifiers: [
     {
-      customerGroupKey: 'free-tier',
+      customerGroupKey: "free-tier",
     },
     {
-      customerGroupKey: 'design-partner',
+      customerGroupKey: "design-partner",
     },
   ],
 });

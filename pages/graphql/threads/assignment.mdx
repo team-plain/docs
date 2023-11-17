@@ -1,9 +1,9 @@
-import { Tabs, Tab } from 'nextra-theme-docs';
-import AssignThreadTypescriptSDK from '../../../snippets/typescript-sdk/assign-thread.mdx';
-import AssignThreadResponseTypescriptSDK from '../../../snippets/typescript-sdk/assign-thread-response.mdx';
-import AssignThreadGraphQL from '../../../snippets/graphql/assign-thread.mdx';
-import UnassignThreadTypescriptSDK from '../../../snippets/typescript-sdk/unassign-thread.mdx';
-import UnassignThreadGraphQL from '../../../snippets/graphql/unassign-thread.mdx';
+import { Tabs, Tab } from "nextra-theme-docs";
+import AssignThreadTypescriptSDK from "../../../snippets/typescript-sdk/assign-thread.mdx";
+import AssignThreadResponseTypescriptSDK from "../../../snippets/typescript-sdk/assign-thread-response.mdx";
+import AssignThreadGraphQL from "../../../snippets/graphql/assign-thread.mdx";
+import UnassignThreadTypescriptSDK from "../../../snippets/typescript-sdk/unassign-thread.mdx";
+import UnassignThreadGraphQL from "../../../snippets/graphql/unassign-thread.mdx";
 
 # Assign threads
 
@@ -63,59 +63,60 @@ if (res.error) {
 Where res.data is the full thread:
 
 {
-  "__typename": "Thread",
-  "id": "th_01H8H46YPB2S4MAJM382FG9423",
-  "externalId": null,
-  "customer": {
-    "id": "c_01H8H46Y7N69VTSF4WXCJTVATZ"
-  },
-  "status": "TODO",
-  "statusChangedAt": {
-    "__typename": "DateTime",
-    "iso8601": "2023-08-23T11:59:22.315Z",
-    "unixTimestamp": "1692791962315"
-  },
-  "title": "Support request",
-  "previewText": "Hello can you please...",
-  "priority": 2,
-  "labels": [],
-  "assignedAt": {
-    "__typename": "DateTime",
-    "iso8601": "2023-10-05T13:12:12.050Z",
-    "unixTimestamp": "1696511532050"
-  },
-  "assignedTo": {
-    "__typename": "User",
-    "id": "u_01FSVKMHFDHJ3H5XFM20EMCBQN",
-    "fullName": "Matt Vagni",
-    "publicName": "Matt",
-    "email": "matt@plain.com",
-    "updatedAt": {
-      "__typename": "DateTime",
-      "iso8601": "2023-05-16T12:36:52.266Z",
-      "unixTimestamp": "1684240612266"
-    }
-  },
-  "createdAt": {
-    "__typename": "DateTime",
-    "iso8601": "2023-08-23T11:59:22.315Z",
-    "unixTimestamp": "1692791962315"
-  },
-  "createdBy": {
-    "__typename": "MachineUserActor",
-    "machineUserId": "mu_01H0J96X3KJ3C2S2W9T5S3CC1R"
-  },
-  "updatedAt": {
-    "__typename": "DateTime",
-    "iso8601": "2023-10-05T13:12:12.050Z",
-    "unixTimestamp": "1696511532050"
-  },
-  "updatedBy": {
-    "__typename": "MachineUserActor",
-    "machineUserId": "mu_01HBZM0TZAKAZPJ47NX7X7XMDY"
-  }
+"**typename": "Thread",
+"id": "th_01H8H46YPB2S4MAJM382FG9423",
+"externalId": null,
+"customer": {
+"id": "c_01H8H46Y7N69VTSF4WXCJTVATZ"
+},
+"status": "TODO",
+"statusChangedAt": {
+"**typename": "DateTime",
+"iso8601": "2023-08-23T11:59:22.315Z",
+"unixTimestamp": "1692791962315"
+},
+"title": "Support request",
+"previewText": "Hello can you please...",
+"priority": 2,
+"labels": [],
+"assignedAt": {
+"**typename": "DateTime",
+"iso8601": "2023-10-05T13:12:12.050Z",
+"unixTimestamp": "1696511532050"
+},
+"assignedTo": {
+"**typename": "User",
+"id": "u_01FSVKMHFDHJ3H5XFM20EMCBQN",
+"fullName": "Matt Vagni",
+"publicName": "Matt",
+"email": "matt@plain.com",
+"updatedAt": {
+"**typename": "DateTime",
+"iso8601": "2023-05-16T12:36:52.266Z",
+"unixTimestamp": "1684240612266"
 }
-```
+},
+"createdAt": {
+"**typename": "DateTime",
+"iso8601": "2023-08-23T11:59:22.315Z",
+"unixTimestamp": "1692791962315"
+},
+"createdBy": {
+"**typename": "MachineUserActor",
+"machineUserId": "mu_01H0J96X3KJ3C2S2W9T5S3CC1R"
+},
+"updatedAt": {
+"**typename": "DateTime",
+"iso8601": "2023-10-05T13:12:12.050Z",
+"unixTimestamp": "1696511532050"
+},
+"updatedBy": {
+"\_\_typename": "MachineUserActor",
+"machineUserId": "mu_01HBZM0TZAKAZPJ47NX7X7XMDY"
+}
+}
+
+````
   </Tab>
   <Tab title="GraphQL">
 ```graphql Mutation
@@ -127,19 +128,20 @@ mutation assignThread($input: AssignThreadInput!) {
     }
   }
 }
-```
+````
 
 ```json Variables
 {
   "input": {
     "threadId": "th_01H8H46YPB2S4MAJM382FG9423",
     "userId": "u_01FSVKMHFDHJ3H5XFM20EMCBQN"
- 
+
     // You could instead assign to a machine user by doing:
     // machineUserId: 'XXX'
   }
 }
 ```
+
   </Tab>
 </Tabs>
 
@@ -190,5 +192,6 @@ mutation unassignThread($input: UnassignThreadInput!) {
   }
 }
 ```
+
   </Tab>
 </Tabs>

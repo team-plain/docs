@@ -1,6 +1,6 @@
-import DeleteCustomerTypescriptSDK from '../../../snippets/typescript-sdk/delete-customer.mdx';
-import DeleteCustomerGraphQL from '../../../snippets/graphql/delete-customer.mdx';
-import { Tab, Tabs } from 'nextra-theme-docs';
+import DeleteCustomerTypescriptSDK from "../../../snippets/typescript-sdk/delete-customer.mdx";
+import DeleteCustomerGraphQL from "../../../snippets/graphql/delete-customer.mdx";
+import { Tab, Tabs } from "nextra-theme-docs";
 
 # Delete customers
 
@@ -36,6 +36,7 @@ if (res.error) {
     </Tab>
 
     <Tab title="GraphQL">
+
 ```grapql Mutation
 mutation deleteCustomer($input: DeleteCustomerInput!) {
   deleteCustomer(input: $input) {
@@ -61,6 +62,7 @@ mutation deleteCustomer($input: DeleteCustomerInput!) {
   }
 }
 ```
+
     </Tab>
 
 </Tabs>

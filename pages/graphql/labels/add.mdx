@@ -96,6 +96,7 @@ if (res.error) {
     </Tab>
 
     <Tab title="GraphQL">
+
 ```graphql Mutation
 mutation addLabels($input: AddLabelsInput!) {
   addLabels(input: $input) {
@@ -112,11 +113,15 @@ mutation addLabels($input: AddLabelsInput!) {
 ```json Variables
 {
   "input": {
-    "labelTypeIds": ["lt_01HB8BTNTZ58730MX8H5VMKFD5", "lt_01HB8BTNKSCF1FK5ETFVRSDC6G"],
+    "labelTypeIds": [
+      "lt_01HB8BTNTZ58730MX8H5VMKFD5",
+      "lt_01HB8BTNKSCF1FK5ETFVRSDC6G"
+    ],
     "threadId": "th_01H8H46YPB2S4MAJM382FG9423"
   }
 }
 ```
+
     </Tab>
 
 </Tabs>

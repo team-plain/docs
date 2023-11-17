@@ -1,9 +1,11 @@
 ```tsx
 const client = new PlainClient({
-  apiKey: 'XXX',
+  apiKey: "XXX",
 });
 
-const res = await client.getCustomerById({ customerId: 'c_01H14DFQ4PDYBH398J1E99TWSS' });
+const res = await client.getCustomerById({
+  customerId: "c_01H14DFQ4PDYBH398J1E99TWSS",
+});
 
 if (res.error) {
   console.error(res.error);

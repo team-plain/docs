@@ -1,11 +1,11 @@
 ```tsx
-import { PlainClient } from '@team-plain/typescript-sdk';
+import { PlainClient } from "@team-plain/typescript-sdk";
 
-const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
+const client = new PlainClient({ apiKey: "plainApiKey_xxx" });
 
 const res = await client.addLabels({
-  labelTypeIds: ['lt_01HB8BTNVM7GEBKBEDNC2K8ST7'],
-  threadId: 'th_01HD1G6649R1DK061W27VBT7QB',
+  labelTypeIds: ["lt_01HB8BTNVM7GEBKBEDNC2K8ST7"],
+  threadId: "th_01HD1G6649R1DK061W27VBT7QB",
 });
 
 if (res.error) {

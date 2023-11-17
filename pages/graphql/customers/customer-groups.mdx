@@ -23,23 +23,24 @@ This operation requires the following permissions:
 <Tabs>
 
     <Tab title="Typescript SDK">
+
 ```typescript
-import { PlainClient } from '@team-plain/typescript-sdk';
- 
-const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
- 
+import { PlainClient } from "@team-plain/typescript-sdk";
+
+const client = new PlainClient({ apiKey: "plainApiKey_xxx" });
+
 const res = await client.addCustomerToCustomerGroups({
-  customerId: 'c_01GTC6ZHCMAGR06FMPN9VY5J95',
+  customerId: "c_01GTC6ZHCMAGR06FMPN9VY5J95",
   customerGroupIdentifiers: [
     {
-      customerGroupKey: 'free-tier',
+      customerGroupKey: "free-tier",
     },
     {
-      customerGroupKey: 'design-partner',
+      customerGroupKey: "design-partner",
     },
   ],
 });
- 
+
 if (res.error) {
   console.error(res.error);
 } else {
@@ -48,6 +49,7 @@ if (res.error) {
 ```
 
     Running the above would console.log:
+
 ```scheme
 [
   {
@@ -152,7 +154,6 @@ mutation addCustomerToCustomerGroup($input: AddCustomerToCustomerGroupsInput!) {
 }
 ```
 
-
         If you prefer you can also use the customer group id instead of the key. You can do this like so:
 
 ```json Variables
@@ -205,25 +206,26 @@ A customer can be removed from a customer group by using the `removeCustomerFrom
 <Tabs>
 
     <Tab title="Typescript SDK">
+
 ```typescript
-import { PlainClient } from '@team-plain/typescript-sdk';
- 
+import { PlainClient } from "@team-plain/typescript-sdk";
+
 const client = new PlainClient({
-  apiKey: 'plainApiKey_rO6tIKWU2w0gD_ek9HwjsHMiq1MHsgAn7mhVrcC7MGw',
+  apiKey: "plainApiKey_rO6tIKWU2w0gD_ek9HwjsHMiq1MHsgAn7mhVrcC7MGw",
 });
- 
+
 const res = await client.removeCustomerFromCustomerGroups({
-  customerId: 'c_01H1P4TE62AS5KZ4CZFC0578ED',
+  customerId: "c_01H1P4TE62AS5KZ4CZFC0578ED",
   customerGroupIdentifiers: [
     {
-      customerGroupKey: 'free-tier',
+      customerGroupKey: "free-tier",
     },
     {
-      customerGroupKey: 'design-partner',
+      customerGroupKey: "design-partner",
     },
   ],
 });
- 
+
 if (res.error) {
   console.error(res.error);
 } else {
@@ -235,8 +237,11 @@ if (res.error) {
     </Tab>
 
     <Tab title="GraphQL">
+
 ```graphql Mutation
-mutation removeCustomerFromCustomerGroup($input: RemoveCustomerFromCustomerGroupsInput!) {
+mutation removeCustomerFromCustomerGroup(
+  $input: RemoveCustomerFromCustomerGroupsInput!
+) {
   removeCustomerFromCustomerGroups(input: $input) {
     error {
       message

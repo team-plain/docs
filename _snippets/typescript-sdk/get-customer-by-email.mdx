@@ -1,9 +1,9 @@
 ```tsx
 const client = new PlainClient({
-  apiKey: 'XXX',
+  apiKey: "XXX",
 });
 
-const res = await client.getCustomerByEmail({ email: 'bob@example.com' });
+const res = await client.getCustomerByEmail({ email: "bob@example.com" });
 
 if (res.error) {
   console.error(res.error);
