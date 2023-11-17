@@ -1,0 +1,13 @@
+```tsx
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+
+const res = await client.getCustomerByEmail({ email: 'bob@example.com' });
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```

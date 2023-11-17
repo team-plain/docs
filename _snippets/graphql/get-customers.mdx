@@ -1,0 +1,39 @@
+```graphql filename="Query"
+query getCustomers($cursor: String!) {
+  customers(
+    after: $cursor
+    first: 50
+    filters: { isMarkedAsSpam: false }
+    sortBy: { field: FULL_NAME, direction: ASC }
+  ) {
+    edges {
+      node {
+        id
+        fullName
+        shortName
+        email {
+          email
+          isVerified
+        }
+        externalId
+        markedAsSpamAt {
+          iso8601
+        }
+      }
+    }
+    totalCount
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "cursor": "eyJjdXN0b21lcnMuZnVsbF9uYW1lIjoiQWlkYSBTY2hpbm5lciIsImN1c3RvbWVycy5pZCI6ImNfMDFHMThFU01TWkdUWTQwU1pITk03M0hBQkIifQ=="
+}
+```

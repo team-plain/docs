@@ -1,0 +1,255 @@
+---
+title: "Upserting customers"
+description: "Creating and updating customers is handled via a single API called `upsertCustomer`. You will find this name in both our API and our SDKs."
+---
+
+When you upsert a customer, you define:
+
+1. The identifier: This is the field you'd like to use to select the customer and is one of
+   - `emailAddress`: This is the customer's email address. Within Plain email addresses are unique to customers.
+   - `customerId`: This is Plain's customer ID. Implicitly if you use this as an identifier you will only be updating the customer since the customer can't have an id unless it already exists.
+   - `externalId`: This is the customer's id in your systems. If you previously set this it can be a powerful way of syncing customer details from your backend with Plain.
+2. The customer details you'd like to use if creating the customer.
+3. The customer details you'd like to update if the customer already exists.
+
+When upserting a customer you will always get back a customer or an error.
+
+## Upserting a customer
+
+This operation requires the following permissions:
+
+- `customer:create`
+- `customer:edit`
+
+This will:
+
+- Find a customer with the email 'donald@example.com' (the identifier).
+- If a customer with that email exists will update it (see `onUpdate` below)
+- Otherwise, it will create the customer (see `onCreate` below)
+
+<Tabs>
+
+    <Tab title="Typescript SDK">
+```typescript
+import { PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
+ 
+const res = await client.upsertCustomer({
+  identifier: {
+    emailAddress: 'donald@example.com',
+  },
+  // If the customer is not found and should be created then
+  // these details will be used:
+  onCreate: {
+    fullName: 'Donald Duck',
+    shortName: 'Donald',
+    email: {
+      email: 'donald@example.com',
+      isVerified: true,
+    },
+ 
+    // This is the id of the customer in your own backend.
+    // Filling this out makes it easy to link customers in Plain
+    // back to customer in your own systems.
+    externalId: 'c_123',
+ 
+    // This is optional but if you want to put a customer into a group
+    // on creation, this is how you do it.
+    customerGroupIdentifiers: [
+      {
+        customerGroupKey: 'enterprise',
+      },
+    ],
+  },
+  // If the customer already exists and should be updated then
+  // these details will be used. You can do partial updates by
+  // just providing some of the fields below.
+  onUpdate: {
+    fullName: {
+      value: 'Donald Duck',
+    },
+    shortName: {
+      value: 'Donald',
+    },
+    email: {
+      email: 'donald@example.com',
+      isVerified: true,
+    },
+    externalId: {
+      value: 'c_123',
+    },
+  },
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```
+
+        Running the above would console.log:
+
+```json
+{
+  "result": "CREATED",
+  "customer": {
+    "__typename": "Customer",
+    "id": "c_01H3D5NFQCTC41PYXT2BX9MD6A",
+    "fullName": "Donald Duck",
+    "shortName": "Donald",
+    "externalId": "c_123",
+    "email": { "email": "donald@example.com", "isVerified": false, "verifiedAt": null },
+    "status": "IDLE",
+    "statusChangedAt": {
+      "__typename": "DateTime",
+      "iso8601": "2023-06-20T19:49:20.236Z",
+      "unixTimestamp": "1687290560236"
+    },
+    "assignedToUser": null,
+    "assignedAt": null,
+    "updatedAt": {
+      "__typename": "DateTime",
+      "iso8601": "2023-06-20T19:49:20.236Z",
+      "unixTimestamp": "1687290560236"
+    },
+    "lastIdleAt": null,
+    "createdAt": {
+      "__typename": "DateTime",
+      "iso8601": "2023-06-20T19:49:20.236Z",
+      "unixTimestamp": "1687290560236"
+    },
+    "createdBy": {
+      "__typename": "MachineUserActor",
+      "machineUserId": "mu_01GZEA2M91124MPFAVZEPKC2MY"
+    },
+    "markedAsSpamAt": null
+  }
+}
+```
+    </Tab>
+
+    <Tab title="GraphQL">
+        The GraphQL mutation is the following:
+
+```graphql Mutation
+mutation upsertCustomer($input: UpsertCustomerInput!) {
+  upsertCustomer(input: $input) {
+    result
+    customer {
+      id
+      externalId
+      shortName
+      fullName
+      email {
+        email
+        isVerified
+      }
+      status
+      customerGroupMemberships {
+        edges {
+          node {
+            customerGroup {
+              name
+              key
+            }
+          }
+        }
+      }
+    }
+    error {
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```graphql Variables
+
+{
+  "input": {
+    "identifier": {
+      "emailAddress": "donald@example.com"
+    },
+    "onCreate": {
+      "fullName": "Donald Duck",
+      "shortName": "Donald",
+      "email": {
+        "email": "donald@example.com",
+        "isVerified": false
+      },
+      "customerGroupIdentifiers": [
+        {
+          "customerGroupKey": "enterprise"
+        }
+      ]
+    },
+    "onUpdate": {
+      "fullName": {
+        "value": "Donald Duck"
+      },
+      "shortName": {
+        "value": "Donald"
+      },
+      "email": {
+        "email": "donald@example.com",
+        "isVerified": true
+      },
+      "externalId": {
+        "value": "c_123"
+      }
+    }
+  }
+}
+```
+
+```json Response
+{
+  "data": {
+    "upsertCustomer": {
+      "result": "CREATED",
+      "customer": {
+        "id": "c_01G8JVJ6A3CX5ZSJ4AVJYC42HW",
+        "externalId": null,
+        "shortName": "Donald",
+        "fullName": "Donald Duck",
+        "email": {
+          "email": "donald@example.com",
+          "isVerified": false
+        },
+        "status": "IDLE",
+        "customerGroupMemberships": {
+          "edges": [
+            {
+              "node": {
+                "customerGroup": {
+                  "name": "Enterprise",
+                  "key": "enterprise"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  }
+}
+```
+    </Tab>
+
+</Tabs>
+
+The value of the `result` type will be:
+
+- `CREATED`: if a customer didn't exist and was created
+- `UPDATED`: if a customer already existed AND the values being updated **were different**.
+- `NOOP`: if a customer already existed AND the values being updated **were the same**

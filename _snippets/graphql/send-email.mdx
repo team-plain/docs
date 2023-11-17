@@ -1,0 +1,26 @@
+```graphql filename="Mutation"
+mutation sendNewEmail($input: SendNewEmailInput!) {
+  sendNewEmail(input: $input) {
+    email {
+      id
+    }
+    error {
+      message
+      type
+      code
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "input": {
+    "customerId": "c_01GTC6ZHCMAGR06FMPN9VY5J95",
+    "threadId": "th_01HD44FHMCDSSWE38N14FSYV6K",
+    "subject": "Your account has a problem",
+    "textContent": "The plain text version of your email goes here.",
+    "markdownContent": "The markdown **version** of your _email_ goes here."
+  }
+}
+```

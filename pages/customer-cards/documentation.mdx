@@ -1,0 +1,211 @@
+---
+title: "Customer Cards Documentation"
+description: "This page is intended for a technical audience that will be implementing a Customer Card API."
+---
+
+Check out the [Customer Cards](/pages/customer-cards) page for an overview.
+
+## Protocol overview
+
+Customer Cards are not proactively loaded, all of it is just-in-time and pulled when required.
+This means that if your APIs are slow then users of the Support App will see a loading spinner over the card.
+
+The protocol is as follows:
+
+1. When a user in Plain opens up a customer's page the cards are loaded.
+2. Plain's backend figures out which cards can be returned from the cache and which cards need to be loaded. On the first
+   load of the customer this would be all cards.
+3. It calculates how many requests it needs to make (see [request deduplication](#request-deduplication) for
+   details).
+4. Your APIs are then called with the customer's details, so you can look up the customer's data in your systems
+   (see [request](#request) section for details).
+5. Your APIs then return Customer Cards that consist of [Plain UI components](/ui-components)
+   (see [response](#response) section for details).
+6. The cards are cached based on either an explicit TTL value in the response or the TTL in the card settings.
+7. Cards are shown to the user in Plain.
+8. Users can manually reload the card at any time in which case only that one card will be requested from your API.
+
+A **few limits** to be aware of:
+
+- Your API must **respond within 4 seconds**, or it will time out. See [retry strategy](#retry-strategy) for details on how timed-out requests are retried.
+- You can have a **maximum of 25 Customer Cards per workspace** configured.
+- Card **keys must be unique** within a workspace. A key can only contain alphanumeric, hyphen, and underscore characters (regex: `[a-zA-Z0-9_-]+`).
+
+## Creating a Customer Card
+
+To create a Customer Card head to **Settings** → **Customer Card** and enter the following details:
+
+- **Title:** This will be displayed as the title of the card so even if the card fails to load users know which card is
+  errored.
+- **Key:** The link between this config and your API. A key can only contain alphanumeric, hyphen, and underscore characters (regex: `[a-zA-Z0-9_-]+`)
+- **Default time to live (seconds):** By default how long Plain should cache Customer Cards. The minimum is 15 seconds, maximum is 1 year in seconds (31536000 seconds).
+- **URL:** The URL of your API endpoint that will be built to return Customer Cards. Must start with `https://`.
+- **Headers (optional):** The headers Plain should pass along when making the request. While this is optional it is
+  **highly reccommend** to add authorization headers or other tokens that authenticate the request as your API will be
+  returning customer data.
+
+<Note>
+To get you started quickly, we've created a few example Customer Cards that you can configure and see how they look in your application. All example cards are available in our open-source repository:
+[team-plain/example-customer-cards](https://github.com/team-plain/example-customer-cards)
+
+Here is one you can try right now:
+
+- Title: e.g. "Usage"
+- Key: `usage`
+- Default time to live: e.g. 120
+- URL: https://example-customer-cards.plain.com/
+
+</Note>
+
+## Request
+
+Plain will make the following request to your backend:
+
+- **Method:** `POST`
+- **URL:** the URL you configured on Customer Card settings page.
+- **Headers:**
+  - All the headers you provided on Customer Card settings page. This should typically include authentication headers.
+  - `Content-Type`: `application/json`
+  - `Accept`: `application/json`
+  - `Plain-Workspace-Id`: the ID of the workspace the customer is in. This is useful for logging or request routing.
+  - `User-Agent`: `Plain/1.0 (plain.com; help@plain.com)`
+- **Body:**
+  - `cardKeys`: an array of card keys being requested
+  - `customer`: an object with the customer's core details
+    - `email`: the email of the customer
+    - `externalId` (optional): if the customer has an `externalId` then it will be sent, otherwise it is `null`.
+
+Example request body:
+
+```json
+{
+  "cardKeys": ["plan-details", "subscription-status"],
+  "customer": {
+    "email": "alex@grocery.co",
+    "externalId": "your_user_id_795BFCD5-130F-4E72-BD46-14F717BE0830"
+  }
+}
+```
+
+### Request deduplication
+
+If you configure multiple Customer Cards that have the same API details then Plain will batch them and make only one request.
+
+The request deduplication logic for Customer Card configs is:
+
+- The following config properties are ignored: Title, Card key, Default TTL
+- **API URL:** Leading and trailing whitespaces are trimmed and then compared. **This is case sensitive**.
+  - For example, these URLs would be considered **different**:
+    - `https://api.example.com/cards`
+    - `https://api.example.com/cards/`
+    - `https://api.example.com/Cards`
+- **API Headers:** Order of headers does not matter
+  - **Header name:** Leading and trailing whitespaces are trimmed and then compared. **This is case insensitive**.
+    - For example, these header names be considered **the same**:
+      - `Authorization`
+      - `AUTHORIZATION`
+      - `   authorization   `
+  - **Header value:** No processing done, compared as is (be careful with any extra whitespace characters)
+    - For example, these header values would be considered **as different**:
+      - `Bearer my-token`
+      - `bearer my-token`
+      - `   bearer my-token   `
+
+## Response
+
+<Callout type="warning" emoji="⚠️">
+
+For each key requested a corresponding card **MUST** be returned in the response, otherwise an integration error will be returned for that card.
+
+Any extra cards in the response will be ignored.
+
+</Callout>
+
+Your API must respond with a **200 status code** or the response body won't be processed and will be treated as an error.
+
+The response body must be a JSON object with:
+
+- `cards`: an array of cards. Every `cardKey` requested should have a corresponding `key` returned. Any extra returned
+  cards will be ignored.
+  - `key`: the requested key
+  - `timeToLiveSeconds` (optional, nullable): can either be omitted or `null`. If provided it will override the default time to live value. This allows you to control caching on a case-by-case basis.
+  - `components` (nullable): `null` to indicate that the card has no data or an array of [Plain UI Components](/ui-components/).
+
+Example response body for a card cached for 1 hour:
+
+```json
+{
+  "cards": [
+    {
+      "key": "plan-details",
+      "timeToLiveSeconds": 86400,
+      "components": [
+        {
+          "componentRow": {
+            "rowMainContent": [
+              {
+                "componentText": {
+                  "text": "Plan",
+                  "textColor": "MUTED",
+                  "textSize": "M"
+                }
+              }
+            ],
+            "rowAsideContent": [
+              {
+                "componentBadge": {
+                  "badgeLabel": "Starter",
+                  "badgeColor": "YELLOW"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+Example response body for a card that has no data and should not be displayed and TTL omitted:
+
+```json
+{
+  "cards": [
+    {
+      "key": "plan-details",
+      "components": null
+    }
+  ]
+}
+```
+
+## Retry strategy
+
+Errors are classified into two categories:
+
+1. Retriable errors: these are transient issues where retrying once is appropriate
+2. Integration errors: these are typically programming or configuration errors. These errors won't be retried and cached for 5 minutes.
+
+### Retriable errors
+
+The following errors are **retried once** after a **1-second delay**:
+
+- HTTP 5xx response status code
+- HTTP 429 Too Many Requests response status code
+- The request times out after 4 seconds.
+- Plain fails to perform the request for some reason
+
+Retriable errors are not cached, therefore if the cards are requested again via the Support App they will be re-requested.
+
+### Integration errors
+
+The following errors are **not retried**:
+
+- All HTTP 4xx response status codes except for HTTP 429 Too Many Requests response status code.
+- A card key is missing in the response for example, if `subscription-details` is requested but the `cards` array in the response doesn't have an element with `subscription-details` key.
+- The response body does not match the expected schema documented in [response](#response).
+
+Integration errors are cached for 5 minutes and usually indicate a programming or configuration error.
+
+Users can manually refresh a card in the UI in which case the card will be requested again.

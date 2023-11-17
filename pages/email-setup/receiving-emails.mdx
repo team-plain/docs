@@ -1,0 +1,49 @@
+import { Callout, Steps } from 'nextra-theme-docs';
+
+import { ImageContainer } from '../../components/imageContainer';
+
+# Receiving emails in Plain
+
+To receive emails, you need to set up email forwarding from your company's support email address (e.g. `help@yourcompany.com`)
+to your Plain workspace's inbound email address. Your workspace's inbound email address ends with `@inbound.postmark.app` and
+can be found in under **Settings** → **Email**.
+
+<Callout type="info" emoji="️✋">
+This assumes you use Google Workspace (formerly called Google Apps) to manage your domain's emails.
+
+If your email provider is not Google, you can still set up email forwarding in different ways, such as with your domain registrar (e.g. [DNSimple](https://support.dnsimple.com/articles/email-forwarding/)) or your email provider (e.g. [Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365/admin/email/configure-email-forwarding)).
+
+</Callout>
+
+<Steps>
+  <Step title="Go to your Gmail routing configuration">
+    You can find this here: https://admin.google.com/u/0/ac/apps/gmail/defaultrouting
+  </Step>
+  <Step title="Add a new rule">
+    Under "Default routing" click on "CONFIGURE" or "ADD ANOTHER RULE"
+
+    ![Add new rule](/public/images/email-setup/email-setup-0.png)
+  </Step>
+  <Step title="Set the recipient">
+    In the dropdown, select "Single recipient" and write your **support email address** under "Email address"
+
+    ![Add your support email address](/public/images/email-setup/email-setup-1.png)
+  </Step>
+  <Step title="Check the box `Change envelope recipient`">
+  </Step>
+  <Step title="Replace the recipient`">
+    Choose "Replace recipient" and paste the inbound email address (`@inbound.postmarkapp.com`)
+
+    ![Replace recipient](/public/images/email-setup/email-setup-2.png)
+  </Step>
+  <Step title="Set who the rule applies to">
+  Scroll further down, and choose "Perform this action on non-recognised and recognised addresses"
+
+  ![Apply to all addresses](/public/images/email-setup/email-setup-3.png)
+  </Step>
+  <Step title="Click on `Save`">
+  </Step>
+</Steps>
+ 
+
+<Check>And That's it! 💅</Check>

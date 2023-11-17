@@ -1,0 +1,12 @@
+```graphql
+type Example {
+  data: String!
+}
+
+type ExampleOutput {
+  # example is the result of the mutation, is only returned if the mutation succeeded
+  example: Example
+  # if error is returned then the mutation failed
+  error: MutationError
+}
+```

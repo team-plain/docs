@@ -1,0 +1,25 @@
+```graphql filename="Mutation"
+mutation deleteCustomer($input: DeleteCustomerInput!) {
+  deleteCustomer(input: $input) {
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "input": {
+    "customerId": "c_01H14DFQ4PDYBH398J1E99TWSS"
+  }
+}
+```

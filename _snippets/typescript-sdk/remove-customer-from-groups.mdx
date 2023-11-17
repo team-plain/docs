@@ -1,0 +1,25 @@
+```tsx
+import { PlainClient } from '@team-plain/typescript-sdk';
+
+const client = new PlainClient({
+  apiKey: 'plainApiKey_rO6tIKWU2w0gD_ek9HwjsHMiq1MHsgAn7mhVrcC7MGw',
+});
+
+const res = await client.removeCustomerFromCustomerGroups({
+  customerId: 'c_01H1P4TE62AS5KZ4CZFC0578ED',
+  customerGroupIdentifiers: [
+    {
+      customerGroupKey: 'free-tier',
+    },
+    {
+      customerGroupKey: 'design-partner',
+    },
+  ],
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```

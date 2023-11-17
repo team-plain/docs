@@ -1,0 +1,75 @@
+---
+title: "Customer Cards"
+sidebarTitle: "Overview"
+description: "Customer Cards are a powerful feature in Plain that let you show information from your own systems while looking at a customer in Plain. This makes sure you always have important context when helping customers."
+---
+
+## How it works
+
+1. A customer is viewed in Plain.
+2. Plain fires a request to your backend with:
+
+   - The customer's email and, if set, `externalId`
+   - The configured Customer Card `key`s
+
+3. Your backend responds with the JSON for each card
+4. Cards are shown to the user in Plain.
+
+Based on your Customer Card settings, Plain will send a request to your API like the below example:
+
+```json
+{
+  "cardKeys": ["plan-details"],
+  "customer": {
+    "email": "alex@grocery.co",
+    "externalId": "your_user_id_795BFCD5-130F-4E72-BD46-14F717BE0830"
+  }
+}
+```
+
+Your API should then reply with a list of cards matching the requested keys where each card contains the components you want to display:
+
+```json
+{
+  "cards": [
+    {
+      "key": "plan-details",
+      "timeToLiveSeconds": 86400,
+      "components": [
+        {
+          "componentText": {
+            "text": "Enterprise Tier"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+## UI Components
+
+To define what each customer card should look like, you use the Plain UI components. All the components are documented in the [Plain UI Components](/ui-components/) section.
+
+You can find example Customer Cards and an example API you can check out [team-plain/example-customer-cards](https://github.com/team-plain/example-customer-cards). Feel free to try these out in your workspace!
+
+## Caching of cards
+
+Caching of Customer Cards is controlled via two properties:
+
+1. A time to live value (in seconds) in the Customer Card's settings. This can be changed under **Settings** → **Customer Cards**. Any changes will only apply to newly loaded Customer Cards.
+2. An explicit time to live value (in seconds) in your API response with the key `timeToLiveSeconds`. This overrides the value from settings and allows your API to dynamically set the TTL using custom logic.
+
+Any card that is past its expiry time will usually be deleted within a few minutes but no later than 48 hours after expiry.
+
+## Example cards
+
+To demonstrate what you can build with Customer Cards we've built some examples you can view and which are open source.
+
+[**Customer Cards Examples →**](https://github.com/team-plain/example-customer-cards)
+
+## Playground
+
+The Customer Cards Playground lets you build and preview the component JSON needed to create a Customer Card. Use this to prototype a Customer Card before starting to build your integration.
+
+[**Customer Cards Playground →**](https://app.plain.com/developer/customer-cards-playground/)

@@ -1,0 +1,40 @@
+---
+title: "LinkButton"
+description: "Useful when you want to link somewhere external (e.g. your own admin tool or payment provider)"
+---
+
+<Frame>
+  ![Example link button](/public/images/ui-components/link-button.png)
+</Frame>
+
+A link button has the following properties:
+
+- `linkButtonLabel`: the text of the button
+- `linkButtonUrl`: the URL the button should open in a new tab
+
+For example:
+
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+uiComponent.linkButton({
+  label: 'Open in Admin Portal',
+  url: 'https://example.com',
+});
+```
+    </Tab>
+
+    <Tab title="GraphQL">
+```json
+{
+  "componentLinkButton": {
+    "linkButtonLabel": "Open in Admin Portal",
+    "linkButtonUrl": "https://example.com"
+  }
+}
+```
+    </Tab>
+
+</Tabs>

@@ -1,0 +1,47 @@
+```json
+{
+  "id": "th_01HAP6DFA5KMKH8JNEWM0CSKCH",
+
+  // If you create a thread via the API you can set this id for joining
+  //threads in Plain back to something in your system:
+  "externalId": null,
+
+  "title": "Account access",
+  "previewText": "Hi there could you please help me access my account, when I try to log in i get the error...",
+
+  "customer": {
+    "id": "c_01GPBNF06KX5Q3W7JYJN86H091",
+    "fullName": "Sam Test",
+    "email": {
+      "email": "plain.test.elise.bach@gmail.com"
+    }
+    // Many more fields here, this is the full customer.
+  },
+
+  // Lower priority means more urgent (0-3) where 0 is "Urgent" and 3 is "Low"
+  "priority": 2,
+
+  // One of "TODO", "SNOOZED" or "DONE"
+  "status": "SNOOZED",
+  "statusChangedAt": {
+    "iso8601": "2023-10-04T09:03:47.275Z"
+  },
+
+  "labels": [
+    {
+      "id": "l_01HB8BVMQXTXF1W1J94GGN7XRD",
+      "labelType": {
+        "id": "lt_01HB8BTN5S8NAJGSNC3NJZ7FV4",
+        "name": "Bug report"
+      }
+    },
+    {
+      "id": "l_01HB8BWW4DSDZJVGJWC825X5YH",
+      "labelType": {
+        "id": "lt_01HB81HYXZ2B8QGYCH5YG1AGM8",
+        "name": "Account setup"
+      }
+    }
+  ]
+}
+```

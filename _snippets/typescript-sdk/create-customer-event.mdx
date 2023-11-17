@@ -1,0 +1,52 @@
+```tsx
+import { PlainClient, uiComponent } from '@team-plain/typescript-sdk';
+
+const client = new PlainClient({
+  apiKey: 'XXX',
+  debug: true,
+});
+
+const res = await client.createCustomerEvent({
+  title: 'API key generated',
+
+  customerIdentifier: {
+    // You can use the email:
+    email: 'jane@acme.com',
+
+    // ...or if you set external id on customers:
+    // externalId: 'YOUR_ID',
+
+    // ...or you can use the customer's id in Plain:
+    // customerId: 'c_123'
+  },
+
+  components: [
+    uiComponent.text({
+      text: 'New API key was added with the fingerprint **3b7896975ee9fd15eeb7** with 4 associated roles.',
+    }),
+    uiComponent.spacer({
+      size: 'M',
+    }),
+    uiComponent.linkButton({
+      label: 'View in admin',
+      url: 'https://admin.your-app.com',
+    }),
+  ],
+
+  // Optional - if provided, this will ensure that this event can only
+  // be created once and fail on the second time. This external id acts
+  // as an idempotency key while also letting you correlate an event to
+  // something your systems.
+  externalId: 'XXX',
+
+  // Optional - if provided then the event will only be shown
+  // in a single thread vs all threads from a customer
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```

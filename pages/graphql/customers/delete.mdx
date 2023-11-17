@@ -1,0 +1,66 @@
+import DeleteCustomerTypescriptSDK from '../../../snippets/typescript-sdk/delete-customer.mdx';
+import DeleteCustomerGraphQL from '../../../snippets/graphql/delete-customer.mdx';
+import { Tab, Tabs } from 'nextra-theme-docs';
+
+# Delete customers
+
+You can delete customers with the `deleteCustomer` API, you will find this name in both our API and our SDKs.
+
+To delete a customer you will need the customer's ID from within Plain. You can get this ID in the UI by going to a thread from that customer and pressing the 'Copy ID' button from the customer details panel on the right, or via our [fetch API](/graphql/customers/get).
+
+Deleting a customer will trigger an asynchronous process which causes all data (such as threads) associated with that customer to be deleted.
+
+This operation requires the following permissions:
+
+- `customer:delete`
+
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { PlainClient } from '../client';
+ 
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const res = await client.deleteCustomer({
+  customerId: 'c_01H1P4TE62AS5KZ4CZFC0578ED',
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  // Success
+}
+```
+    </Tab>
+
+    <Tab title="GraphQL">
+```grapql Mutation
+mutation deleteCustomer($input: DeleteCustomerInput!) {
+  deleteCustomer(input: $input) {
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "customerId": "c_01H14DFQ4PDYBH398J1E99TWSS"
+  }
+}
+```
+    </Tab>
+
+</Tabs>

@@ -1,0 +1,236 @@
+---
+title: "Changing thread status"
+---
+
+Threads can be in one of 3 statuses:
+
+- `Todo`
+- `Snoozed`
+- `Done`
+
+When you log into Plain you can filter threads by these statuses.
+
+When threads are created they default to Todo.
+
+To change a threads status you need an API key with the following permissions:
+
+- `thread:edit`
+- `thread:read`
+
+### Mark thread as done
+
+When any activity happens in a thread, it will move back to `Todo`.
+
+Unlike traditional ticketing software, we expect a ticket to move between `Todo` and `Done` a number of times in the course of helping a customer. This will not break or influence any metrics. `Done` in Plain means "I'm done for now, there is nothing left for me to do".
+
+<Tabs>
+  <Tab title="Typescript SDK"> 
+```typescript
+import { PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const res = await client.markThreadAsDone({
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  // The full thread is returned as res.data
+  console.log(`Thread marked as done (${res.data.id})`);
+}
+```
+  </Tab>
+  <Tab title="GraphQL"> 
+```graphql Mutation
+mutation markThreadAsDone($input: MarkThreadAsDoneInput!) {
+  markThreadAsDone(input: $input) {
+    thread {
+      __typename
+      id
+      externalId
+      customer {
+        id
+      }
+      status
+      statusChangedAt {
+        __typename
+        iso8601
+        unixTimestamp
+      }
+      title
+      previewText
+      priority
+    }
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423"
+  }
+}
+```
+  </Tab>
+</Tabs>
+
+### Snooze thread
+
+You can snooze threads for a duration of time defined in seconds.
+
+When any activity happens in a thread, it will be automatically unsnoozed and move to **Todo**. Otherwise threads will be unsnoozed when the timer runs out.
+
+<Tabs>
+  <Tab title="Typescript SDK">
+```typescript
+import { PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const res = await client.snoozeThread({
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
+  durationSeconds: 5 * 24 * 60 * 60, // 5 days
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  // The full thread is returned as res.data
+  console.log(`Thread snoozed (${res.data.id}`);
+}
+```
+  </Tab>
+  <Tab title="GraphQL">
+```grapql Mutation
+mutation snoozeThread($input: SnoozeThreadInput!) {
+  snoozeThread(input: $input) {
+    thread {
+      __typename
+      id
+      externalId
+      customer {
+        id
+      }
+      status
+      statusChangedAt {
+        __typename
+        iso8601
+        unixTimestamp
+      }
+      title
+      previewText
+      priority
+    }
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423",
+    "durationSeconds": 432000 // 5 days
+  }
+}
+```
+  </Tab>
+</Tabs>
+
+### Mark thread as Todo
+
+This is useful if you mistakenly marked a thread as done or snoozed a thread and want to unsnooze it. Otherwise just write a message or do what you want to do and the thread will be automatically moved back to do **Todo**.
+
+<Tabs items={['Typescript SDK', 'GraphQL']}>
+  <Tab>
+```typescript
+import { PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+ 
+const res = await client.markThreadAsTodo({
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  // The full thread is returned as res.data
+  console.log(`Thread marked as todo (${res.data.id})`);
+}
+```
+  </Tab>
+  <Tab>
+```graphql Mutation
+mutation markThreadAsTodo($input: MarkThreadAsTodoInput!) {
+  markThreadAsTodo(input: $input) {
+    thread {
+      __typename
+      id
+      externalId
+      customer {
+        id
+      }
+      status
+      statusChangedAt {
+        __typename
+        iso8601
+        unixTimestamp
+      }
+      title
+      previewText
+      priority
+    }
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+```json Variables
+{
+  "input": {
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423"
+  }
+}
+```
+  </Tab>
+</Tabs>

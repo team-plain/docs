@@ -1,0 +1,102 @@
+---
+title: "Thread created"
+description: "This event is fired when a new thread is created in your workspace."
+---
+
+You can subscribe to this event **if you want to build an auto-responder**. To do so, when you receive this event, use the `replyToThread` mutation to send a reply back to the customer.
+
+<Warning>
+  Every email you receive in your workspace is linked to a thread. If we cannot find a matching
+  thread for an email, we will create one. When this happens, you may receive two events:
+  `thread.thread_created` and [`thread.email_received`](/webhooks/email-received) (depending on your
+  webhook target event subscriptions). If you do, and you only care about emails which are not the
+  first message of the thread, please check the `isStartOfThread` in the
+  [`thread.email_received`](/webhooks/email-received) payload.
+</Warning>
+
+## Schema
+
+[**View JSON Schema →**](https://json-schema.app/view/%23%2Fdefinitions%2FthreadCreatedPayload?url=https%3A%2F%2Fcore-api.uk.plain.com%2Fwebhooks%2Fschema.json)
+
+Example:
+
+```json
+{
+  "timestamp": "2023-10-19T14:12:25.266Z",
+  "workspaceId": "w_01GST0W989ZNAW53X6XYHAY87P",
+  "payload": {
+    "eventType": "thread.thread_created",
+    "thread": {
+      "id": "th_01HD44FHMCDSSWE38N14FSYV6K",
+      "customer": {
+        "id": "c_01HD44FHDPG82VQ4QNHDR4N2T0",
+        "email": {
+          "email": "peter@example.com",
+          "isVerified": false,
+          "verifiedAt": null
+        },
+        "externalId": null,
+        "fullName": "Peter Santos",
+        "shortName": "Peter",
+        "assignedAt": null,
+        "assignedToUser": null,
+        "status": "IDLE",
+        "statusChangedAt": "2023-10-04T14:17:41.991Z",
+        "markedAsSpamAt": null,
+        "markedAsSpamBy": null,
+        "customerGroupMemberships": [],
+        "createdAt": "2023-10-04T14:17:41.991Z",
+        "createdBy": {
+          "actorType": "system",
+          "system": "email_inbound_handler"
+        },
+        "updatedAt": "2023-10-04T14:17:41.991Z",
+        "updatedBy": {
+          "actorType": "system",
+          "system": "email_inbound_handler"
+        }
+      },
+      "title": "Unable to tail logs",
+      "previewText": "Hey, I am currently unable to tail the logs of the service svc-8af1e3",
+      "priority": 2,
+      "externalId": null,
+      "status": "TODO",
+      "statusChangedAt": "2023-10-19T14:12:25.266Z",
+      "statusChangedBy": {
+        "actorType": "system",
+        "system": "email_inbound_handler"
+      },
+      "statusDetail": {
+        "type": "CREATED",
+        "createdAt": "2023-10-19T14:12:25.266Z"
+      },
+      "assignee": null,
+      "assignedAt": null,
+      "labels": [],
+      "firstInboundMessageInfo": null,
+      "firstOutboundMessageInfo": null,
+      "lastInboundMessageInfo": null,
+      "lastOutboundMessageInfo": null,
+      "supportEmailAddresses": [],
+      "createdAt": "2023-10-19T14:12:25.266Z",
+      "createdBy": {
+        "actorType": "system",
+        "system": "email_inbound_handler"
+      },
+      "updatedAt": "2023-10-19T14:12:25.266Z",
+      "updatedBy": {
+        "actorType": "system",
+        "system": "email_inbound_handler"
+      }
+    }
+  },
+  "id": "pEv_01HD44FHHJ0YABSNGKWMG3CJ5J",
+  "webhookMetadata": {
+    "webhookTargetId": "whTarget_01HD4400VTDJQ646V6RY37SR7K",
+    "webhookDeliveryAttemptId": "whAttempt_01HD44FJASQM23MNHYDYPAXEG8",
+    "webhookDeliveryAttemptNumber": 1,
+    "webhookDeliveryAttemptTimestamp": "2023-10-19T14:12:26.073Z"
+  },
+  "type": "thread.thread_created"
+}
+```

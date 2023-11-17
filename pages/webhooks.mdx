@@ -1,0 +1,132 @@
+---
+title: "Webhooks"
+---
+
+Webhooks allow you to get notified about events happening in your Plain workspace. You can react to these events in many ways, such as:
+
+- Assigning threads to users based on business requirements (urgency, customer value, recurrency, etc.)
+- Creating an AI-powered auto-responder
+- Categorising threads by adding labels based on the their content
+- Triggering internal incidents (by identifying patterns in inbound messages)
+- Tracking metrics from your customer support team
+
+## Receiving events from Plain
+
+Events happening in your workspace ('Plain events') are delivered as Webhook requests.
+
+In order to receive webhook requests, you need a **publicly available HTTPS** endpoint. Plain will make
+an `HTTP POST` request to this endpoint whenever an event you are interested in occurs.
+
+Once your endpoint is ready, you may create a _webhook target_ in Plain. A webhook target tells Plain what events you
+are interested in and where to send those events.
+
+You can create it by going to **Settings** → **Webhooks**, then clicking on '+ Add webhook target'
+
+Then, you need to choose a name (e.g. 'Customer notifications'), the URL of your webhook endpoint, the events you want
+to receive and whether you want to enable it straight away.
+
+You can create up to **25 webhook targets** per workspace.
+
+<Warning>
+  Plain events may contain Personally Identifiable Information (PII). If you want to test webhooks
+  with a production workspace, take the necessary precautions to avoid leaking PII to untrusted
+  parties.
+</Warning>
+
+<Note>
+  We have created a repository where you will find instructions on how to create a webhook endpoint
+  using different programming languages. You can find it
+  [here](https://github.com/team-plain/webhooks-resources/tree/main/servers).
+</Note>
+
+## Security
+
+Webhook requests are always sent through HTTPS.
+
+If you want, you can include basic authentication credentials in your webhook target's URL (`https://username:password@example.com`) which will then be sent along the webhook request in an `Authorization` header:
+
+```text
+Authorization: Basic cGxhaW46cm9ja3M=
+```
+
+## Delivery semantics
+
+Plain guarantees **at-least-once** delivery of webhook requests. As such, you should make sure your webhook endpoint is idempotent. The `id` field in the [webhook request body](#body) can be used as an idempotency key.
+
+## Handling webhook requests
+
+Plain considers a webhook request to be successfully delivered if your endpoint returns a **2xx** HTTP status code. The contents of the response body are ignored.
+
+Any other HTTP status code will be considered a failure, **including redirects**, which are explicitly forbidden.
+
+## Retry policy
+
+When a webhook request fails, Plain will keep retrying it during the **~5 days** after the first request. The delay between
+retries is set by the following table:
+
+| Retry # | Delay | Approximate time since first attempt |
+| ------- | ----- | ------------------------------------ |
+| 1       | 10s   | 10s                                  |
+| 2       | 30s   | 40s                                  |
+| 3       | 5m    | 6m                                   |
+| 4       | 30m   | 36m                                  |
+| 5       | 1h    | 1.5h                                 |
+| 6       | 3h    | 4.5h                                 |
+| 7       | 6h    | 10.5h                                |
+| 8       | 12h   | 22.5h                                |
+| 9       | 1d    | 2d                                   |
+| 10      | 1d    | 3d                                   |
+| 11      | 1d    | 4d                                   |
+| 12      | 1d    | 5d                                   |
+
+Plain keeps track of all the webhook delivery attempts and their results. Each webhook request
+includes [some metadata](#webhook-metadata) that you can use in order to know which delivery attempt it is currently
+being processed.
+
+## The webhook request
+
+Webhook requests are sent as an `HTTP POST` request to the webhook target URL.
+
+### Headers [#headers]
+
+- `Accept`: `application/json`
+- `Content-Type`: `application/json`
+- `User-Agent`: Plain-Webhooks/1.0 (plain.com; help@plain.com)`
+- `Plain-Workspace-Id`: The ID of the workspace where the Plain event originated
+- `Plain-Webhook-Target-Id`: The ID of the webhook target this webhook request is being sent to
+- `Plain-Webhook-Delivery-Attempt-Id`: The ID of the delivery attempt. It will be different on every delivery attempt
+- `Plain-Webhook-Delivery-Attempt-Number`: The current delivery attempt number (starts at 1)
+- `Plain-Webhook-Delivery-Attempt-Timestamp`: The time at which the delivery attempt was made. In UTC and formatted as
+  ISO8601. E.g. `1989-10-28T17:30:00.000Z`
+- `Plain-Event-Type`: The Plain event's type
+- `Plain-Event-Id`: The ID of the Plain event. It remains the same across all of the delivery attempts
+
+An additional `Authorization` header is sent if the webhook target URL contains authentication credentials.
+
+### Body
+
+The request body is a `JSON` object with the fields below.
+
+The JSON schema for Plain the webhook request body can be found [here](https://core-api.uk.plain.com/webhooks/schema.json).
+
+If you prefer, you can browse the schema using [this interactive tool](https://json-schema.app/view/%23?url=https%3A%2F%2Fcore-api.uk.plain.com%2Fwebhooks%2Fschema.json).
+
+| Field             | Type     | Description                                                                                              |
+| ----------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| `id`              | `string` | The ID of the Plain event. It remains the same across all of the delivery attempts                       |
+| `type`            | `string` | The Plain event's type                                                                                   |
+| `webhookMetadata` | `object` | Metadata associated with the webhook request. See [Webhook Metadata](#webhook-metadata) for more details |
+| `timestamp`       | `string` | The Plain event's timestamp. In UTC and formatted as ISO8601. E.g. `1989-10-28T17:30:00.000Z`            |
+| `workspaceId`     | `string` | The ID of the workspace where the Plain event originated                                                 |
+| `payload`         | `object` | The Plain event's payload [(Example)](/webhooks/customer-status-transitioned);                           |
+
+### Webhook Metadata [#webhook-metadata]
+
+All the following fields are also sent as [HTTP headers](#headers).
+
+| Field                             | Type     | Description                                                                                                                                             |
+| --------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `webhookTargetId`                 | `string` | The ID of the webhook target this webhook request is being sent to. This is the ID that you will find under **Settings -> Webhooks** in the Support App |
+| `webhookDeliveryAttemptId`        | `string` | The ID of the delivery attempt. It will be different on every delivery attempt                                                                          |
+| `webhookDeliveryAttemptNumber`    | `string` | The current delivery attempt number (starts at 1)                                                                                                       |
+| `webhookDeliveryAttemptTimestamp` | `string` | The time at which the delivery attempt was made. In UTC and formatted as ISO8601. E.g. `1989-10-28T17:30:00.000Z`                                       |

@@ -1,0 +1,54 @@
+```json filename="Response"
+{
+  "__typename": "AttachmentUploadUrl",
+  "attachment": {
+    "__typename": "Attachment",
+    "id": "att_01H3970W7XG1716AVNGQ6FWYGD",
+    "fileName": "the-filename.jpeg",
+    "fileSize": { "__typename": "FileSize", "kiloBytes": 32.32, "megaBytes": 0.03 },
+    "fileExtension": null,
+    "updatedAt": {
+      "__typename": "DateTime",
+      "iso8601": "2023-06-19T06:56:04.349Z",
+      "unixTimestamp": "1687157764349"
+    }
+  },
+  "uploadFormUrl": "https://prod-uk-services-attachm-attachmentsuploadbucket2-1l2e4906o2asm.s3.eu-west-2.amazonaws.com/",
+  "uploadFormData": [
+    { "key": "acl", "value": "private" },
+    { "key": "x-amz-server-side-encryption", "value": "AES256" },
+    { "key": "Content-Type", "value": "application/octet-stream" },
+    {
+      "key": "bucket",
+      "value": "prod-uk-services-attachm-attachmentsuploadbucket2-1l2e4906o2asm"
+    },
+    { "key": "X-Amz-Algorithm", "value": "AWS4-HMAC-SHA256" },
+    {
+      "key": "X-Amz-Credential",
+      "value": "ASIAWYWBOL266XVGRRM7/20230619/eu-west-2/s3/aws4_request"
+    },
+    { "key": "X-Amz-Date", "value": "20230619T065604Z" },
+    {
+      "key": "X-Amz-Security-Token",
+      "value": "IQoJb3JpZ2luX2VjEC8aCWV1LXdlc3QtMiJIMEYCIQD6zKc5ZaobWAYgTZoWN62yv5+vXRwkAAZvRPOg51UevgIhAPFCm3pUv/StIqoxtC90G6kE0D9lqcRBlWdzA8FsErw+KpwDCIj//////////wEQARoMNDY1MzM1OTAxODg1Igz/lGT5c341L5ZjBZoq8AJjmuxX6/MR8uRmDH4BPh/6uuBoT2IDRIFVqVpDlll5hOGDKmMMSqxFdJ0EdxI9oCLRlM+cd/oupHTOfvC+Jc0g6vQrABgvbi7PSVzZZrxWZRtaGmSzb6rI3it0xBGJf1c/Ec3dZzX2nJqhG7fY9jqXzFzSWF3B+GX4A6kwcrU3mv8nRFenxPZpXq75thb3w0C3wNbaee2TfZWtdwXB24f0qJhbDKZuu1S399Fj1/1AMQVRjIdUy8mbXKYHhN1cqGONaruN2ypLffB45IlHoJsquqwS8/a3/E+1so7ybkdPKUCMqS42Lss5YX4cKJX70wJzc2SanyJhaBlTW93V/lBYCjlhtR5muAr9Gabybi5lSu1Am/SEymzKOYUWm2vqm/11ZfdgXofmgefaDlDPV+vckLo0lO4i11bS245waOW3bK9iIwX+m05DyzbUSy0zn5Hit1+z+R5VK/pnFR1pJ5fD/F9H5QlFO2I38DHQxpWBFTCq77+kBjqcATBd5fpX6yln9sw7UVlzy4eqyqP8asGiadpqiupsVygGahb1ZGS33XFqx0BClbvKBiO+gvQNZyicIgwvLvThQFxO4raEFqFZlVPVVZUe6vBsgb72CAwsGtV9chLm6C3AN3Ovb4ta/FNwVIc9sfXwOLIazLtAS0IpWuJi49FUw82725HvW5oY8pTl3NhWV60XFXmyuDUYsJlVfvtkWg=="
+    },
+    {
+      "key": "key",
+      "value": "w_01GZEA2KYR63P8E00JBMYQT58Z/pending/machineUser/mu_01GZEA2M91124MPFAVZEPKC2MY/att_01H3970W7XG1716AVNGQ6FWXGD"
+    },
+    {
+      "key": "Policy",
+      "value": "eyJleHBpcmF0aW9uIjoiMjA3Ni0xMi0wNFQxNTo1MjowOFoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMzIzMTgsMzIzMThdLHsiYWNsIjoicHJpdmF0ZSJ9LHsieC1hbXotc2VydmVyLXNpZGUtZW5jcnlwdGlvbiI6IkFFUzI1NiJ9LHsiQ29udGVudC1UeXBlIjoiYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtIn0seyJidWNrZXQiOiJwcm9kLXVrLXNlcnZpY2VzLWF0dGFjaG0tYXR0YWNobWVudHN1cGxvYWRidWNrZXQyLTFsMmU0OTA2bzJhc20ifSx7IlgtQW16LUFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IlgtQW16LUNyZWRlbnRpYWwiOiJBU0lBV1lXQk9MMjY2WFZHUlJNNy8yMDIzMDYxOS9ldS13ZXN0LTIvczMvYXdzNF9yZXF1ZXN0In0seyJYLUFtei1EYXRlIjoiMjAyMzA2MTlUMDY1NjA0WiJ9LHsiWC1BbXotU2VjdXJpdHktVG9rZW4iOiJJUW9KYjNKcFoybHVYMlZqRUM4YUNXVjFMWGRsYzNRdE1pSklNRVlDSVFENnpLYzVaYW9iV0FZZ1Rab1dONjJ5djUrdlhSd2tBQVp2UlBPZzUxVWV2Z0loQVBGQ20zcFV2L1N0SXFveHRDOTBHNmtFMEQ5bHFjUkJsV2R6QThGc0VydytLcHdEQ0lqLy8vLy8vLy8vL3dFUUFSb01ORFkxTXpNMU9UQXhPRGcxSWd6L2xHVDVjMzQxTDVaakJab3E4QUpqbXV4WDYvTVI4dVJtREg0QlBoLzZ1dUJvVDJJRFJJRlZxVnBEbGxsNWhPR0RLbU1NU3F4RmRKMEVkeEk5b0NMUmxNK2NkL291cEhUT2Z2QytKYzBnNnZRckFCZ3ZiaTdQU1Z6WlpyeFdaUnRhR21TemI2ckkzaXQweEJHSmYxYy9FYzNkWnpYMm5KcWhHN2ZZOWpxWHpGelNXRjNCK0dYNEE2a3djclUzbXY4blJGZW54UFpwWHE3NXRoYjN3MEMzd05iYWVlMlRmWld0ZHdYQjI0ZjBxSmhiREtadXUxUzM5OUZqMS8xQU1RVlJqSWRVeThtYlhLWUhoTjFjcUdPTmFydU4yeXBMZmZCNDVJbEhvSnNxdXF3UzgvYTMvRSsxc283eWJrZFBLVUNNcVM0MkxzczVZWDRjS0pYNzB3SnpjMlNhbnlKaGFCbFRXOTNWL2xCWUNqbGh0UjVtdUFyOUdhYnliaTVsU3UxQW0vU0V5bXpLT1lVV20ydnFtLzExWmZkZ1hvZm1nZWZhRGxEUFYrdmNrTG8wbE80aTExYlMyNDV3YU9XM2JLOWlJd1grbTA1RHl6YlVTeTB6bjVIaXQxK3orUjVWSy9wbkZSMXBKNWZEL0Y5SDVRbEZPMkkzOERIUXhwV0JGVENxNzcra0JqcWNBVEJkNWZwWDZ5bG45c3c3VVZsenk0ZXF5cVA4YXNHaWFkcHFpdXBzVnlnR2FoYjFaR1MzM1hGcXgwQkNsYnZLQmlPK2d2UU5aeWljSWd3dkx2VGhRRnhPNHJhRUZxRlpsVlBWVlpVZTZ2QnNnYjcyQ0F3c0d0VjljaExtNkMzQU4zT3ZiNHRhL0ZOd1ZJYzlzZlh3T0xJYXpMdEFTMElwV3VKaTQ5RlV3ODI3MjVIdlc1b1k4cFRsM05oV1Y2MFhGWG15dURVWXNKbFZmdnRrV2c9PSJ9LHsia2V5Ijoid18wMUdaRUEyS1lSNjNQOEUwMEpCTVlRVDU4Wi9wZW5kaW5nL21hY2hpbmVVc2VyL211XzAxR1pFQTJNOTExMjRNUEZBVlpFUEtDMk1ZL2F0dF8wMUgzOTcwVzdYRzE3MTZBVk5HUTZGV1hHRCJ9XX0="
+    },
+    {
+      "key": "X-Amz-Signature",
+      "value": "a68a18898e654e072f80b052853b0722aa58aada15d3cd3e9cc937f929ff2433"
+    }
+  ],
+  "expiresAt": {
+    "__typename": "DateTime",
+    "iso8601": "2023-06-19T08:56:04.348Z",
+    "unixTimestamp": "1687164964348"
+  }
+}
+```

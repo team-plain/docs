@@ -1,0 +1,64 @@
+---
+title: "Security"
+description: "If you or your team have specific questions about how Plain is built, our processes or how we store and handle data please get in touch at help@plain.com."
+---
+
+We are very happy to answer any questions you have.
+
+## SOC 2 Type II
+
+Plain has completed a [SOC 2 Type II](https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2) certification.
+
+Achieving SOC 2 compliance means that Plain has implemented procedures, policies and controls necessary to meet AICPA's trust services criteria for security, availability, and confidentiality, and that these processes and controls have been tested to ensure that they are operating effectively.
+
+Obtain a copy of the report by emailing us at [help@plain.com](mailto:help@plain.com).
+
+## Data security
+
+- We use Amazon Web Services to host Plain
+- All data is stored in Amazon Web Services `eu-west-2` region (London)
+- All data is encrypted in transit and at rest
+- All data is backed up regularly and encrypted at rest
+- We apply the following security best practices:
+  - All changes to our infrastructure, permissions, and code happen via code reviews
+  - We grant the least amount of privileges to IAM roles, systems, and engineers to perform their duties
+  - Administrator privileges are only used in the case of serious incidents, for routine maintenance tasks we provision IAM roles with fine-grained permissions.
+- We use the following third parties, for full legal terms, please see the [Data Processing Addendum](https://www.plain.com/dpa/)
+  - Auth0: as our identity provider for internal Support App users. No customer data is sent to Auth0.
+  - Postmark: to send and receive emails for users and customers.
+  - Segment: to measure product usage. We only send anonymized data.
+  - Mixpanel: to measure product usage. We only send anonymized data.
+
+## Vulnerability disclosure
+
+Security is a core value of Plain, and we value the input of all external security researchers acting in good faith
+to help us maintain the security and privacy of our users and systems.
+
+Any vulnerabilities or suspected vulnerabilities should be reported to the contact details below.
+
+## Guidelines for security researchers
+
+We require that all security researchers to:
+
+- Act in good faith to avoid privacy violations, degradation of our services, disruption to production systems, and destruction of data during security testing (including denial of service).
+- When reporting issues be clear, succinct, and provide a proof-of-concept if possible.
+- Only interact with your own accounts or test accounts for security research purposes. Do not access or modify our data or our users' data without our explicit permission.
+- Keep information about any vulnerabilities you've discovered confidential between us until we've had 30 days to resolve the issue.
+
+If you follow these guidelines when reporting an issue to us, we commit to:
+
+- Not pursue or support any legal action related to your research
+- Work with you to understand and resolve the issue quickly (including an initial confirmation of your report within 24 hours of submission)
+
+We currently don't operate a bug bounty or security program, but we may use our discretion to reward security researchers
+who have adhered to this policy and found a confirmed high-severity vulnerability on a case-by-case basis.
+
+## Contact details
+
+If you think you found a security issue or have any questions related to security please email all or one of the following:
+
+- Security team ([security@plain.com](mailto:security@plain.com))
+- CTO: Matt Vagni ([matt@plain.com](mailto:matt@plain.com))
+- CEO: Simon Rohrbach ([simon@plain.com](mailto:simon@plain.com))
+
+We will reply to security-related questions within 24 hours.

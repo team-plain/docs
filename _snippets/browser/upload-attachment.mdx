@@ -1,0 +1,34 @@
+```js
+/**
+ * Upload an attachment.
+ *
+ * @param {Blob} fileBlob blob with the contents of the file to upload
+ * @param {string} uploadFormUrl The url to post the form to (from `createAttachmentUploadUrl.attachmentUploadUrl.uploadFormUrl`)
+ * @param {{ key: string; value: string }[]} uploadFormData Data to be added to the form along with the file contents (from `createAttachmentUploadUrl.attachmentUploadUrl.uploadFormData`)
+ */
+function uploadAttachment(fileBlob, uploadFormUrl, uploadFormData) {
+  const form = new FormData();
+  uploadFormData.forEach(({ key, value }) => {
+    form.append(key, value);
+  });
+
+  const file = new File([fileBlob], 'file');
+  form.append('file', file);
+
+  console.log(`Uploading attachment to ${uploadFormUrl}`);
+
+  fetch(uploadFormUrl, {
+    method: 'POST',
+    body: form,
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(response.statusText);
+      }
+      console.log(`File successfully uploaded! (code=${res.status})`);
+    })
+    .catch((err) => {
+      console.log(`There was an error uploading the file: %s`, err.message ? err.message : err);
+    });
+}
+```

@@ -1,0 +1,23 @@
+```graphql filename="Query"
+query getCustomerById($customerId: ID!) {
+  customer(customerId: $customerId) {
+    id
+    fullName
+    shortName
+    email {
+      email
+      isVerified
+    }
+    externalId
+    markedAsSpamAt {
+      iso8601
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "customerId": "c_01H14DFQ4PDYBH398J1E99TWSS"
+}
+```

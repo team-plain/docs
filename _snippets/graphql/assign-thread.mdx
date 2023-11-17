@@ -1,0 +1,22 @@
+```graphql filename="Mutation"
+mutation assignThread($input: AssignThreadInput!) {
+  markThreadAsDone(input: $input) {
+    thread {
+      id
+      status
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "input": {
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423",
+    "userId": "u_01FSVKMHFDHJ3H5XFM20EMCBQN"
+
+    // You could instead assign to a machine user by doing:
+    // machineUserId: 'XXX'
+  }
+}
+```

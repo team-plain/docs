@@ -1,0 +1,96 @@
+---
+title: "Error handling"
+description: "GraphQL queries and mutations require different error handling."
+---
+
+This is because we expect:
+
+- … **queries** to generally succeed, as the three most common issues are usually unauthenticated, forbidden, or an internal server error. In the case of unauthenticated and forbidden, the API keys are invalid, while internal server errors should be retried.
+
+- … **mutations** to return errors regularly as part of the normal business flow due to invalid inputs. Errors include rich detail which can be used and displayed to an end user.
+
+## Query errors
+
+Query errors aren't modeled in the GraphQL schema, but rather use [GraphQL's error extensions](https://www.apollographql.com/docs/apollo-server/data/errors/).
+
+If the query returns the value `null`, that typically indicates that the entity is not found (equivalent to an HTTP 404 in a REST API).
+
+The list of error extensions that can be returned by queries:
+
+- `GRAPHQL_PARSE_FAILED`: The GraphQL operation string contains a syntax error. The request should not be retried.
+- `GRAPHQL_VALIDATION_FAILED`: The GraphQL operation is not valid against the schema. The request should not be retried.
+- `BAD_USER_INPUT`: The GraphQL operation includes an invalid value for a field argument. The request should not be retried.
+- `UNAUTHENTICATED`: The API key is invalid. The request should not be retried.
+- `FORBIDDEN`: The API key is unauthorized to access the entity being queried. The request should not be retried.
+- `INTERNAL_SERVER_ERROR`: An internal error occurred. The request should be retried. If this error persists, please get in touch at [help@plain.com](mailto:help@plain.com) and report the issue.
+
+## Mutation errors
+
+All mutations return with an `Output` type that follow a consistent pattern of having two optional fields,
+one for the result and one for the error. If the error is returned then the mutation failed.
+
+```typescript
+type Example {
+  data: String!
+}
+ 
+type ExampleOutput {
+  # example is the result of the mutation, is only returned if the mutation succeeded
+  example: Example
+  # if error is returned then the mutation failed
+  error: MutationError
+}
+```
+
+Every `MutationError` has the following fields (assuming you included all these fields in your query):
+
+- **message:** Usually meant to be read by a developer and not an end user.
+- **type:** one of `VALIDATION`, `FORBIDDEN`, `INTERNAL`.
+  - Where `VALIDATION` means input validation failed. See the fields for details on why the input was invalid.
+  - Where `FORBIDDEN` means the user is not authorized to do this mutation. See `message` for details on which permissions are missing.
+  - Where `INTERNAL` means an unknown internal server error occurred. Retry in this scenario and contact help@plain.com if the error persists.
+- **code:** a unique error code for each type of error returned. This code can be used to provide a localized or user-friendly error message. You can find the [list of error codes](/error-codes) documented.
+- **fields:** an array containing all the fields that errored
+  - **field:** the name of the input field the error is for.
+  - **message:** an English technical description of the error. This error is usually meant to be read by a developer and not an end user.
+  - **type:** one of `VALIDATION`, `REQUIRED`, `NOT_FOUND`.
+    - Where `VALIDATION` means the field was provided, but didn't pass the requirements of the field. See the `message` on the field for details on why.
+    - Where `REQUIRED` means the field is required. String inputs may be trimmed and checked for emptiness.
+    - Where `NOT_FOUND` means the input field referenced an entity that wasn't found. For example, you tried to resolve an issue that doesn't exist/was deleted.
+
+## Typescript SDK
+
+If you are using the Typescript SDK, errors are handled and parsed for you and you don't need to worry about the distinction between queries and mutations.
+
+You can see the [full error types in the code of the Typescript SDK](https://github.com/team-plain/typescript-sdk/blob/main/src/error.ts) (It's open source).
+
+This is how you can access the error when using the SDK:
+
+```typescript
+import { PlainClient } from '../client';
+ 
+export async function createCustomer() {
+  const client = new PlainClient({ apiKey: 'XXX' });
+ 
+  const res = await client.upsertCustomer({
+    identifier: {
+      emailAddress: 'jane@gmail.com',
+    },
+    onCreate: {
+      fullName: 'Jane Fargate',
+      email: {
+        email: 'jane@gmail.com',
+        isVerified: true,
+      },
+    },
+    onUpdate: {},
+  });
+ 
+  if (res.error) {
+    console.error(res.error);
+  } else {
+    console.log(`Created customer with id=${res.data.customer.id}`);
+  }
+}
+
+```

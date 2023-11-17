@@ -1,0 +1,30 @@
+---
+title: "UI Component"
+sidebarTitle: "Overview"
+description: "UI components are a way of describing some UI when using Plain's [Customer Timeline Entries](/pages/custom-timeline-entries)and [Customer Cards](/pages/customer-cards)."
+---
+
+For example - this is a button that links to Stripe.
+
+```json
+{
+  "componentLinkButton": {
+    "linkButtonUrl": "http://stripe.com/",
+    "linkButtonLabel": "View in Stripe"
+  }
+}
+```
+
+and it looks like this:
+
+<Frame>
+  ![Example button linking to stripe](/public/images/ui-components/link-button-stripe.png)
+</Frame>
+
+In the GraphQL API schema, we have two separate unions for Custom Timeline Entry Components and Customer Card
+Components, but both unions share the same types therefore they can be treated as the same.
+
+To see UI components in action you can experiment with them:
+
+- in the [Custom Cards playground](https://app.plain.com/developer/customer-cards-playground/)
+- in the [Custom Timeline Entry playground](https://app.plain.com/developer/custom-timeline-entry-playground/)

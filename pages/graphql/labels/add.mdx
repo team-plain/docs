@@ -1,0 +1,122 @@
+---
+title: "Add labels"
+description: "You can add multiple labels to a thread with a call to `addLabels`. Label type IDs passed to this endpoint should not be archived, we return a validation error with code `cannot_add_label_using_archived_label_type` for any which are submitted."
+---
+
+If a label type you provide is already added to the thread we will return a validation error with code `label_with_given_type_already_added_to_thread`.
+
+You can retrieve label type IDs in the Plain UI settings by hovering over a label type and selecting 'Copy label ID' from the overflow menu.
+
+This operation requires the following permissions:
+
+- `label:create`
+
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript 
+import { PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
+ 
+const res = await client.addLabels({
+  labelTypeIds: ['lt_01HB8BTNVM7GEBKBEDNC2K8ST7'],
+  threadId: 'th_01HD1G6649R1DK061W27VBT7QB',
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```
+
+        This will output:
+
+```json
+[
+  {
+    "__typename": "Label",
+    "id": "l_01HD4A7SJQ81DKP95A1GDCYE49",
+    "labelType": {
+      "__typename": "LabelType",
+      "id": "lt_01HB8BTN5S8NAJGSNC3NJZ7FV4",
+      "name": "Bug report",
+      "icon": "pest",
+      "isArchived": true,
+      "archivedAt": {
+        "__typename": "DateTime",
+        "iso8601": "2023-09-26T09:08:12.198Z",
+        "unixTimestamp": "1695719292198"
+      },
+      "archivedBy": {
+        "__typename": "UserActor",
+        "userId": "u_01FN4BEVKY3EQQ5BFC24M8JTJH"
+      },
+      "createdAt": {
+        "__typename": "DateTime",
+        "iso8601": "2023-09-26T09:06:23.545Z",
+        "unixTimestamp": "1695719183545"
+      },
+      "createdBy": {
+        "__typename": "SystemActor",
+        "systemId": "job"
+      },
+      "updatedAt": {
+        "__typename": "DateTime",
+        "iso8601": "2023-09-26T09:08:12.198Z",
+        "unixTimestamp": "1695719292198"
+      },
+      "updatedBy": {
+        "__typename": "UserActor",
+        "userId": "u_01FN4BEVKY3EQQ5BFC24M8JTJH"
+      }
+    },
+    "createdAt": {
+      "__typename": "DateTime",
+      "iso8601": "2023-10-19T15:53:02.808Z",
+      "unixTimestamp": "1697730782808"
+    },
+    "createdBy": {
+      "__typename": "MachineUserActor",
+      "machineUserId": "mu_01HCYZZFGEGEMTKM0T2Z8Z2BK6"
+    },
+    "updatedAt": {
+      "__typename": "DateTime",
+      "iso8601": "2023-10-19T15:53:02.808Z",
+      "unixTimestamp": "1697730782808"
+    },
+    "updatedBy": {
+      "__typename": "MachineUserActor",
+      "machineUserId": "mu_01HCYZZFGEGEMTKM0T2Z8Z2BK6"
+    }
+  }
+]
+```
+
+    </Tab>
+
+    <Tab title="GraphQL">
+```graphql Mutation
+mutation addLabels($input: AddLabelsInput!) {
+  addLabels(input: $input) {
+    labels {
+      id
+      createdAt {
+        iso8601
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "labelTypeIds": ["lt_01HB8BTNTZ58730MX8H5VMKFD5", "lt_01HB8BTNKSCF1FK5ETFVRSDC6G"],
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423"
+  }
+}
+```
+    </Tab>
+
+</Tabs>

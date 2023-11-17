@@ -1,0 +1,110 @@
+```graphql filename="Mutation"
+mutation upsertCustomer($input: UpsertCustomerInput!) {
+  upsertCustomer(input: $input) {
+    result
+    customer {
+      id
+      externalId
+      shortName
+      fullName
+      email {
+        email
+        isVerified
+      }
+      status
+      customerGroupMemberships {
+        edges {
+          node {
+            customerGroup {
+              name
+              key
+            }
+          }
+        }
+      }
+    }
+    error {
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "input": {
+    "identifier": {
+      "emailAddress": "donald@example.com"
+    },
+    "onCreate": {
+      "fullName": "Donald Duck",
+      "shortName": "Donald",
+      "email": {
+        "email": "donald@example.com",
+        "isVerified": false
+      },
+      "customerGroupIdentifiers": [
+        {
+          "customerGroupKey": "enterprise"
+        }
+      ]
+    },
+    "onUpdate": {
+      "fullName": {
+        "value": "Donald Duck"
+      },
+      "shortName": {
+        "value": "Donald"
+      },
+      "email": {
+        "email": "donald@example.com",
+        "isVerified": true
+      },
+      "externalId": {
+        "value": "c_123"
+      }
+    }
+  }
+}
+```
+
+```json filename="Response"
+{
+  "data": {
+    "upsertCustomer": {
+      "result": "CREATED",
+      "customer": {
+        "id": "c_01G8JVJ6A3CX5ZSJ4AVJYC42HW",
+        "externalId": null,
+        "shortName": "Donald",
+        "fullName": "Donald Duck",
+        "email": {
+          "email": "donald@example.com",
+          "isVerified": false
+        },
+        "status": "IDLE",
+        "customerGroupMemberships": {
+          "edges": [
+            {
+              "node": {
+                "customerGroup": {
+                  "name": "Enterprise",
+                  "key": "enterprise"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  }
+}
+```

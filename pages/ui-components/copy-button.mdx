@@ -1,0 +1,41 @@
+---
+title: "CopyButton"
+description: "Useful if you have any IDs or other details you want to copy for use in messages or outside of Plain."
+---
+
+<Frame>
+  ![Example copy button](/public/images/ui-components/copy-button.png)
+</Frame>
+
+A copy button has the following properties:
+
+- `copyButtonTooltipLabel` (optional): the text that should be displayed on hover. Defaults to the value if not
+  provided.
+- `copyButtonValue`: the value that should be copied to the user's clipboard after clicking the button
+
+For example:
+
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+uiComponent.copyButton({
+  value: '2a8f2dae-3580-402b-aa0a-243efae55e39',
+  tooltip: 'Order ID',
+});
+```
+    </Tab>
+
+    <Tab title="GraphQL">
+```json
+{
+  "componentCopyButton": {
+    "copyButtonTooltipLabel": "Order ID",
+    "copyButtonValue": "2a8f2dae-3580-402b-aa0a-243efae55e39"
+  }
+}
+```
+    </Tab>
+
+</Tabs>

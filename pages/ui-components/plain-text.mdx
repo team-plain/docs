@@ -1,0 +1,98 @@
+---
+title: "PlainText"
+description: "Useful when you want to show any text that should not have any formatting (is not Markdown). If you want markdown please use [Text](/ui-components/text)."
+---
+
+<Frame>
+  ![Example link button](/public/images/ui-components/plain-text.png)
+</Frame>
+
+The plain text component has the following properties:
+
+- `plainText`: the plain text
+- `plainTextSize` (optional): one of `S`, `M`, `L`, defaults to `M`
+- `plainTextColor` (optional): one of `NORMAL`, `MUTED`, `SUCCESS`, `WARNING`, `ERROR`, defaults to `NORMAL`
+
+For example:
+
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+[
+  uiComponent.plainText({ text: 'Small text', size: 'S' }),
+ 
+  uiComponent.plainText({ text: 'Medium text', size: 'M' }),
+ 
+  uiComponent.plainText({ text: 'Large text', size: 'L' }),
+ 
+  uiComponent.plainText({ text: 'Normal text', color: 'NORMAL' }),
+ 
+  uiComponent.plainText({ text: 'Muted text', color: 'MUTED' }),
+ 
+  uiComponent.plainText({ text: 'Success text', color: 'SUCCESS' }),
+ 
+  uiComponent.plainText({ text: 'Warning text', color: 'WARNING' }),
+ 
+  uiComponent.plainText({ text: 'Error text', color: 'ERROR' }),
+];
+```
+    </Tab>
+
+    <Tab title="GraphQL">
+```json
+[
+  {
+    "componentPlainText": {
+      "plainText": "Small text",
+      "plainTextSize": "S"
+    }
+  },
+  {
+    "componentPlainText": {
+      "plainText": "Medium text",
+      "plainTextSize": "M"
+    }
+  },
+  {
+    "componentPlainText": {
+      "plainText": "Large text",
+      "plainTextSize": "L"
+    }
+  },
+  {
+    "componentPlainText": {
+      "plainText": "Normal text",
+      "plainTextColor": "NORMAL"
+    }
+  },
+  {
+    "componentPlainText": {
+      "plainText": "Muted text",
+      "plainTextColor": "MUTED"
+    }
+  },
+  {
+    "componentPlainText": {
+      "plainText": "Success text",
+      "plainTextColor": "SUCCESS"
+    }
+  },
+  {
+    "componentPlainText": {
+      "plainText": "Warning text",
+      "plainTextColor": "WARNING"
+    }
+  },
+  {
+    "componentPlainText": {
+      "plainText": "Error text",
+      "plainTextColor": "ERROR"
+    }
+  }
+]
+```
+    </Tab>
+
+</Tabs>

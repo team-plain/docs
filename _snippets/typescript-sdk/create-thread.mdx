@@ -1,0 +1,39 @@
+```tsx
+import { PlainClient } from '@team-plain/typescript-sdk';
+
+const client = new PlainClient({
+  apiKey: 'XXX',
+  debug: true,
+});
+
+const res = await client.createThread({
+  title: 'Bug Report',
+  customerIdentifier: {
+    // You can use the email:
+    email: 'jane@acme.com',
+
+    // ...or if you set external id on customers:
+    // externalId: '',
+
+    // ...or you can use the customer's id in Plain:
+    // customerId: 'c_123'
+  },
+  components: [
+    {
+      componentText: {
+        text: "The login button is not working, it doesn't do anything.",
+      },
+    },
+  ],
+  // Label types are created in settings where you can also copy
+  // their ID.
+  labelTypeIds: ['lt_01HB924PME9C0YWKW1N4AK3BZA'],
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  // The full thread is returned as res.data
+  console.log(`Thread created with id=${res.data.id}`);
+}
+```

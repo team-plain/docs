@@ -1,0 +1,39 @@
+```js
+const axios = require('axios');
+const FormData = require('form-data');
+
+/**
+ * Upload an attachment.
+ *
+ * @param {Buffer} fileBuffer Buffer with the contents of the file to upload
+ * @param {string} uploadFormUrl The url to post the form to (from `createAttachmentUploadUrl.attachmentUploadUrl.uploadFormUrl`)
+ * @param {{ key: string; value: string }[]} uploadFormData Data to be added to the form along with the file contents (from `createAttachmentUploadUrl.attachmentUploadUrl.uploadFormData`)
+ */
+function uploadAttachment(fileBuffer, uploadFormUrl, uploadFormData) {
+  const form = new FormData();
+  uploadFormData.forEach(({ key, value }) => {
+    form.append(key, value);
+  });
+
+  form.append('file', fileBuffer, { filename: 'file' });
+
+  console.log(`Uploading attachment to ${uploadFormUrl}`);
+
+  axios
+    .post(uploadFormUrl, form, {
+      headers: {
+        ...form.getHeaders(),
+        'Content-Length': form.getLengthSync(),
+      },
+    })
+    .then((res) => {
+      console.log(`File successfully uploaded! (code=${res.status})`);
+    })
+    .catch((err) => {
+      console.log(
+        `There was an error uploading the file: %s`,
+        err.response ? err.response.data : err
+      );
+    });
+}
+```

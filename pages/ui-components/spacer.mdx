@@ -1,0 +1,50 @@
+---
+title: "Spacer"
+---
+
+<Frame>
+  ![Example spacer](/public/images/ui-components/spacer.png)
+</Frame>
+
+A link button has the following properties:
+
+- `spacerSize`: the amount of space the component should take up. One of `XS`, `S`, `M`, `L`, `XL`.
+
+For example:
+
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+[
+  uiComponent.text({ text: 'Content before an XS spacer' }),
+  uiComponent.spacer({ spacingSize: 'XS' }),
+  uiComponent.text({ text: 'Content after spacer' }),
+];
+```
+    </Tab>
+
+    <Tab title="GraphQL">
+```json
+[
+  {
+    "componentText": {
+      "text": "Content before an XS spacer"
+    }
+  },
+  {
+    "componentSpacer": {
+      "spacerSize": "XS"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Content after spacer"
+    }
+  }
+]
+```
+    </Tab>
+
+</Tabs>

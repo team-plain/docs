@@ -1,0 +1,296 @@
+---
+title: "Customer groups"
+description: "Customer groups can be used to group and segment your customers, e.g. pricing tier: free, paying, enterprise etc."
+---
+
+Customers can belong to one or many groups. You can filter your customers by group, allowing you to quickly focus on a subset of your customers.
+
+This guide will show you how to add customers to groups using the API. You can also do this with the UI in Plain if you prefer.
+
+This guide assumes you've already created some customer groups in **Settings** → **Customer Groups**.
+
+## Add a customer to groups
+
+A customer can be added to a customer group using the `addCustomerToCustomerGroup` mutation.
+
+Depending on what your customer groups are you may want to call this API at different times. For example if you are grouping them by their pricing tier you will want to do this every time their tier changes.
+
+This operation requires the following permissions:
+
+- `customer:create`
+- `customer:edit`
+
+<Tabs>
+
+    <Tab title="Typescript SDK">
+```typescript
+import { PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
+ 
+const res = await client.addCustomerToCustomerGroups({
+  customerId: 'c_01GTC6ZHCMAGR06FMPN9VY5J95',
+  customerGroupIdentifiers: [
+    {
+      customerGroupKey: 'free-tier',
+    },
+    {
+      customerGroupKey: 'design-partner',
+    },
+  ],
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```
+
+    Running the above would console.log:
+```scheme
+[
+  {
+    customerId: 'c_01GTC6ZHCMAGR06FMPN9VY5J95',
+    createdAt: {
+      __typename: 'DateTime',
+      iso8601: '2023-06-21T14:20:12.014Z',
+      unixTimestamp: '1687357212014',
+    },
+    createdBy: {
+      __typename: 'MachineUserActor',
+      machineUserId: 'mu_01H1P0P0PHA2BJRRS7EC02XKCF',
+    },
+    updatedAt: {
+      __typename: 'DateTime',
+      iso8601: '2023-06-21T14:20:12.014Z',
+      unixTimestamp: '1687357212014',
+    },
+    updatedBy: {
+      __typename: 'MachineUserActor',
+      machineUserId: 'mu_01H1P0P0PHA2BJRRS7EC02XKCF',
+    },
+    customerGroup: {
+      id: 'cg_01H1P1RK22WTVMFRY8BX6S6VJX',
+      name: 'free tier',
+      key: 'free-tier',
+      color: '#E78450',
+    },
+  },
+  {
+    customerId: 'c_01GTC6ZHCMAGR06FMPN9VY5J95',
+    createdAt: {
+      __typename: 'DateTime',
+      iso8601: '2023-06-21T14:20:12.014Z',
+      unixTimestamp: '1687357212014',
+    },
+    createdBy: {
+      __typename: 'MachineUserActor',
+      machineUserId: 'mu_01H1P0P0PHA2BJRRS7EC02XKCF',
+    },
+    updatedAt: {
+      __typename: 'DateTime',
+      iso8601: '2023-06-21T14:20:12.014Z',
+      unixTimestamp: '1687357212014',
+    },
+    updatedBy: {
+      __typename: 'MachineUserActor',
+      machineUserId: 'mu_01H1P0P0PHA2BJRRS7EC02XKCF',
+    },
+    customerGroup: {
+      id: 'cg_01H1P1S2HD9PERNNS591ZT28ZZ',
+      name: 'design partner',
+      key: 'design-partner',
+      color: '#FBBF24',
+    },
+  },
+];
+```
+
+    </Tab>
+
+    <Tab title="GraphQL">
+
+```graphql Mutation
+mutation addCustomerToCustomerGroup($input: AddCustomerToCustomerGroupsInput!) {
+  addCustomerToCustomerGroups(input: $input) {
+    customerGroupMemberships {
+      customerGroup {
+        id
+        name
+        key
+        color
+      }
+    }
+    error {
+      message
+      code
+      type
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "customerId": "c_01GTC6ZHCMAGR06FMPN9VY5J95",
+    "customerGroupIdentifiers": [
+      {
+        "customerGroupKey": "free-tier"
+      },
+      {
+        "customerGroupKey": "design-partner"
+      }
+    ]
+  }
+}
+```
+
+
+        If you prefer you can also use the customer group id instead of the key. You can do this like so:
+
+```json Variables
+{
+  "input": {
+    "customerId": "c_01GTC6ZHCMAGR06FMPN9VY5J95",
+    "customerGroupIdentifiers": [
+      {
+        "customerGroupId": "cg_01GX8H2BWS7Z4EP9RRGMF9NXX2"
+      }
+    ]
+  }
+}
+```
+
+```json Variables
+{
+  "data": {
+    "customerGroupMemberships": [
+      {
+        "customerGroup": {
+          "id": "cg_01GX8H2BWS7Z4EP9RRGMF9NXX2",
+          "name": "Free Tier",
+          "key": "free-tier",
+          "color": "#1D4ED8"
+        }
+      },
+      {
+        "customerGroup": {
+          "id": "cg_05GXF4FGGS2Z7EW9RRGKL9NLL9",
+          "name": "Design partner",
+          "key": "design-partner",
+          "color": "#06B6D4"
+        }
+      }
+    ],
+    "error": null
+  }
+}
+```
+
+    </Tab>
+
+</Tabs>
+
+## Remove a customer from groups
+
+A customer can be removed from a customer group by using the `removeCustomerFromGroup` mutation.
+
+<Tabs>
+
+    <Tab title="Typescript SDK">
+```typescript
+import { PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({
+  apiKey: 'plainApiKey_rO6tIKWU2w0gD_ek9HwjsHMiq1MHsgAn7mhVrcC7MGw',
+});
+ 
+const res = await client.removeCustomerFromCustomerGroups({
+  customerId: 'c_01H1P4TE62AS5KZ4CZFC0578ED',
+  customerGroupIdentifiers: [
+    {
+      customerGroupKey: 'free-tier',
+    },
+    {
+      customerGroupKey: 'design-partner',
+    },
+  ],
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```
+
+    Which if successful will console.log `null`
+    </Tab>
+
+    <Tab title="GraphQL">
+```graphql Mutation
+mutation removeCustomerFromCustomerGroup($input: RemoveCustomerFromCustomerGroupsInput!) {
+  removeCustomerFromCustomerGroups(input: $input) {
+    error {
+      message
+      code
+      type
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "customerId": "c_01GTC6ZHCMAGR06FMPN9VY5J95",
+    "customerGroupIdentifiers": [
+      {
+        "customerGroupKey": "free-tier"
+      },
+      {
+        "customerGroupKey": "design-partner"
+      }
+    ]
+  }
+}
+```
+
+        If you prefer you can also use the customer group id instead of the key. You can do this like so:
+
+```json Variables
+{
+  "input": {
+    "customerId": "c_01GTC6ZHCMAGR06FMPN9VY5J95",
+    "customerGroupIdentifiers": [
+      {
+        "customerGroupId": "cg_01GX8H2BWS7Z4EP9RRGMF9NXX2"
+      }
+    ]
+  }
+}
+```
+
+```json Response
+{
+  "data": {
+    "error": null
+  }
+}
+```
+
+    </Tab>
+
+</Tabs>

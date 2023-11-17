@@ -1,0 +1,51 @@
+---
+title: "Divider"
+description: "Useful when you need a bit of structure."
+---
+
+<Frame>
+  ![Example divider](/public/images/ui-components/divider.png)
+</Frame>
+
+A divider has the following properties:
+
+- `dividerSpacingSize` (optional): the spacing the divider should have before and after the component. One of `XS`, `S`,
+  `M`, `L`, `XL`. Defaults to `S`.
+
+For example:
+
+<Tabs>
+    <Tab title="Typescript SDK">
+```typescript
+import { uiComponent } from '@team-plain/typescript-sdk';
+ 
+[
+  uiComponent.text({ text: 'Content before an XS divider' }),
+  uiComponent.divider({ spacingSize: 'XS' }),
+  uiComponent.text({ text: 'Content after divider' }),
+];
+```
+    </Tab>
+
+    <Tab title="GraphQL">
+```json
+[
+  {
+    "componentText": {
+      "text": "Content before an XS divider"
+    }
+  },
+  {
+    "componentDivider": {
+      "dividerSpacingSize": "XS"
+    }
+  },
+  {
+    "componentText": {
+      "text": "Content after divider"
+    }
+  }
+```
+    </Tab>
+
+</Tabs>

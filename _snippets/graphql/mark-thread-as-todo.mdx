@@ -1,0 +1,42 @@
+```graphql filename="Mutation"
+mutation markThreadAsTodo($input: MarkThreadAsTodoInput!) {
+  markThreadAsTodo(input: $input) {
+    thread {
+      __typename
+      id
+      externalId
+      customer {
+        id
+      }
+      status
+      statusChangedAt {
+        __typename
+        iso8601
+        unixTimestamp
+      }
+      title
+      previewText
+      priority
+    }
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "input": {
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423"
+  }
+}
+```

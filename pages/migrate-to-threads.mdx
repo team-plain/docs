@@ -1,0 +1,116 @@
+---
+title: "Migrating to threads"
+---
+
+<Warning>
+  This only applies to you if you are using the Plain API or webhooks. If you are using neither,
+  feel free to ignore this!
+</Warning>
+
+Furthermore, this migration only applies to you if you use _any_ of the following Plain APIs:
+
+- `assignCustomerToUser`
+- `changeCustomerStatus`
+- `changeCustomerStatusAsync`
+- `unnasignAllCustomer`
+- `createIssue`
+- `resolveIssue`
+- `reopenIssue`
+- `changeIssuePriority`
+- `changeIssueType`
+- `deleteIssue`
+
+Or if you are using _any_ of the following webhooks :
+
+- `customer.customer_status_transitioned`
+- `customer.customer_changed`
+- `timeline.timeline_entry_changed`
+
+If you run into **any** issues, please reach out to us via the app (**⌘ + K** and then search for "Question") or email us at [help@plain.com](mailto:help@plain.com).
+
+<Callout type="info" emoji="👉">
+  Once you have fully migrated across, please let us know and we will enable a feature flag for your
+  workspace giving you the full benefits of threads within Plain.
+</Callout>
+
+## New data model
+
+In the **old** version of Plain:
+
+- A customer had a single timeline
+- A customer had a status of Active, Snoozed or Idle
+- A customer could be assigned
+- All emails and comms and everything else would be in one customer timeline
+- A customer could have issues in their timeline
+  - Each issue was of a specific issue type (e.g. "Bug report") and was either open or resolved
+  - Each issue had a priority
+
+In the ✨ **new** ✨ version of Plain:
+
+- A customer has multiple threads
+- A thread can be assigned
+- A thread has a status which is either Todo, Snoozed or Done
+- A thread has labels (e.g. "Bug report")
+- A thread has a priority
+- All emails and comms belong to a specific thread
+
+## Breaking API changes
+
+### Custom Timeline Entries
+
+Custom Timeline Entries are deprecated and replaced by two purpose made APIs: `createThread` and `createCustomerEvent`.
+
+If you are calling `upsertCustomTimelineEntry` off the back of a contact form or if you are calling it with `changeCustomerStatusToActive` set to true, then you need to migrate this code to [**create a thread**](/pages/graphql/threads/create) instead.
+
+If you are calling `upsertCustomTimelineEntry` to just log an event which doesn't require an action from anyone in your team but is just context on the customer, then you need to migrate this code to [**create a customer event**](/pages/graphql/events/create-customer-event).
+
+### Issue APIs
+
+Issues are completely deprecated and instead replaced light-weight labels on threads.
+
+If you were previously creating an issue off the back of something happening in your systems you can now [create a thread](/pages/thread/create) and specify the labels you want on creation.
+
+Depending on your use case you can also separately [add labels to a thread](/pages/graphql/labels/add) or [remove labels from a thread](/pages/graphql/labels/remove).
+
+If you were using any issue APIs to update or change the prority on issues you can now instead set the priority directly when creating a thread.
+
+### Assigning/unassigning customers
+
+Assignment has moved from the customer to their threads. This means that if you were previously changing the assignment of a customer you now instead need to assign or unassign a thread.
+
+Check out the [thread assignment](/pages/graphql/threads/assignment) documentation to migrate.
+
+### Changing customer statuses
+
+Customers no longer have a status. If you were snoozing or changing the customer's status you need to migrate that code to [change the thread's status](/pages/graphql/threads/status-changes/) instead.
+
+## Breaking webhook changes
+
+#### `customer.customer_status_transitioned`
+
+The customer no longer has a status so this webhook event has been deprecated. Depending on your intentions you may want to swap this out for the [thread status transitioned event](/pages/webhooks/thread-status-transitioned).
+
+#### `timeline.timeline_entry_changed`
+
+This event reported all timeline entry changes and made it very challenging to do even simple things like build an autoresponder. It was far too easy to misunderstand and create faulty integrations.
+
+As a result we're fully deprecating this event and have replaced it with a list of smaller and simpler events to follow and parse:
+
+- [Email received](/pages/webhooks/email-received)
+- [Email sent](/pages/webhooks/email-sent)
+- [Thread priority change](/pages/webhooks/thread-priority-changed)
+- [Thread labels change](/pages/webhooks/thread-labels-changed)
+- [Thread assignment transitioned](/pages/webhooks/thread-assignment-transitioned)
+- [Thread status transitioned](/pages/webhooks/thread-status-transitioned)
+
+#### `customer.customer_changed`
+
+This event was deprecated and 'unbundled' into smaller, more specific events:
+
+- [Customer created](/pages/webhooks/customer-created)
+- [Customer updated](/pages/webhooks/customer-updated)
+- [Customer deleted ](/pages/webhooks/customer-deleted)
+
+---
+
+If you have any questions or need additional information or are running into issues please reach out to us via the in-app support on Plain or at [help@plain.com](mailto:help@plain.com)

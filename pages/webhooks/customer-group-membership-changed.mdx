@@ -1,0 +1,123 @@
+---
+title: "Customer Group Membership Changed Event"
+description: "This event is fired whenever a customer is added or removed from a customer group."
+---
+
+The [`changeType`](https://json-schema.app/view/%23%2Fdefinitions%2FcustomerGroupMembershipsChangedPayload?url=https%3A%2F%2Fcore-api.uk.plain.com%2Fwebhooks%2Fschema.json) field allows you to know what kind of change has occurred. It can be one of the following:
+
+- `ADDED`: a customer group membership was added
+- `REMOVED`: a customer group membership was removed
+
+## Schema
+
+[**View JSON Schema →**](https://json-schema.app/view/%23%2Fdefinitions%2FcustomerGroupMembershipsChangedPayload?url=https%3A%2F%2Fcore-api.uk.plain.com%2Fwebhooks%2Fschema.json)
+
+Example:
+
+```json
+{
+  "timestamp": "2023-10-19T16:58:32.357Z",
+  "workspaceId": "w_01GST0W989ZNAW53X6XYHAY87P",
+  "payload": {
+    "eventType": "customer.customer_group_memberships_changed",
+    "changeType": "ADDED",
+    "customer": {
+      "id": "c_01HD44FHDPG82VQ4QNHDR4N2T0",
+      "email": {
+        "email": "peter@example.com",
+        "isVerified": false,
+        "verifiedAt": null
+      },
+      "externalId": null,
+      "fullName": "Peter Santos",
+      "shortName": "Peter",
+      "assignedAt": null,
+      "assignedToUser": null,
+      "status": "ACTIVE",
+      "statusChangedAt": "2023-10-19T14:12:25.267Z",
+      "markedAsSpamAt": null,
+      "markedAsSpamBy": null,
+      "customerGroupMemberships": [
+        {
+          "customerId": "c_01HD44FHDPG82VQ4QNHDR4N2T0",
+          "customerGroupId": "cg_01GWVPYG1B8JBPGZC2VQDQEQAM",
+          "workspaceId": "w_01GST0W989ZNAW53X6XYHAY87P",
+          "createdAt": "2023-10-19T16:58:32.340Z",
+          "createdBy": {
+            "actorType": "user",
+            "userId": "u_01H1V4NA10RMHWFBXB6A1ZBYRA"
+          },
+          "updatedAt": "2023-10-19T16:58:32.340Z",
+          "updatedBy": {
+            "actorType": "user",
+            "userId": "u_01H1V4NA10RMHWFBXB6A1ZBYRA"
+          },
+          "customerGroup": {
+            "id": "cg_01GWVPYG1B8JBPGZC2VQDQEQAM",
+            "workspaceId": "w_01GST0W989ZNAW53X6XYHAY87P",
+            "name": "Free Tier",
+            "key": "free-tier",
+            "color": "#D66258",
+            "createdAt": "2023-03-31T11:30:50.539Z",
+            "createdBy": {
+              "actorType": "user",
+              "userId": "u_01GTVBT93M80K917N2FGAK3FD5"
+            },
+            "updatedAt": "2023-05-31T07:27:21.519Z",
+            "updatedBy": {
+              "actorType": "user",
+              "userId": "u_01FN4BEVKY3EQQ5BFC24M8JTJH"
+            }
+          }
+        }
+      ],
+      "createdAt": "2023-10-19T14:12:25.142Z",
+      "createdBy": {
+        "actorType": "system",
+        "system": "email_inbound_handler"
+      },
+      "updatedAt": "2023-10-19T16:57:13.845Z",
+      "updatedBy": {
+        "actorType": "user",
+        "userId": "u_01H1V4NA10RMHWFBXB6A1ZBYRA"
+      }
+    },
+    "previousCustomer": {
+      "id": "c_01HD44FHDPG82VQ4QNHDR4N2T0",
+      "email": {
+        "email": "peter@example.com",
+        "isVerified": false,
+        "verifiedAt": null
+      },
+      "externalId": null,
+      "fullName": "Peter Santos",
+      "shortName": "Peter",
+      "assignedAt": null,
+      "assignedToUser": null,
+      "status": "ACTIVE",
+      "statusChangedAt": "2023-10-19T14:12:25.267Z",
+      "markedAsSpamAt": null,
+      "markedAsSpamBy": null,
+      "customerGroupMemberships": [],
+      "createdAt": "2023-10-19T14:12:25.142Z",
+      "createdBy": {
+        "actorType": "system",
+        "system": "email_inbound_handler"
+      },
+      "updatedAt": "2023-10-19T16:57:13.845Z",
+      "updatedBy": {
+        "actorType": "user",
+        "userId": "u_01H1V4NA10RMHWFBXB6A1ZBYRA"
+      }
+    }
+  },
+  "id": "pEv_01HD4DZQ153AE8FK17TFJ7PC01",
+  "webhookMetadata": {
+    "webhookTargetId": "whTarget_01HD4400VTDJQ646V6RY37SR7K",
+    "webhookDeliveryAttemptId": "whAttempt_01HD4DZQD334K6KX0ER03JWDAR",
+    "webhookDeliveryAttemptNumber": 1,
+    "webhookDeliveryAttemptTimestamp": "2023-10-19T16:58:32.739Z"
+  },
+  "type": "customer.customer_group_memberships_changed"
+}
+```

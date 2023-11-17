@@ -1,0 +1,53 @@
+```graphql filename="Mutation"
+mutation createThread($input: CreateThreadInput!) {
+  createThread(input: $input) {
+    thread {
+      __typename
+      id
+      externalId
+      customer {
+        id
+      }
+      status
+      statusChangedAt {
+        __typename
+        iso8601
+        unixTimestamp
+      }
+      title
+      previewText
+      priority
+    }
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "input": {
+    "title": "Bug Report",
+    "customerIdentifier": {
+      "customerId": "c_01H14DFQ4PDYBH398J1E99TWSS"
+    },
+    "components": [
+      {
+        "componentText": {
+          "text": "The login button is not working, it doesn't do anything."
+        }
+      }
+    ],
+    "labelTypeIds": ["lt_01HB924PME9C0YWKW1N4AK3BZA"]
+  }
+}
+```

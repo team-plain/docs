@@ -1,0 +1,300 @@
+---
+title: "File Attachments"
+description: "When using Plain's API to send emails or [create threads](/graphql/threads/create), you can add file attachments."
+---
+
+This page outlines how to upload attachments programatically.
+
+At a high level to upload attachments you:
+
+- Make an API call to get an an upload url and some metadata
+- You then upload your file, and metadata to that upload url.
+- Use the ID of the attachment you uploaded in other API calls (e.g. create a thread or send an email).
+
+## Step by step guide
+
+To try this, you will need an [API key](/graphql/authentication/) with the following permission:
+
+- `attachment:create`
+
+<Steps>
+  <Step title="Creating an upload url">
+    - `fileName` is the name under which the attachment will appear in the timeline, you can use whichever you want
+    - `fileSizeBytes` is the exact size of the attachment in bytes (specifically, `32318` bytes is the size of Bruce's picture above)
+    - `c_XXXXXXXXXXXXXXXXXXXXXXXXXX` is the customer id you are uploading the attachment for. **Remember to replace this!**
+
+    <Tabs>
+        <Tab title="Typescript SDK">
+```typescript
+import { AttachmentType, PlainClient } from '@team-plain/typescript-sdk';
+ 
+const client = new PlainClient({ apiKey: 'XXX' });
+ 
+const res = await client.createAttachmentUploadUrl({
+  customerId: 'c_XXXXXXXXXXXXXXXXXXXXXXXXXX',
+  fileName: 'the-filename.jpeg',
+  fileSizeBytes: 32318,
+  attachmentType: AttachmentType.CustomTimelineEntry,
+});
+ 
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log('Attachment upload url created');
+  console.log(res.data);
+}
+```
+
+            Which would console log something like this:
+
+```json
+{
+  "__typename": "AttachmentUploadUrl",
+  "attachment": {
+    "__typename": "Attachment",
+    "id": "att_01H3970W7XG1716AVNGQ6FWYGD",
+    "fileName": "the-filename.jpeg",
+    "fileSize": { "__typename": "FileSize", "kiloBytes": 32.32, "megaBytes": 0.03 },
+    "fileExtension": null,
+    "updatedAt": {
+      "__typename": "DateTime",
+      "iso8601": "2023-06-19T06:56:04.349Z",
+      "unixTimestamp": "1687157764349"
+    }
+  },
+  "uploadFormUrl": "https://prod-uk-services-attachm-attachmentsuploadbucket2-1l2e4906o2asm.s3.eu-west-2.amazonaws.com/",
+  "uploadFormData": [
+    { "key": "acl", "value": "private" },
+    { "key": "x-amz-server-side-encryption", "value": "AES256" },
+    { "key": "Content-Type", "value": "application/octet-stream" },
+    {
+      "key": "bucket",
+      "value": "prod-uk-services-attachm-attachmentsuploadbucket2-1l2e4906o2asm"
+    },
+    { "key": "X-Amz-Algorithm", "value": "AWS4-HMAC-SHA256" },
+    {
+      "key": "X-Amz-Credential",
+      "value": "ASIAWYWBOL266XVGRRM7/20230619/eu-west-2/s3/aws4_request"
+    },
+    { "key": "X-Amz-Date", "value": "20230619T065604Z" },
+    {
+      "key": "X-Amz-Security-Token",
+      "value": "IQoJb3JpZ2luX2VjEC8aCWV1LXdlc3QtMiJIMEYCIQD6zKc5ZaobWAYgTZoWN62yv5+vXRwkAAZvRPOg51UevgIhAPFCm3pUv/StIqoxtC90G6kE0D9lqcRBlWdzA8FsErw+KpwDCIj//////////wEQARoMNDY1MzM1OTAxODg1Igz/lGT5c341L5ZjBZoq8AJjmuxX6/MR8uRmDH4BPh/6uuBoT2IDRIFVqVpDlll5hOGDKmMMSqxFdJ0EdxI9oCLRlM+cd/oupHTOfvC+Jc0g6vQrABgvbi7PSVzZZrxWZRtaGmSzb6rI3it0xBGJf1c/Ec3dZzX2nJqhG7fY9jqXzFzSWF3B+GX4A6kwcrU3mv8nRFenxPZpXq75thb3w0C3wNbaee2TfZWtdwXB24f0qJhbDKZuu1S399Fj1/1AMQVRjIdUy8mbXKYHhN1cqGONaruN2ypLffB45IlHoJsquqwS8/a3/E+1so7ybkdPKUCMqS42Lss5YX4cKJX70wJzc2SanyJhaBlTW93V/lBYCjlhtR5muAr9Gabybi5lSu1Am/SEymzKOYUWm2vqm/11ZfdgXofmgefaDlDPV+vckLo0lO4i11bS245waOW3bK9iIwX+m05DyzbUSy0zn5Hit1+z+R5VK/pnFR1pJ5fD/F9H5QlFO2I38DHQxpWBFTCq77+kBjqcATBd5fpX6yln9sw7UVlzy4eqyqP8asGiadpqiupsVygGahb1ZGS33XFqx0BClbvKBiO+gvQNZyicIgwvLvThQFxO4raEFqFZlVPVVZUe6vBsgb72CAwsGtV9chLm6C3AN3Ovb4ta/FNwVIc9sfXwOLIazLtAS0IpWuJi49FUw82725HvW5oY8pTl3NhWV60XFXmyuDUYsJlVfvtkWg=="
+    },
+    {
+      "key": "key",
+      "value": "w_01GZEA2KYR63P8E00JBMYQT58Z/pending/machineUser/mu_01GZEA2M91124MPFAVZEPKC2MY/att_01H3970W7XG1716AVNGQ6FWXGD"
+    },
+    {
+      "key": "Policy",
+      "value": "eyJleHBpcmF0aW9uIjoiMjA3Ni0xMi0wNFQxNTo1MjowOFoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMzIzMTgsMzIzMThdLHsiYWNsIjoicHJpdmF0ZSJ9LHsieC1hbXotc2VydmVyLXNpZGUtZW5jcnlwdGlvbiI6IkFFUzI1NiJ9LHsiQ29udGVudC1UeXBlIjoiYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtIn0seyJidWNrZXQiOiJwcm9kLXVrLXNlcnZpY2VzLWF0dGFjaG0tYXR0YWNobWVudHN1cGxvYWRidWNrZXQyLTFsMmU0OTA2bzJhc20ifSx7IlgtQW16LUFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IlgtQW16LUNyZWRlbnRpYWwiOiJBU0lBV1lXQk9MMjY2WFZHUlJNNy8yMDIzMDYxOS9ldS13ZXN0LTIvczMvYXdzNF9yZXF1ZXN0In0seyJYLUFtei1EYXRlIjoiMjAyMzA2MTlUMDY1NjA0WiJ9LHsiWC1BbXotU2VjdXJpdHktVG9rZW4iOiJJUW9KYjNKcFoybHVYMlZqRUM4YUNXVjFMWGRsYzNRdE1pSklNRVlDSVFENnpLYzVaYW9iV0FZZ1Rab1dONjJ5djUrdlhSd2tBQVp2UlBPZzUxVWV2Z0loQVBGQ20zcFV2L1N0SXFveHRDOTBHNmtFMEQ5bHFjUkJsV2R6QThGc0VydytLcHdEQ0lqLy8vLy8vLy8vL3dFUUFSb01ORFkxTXpNMU9UQXhPRGcxSWd6L2xHVDVjMzQxTDVaakJab3E4QUpqbXV4WDYvTVI4dVJtREg0QlBoLzZ1dUJvVDJJRFJJRlZxVnBEbGxsNWhPR0RLbU1NU3F4RmRKMEVkeEk5b0NMUmxNK2NkL291cEhUT2Z2QytKYzBnNnZRckFCZ3ZiaTdQU1Z6WlpyeFdaUnRhR21TemI2ckkzaXQweEJHSmYxYy9FYzNkWnpYMm5KcWhHN2ZZOWpxWHpGelNXRjNCK0dYNEE2a3djclUzbXY4blJGZW54UFpwWHE3NXRoYjN3MEMzd05iYWVlMlRmWld0ZHdYQjI0ZjBxSmhiREtadXUxUzM5OUZqMS8xQU1RVlJqSWRVeThtYlhLWUhoTjFjcUdPTmFydU4yeXBMZmZCNDVJbEhvSnNxdXF3UzgvYTMvRSsxc283eWJrZFBLVUNNcVM0MkxzczVZWDRjS0pYNzB3SnpjMlNhbnlKaGFCbFRXOTNWL2xCWUNqbGh0UjVtdUFyOUdhYnliaTVsU3UxQW0vU0V5bXpLT1lVV20ydnFtLzExWmZkZ1hvZm1nZWZhRGxEUFYrdmNrTG8wbE80aTExYlMyNDV3YU9XM2JLOWlJd1grbTA1RHl6YlVTeTB6bjVIaXQxK3orUjVWSy9wbkZSMXBKNWZEL0Y5SDVRbEZPMkkzOERIUXhwV0JGVENxNzcra0JqcWNBVEJkNWZwWDZ5bG45c3c3VVZsenk0ZXF5cVA4YXNHaWFkcHFpdXBzVnlnR2FoYjFaR1MzM1hGcXgwQkNsYnZLQmlPK2d2UU5aeWljSWd3dkx2VGhRRnhPNHJhRUZxRlpsVlBWVlpVZTZ2QnNnYjcyQ0F3c0d0VjljaExtNkMzQU4zT3ZiNHRhL0ZOd1ZJYzlzZlh3T0xJYXpMdEFTMElwV3VKaTQ5RlV3ODI3MjVIdlc1b1k4cFRsM05oV1Y2MFhGWG15dURVWXNKbFZmdnRrV2c9PSJ9LHsia2V5Ijoid18wMUdaRUEyS1lSNjNQOEUwMEpCTVlRVDU4Wi9wZW5kaW5nL21hY2hpbmVVc2VyL211XzAxR1pFQTJNOTExMjRNUEZBVlpFUEtDMk1ZL2F0dF8wMUgzOTcwVzdYRzE3MTZBVk5HUTZGV1hHRCJ9XX0="
+    },
+    {
+      "key": "X-Amz-Signature",
+      "value": "a68a18898e654e072f80b052853b0722aa58aada15d3cd3e9cc937f929ff2433"
+    }
+  ],
+  "expiresAt": {
+    "__typename": "DateTime",
+    "iso8601": "2023-06-19T08:56:04.348Z",
+    "unixTimestamp": "1687164964348"
+  }
+}
+```
+        </Tab>
+
+        <Tab title="GraphQL">
+            The GraphQL mutation to create an attachment upload URL is the following:
+
+```graphql Mutation
+mutation createAttachmentUploadUrl($input: CreateAttachmentUploadUrlInput!) {
+  createAttachmentUploadUrl(input: $input) {
+    attachmentUploadUrl {
+      attachment {
+        id
+        # There are more fields here but we are just selecting
+        # the id for simplicity.
+      }
+      uploadFormUrl
+      uploadFormData {
+        key
+        value
+      }
+    }
+    error {
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+
+Variables
+{
+  "input": {
+    "customerId": "c_XXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "fileName": "bruce.jpeg",
+    "fileSizeBytes": 32318,
+    "attachmentType": "CUSTOM_TIMELINE_ENTRY"
+  }
+}
+```
+```json Response
+{
+  "data": {
+    "createAttachmentUploadUrl": {
+      "attachmentUploadUrl": {
+        "attachment": {
+          "id": "att_01H3970W7XG1716AVNGQ6FWYGD"
+        },
+        "uploadFormUrl": "https://prod-uk-services-attachm-attachmentsuploadbucket2-1l2e4906o2asm.s3.eu-west-2.amazonaws.com/",
+        "uploadFormData": [
+          { "key": "acl", "value": "private" },
+          { "key": "x-amz-server-side-encryption", "value": "AES256" },
+          { "key": "Content-Type", "value": "application/octet-stream" },
+          {
+            "key": "bucket",
+            "value": "prod-uk-services-attachm-attachmentsuploadbucket2-1l2e4906o2asm"
+          },
+          { "key": "X-Amz-Algorithm", "value": "AWS4-HMAC-SHA256" },
+          {
+            "key": "X-Amz-Credential",
+            "value": "ASIAWYWBOL266XVGRRM7/20230619/eu-west-2/s3/aws4_request"
+          },
+          { "key": "X-Amz-Date", "value": "20230619T065604Z" },
+          {
+            "key": "X-Amz-Security-Token",
+            "value": "IQoJb3JpZ2luX2VjEC8aCWV1LXdlc3QtMiJIMEYCIQD6zKc5ZaobWAYgTZoWN62yv5+vXRwkAAZvRPOg51UevgIhAPFCm3pUv/StIqoxtC90G6kE0D9lqcRBlWdzA8FsErw+KpwDCIj//////////wEQARoMNDY1MzM1OTAxODg1Igz/lGT5c341L5ZjBZoq8AJjmuxX6/MR8uRmDH4BPh/6uuBoT2IDRIFVqVpDlll5hOGDKmMMSqxFdJ0EdxI9oCLRlM+cd/oupHTOfvC+Jc0g6vQrABgvbi7PSVzZZrxWZRtaGmSzb6rI3it0xBGJf1c/Ec3dZzX2nJqhG7fY9jqXzFzSWF3B+GX4A6kwcrU3mv8nRFenxPZpXq75thb3w0C3wNbaee2TfZWtdwXB24f0qJhbDKZuu1S399Fj1/1AMQVRjIdUy8mbXKYHhN1cqGONaruN2ypLffB45IlHoJsquqwS8/a3/E+1so7ybkdPKUCMqS42Lss5YX4cKJX70wJzc2SanyJhaBlTW93V/lBYCjlhtR5muAr9Gabybi5lSu1Am/SEymzKOYUWm2vqm/11ZfdgXofmgefaDlDPV+vckLo0lO4i11bS245waOW3bK9iIwX+m05DyzbUSy0zn5Hit1+z+R5VK/pnFR1pJ5fD/F9H5QlFO2I38DHQxpWBFTCq77+kBjqcATBd5fpX6yln9sw7UVlzy4eqyqP8asGiadpqiupsVygGahb1ZGS33XFqx0BClbvKBiO+gvQNZyicIgwvLvThQFxO4raEFqFZlVPVVZUe6vBsgb72CAwsGtV9chLm6C3AN3Ovb4ta/FNwVIc9sfXwOLIazLtAS0IpWuJi49FUw82725HvW5oY8pTl3NhWV60XFXmyuDUYsJlVfvtkWg=="
+          },
+          {
+            "key": "key",
+            "value": "w_01GZEA2KYR63P8E00JBMYQT58Z/pending/machineUser/mu_01GZEA2M91124MPFAVZEPKC2MY/att_01H3970W7XG1716AVNGQ6FWXGD"
+          },
+          {
+            "key": "Policy",
+            "value": "eyJleHBpcmF0aW9uIjoiMjA3Ni0xMi0wNFQxNTo1MjowOFoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMzIzMTgsMzIzMThdLHsiYWNsIjoicHJpdmF0ZSJ9LHsieC1hbXotc2VydmVyLXNpZGUtZW5jcnlwdGlvbiI6IkFFUzI1NiJ9LHsiQ29udGVudC1UeXBlIjoiYXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtIn0seyJidWNrZXQiOiJwcm9kLXVrLXNlcnZpY2VzLWF0dGFjaG0tYXR0YWNobWVudHN1cGxvYWRidWNrZXQyLTFsMmU0OTA2bzJhc20ifSx7IlgtQW16LUFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IlgtQW16LUNyZWRlbnRpYWwiOiJBU0lBV1lXQk9MMjY2WFZHUlJNNy8yMDIzMDYxOS9ldS13ZXN0LTIvczMvYXdzNF9yZXF1ZXN0In0seyJYLUFtei1EYXRlIjoiMjAyMzA2MTlUMDY1NjA0WiJ9LHsiWC1BbXotU2VjdXJpdHktVG9rZW4iOiJJUW9KYjNKcFoybHVYMlZqRUM4YUNXVjFMWGRsYzNRdE1pSklNRVlDSVFENnpLYzVaYW9iV0FZZ1Rab1dONjJ5djUrdlhSd2tBQVp2UlBPZzUxVWV2Z0loQVBGQ20zcFV2L1N0SXFveHRDOTBHNmtFMEQ5bHFjUkJsV2R6QThGc0VydytLcHdEQ0lqLy8vLy8vLy8vL3dFUUFSb01ORFkxTXpNMU9UQXhPRGcxSWd6L2xHVDVjMzQxTDVaakJab3E4QUpqbXV4WDYvTVI4dVJtREg0QlBoLzZ1dUJvVDJJRFJJRlZxVnBEbGxsNWhPR0RLbU1NU3F4RmRKMEVkeEk5b0NMUmxNK2NkL291cEhUT2Z2QytKYzBnNnZRckFCZ3ZiaTdQU1Z6WlpyeFdaUnRhR21TemI2ckkzaXQweEJHSmYxYy9FYzNkWnpYMm5KcWhHN2ZZOWpxWHpGelNXRjNCK0dYNEE2a3djclUzbXY4blJGZW54UFpwWHE3NXRoYjN3MEMzd05iYWVlMlRmWld0ZHdYQjI0ZjBxSmhiREtadXUxUzM5OUZqMS8xQU1RVlJqSWRVeThtYlhLWUhoTjFjcUdPTmFydU4yeXBMZmZCNDVJbEhvSnNxdXF3UzgvYTMvRSsxc283eWJrZFBLVUNNcVM0MkxzczVZWDRjS0pYNzB3SnpjMlNhbnlKaGFCbFRXOTNWL2xCWUNqbGh0UjVtdUFyOUdhYnliaTVsU3UxQW0vU0V5bXpLT1lVV20ydnFtLzExWmZkZ1hvZm1nZWZhRGxEUFYrdmNrTG8wbE80aTExYlMyNDV3YU9XM2JLOWlJd1grbTA1RHl6YlVTeTB6bjVIaXQxK3orUjVWSy9wbkZSMXBKNWZEL0Y5SDVRbEZPMkkzOERIUXhwV0JGVENxNzcra0JqcWNBVEJkNWZwWDZ5bG45c3c3VVZsenk0ZXF5cVA4YXNHaWFkcHFpdXBzVnlnR2FoYjFaR1MzM1hGcXgwQkNsYnZLQmlPK2d2UU5aeWljSWd3dkx2VGhRRnhPNHJhRUZxRlpsVlBWVlpVZTZ2QnNnYjcyQ0F3c0d0VjljaExtNkMzQU4zT3ZiNHRhL0ZOd1ZJYzlzZlh3T0xJYXpMdEFTMElwV3VKaTQ5RlV3ODI3MjVIdlc1b1k4cFRsM05oV1Y2MFhGWG15dURVWXNKbFZmdnRrV2c9PSJ9LHsia2V5Ijoid18wMUdaRUEyS1lSNjNQOEUwMEpCTVlRVDU4Wi9wZW5kaW5nL21hY2hpbmVVc2VyL211XzAxR1pFQTJNOTExMjRNUEZBVlpFUEtDMk1ZL2F0dF8wMUgzOTcwVzdYRzE3MTZBVk5HUTZGV1hHRCJ9XX0="
+          },
+          {
+            "key": "X-Amz-Signature",
+            "value": "a68a18898e654e072f80b052853b0722aa58aada15d3cd3e9cc937f929ff2433"
+          }
+        ]
+      },
+      "error": null
+    }
+  }
+}
+```
+
+        </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Uploading the attachment">
+    In the `AttachmentUploadUrl` we created in the previous step we get back 2 fields which are needed to actually upload our attachment:
+
+    - `uploadFormUrl`: The URL to which to upload the file to
+    - `uploadFormData`: A list of key, value pairs that have to be included in the data we upload along with the actual file data.
+
+    With this information we can now upload our actual file to Plain. To do this we need to build a form (`multipart/form-data`) with the data contained in `uploadFormData` and submit it to the `uploadFormUrl`.
+
+    Here is some example code showing how you would do this in the Browser and from a Node server:
+
+    <Tabs>
+        <Tab title="Browser">
+```typescript
+/**
+ * Upload an attachment.
+ *
+ * @param {Blob} fileBlob blob with the contents of the file to upload
+ * @param {string} uploadFormUrl The url to post the form to (from `createAttachmentUploadUrl.attachmentUploadUrl.uploadFormUrl`)
+ * @param {{ key: string; value: string }[]} uploadFormData Data to be added to the form along with the file contents (from `createAttachmentUploadUrl.attachmentUploadUrl.uploadFormData`)
+ */
+function uploadAttachment(fileBlob, uploadFormUrl, uploadFormData) {
+  const form = new FormData();
+  uploadFormData.forEach(({ key, value }) => {
+    form.append(key, value);
+  });
+ 
+  const file = new File([fileBlob], 'file');
+  form.append('file', file);
+ 
+  console.log(`Uploading attachment to ${uploadFormUrl}`);
+ 
+  fetch(uploadFormUrl, {
+    method: 'POST',
+    body: form,
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(response.statusText);
+      }
+      console.log(`File successfully uploaded! (code=${res.status})`);
+    })
+    .catch((err) => {
+      console.log(`There was an error uploading the file: %s`, err.message ? err.message : err);
+    });
+}
+```
+        </Tab>
+        <Tab title="Node">
+```typescript
+const axios = require('axios');
+const FormData = require('form-data');
+ 
+/**
+ * Upload an attachment.
+ *
+ * @param {Buffer} fileBuffer Buffer with the contents of the file to upload
+ * @param {string} uploadFormUrl The url to post the form to (from `createAttachmentUploadUrl.attachmentUploadUrl.uploadFormUrl`)
+ * @param {{ key: string; value: string }[]} uploadFormData Data to be added to the form along with the file contents (from `createAttachmentUploadUrl.attachmentUploadUrl.uploadFormData`)
+ */
+function uploadAttachment(fileBuffer, uploadFormUrl, uploadFormData) {
+  const form = new FormData();
+  uploadFormData.forEach(({ key, value }) => {
+    form.append(key, value);
+  });
+ 
+  form.append('file', fileBuffer, { filename: 'file' });
+ 
+  console.log(`Uploading attachment to ${uploadFormUrl}`);
+ 
+  axios
+    .post(uploadFormUrl, form, {
+      headers: {
+        ...form.getHeaders(),
+        'Content-Length': form.getLengthSync(),
+      },
+    })
+    .then((res) => {
+      console.log(`File successfully uploaded! (code=${res.status})`);
+    })
+    .catch((err) => {
+      console.log(
+        `There was an error uploading the file: %s`,
+        err.response ? err.response.data : err
+      );
+    });
+}
+```
+        </Tab>
+    </Tabs>
+  </Step>
+</Steps>
+
+
+## Limitations
+
+- On emails and custom timeline entries:
+  - A maximum of **25 attachments** can be added
+  - All attachments **combined** can not exceed **6MB** in size
+- The following file extensions are not allowed as attachments:
+  `
+bat, bin, chm, com, cpl, crt, exe, hlp, hta, inf, ins, isp, jse, lnk, mdb, msc, msi, msp, mst, pcd, pif, reg, scr, sct, shs, vba, vbe, vbs, wsf, wsh, wsl`
+- Attachments uploaded, but never referenced by a Custom Timeline Entry or email, will be
+  **deleted after 24 hours**.
+- Upload URLs are only **valid for 2 hours** after which a new URL needs to be created.

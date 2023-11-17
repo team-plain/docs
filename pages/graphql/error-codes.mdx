@@ -1,0 +1,234 @@
+---
+title: "Error codes"
+description: "If you receive an error code as part of an API call, this is where you can look up what it means:"
+---
+
+#### `input_validation`
+
+The provided input failed validation. See field errors for details.
+
+#### `forbidden`
+
+Permission denied.
+
+#### `internal`
+
+An internal server error. The request should be retried. If the error persists, please get in touch at [help@plain.com](mailto:help@plain.com)
+
+#### `not_found`
+
+An entity referenced in the request is not found. For example trying to create an issue for a customer that doesn't exist.
+
+#### `not_yet_implemented`
+
+The API is not yet implemented. If you think it should already be implemented please get in touch at [help@plain.com](mailto:help@plain.com)
+
+---
+
+#### `action_not_allowed_in_demo_workspace`
+
+The performed action is not allowed for a demo workspace.
+
+#### `attachment_file_size_too_large`
+
+The attachment being uploaded exceeds the limit (6MB)
+
+#### `attachment_file_type_not_allowed`
+
+The file type is not allowed. Banned file types: `bat`, `bin`, `chm`, `com`, `cpl`, `crt`, `exe`, `hlp`, `hta`, `inf`, `ins`, `isp`, `jse`, `lnk`, `mdb`, `msc`, `msi`, `msp`, `mst`, `pcd`, `pif`, `reg`, `scr`, `sct`, `shs`, `vba`, `vbe`, `vbs`, `wsf`, `wsh`, `wsl`
+
+#### `attachment_not_uploaded`
+
+The attachment ID being referenced was created, but not uploaded. Upload the attachment and try again.
+
+#### `cannot_assign_customer_to_user`
+
+The user that the customer is being assigned to doesn't have a role that is capable of helping the customer. Assign the "Help customers" role to the user and try again.
+
+#### `cannot_remove_only_admin_user`
+
+Can't remove the last user with an admin role. Assign another user the admin role as well and try again.
+
+#### `cannot_reply_to_unsent_email`
+
+The email being replied to has yet to be sent. Wait until the email is sent and try again.
+
+#### `cannot_update_field`
+
+Some Custom Timeline Entry fields can't be updated but only created (such as `timestamp`). Delete the Custom Timeline Entry and recreate it if you want to update these fields.
+
+#### `customer_already_exists_with_email`
+
+A customer with this email already exists in the workspace and can't be created again.
+
+#### `customer_already_exists_with_external_id`
+
+A customer with this external id already exists in the workspace and can't be created again.
+
+#### `customer_already_is_status`
+
+An attempt to change a customer to a status that the customer already is was made.
+
+#### `customer_already_marked_as_spam`
+
+The customer has already been marked as spam and can't be marked as spam again.
+
+#### `customer_card_config_key_already_exists`
+
+A Customer Card config with this key already exists in the workspace and can't be created again.
+
+#### `customer_is_marked_as_spam`
+
+An action was attempted but cannot be performed as the customer is marked as spam.
+
+#### `customer_is_not_marked_as_spam`
+
+An action was attempted but cannot be performed as it requires the customer to be marked as spam.
+
+#### `customer_status_cannot_be_changed_to_idle`
+
+The customer's status cannot be changed to idle, see error for reason.
+
+#### `customer_jwt_expired`
+
+The customer's JWT has expired. Recreate the JWT and try again.
+
+#### `customer_jwt_invalid`
+
+The customer's JWT is in an invalid format. Fix the contents of the JWT and try again.
+
+#### `customer_group_has_memberships`
+
+The customer group has memberships and can't be deleted.
+
+#### `customer_group_key_already_exists`
+
+A customer group with this key already exists in the workspace and can't be created again.
+
+#### `customer_session_challenge_invalid`
+
+The provided customer challenge digits are invalid.
+
+#### `domain_alreay_taken`
+
+The domain in the support email address is already taken by a different workspace. Currently only one workspace can use a domain. If this is an issue, please contact help@plain.com.
+
+#### `domain_cannot_be_public`
+
+The domain in the support email address is considered public and cannot be used.
+
+#### `insufficient_permissions`
+
+The user doesn't have the required permissions to create an API key that has more permissions than the user itself.
+
+#### `issue_already_open`
+
+Issue is already in an open state and can't be opened.
+
+#### `issue_already_resolved`
+
+Issue is already in a resolved state and can't be resolved.
+
+#### `issue_already_this_issue_type`
+
+Issue is already the provided issue type and can't be changed to it.
+
+#### `issue_already_this_priority`
+
+Issue is already the provided priority and can't be changed to it.
+
+#### `linear_issue_already_linked_to_issue`
+
+Issue is already linked to the provided Linear issue and cannot be linked again.
+
+#### `linear_organisation_cannot_be_authorised`
+
+The Linear OAuth flow failed. Detailed reasoning is included in the error.
+
+#### `mark_as_read_user_must_be_assigned_to_customer`
+
+The user trying to mark the timeline as read isn't the user that is assigned to the customer. Assign the user to the customer and try again.
+
+#### `roles_at_least_one_admin_required`
+
+Can't remove the role for the user as it would leave no users with the admin role in the workspace. Assign another user the admin role as well and try again.
+
+#### `too_many_customer_card_configs`
+
+The maximum number of Customer Card configs has been reached for this workspace.
+
+#### `too_many_webhook_targets`
+
+The maximum number of webhook targets has been reached for this webhook.
+
+#### `user_account_already_exists`
+
+A User Account already exists for the current user.
+
+#### `user_already_this_status`
+
+User is already in this status can can't be changed to it.
+
+#### `user_linear_integration_not_found`
+
+A User does not have a Linear integration setup.
+
+#### `workspace_app_key_not_found`
+
+The workspace app key can't be found.
+
+#### `workspace_app_public_key_required`
+
+A workspace app key must be provided.
+
+#### `workspace_app_required`
+
+A workspace app must be provided.
+
+#### `workspace_chat_not_enabled`
+
+Chat is disabled so chat messages can't be sent.
+
+#### `workspace_email_domain_not_configured`
+
+Email domain settings aren't fully configured yet. Double check the email settings page.
+
+#### `workspace_email_domain_not_set`
+
+A support email is not configured in the email settings. Double check the email settings page.
+
+#### `workspace_email_forwarding_not_configured`
+
+Email forwarding settings aren't fully configured yet. Double check the email settings page.
+
+#### `workspace_email_not_enabled`
+
+Email is not enabled so emails can't be sent.
+
+#### `workspace_invite_already_accepted`
+
+The invite has already been accepted by the user.
+
+#### `workspace_invite_email_already_invited`
+
+The email trying to be invited already has an outstanding invite.
+
+#### `workspace_invite_email_already_member_of_workspace`
+
+The email trying to be invited is already a member of the workspace.
+
+#### `workspace_invite_email_doesnt_match`
+
+The user trying to accept the invite has a different email than the invite is for.
+
+#### `workspace_support_email_address_conflict`
+
+The entered support email address is already taken by a different workspace.
+
+#### `workspace_user_email_already_used_as_support_email`
+
+The provided email is already used as a support email.
+
+#### `you_shall_not_pass`
+
+🧙 User account signup is currently blocked.

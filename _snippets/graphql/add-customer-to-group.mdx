@@ -1,0 +1,40 @@
+```graphql filename="Mutation"
+mutation addCustomerToCustomerGroup($input: AddCustomerToCustomerGroupsInput!) {
+  addCustomerToCustomerGroups(input: $input) {
+    customerGroupMemberships {
+      customerGroup {
+        id
+        name
+        key
+        color
+      }
+    }
+    error {
+      message
+      code
+      type
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "input": {
+    "customerId": "c_01GTC6ZHCMAGR06FMPN9VY5J95",
+    "customerGroupIdentifiers": [
+      {
+        "customerGroupKey": "free-tier"
+      },
+      {
+        "customerGroupKey": "design-partner"
+      }
+    ]
+  }
+}
+```

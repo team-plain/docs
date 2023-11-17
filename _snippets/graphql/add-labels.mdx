@@ -1,0 +1,21 @@
+```graphql filename="Mutation"
+mutation addLabels($input: AddLabelsInput!) {
+  addLabels(input: $input) {
+    labels {
+      id
+      createdAt {
+        iso8601
+      }
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "input": {
+    "labelTypeIds": ["lt_01HB8BTNTZ58730MX8H5VMKFD5", "lt_01HB8BTNKSCF1FK5ETFVRSDC6G"],
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423"
+  }
+}
+```

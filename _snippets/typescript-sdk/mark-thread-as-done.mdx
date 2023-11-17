@@ -1,0 +1,18 @@
+```tsx
+import { PlainClient } from '@team-plain/typescript-sdk';
+
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+
+const res = await client.markThreadAsDone({
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  // The full thread is returned as res.data
+  console.log(`Thread marked as done (${res.data.id})`);
+}
+```

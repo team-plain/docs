@@ -1,0 +1,32 @@
+```graphql filename="Mutation"
+mutation removeCustomerFromCustomerGroup($input: RemoveCustomerFromCustomerGroupsInput!) {
+  removeCustomerFromCustomerGroups(input: $input) {
+    error {
+      message
+      code
+      type
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "input": {
+    "customerId": "c_01GTC6ZHCMAGR06FMPN9VY5J95",
+    "customerGroupIdentifiers": [
+      {
+        "customerGroupKey": "free-tier"
+      },
+      {
+        "customerGroupKey": "design-partner"
+      }
+    ]
+  }
+}
+```

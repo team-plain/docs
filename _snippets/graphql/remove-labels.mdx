@@ -1,0 +1,19 @@
+```graphql filename="Mutation"
+mutation removeLabels($input: RemoveLabelsInput!) {
+  removeLabels(input: $input) {
+    error {
+      message
+      type
+      code
+    }
+  }
+}
+```
+
+```json filename="Variables"
+{
+  "input": {
+    "labelIds": ["l_01HB8BTNTZ58730MX8H5VMKFD5", "l_01HB8BTNKSCF1FK5ETFVRSDC6G"]
+  }
+}
+```

@@ -1,0 +1,18 @@
+```graphql filename="Second page"
+query getCustomers($cursor: String!) {
+  customers(after: $cursor, first: 50) {
+    edges {
+      node {
+        fullName
+      }
+    }
+    totalCount
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+  }
+}
+```

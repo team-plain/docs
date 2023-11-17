@@ -1,0 +1,17 @@
+```tsx
+import { PlainClient } from '../client';
+
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+
+const res = await client.deleteCustomer({
+  customerId: 'c_01H1P4TE62AS5KZ4CZFC0578ED',
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  // Success
+}
+```

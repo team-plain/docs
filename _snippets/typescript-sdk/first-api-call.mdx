@@ -1,0 +1,18 @@
+```ts filename="script.js" {3-4}
+const { PlainClient } = require('@team-plain/typescript-sdk');
+
+const apiKey = 'XXX';
+const email = 'XXX';
+
+const client = new PlainClient({
+  apiKey: apiKey,
+});
+
+client.getCustomerByEmail({ email: email }).then((result) => {
+  if (result.error) {
+    console.error(result.error);
+  } else {
+    console.log(result.data);
+  }
+});
+```

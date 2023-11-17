@@ -1,0 +1,167 @@
+{
+    "name": "Plain",
+    "logo": {
+      "light": "/public/logo/light.png",
+      "dark": "/public/logo/dark.png"
+    },
+    "favicon": "/public/favicon/favicon.png",
+    "colors": {
+      "primary": "#0E0E0E",
+      "light": "#FAFAFA",
+      "dark": "#0E0E0E"
+    },
+    "topbarCtaButton": {
+      "name": "Sign in",
+      "url": "https://app.plain.com/"
+    },
+    "anchors": [
+      {
+        "name": "Status",
+        "icon": "signal-bars",
+        "url": "https://status.plain.com/"
+      },
+      {
+        "name": "Support",
+        "icon": "headset",
+        "url": "mailto:help@plain.com"
+      },
+      {
+        "name": "Privacy Policy",
+        "icon": "lock",
+        "url": "https://www.plain.com/legal/privacy-policy"
+      }
+    ],
+    "navigation": [
+      {
+        "group": "Welcome to Plain",
+        "pages": ["pages/introduction"]
+      },
+      {
+        "group": "Getting Started",
+        "pages": [
+          {
+            "group": "Email",
+            "pages": [
+              "pages/email-setup",
+              "pages/email-setup/receiving-emails",
+              "pages/email-setup/sending-emails"
+            ]
+          },
+          "pages/labels-setup",
+          "pages/linear-integration-setup",
+          "pages/contact-forms-setup",
+          "pages/customer-cards-setup",
+          "pages/events-setup"
+        ]
+      },
+      {
+        "group": "Reference",
+        "pages": [
+          {
+            "group": "GraphQL API",
+            "pages": [
+              "pages/graphql",
+              "pages/graphql/authentication",
+              "pages/graphql/schema",
+              {
+                "group": "Customers",
+                "pages": [
+                  "pages/graphql/customers",
+                  "pages/graphql/customers/get",
+                  "pages/graphql/customers/upsert",
+                  "pages/graphql/customers/delete",
+                  "pages/graphql/customers/customer-groups"
+                ]
+              },
+                            {
+                "group": "Events",
+                "pages": [
+                "pages/graphql/events",
+                "pages/graphql/events/create-customer-event"
+                ]
+              },
+              {
+                "group": "Labels",
+                "pages": [
+                  "pages/graphql/labels",
+                  "pages/graphql/labels/add",
+                  "pages/graphql/labels/remove"
+                ]
+              },
+              {
+                "group": "Messaging",
+                "pages": [
+                  "pages/graphql/messaging",
+                  "pages/graphql/messaging/send-email",
+                  "pages/graphql/messaging/reply-email"
+                ]
+              },
+              {
+                "group": "Threads",
+                "pages": [
+                  "pages/graphql/threads",
+                  "pages/graphql/threads/create",
+                  "pages/graphql/threads/assignment",
+                  "pages/graphql/threads/status-changes"
+                ]
+              },
+              "pages/graphql/pagination",
+              "pages/graphql/error-handling",
+              "pages/graphql/error-codes",
+              "pages/graphql/api-explorer",
+              "pages/graphql/typescript-sdk"
+            ]
+          },
+          {
+            "group": "Customer Cards",
+            "pages": [
+              "pages/customer-cards",
+              "pages/customer-cards/documentation",
+              "pages/customer-cards/playground",
+              "pages/customer-cards/examples"
+            ]
+          },
+          {
+            "group": "Webhooks",
+            "pages": [
+              "pages/webhooks",
+              "pages/webhooks/thread-created",
+              "pages/webhooks/thread-status-transitioned",
+              "pages/webhooks/thread-assignment-transitioned",
+              "pages/webhooks/email-received",
+              "pages/webhooks/email-sent",
+              "pages/webhooks/thread-labels-changed",
+              "pages/webhooks/customer-created",
+              "pages/webhooks/customer-updated",
+              "pages/webhooks/customer-deleted",
+              "pages/webhooks/customer-group-membership-changed",
+              "pages/webhooks/thread-priority-changed"
+            ]
+          },
+          {
+            "group": "UI Components",
+            "pages": [
+              "pages/ui-components",
+              "pages/ui-components/badge",
+              "pages/ui-components/container",
+              "pages/ui-components/copy-button",
+              "pages/ui-components/divider",
+              "pages/ui-components/link-button",
+              "pages/ui-components/plain-text",
+              "pages/ui-components/row",
+              "pages/ui-components/spacer",
+              "pages/ui-components/text"
+            ]
+          },
+          "pages/attachments",
+          "pages/security",
+          "pages/migrate-to-threads"
+        ]
+      }
+    ],
+    "footerSocials":
+      {
+          "twitter": "https://twitter.com/plainsupport",
+          "linkedin": "https://www.linkedin.com/company/plainsupport"
+      }
+  }

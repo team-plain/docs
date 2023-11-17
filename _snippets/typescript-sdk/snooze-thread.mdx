@@ -1,0 +1,19 @@
+```tsx
+import { PlainClient } from '@team-plain/typescript-sdk';
+
+const client = new PlainClient({
+  apiKey: 'XXX',
+});
+
+const res = await client.snoozeThread({
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
+  durationSeconds: 5 * 24 * 60 * 60, // 5 days
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  // The full thread is returned as res.data
+  console.log(`Thread snoozed (${res.data.id}`);
+}
+```
