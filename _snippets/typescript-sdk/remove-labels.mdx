@@ -3,7 +3,9 @@ import { PlainClient } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
-const res = await client.removeLabels({ labelIds: ['l_01HD428Y1TREH5KTXP019K6FPK'] });
+const res = await client.removeLabels({
+  labelIds: ['l_01HD428Y1TREH5KTXP019K6FPK'],
+});
 
 if (res.error) {
   console.error(res.error);

@@ -1,5 +1,5 @@
 ---
-title: "Authentication"
+title: 'Authentication'
 description: "To make API calls you need an API key. To create an API key you'll first need to create a Machine User."
 ---
 
@@ -13,6 +13,7 @@ Machine Users can have multiple API Keys to make it easy to rotate keys. Every A
 
     - **Name:** This is just visible to you and could indicate the usage e.g. "Autoresponder"
     - **Public name:** This is the name visible to customers (if the Machine User interacts with customers) e.g. "Mr Robot"
+
   </Step>
   <Step title="Create an API Key">
 Click "Add API Key" and select the permissions you need. When making API calls, if you have insufficient permissions, the error should tell you which permissions you need.
@@ -20,6 +21,7 @@ Click "Add API Key" and select the permissions you need. When making API calls, 
 The relevant documentation will tell you which permissions are required for each feature.
 
 Once you've made an API key you should copy it and put it somewhere safe, as you will not be able to see it again once you navigate away.
+
   </Step>
   <Step title="Go build things 🚀">
 That's it! Now that you have an API key you can use this with our SDKs or within any API call as a header:
@@ -27,5 +29,6 @@ That's it! Now that you have an API key you can use this with our SDKs or within
 ```text
 Authorization: Bearer plainApiKey_xxx
 ```
+
   </Step>
 </Steps>

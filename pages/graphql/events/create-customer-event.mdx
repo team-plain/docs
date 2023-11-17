@@ -1,9 +1,10 @@
 ---
-title: "Create a customer event"
+title: 'Create a customer event'
 ---
 
 <Warning>
-  This API is being actively developed and is not yet ready for production usage. If you are interested in using events please get in touch with us at [help@plain.com](mailto:help@plain.com)
+  This API is being actively developed and is not yet ready for production usage. If you are
+  interested in using events please get in touch with us at [help@plain.com](mailto:help@plain.com)
 </Warning>
 
 To create an event you need a customer ID.
@@ -12,9 +13,7 @@ You can get this by [upserting a customer](/pages/graphql/customers/upsert) in P
 
 In this example we'll be creating the following event:
 
-<Frame>
-  ![Example event](/public/images/events/events-example.png)
-</Frame>
+<Frame>![Example event](/public/images/events/events-example.png)</Frame>
 
 <Tabs>
   <Tab title="Typescript SDK">
@@ -25,26 +24,26 @@ In this example we'll be creating the following event:
 
     ```typescript
     import { PlainClient, uiComponent } from '@team-plain/typescript-sdk';
-    
+
     const client = new PlainClient({
       apiKey: 'XXX',
       debug: true,
     });
-    
+
     const res = await client.createCustomerEvent({
       title: 'API key generated',
-    
+
       customerIdentifier: {
         // You can use the email:
         email: 'jane@acme.com',
-    
+
         // ...or if you set external id on customers:
         // externalId: 'YOUR_ID',
-    
+
         // ...or you can use the customer's id in Plain:
         // customerId: 'c_123'
       },
-    
+
       components: [
         uiComponent.text({
           text: 'New API key was added with the fingerprint **3b7896975ee9fd15eeb7** with 4 associated roles.',
@@ -57,18 +56,18 @@ In this example we'll be creating the following event:
           url: 'https://admin.your-app.com',
         }),
       ],
-    
+
       // Optional - if provided, this will ensure that this event can only
       // be created once and fail on the second time. This external id acts
       // as an idempotency key while also letting you correlate an event to
       // something your systems.
       externalId: 'XXX',
-    
+
       // Optional - if provided then the event will only be shown
       // in a single thread vs all threads from a customer
       threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
     });
-    
+
     if (res.error) {
       console.error(res.error);
     } else {
@@ -120,87 +119,88 @@ In this example we'll be creating the following event:
       }
     }
     ```
+
   </Tab>
   <Tab title="GraphQL">
     For this you'll need an API key with the following permissions:
     - `customerEvent:create`
     - `customerEvent:read`
 
-  ```graphql Mutation
-  mutation createCustomerEvent($input: CreateCustomerEventInput!) {
-    createCustomerEvent(input: $input) {
-      customerEvent {
+```graphql Mutation
+mutation createCustomerEvent($input: CreateCustomerEventInput!) {
+  createCustomerEvent(input: $input) {
+    customerEvent {
+      __typename
+      id
+      title
+      createdAt {
         __typename
-        id
-        title
-        createdAt {
-          __typename
-          iso8601
-          unixTimestamp
-        }
+        iso8601
+        unixTimestamp
       }
-      error {
-        __typename
+    }
+    error {
+      __typename
+      message
+      type
+      code
+      fields {
+        field
         message
         type
-        code
-        fields {
-          field
-          message
-          type
-        }
       }
     }
   }
-  ```
+}
+```
 
-  ```json Variables
-  {
-    "input": {
-      "title": "API key generated",
-  
-      "customerIdentifier": {
-        // You can use the email:
-        "email": "jane@acme.com"
-  
-        // ...or if you set external id on customers:
-        // externalId: 'YOUR_ID',
-  
-        // ...or you can use the customer's id in Plain:
-        // customerId: 'c_123'
-      },
-  
-      "components": [
-        {
-          "componentText": {
-            "text": "New API key was added with the fingerprint **3b7896975ee9fd15eeb7** with 4 associated roles."
-          }
-        },
-        {
-          "componentSpacer": {
-            "spacerSize": "M"
-          }
-        },
-        {
-          "componentLinkButton": {
-            "linkButtonLabel": "View in admin",
-            "linkButtonUrl": "https://admin.your-app.com"
-          }
+```json Variables
+{
+  "input": {
+    "title": "API key generated",
+
+    "customerIdentifier": {
+      // You can use the email:
+      "email": "jane@acme.com"
+
+      // ...or if you set external id on customers:
+      // externalId: 'YOUR_ID',
+
+      // ...or you can use the customer's id in Plain:
+      // customerId: 'c_123'
+    },
+
+    "components": [
+      {
+        "componentText": {
+          "text": "New API key was added with the fingerprint **3b7896975ee9fd15eeb7** with 4 associated roles."
         }
-      ],
-  
-      // Optional - if provided, this will ensure that this event can only
-      // be created once and fail on the second time. This external id acts
-      // as an idempotency key while also letting you correlate an event to
-      // something your systems.
-      "externalId": "XXX",
-  
-      // Optional - if provided then the event will only be shown
-      // in a single thread vs all threads from a customer
-      "threadId": "th_01HB924RWAW8H3Q8KZDFWYBJHZ"
-    }
+      },
+      {
+        "componentSpacer": {
+          "spacerSize": "M"
+        }
+      },
+      {
+        "componentLinkButton": {
+          "linkButtonLabel": "View in admin",
+          "linkButtonUrl": "https://admin.your-app.com"
+        }
+      }
+    ],
+
+    // Optional - if provided, this will ensure that this event can only
+    // be created once and fail on the second time. This external id acts
+    // as an idempotency key while also letting you correlate an event to
+    // something your systems.
+    "externalId": "XXX",
+
+    // Optional - if provided then the event will only be shown
+    // in a single thread vs all threads from a customer
+    "threadId": "th_01HB924RWAW8H3Q8KZDFWYBJHZ"
   }
-  ```
+}
+```
 
   </Tab>
 </Tabs>

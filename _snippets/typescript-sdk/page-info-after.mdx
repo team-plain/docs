@@ -11,6 +11,9 @@ if (firstPage.error) {
   console.error(firstPage.error);
 } else {
   const { pageInfo } = firstPage.data;
-  const secondPage = await client.getCustomers({ after: pageInfo.endCursor, first: 50 });
+  const secondPage = await client.getCustomers({
+    after: pageInfo.endCursor,
+    first: 50,
+  });
 }
 ```

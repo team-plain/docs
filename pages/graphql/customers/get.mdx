@@ -1,5 +1,5 @@
 ---
-title: "Fetch customers"
+title: 'Fetch customers'
 ---
 
 We provide a number of methods for fetching customers:
@@ -40,6 +40,7 @@ if (res.error) {
     </Tab>
 
     <Tab title="GraphQL">
+
 ```graphql Query
 query getCustomers($cursor: String!) {
   customers(
@@ -79,6 +80,7 @@ query getCustomers($cursor: String!) {
   "cursor": "eyJjdXN0b21lcnMuZnVsbF9uYW1lIjoiQWlkYSBTY2hpbm5lciIsImN1c3RvbWVycy5pZCI6ImNfMDFHMThFU01TWkdUWTQwU1pITk03M0hBQkIifQ=="
 }
 ```
+
     </Tab>
 
 </Tabs>
@@ -105,6 +107,7 @@ if (res.error) {
     </Tab>
 
     <Tab title="GraphQL">
+
 ```graphql Query
 query getCustomerById($customerId: ID!) {
   customer(customerId: $customerId) {
@@ -128,6 +131,7 @@ query getCustomerById($customerId: ID!) {
   "customerId": "c_01H14DFQ4PDYBH398J1E99TWSS"
 }
 ```
+
     </Tab>
 
 </Tabs>
@@ -154,6 +158,7 @@ if (res.error) {
     </Tab>
 
     <Tab title="GraphQL">
+
 ```graphql Query
 query getCustomerByEmail($email: String!) {
   customerByEmail(email: $email) {
@@ -177,6 +182,7 @@ query getCustomerByEmail($email: String!) {
   "email": "bob@example.com"
 }
 ```
+
     </Tab>
 
 </Tabs>

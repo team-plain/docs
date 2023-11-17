@@ -1,6 +1,6 @@
 ---
-title: "Error handling"
-description: "GraphQL queries and mutations require different error handling."
+title: 'Error handling'
+description: 'GraphQL queries and mutations require different error handling.'
 ---
 
 This is because we expect:
@@ -33,7 +33,7 @@ one for the result and one for the error. If the error is returned then the muta
 type Example {
   data: String!
 }
- 
+
 type ExampleOutput {
   # example is the result of the mutation, is only returned if the mutation succeeded
   example: Example
@@ -68,10 +68,10 @@ This is how you can access the error when using the SDK:
 
 ```typescript
 import { PlainClient } from '../client';
- 
+
 export async function createCustomer() {
   const client = new PlainClient({ apiKey: 'XXX' });
- 
+
   const res = await client.upsertCustomer({
     identifier: {
       emailAddress: 'jane@gmail.com',
@@ -85,12 +85,11 @@ export async function createCustomer() {
     },
     onUpdate: {},
   });
- 
+
   if (res.error) {
     console.error(res.error);
   } else {
     console.log(`Created customer with id=${res.data.customer.id}`);
   }
 }
-
 ```

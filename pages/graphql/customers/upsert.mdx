@@ -1,6 +1,6 @@
 ---
-title: "Upserting customers"
-description: "Creating and updating customers is handled via a single API called `upsertCustomer`. You will find this name in both our API and our SDKs."
+title: 'Upserting customers'
+description: 'Creating and updating customers is handled via a single API called `upsertCustomer`. You will find this name in both our API and our SDKs.'
 ---
 
 When you upsert a customer, you define:
@@ -30,11 +30,12 @@ This will:
 <Tabs>
 
     <Tab title="Typescript SDK">
+
 ```typescript
 import { PlainClient } from '@team-plain/typescript-sdk';
- 
+
 const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
- 
+
 const res = await client.upsertCustomer({
   identifier: {
     emailAddress: 'donald@example.com',
@@ -48,12 +49,12 @@ const res = await client.upsertCustomer({
       email: 'donald@example.com',
       isVerified: true,
     },
- 
+
     // This is the id of the customer in your own backend.
     // Filling this out makes it easy to link customers in Plain
     // back to customer in your own systems.
     externalId: 'c_123',
- 
+
     // This is optional but if you want to put a customer into a group
     // on creation, this is how you do it.
     customerGroupIdentifiers: [
@@ -81,7 +82,7 @@ const res = await client.upsertCustomer({
     },
   },
 });
- 
+
 if (res.error) {
   console.error(res.error);
 } else {
@@ -100,7 +101,11 @@ if (res.error) {
     "fullName": "Donald Duck",
     "shortName": "Donald",
     "externalId": "c_123",
-    "email": { "email": "donald@example.com", "isVerified": false, "verifiedAt": null },
+    "email": {
+      "email": "donald@example.com",
+      "isVerified": false,
+      "verifiedAt": null
+    },
     "status": "IDLE",
     "statusChangedAt": {
       "__typename": "DateTime",
@@ -128,6 +133,7 @@ if (res.error) {
   }
 }
 ```
+
     </Tab>
 
     <Tab title="GraphQL">
@@ -244,6 +250,7 @@ mutation upsertCustomer($input: UpsertCustomerInput!) {
   }
 }
 ```
+
     </Tab>
 
 </Tabs>
