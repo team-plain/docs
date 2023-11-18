@@ -1,6 +1,6 @@
 ---
-title: 'File Attachments'
-description: "When using Plain's API to send emails or [create threads](/graphql/threads/create), you can add file attachments."
+title: 'Attachments'
+description: 'How to upload attachments programatically for messages and events in Plain.'
 ---
 
 This page outlines how to upload attachments programatically.
@@ -24,25 +24,21 @@ To try this, you will need an [API key](/graphql/authentication/) with the follo
     - `c_XXXXXXXXXXXXXXXXXXXXXXXXXX` is the customer id you are uploading the attachment for. **Remember to replace this!**
 
     <Tabs>
-        <Tab title="Typescript SDK">
+      <Tab title="Typescript SDK">
 
-<Snippet file="typescript-sdk/create-attachment-url.mdx" />
-
-            Which would console log something like this:
-
-<Snippet file="typescript-sdk/create-attachment-url-response.mdx" />
-
+        <Snippet file="typescript-sdk/create-attachment-url.mdx" />
+          Which would console log something like this:
+          <Snippet file="typescript-sdk/create-attachment-url-response.mdx" />
         </Tab>
 
         <Tab title="GraphQL">
-            The GraphQL mutation to create an attachment upload URL is the following:
-
-<Snippet file="graphql/create-attachment-url.mdx" />
-
+          The GraphQL mutation to create an attachment upload URL is the following:
+          <Snippet file="graphql/create-attachment-url.mdx" />
         </Tab>
     </Tabs>
 
   </Step>
+  
   <Step title="Uploading the attachment">
     In the `AttachmentUploadUrl` we created in the previous step we get back 2 fields which are needed to actually upload our attachment:
 
@@ -54,19 +50,16 @@ To try this, you will need an [API key](/graphql/authentication/) with the follo
     Here is some example code showing how you would do this in the Browser and from a Node server:
 
     <Tabs>
-        <Tab title="Browser">
-
-<Snippet file="attachments/upload-attachment-browser.mdx" />
-
-        </Tab>
-        <Tab title="Node">
-
-<Snippet file="attachments/upload-attachment-node.mdx" />
-
-        </Tab>
+      <Tab title="Browser">
+        <Snippet file="attachments/upload-attachment-browser.mdx" />
+      </Tab>
+      <Tab title="Node">
+        <Snippet file="attachments/upload-attachment-node.mdx" />
+      </Tab>
     </Tabs>
 
   </Step>
+  
 </Steps>
 
 ## Limitations

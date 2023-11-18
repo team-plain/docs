@@ -1,0 +1,18 @@
+/* Global font weight adjustments */
+.font-extrabold {
+  font-weight: 600;
+}
+
+.font-semibold {
+  font-weight: 500;
+}
+
+/* By default titles have tight leading, this removes this. */
+.tracking-tight {
+  letter-spacing: 0;
+}
+
+/* Links that are in the content of the page */
+.prose :where(a):not(:where([class~='not-prose'] *)) {
+  font-weight: 500;
+}
