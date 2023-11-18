@@ -77,15 +77,7 @@ Plain will make the following request to your backend:
 
 Example request body:
 
-```json
-{
-  "cardKeys": ["plan-details", "subscription-status"],
-  "customer": {
-    "email": "alex@grocery.co",
-    "externalId": "your_user_id_795BFCD5-130F-4E72-BD46-14F717BE0830"
-  }
-}
-```
+<Snippet file="customer-cards/customer-cards-request.mdx" />
 
 ### Request deduplication
 
@@ -133,52 +125,11 @@ The response body must be a JSON object with:
 
 Example response body for a card cached for 1 hour:
 
-```json
-{
-  "cards": [
-    {
-      "key": "plan-details",
-      "timeToLiveSeconds": 86400,
-      "components": [
-        {
-          "componentRow": {
-            "rowMainContent": [
-              {
-                "componentText": {
-                  "text": "Plan",
-                  "textColor": "MUTED",
-                  "textSize": "M"
-                }
-              }
-            ],
-            "rowAsideContent": [
-              {
-                "componentBadge": {
-                  "badgeLabel": "Starter",
-                  "badgeColor": "YELLOW"
-                }
-              }
-            ]
-          }
-        }
-      ]
-    }
-  ]
-}
-```
+<Snippet file="customer-cards/customer-cards-response.mdx" />
 
 Example response body for a card that has no data and should not be displayed and TTL omitted:
 
-```json
-{
-  "cards": [
-    {
-      "key": "plan-details",
-      "components": null
-    }
-  ]
-}
-```
+<Snippet file="customer-cards/customer-cards-no-display-response.mdx" />
 
 ## Retry strategy
 

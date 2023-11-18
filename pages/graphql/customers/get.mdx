@@ -20,67 +20,11 @@ This is a very flexible endpoint which supports a variety of options for filteri
 
 <Tabs items={[ 'Typescript SDK', 'GraphQL']}>
     <Tab title="Typescript SDK">
-```typescript
-const client = new PlainClient({
-  apiKey: 'XXX',
-});
- 
-const res = await client.getCustomers({
-  first: 50,
-  filters: { isMarkedAsSpam: false },
-  sortBy: { field: CustomersSortField.FullName, direction: SortDirection.Asc },
-});
- 
-if (res.error) {
-  console.error(res.error);
-} else {
-  console.log(res.data);
-}
-```
+      <Snippet file="typescript-sdk/get-customers.mdx" />
     </Tab>
 
     <Tab title="GraphQL">
-
-```graphql Query
-query getCustomers($cursor: String!) {
-  customers(
-    after: $cursor
-    first: 50
-    filters: { isMarkedAsSpam: false }
-    sortBy: { field: FULL_NAME, direction: ASC }
-  ) {
-    edges {
-      node {
-        id
-        fullName
-        shortName
-        email {
-          email
-          isVerified
-        }
-        externalId
-        markedAsSpamAt {
-          iso8601
-        }
-      }
-    }
-    totalCount
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-  }
-}
-```
-
-```json Variables
-{
-  "cursor": "eyJjdXN0b21lcnMuZnVsbF9uYW1lIjoiQWlkYSBTY2hpbm5lciIsImN1c3RvbWVycy5pZCI6ImNfMDFHMThFU01TWkdUWTQwU1pITk03M0hBQkIifQ=="
-}
-```
-
+      <Snippet file="graphql/get-customers.mdx" />
     </Tab>
 
 </Tabs>
@@ -90,48 +34,12 @@ query getCustomers($cursor: String!) {
 If you already have the ID of a customer from within Plain or one of our other endpoints you can fetch more details about them using `getCustomerById` in our SDKs or the `customer` query in GraphQL.
 
 <Tabs>
-    <Tab title="Typescript SDK">
-```typescript
-const client = new PlainClient({
-  apiKey: 'XXX',
-});
- 
-const res = await client.getCustomerById({ customerId: 'c_01H14DFQ4PDYBH398J1E99TWSS' });
- 
-if (res.error) {
-  console.error(res.error);
-} else {
-  console.log(res.data);
-}
-```
+   <Tab title="Typescript SDK">
+      <Snippet file="typescript-sdk/get-customer-by-id.mdx" />
     </Tab>
 
     <Tab title="GraphQL">
-
-```graphql Query
-query getCustomerById($customerId: ID!) {
-  customer(customerId: $customerId) {
-    id
-    fullName
-    shortName
-    email {
-      email
-      isVerified
-    }
-    externalId
-    markedAsSpamAt {
-      iso8601
-    }
-  }
-}
-```
-
-```json Variables
-{
-  "customerId": "c_01H14DFQ4PDYBH398J1E99TWSS"
-}
-```
-
+      <Snippet file="graphql/get-customer-by-id.mdx" />
     </Tab>
 
 </Tabs>
@@ -141,48 +49,12 @@ query getCustomerById($customerId: ID!) {
 To fetch a customer by email you can use `getCustomerByEmail` in our SDKs or the `customerByEmail` query in GraphQL.
 
 <Tabs>
-    <Tab title="Typescript SDK'">
-```typescript 
-const client = new PlainClient({
-  apiKey: 'XXX',
-});
- 
-const res = await client.getCustomerByEmail({ email: 'bob@example.com' });
- 
-if (res.error) {
-  console.error(res.error);
-} else {
-  console.log(res.data);
-}
-```
+    <Tab title="Typescript SDK">
+      <Snippet file="typescript-sdk/get-customer-by-email.mdx" />
     </Tab>
 
     <Tab title="GraphQL">
-
-```graphql Query
-query getCustomerByEmail($email: String!) {
-  customerByEmail(email: $email) {
-    id
-    fullName
-    shortName
-    email {
-      email
-      isVerified
-    }
-    externalId
-    markedAsSpamAt {
-      iso8601
-    }
-  }
-}
-```
-
-```json Variables
-{
-  "email": "bob@example.com"
-}
-```
-
+      <Snippet file="graphql/get-customer-by-email.mdx" />
     </Tab>
 
 </Tabs>

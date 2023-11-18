@@ -9,45 +9,12 @@ This operation requires the following permissions:
 
 <Tabs>
     <Tab title="Typescript SDK">
-```typescript
-import { PlainClient } from '@team-plain/typescript-sdk';
- 
-const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
- 
-const res = await client.removeLabels({ labelIds: ['l_01HD428Y1TREH5KTXP019K6FPK'] });
- 
-if (res.error) {
-  console.error(res.error);
-} else {
-  console.log(res.data);
-}
-```
-
-        A successful execution of this script would output `null`.
+      <Snippet file="typescript-sdk/remove-labels.mdx" />
+      Which if successful will console log `null`.
     </Tab>
 
     <Tab title="GraphQL">
-
-```graphql Mutation
-mutation removeLabels($input: RemoveLabelsInput!) {
-  removeLabels(input: $input) {
-    error {
-      message
-      type
-      code
-    }
-  }
-}
-```
-
-```json Variables
-{
-  "input": {
-    "labelIds": ["l_01HB8BTNTZ58730MX8H5VMKFD5", "l_01HB8BTNKSCF1FK5ETFVRSDC6G"]
-  }
-}
-```
-
+      <Snippet file="graphql/remove-labels.mdx" />
     </Tab>
 
 </Tabs>

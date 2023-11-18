@@ -24,39 +24,12 @@ For example:
 
 <Tabs>
     <Tab title="Typescript SDK">
-```typescript
-import { uiComponent } from '@team-plain/typescript-sdk';
- 
-uiComponent.row({
-  mainContent: [uiComponent.text({ text: 'Membership' })],
-  asideContent: [uiComponent.badge({ label: 'Premium plan', color: 'BLUE' })],
-});
-```
+<Snippet file="typescript-sdk/ui-row.mdx" />
     </Tab>
 
     <Tab title="GraphQL">
 
-```json
-{
-  "componentRow": {
-    "rowMainContent": [
-      {
-        "componentText": {
-          "text": "Membership"
-        }
-      }
-    ],
-    "rowAsideContent": [
-      {
-        "componentBadge": {
-          "badgeLabel": "Premium plan",
-          "badgeColor": "BLUE"
-        }
-      }
-    ]
-  }
-}
-```
+<Snippet file="graphql/ui-row.mdx" />
 
     </Tab>
 

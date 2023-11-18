@@ -17,35 +17,11 @@ description: 'Customer Cards are a powerful feature in Plain that let you show i
 
 Based on your Customer Card settings, Plain will send a request to your API like the below example:
 
-```json
-{
-  "cardKeys": ["plan-details"],
-  "customer": {
-    "email": "alex@grocery.co",
-    "externalId": "your_user_id_795BFCD5-130F-4E72-BD46-14F717BE0830"
-  }
-}
-```
+<Snippet file="customer-cards/customer-cards-basic-request.mdx" />
 
 Your API should then reply with a list of cards matching the requested keys where each card contains the components you want to display:
 
-```json
-{
-  "cards": [
-    {
-      "key": "plan-details",
-      "timeToLiveSeconds": 86400,
-      "components": [
-        {
-          "componentText": {
-            "text": "Enterprise Tier"
-          }
-        }
-      ]
-    }
-  ]
-}
-```
+<Snippet file="customer-cards/customer-cards-basic-response.mdx" />
 
 ## UI Components
 

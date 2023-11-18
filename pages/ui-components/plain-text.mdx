@@ -15,83 +15,12 @@ For example:
 
 <Tabs>
     <Tab title="Typescript SDK">
-```typescript
-import { uiComponent } from '@team-plain/typescript-sdk';
- 
-[
-  uiComponent.plainText({ text: 'Small text', size: 'S' }),
- 
-  uiComponent.plainText({ text: 'Medium text', size: 'M' }),
- 
-  uiComponent.plainText({ text: 'Large text', size: 'L' }),
- 
-  uiComponent.plainText({ text: 'Normal text', color: 'NORMAL' }),
- 
-  uiComponent.plainText({ text: 'Muted text', color: 'MUTED' }),
- 
-  uiComponent.plainText({ text: 'Success text', color: 'SUCCESS' }),
- 
-  uiComponent.plainText({ text: 'Warning text', color: 'WARNING' }),
- 
-  uiComponent.plainText({ text: 'Error text', color: 'ERROR' }),
-];
-```
+<Snippet file="typescript-sdk/ui-plain-text.mdx" />
     </Tab>
 
     <Tab title="GraphQL">
 
-```json
-[
-  {
-    "componentPlainText": {
-      "plainText": "Small text",
-      "plainTextSize": "S"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Medium text",
-      "plainTextSize": "M"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Large text",
-      "plainTextSize": "L"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Normal text",
-      "plainTextColor": "NORMAL"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Muted text",
-      "plainTextColor": "MUTED"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Success text",
-      "plainTextColor": "SUCCESS"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Warning text",
-      "plainTextColor": "WARNING"
-    }
-  },
-  {
-    "componentPlainText": {
-      "plainText": "Error text",
-      "plainTextColor": "ERROR"
-    }
-  }
-]
-```
+<Snippet file="graphql/ui-plain-text.mdx" />
 
     </Tab>
 

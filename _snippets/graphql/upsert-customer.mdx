@@ -1,4 +1,4 @@
-```graphql filename="Mutation"
+```graphql Mutation
 mutation upsertCustomer($input: UpsertCustomerInput!) {
   upsertCustomer(input: $input) {
     result
@@ -37,7 +37,7 @@ mutation upsertCustomer($input: UpsertCustomerInput!) {
 }
 ```
 
-```json filename="Variables"
+```json Variables
 {
   "input": {
     "identifier": {
@@ -75,7 +75,7 @@ mutation upsertCustomer($input: UpsertCustomerInput!) {
 }
 ```
 
-```json filename="Response"
+```json Response
 {
   "data": {
     "upsertCustomer": {

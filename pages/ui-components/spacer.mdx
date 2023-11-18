@@ -12,38 +12,12 @@ For example:
 
 <Tabs>
     <Tab title="Typescript SDK">
-```typescript
-import { uiComponent } from '@team-plain/typescript-sdk';
- 
-[
-  uiComponent.text({ text: 'Content before an XS spacer' }),
-  uiComponent.spacer({ spacingSize: 'XS' }),
-  uiComponent.text({ text: 'Content after spacer' }),
-];
-```
+<Snippet file="typescript-sdk/ui-spacer.mdx" />
     </Tab>
 
     <Tab title="GraphQL">
 
-```json
-[
-  {
-    "componentText": {
-      "text": "Content before an XS spacer"
-    }
-  },
-  {
-    "componentSpacer": {
-      "spacerSize": "XS"
-    }
-  },
-  {
-    "componentText": {
-      "text": "Content after spacer"
-    }
-  }
-]
-```
+<Snippet file="graphql/ui-spacer.mdx" />
 
     </Tab>
 

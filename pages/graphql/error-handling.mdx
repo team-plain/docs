@@ -29,7 +29,7 @@ The list of error extensions that can be returned by queries:
 All mutations return with an `Output` type that follow a consistent pattern of having two optional fields,
 one for the result and one for the error. If the error is returned then the mutation failed.
 
-```typescript
+```tsx
 type Example {
   data: String!
 }
@@ -66,7 +66,7 @@ You can see the [full error types in the code of the Typescript SDK](https://git
 
 This is how you can access the error when using the SDK:
 
-```typescript
+```tsx
 import { PlainClient } from '../client';
 
 export async function createCustomer() {

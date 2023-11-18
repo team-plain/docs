@@ -1,4 +1,4 @@
-```graphql filename="Query"
+```graphql Query
 query getCustomers($cursor: String!) {
   customers(
     after: $cursor
@@ -32,7 +32,7 @@ query getCustomers($cursor: String!) {
 }
 ```
 
-```json filename="Variables"
+```json Variables
 {
   "cursor": "eyJjdXN0b21lcnMuZnVsbF9uYW1lIjoiQWlkYSBTY2hpbm5lciIsImN1c3RvbWVycy5pZCI6ImNfMDFHMThFU01TWkdUWTQwU1pITk03M0hBQkIifQ=="
 }

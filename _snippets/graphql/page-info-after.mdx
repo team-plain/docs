@@ -1,4 +1,4 @@
-```graphql filename="Second page"
+```graphql Query
 query getCustomers($cursor: String!) {
   customers(after: $cursor, first: 50) {
     edges {
@@ -14,5 +14,11 @@ query getCustomers($cursor: String!) {
       endCursor
     }
   }
+}
+```
+
+```js Variables
+{
+  after: 'eyJjdXN0b21lcnIRzlIODVORzE5SFdQIn0=';
 }
 ```

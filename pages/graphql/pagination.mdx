@@ -14,64 +14,18 @@ Endpoints which return paginated results will return a `pageInfo` object along w
 
 <Tabs>
     <Tab title="Typescript SDK">
-```typescript
-import { PlainClient } from '../client';
- 
-const client = new PlainClient({
-  apiKey: 'XXX',
-});
- 
-const firstPage = client.getCustomers({});
- 
-if (firstPage.error) {
-  console.error(firstPage.error);
-} else {
-  const { pageInfo } = firstPage.data;
-  const secondPage = await client.getCustomers({ after: pageInfo.endCursor, first: 50 });
-}
-```
+      <Snippet file="typescript-sdk/page-info-after.mdx" />
 
-        Notice how we use the cursor information from the first page to fetch the second page. The returned `pageInfo` looks as follows:
+      Notice how we use the cursor information from the first page to fetch the second page. The returned `pageInfo` looks as follows:
 
-```json
-{
-  "customers": [
-    // Customers would be here, elided for clarity
-  ],
-  "totalCount": 1047,
-  "pageInfo": {
-    "hasPreviousPage": false,
-    "hasNextPage": true,
-    "startCursor": "eyJjdXN0b21lcnMuZnVsbF9uYW1lIjoiQWlzaGEgSGF5ZXMiLCJjdXN0b21lcnMuaWQiOiJjXzAxRllFWjlBRTk2S1c4SFJHSDhWVEZKU1JIIn0=",
-    "endCursor": "eyJjdXN0b21lcnMuZnVsbF9uYW1lIjoiQWxsYW4gQnJhdW4iLCJjdXN0b21lcnMuaWQiOiJjXzAxSDFSQkRBV1BFQlpIRzlIODVORzE5SFdQIn0="
-  }
-}
-```
+      <Snippet file="typescript-sdk/page-info-response.mdx" />
 
     </Tab>
 
     <Tab title="GraphQL">
-        This will fetch a subsequent page of 50 entries by passing in the `endCursor` from an initial query.
+      This will fetch a subsequent page of 50 entries by passing in the `endCursor` from an initial query.
 
-```grapql Second page
-query getCustomers($cursor: String!) {
-  customers(after: $cursor, first: 50) {
-    edges {
-      node {
-        fullName
-      }
-    }
-    totalCount
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-  }
-}
-```
-
+      <Snippet file="graphql/page-info-after.mdx" />
     </Tab>
 
 </Tabs>

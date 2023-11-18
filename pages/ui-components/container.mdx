@@ -24,30 +24,12 @@ For example:
 
 <Tabs>
     <Tab title= "Typescript SDK">
-```typescript
-import { uiComponent } from '@team-plain/typescript-sdk';
- 
-uiComponent.container({
-  content: [uiComponent.text({ text: 'Container content' })],
-});
-```
+<Snippet file="typescript-sdk/ui-container.mdx" />
     </Tab>
 
     <Tab title= "GraphQL">
 
-```json
-{
-  "componentContainer": {
-    "containerContent": [
-      {
-        "componentText": {
-          "text": "Container content"
-        }
-      }
-    ]
-  }
-}
-```
+<Snippet file="graphql/ui-container.mdx" />
 
     </Tab>
 
