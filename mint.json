@@ -7,7 +7,7 @@
   },
   "favicon": "/public/favicon/favicon.png",
   "colors": {
-    "primary": "#004CA4",
+    "primary": "#1349e8",
     "light": "#94a3b8",
     "dark": "#3e7cff"
   },
@@ -23,19 +23,19 @@
   ],
   "anchors": [
     {
-      "name": "API Reference",
-      "icon": "code",
-      "url": "docs/api-reference"
+      "name": "Changelog",
+      "icon": "code-commit",
+      "url": "https://plain.com/changelog"
+    },
+    {
+      "name": "Blog",
+      "icon": "quote-right",
+      "url": "https://plain.com/blog"
     },
     {
       "name": "Book a demo",
       "icon": "calendar",
-      "url": "https://plain.com/"
-    },
-    {
-      "name": "Email us",
-      "icon": "envelope",
-      "url": "https://mailto:help@plain.com/"
+      "url": "https://cal.com/team/plain/demo"
     }
   ],
   "navigation": [
