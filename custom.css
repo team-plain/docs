@@ -1,3 +1,8 @@
+/* Make logo smaller */
+img[src^='/public/logo'] {
+  height: 22px;
+}
+
 /* Global font weight adjustments */
 .font-extrabold {
   font-weight: 600;
