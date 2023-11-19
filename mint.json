@@ -1,5 +1,9 @@
 {
   "name": "Plain",
+  "modeToggle": {
+    "default": "light",
+    "isHidden": true
+  },
   "logo": {
     "light": "/public/logo/light.png",
     "dark": "/public/logo/dark.png",
@@ -15,6 +19,12 @@
     "name": "Sign in",
     "url": "https://app.plain.com/"
   },
+  "topbarLinks": [
+    {
+      "name": "@plainsupport",
+      "url": "https://twitter.com/plainsupport"
+    }
+  ],
   "tabs": [
     {
       "name": "API Reference",
