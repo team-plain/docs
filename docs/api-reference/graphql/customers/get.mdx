@@ -4,13 +4,15 @@ title: 'Fetch customers'
 
 We provide a number of methods for fetching customers:
 
-1. [Get customers](#get-customers)
+1. [Get customers](#get-customers) (To fetch more than one customer at a time)
 1. [Get customer by ID](#get-customer-by-id)
 1. [Get customer by email](#get-customer-by-email)
 
 All of these endpoints require the following permissions:
 
 - `customer:read`
+- `customerGroup:read` (Typescript SDK only)
+- `customerGroupMembership:read` (Typescript SDK only)
 
 ## Get customers
 
@@ -19,14 +21,13 @@ Our API allows you to fetch customers as a collection using `getCustomers` in ou
 This is a very flexible endpoint which supports a variety of options for filtering and sorting, for full details try our [API explorer](https://app.plain.com/developer/api-explorer/) or [Typescript SDK](https://github.com/team-plain/typescript-sdk/).
 
 <Tabs items={[ 'Typescript SDK', 'GraphQL']}>
-    <Tab title="Typescript SDK">
-      <Snippet file="typescript-sdk/get-customers.mdx" />
-    </Tab>
+  <Tab title="Typescript SDK">
+    <Snippet file="typescript-sdk/get-customers.mdx" />
+  </Tab>
 
-    <Tab title="GraphQL">
-      <Snippet file="graphql/get-customers.mdx" />
-    </Tab>
-
+  <Tab title="GraphQL">
+    <Snippet file="graphql/get-customers.mdx" />
+  </Tab>
 </Tabs>
 
 ## Get customer by ID
@@ -34,14 +35,13 @@ This is a very flexible endpoint which supports a variety of options for filteri
 If you already have the ID of a customer from within Plain or one of our other endpoints you can fetch more details about them using `getCustomerById` in our SDKs or the `customer` query in GraphQL.
 
 <Tabs>
-   <Tab title="Typescript SDK">
-      <Snippet file="typescript-sdk/get-customer-by-id.mdx" />
-    </Tab>
+  <Tab title="Typescript SDK">
+    <Snippet file="typescript-sdk/get-customer-by-id.mdx" />
+  </Tab>
 
-    <Tab title="GraphQL">
-      <Snippet file="graphql/get-customer-by-id.mdx" />
-    </Tab>
-
+  <Tab title="GraphQL">
+    <Snippet file="graphql/get-customer-by-id.mdx" />
+  </Tab>
 </Tabs>
 
 ## Get customer by email
@@ -49,12 +49,11 @@ If you already have the ID of a customer from within Plain or one of our other e
 To fetch a customer by email you can use `getCustomerByEmail` in our SDKs or the `customerByEmail` query in GraphQL.
 
 <Tabs>
-    <Tab title="Typescript SDK">
-      <Snippet file="typescript-sdk/get-customer-by-email.mdx" />
-    </Tab>
+  <Tab title="Typescript SDK">
+    <Snippet file="typescript-sdk/get-customer-by-email.mdx" />
+  </Tab>
 
-    <Tab title="GraphQL">
-      <Snippet file="graphql/get-customer-by-email.mdx" />
-    </Tab>
-
+  <Tab title="GraphQL">
+    <Snippet file="graphql/get-customer-by-email.mdx" />
+  </Tab>
 </Tabs>

@@ -6,19 +6,10 @@ const client = new PlainClient({
   debug: true,
 });
 
-const res = await client.createCustomerEvent({
+const res = await client.createThreadEvent({
   title: 'API key generated',
 
-  customerIdentifier: {
-    // You can use the email:
-    email: 'jane@acme.com',
-
-    // ...or if you set external id on customers:
-    // externalId: 'YOUR_ID',
-
-    // ...or you can use the customer's id in Plain:
-    // customerId: 'c_01H14DFQ4PDYBH398J1E99TWSS'
-  },
+  threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
 
   components: [
     uiComponent.text({
@@ -37,7 +28,7 @@ const res = await client.createCustomerEvent({
   // be created once and fail on the second time. This external id acts
   // as an idempotency key while also letting you correlate an event to
   // something your systems.
-  externalId: 'XXX',
+  externalId: 'ex-id-1',
 });
 
 if (res.error) {

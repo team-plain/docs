@@ -1,0 +1,42 @@
+---
+title: 'Reply to thread'
+---
+
+You can reply to a thread using the `replyToThread` mutation. The call to this mutation will be successful if:
+
+- the last message in the thread is an email from the customer OR
+- the thread was just created with [`createThread`](/graphql/threads/create)
+
+If it is not possible to reply to this thread, you will get the mutation error code [`cannot_reply_to_thread`](/graphql/error-codes#cannot_reply_to_thread) and a message indicating why.
+
+<Info>
+  Using the `replyToThread` mutation is the recommended way to create a simple auto-responder with
+  Plain. To do it, you should subscribe to the
+  [`thread.thread_created`](/../../webhooks/thread-created) event and use use this mutation whenever
+  you get this event.
+</Info>
+
+<Tabs>
+  <Tab title="Typescript SDK">
+      Only one permission is needed:
+
+      - `thread:reply`
+
+      <Snippet file="typescript-sdk/reply-to-thread.mdx" />
+
+      Where `result.data` is:
+
+      <Snippet file="typescript-sdk/reply-to-thread-response.mdx" />
+
+      </Tab>
+
+  <Tab title="GraphQL">
+    Only one permission is needed:
+
+    - `thread:reply`
+
+    <Snippet file="graphql/reply-to-thread.mdx" />
+
+  </Tab>
+
+</Tabs>

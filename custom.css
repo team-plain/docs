@@ -12,12 +12,27 @@ img[src^='/public/logo'] {
   font-weight: 500;
 }
 
-/* By default titles have tight leading, this removes this. */
+/* By default h2s are very bold, this reduces the font-weight */
+.prose :where(h2):not(:where([class~='not-prose'] *)) {
+  font-weight: 600;
+}
+
+/* Within plain we never want a tighter leading than the default so override this globally. */
 .tracking-tight {
   letter-spacing: 0;
+}
+
+/* Remove tight leading on titles within the content */
+.prose :where(h1, h2, h3):not(:where([class~='not-prose'] *)) {
+  letter-spacing: auto;
 }
 
 /* Links that are in the content of the page */
 .prose :where(a):not(:where([class~='not-prose'] *)) {
   font-weight: 500;
+}
+
+/* Prevent layout shift from scrollbar appearing */
+html {
+  overflow-y: scroll;
 }

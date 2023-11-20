@@ -1,0 +1,21 @@
+```graphql Mutation
+mutation replyToThread($input: ReplyToThreadInput!) {
+  replyToThread(input: $input) {
+    error {
+      message
+      type
+      code
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423",
+    "textContent": "The plain text version of your reply goes here.",
+    "markdownContent": "The markdown **version** of your _reply_ goes here."
+  }
+}
+```

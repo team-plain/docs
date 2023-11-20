@@ -82,7 +82,8 @@
           "group": "Events",
           "pages": [
             "docs/api-reference/graphql/events",
-            "docs/api-reference/graphql/events/create-customer-event"
+            "docs/api-reference/graphql/events/create-customer-event",
+            "docs/api-reference/graphql/events/create-thread-event"
           ]
         },
         {
@@ -97,6 +98,7 @@
           "group": "Messaging",
           "pages": [
             "docs/api-reference/graphql/messaging",
+            "docs/api-reference/graphql/messaging/reply-to-thread",
             "docs/api-reference/graphql/messaging/send-email",
             "docs/api-reference/graphql/messaging/reply-email"
           ]
@@ -120,12 +122,12 @@
       ]
     },
     {
-      "group": "Other APIs",
+      "group": "Reference",
       "pages": [
         {
           "group": "Customer Cards",
           "pages": [
-            "docs/api-reference/customer-cards/introduction",
+            "docs/api-reference/customer-cards",
             "docs/api-reference/customer-cards/documentation",
             "docs/api-reference/customer-cards/playground",
             "docs/api-reference/customer-cards/examples"
@@ -134,24 +136,26 @@
         {
           "group": "Webhooks",
           "pages": [
-            "docs/api-reference/webhooks/introduction",
+            "docs/api-reference/webhooks",
             "docs/api-reference/webhooks/thread-created",
             "docs/api-reference/webhooks/thread-status-transitioned",
             "docs/api-reference/webhooks/thread-assignment-transitioned",
-            "docs/api-reference/webhooks/email-received",
-            "docs/api-reference/webhooks/email-sent",
             "docs/api-reference/webhooks/thread-labels-changed",
+            "docs/api-reference/webhooks/thread-priority-changed",
+            "docs/api-reference/webhooks/thread-note-created",
+            "docs/api-reference/webhooks/thread-email-received",
+            "docs/api-reference/webhooks/thread-email-sent",
+            "docs/api-reference/webhooks/thread-chat-sent",
             "docs/api-reference/webhooks/customer-created",
             "docs/api-reference/webhooks/customer-updated",
             "docs/api-reference/webhooks/customer-deleted",
-            "docs/api-reference/webhooks/customer-group-membership-changed",
-            "docs/api-reference/webhooks/thread-priority-changed"
+            "docs/api-reference/webhooks/customer-group-membership-changed"
           ]
         },
         {
           "group": "UI Components",
           "pages": [
-            "docs/api-reference/ui-components/introduction",
+            "docs/api-reference/ui-components",
             "docs/api-reference/ui-components/badge",
             "docs/api-reference/ui-components/container",
             "docs/api-reference/ui-components/copy-button",

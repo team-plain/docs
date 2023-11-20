@@ -3,7 +3,7 @@ import { PlainClient } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
-client.sendNewEmail({
+const res = await client.sendNewEmail({
   customerId: 'c_01GTC6ZHCMAGR06FMPN9VY5J95',
   threadId: 'th_01HD44FHMCDSSWE38N14FSYV6K',
   subject: 'Your account has a problem',

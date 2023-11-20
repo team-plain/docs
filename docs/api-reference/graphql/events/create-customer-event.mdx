@@ -2,14 +2,15 @@
 title: 'Create a customer event'
 ---
 
-<Warning>
-  This API is being actively developed and is not yet ready for production usage. If you are
-  interested in using events please get in touch with us at [help@plain.com](mailto:help@plain.com)
-</Warning>
+<Info>
+  A customer event will be created in all threads that belong to the provided customer ID. If you
+  want an event to appear in a specific thread use a [thread
+  event](/graphql/events/create-thread-event).
+</Info>
 
 To create an event you need a customer ID.
 
-You can get this by [upserting a customer](/pages/graphql/customers/upsert) in Plain, from data in webhooks or other API calls you made. If you want to test this, press **⌘ + K** on any thread and then "Copy customer ID" to get an ID you can experiment with.
+You can get this by [upserting a customer](/graphql/customers/upsert) in Plain, from data in webhooks or other API calls you made. If you want to test this, press **⌘ + K** on any thread and then "Copy customer ID" to get an ID you can experiment with.
 
 In this example we'll be creating the following event:
 
@@ -22,111 +23,20 @@ In this example we'll be creating the following event:
     - `customerEvent:read`
     - `customer:read`
 
-    ```tsx
-    import { PlainClient, uiComponent } from '@team-plain/typescript-sdk';
+    <Snippet  file="typescript-sdk/create-customer-event.mdx"/>
 
-    const client = new PlainClient({
-      apiKey: 'XXX',
-      debug: true,
-    });
+    Which would console.log:
 
-    const res = await client.createCustomerEvent({
-      title: 'API key generated',
-
-      customerIdentifier: {
-        // You can use the email:
-        email: 'jane@acme.com',
-
-        // ...or if you set external id on customers:
-        // externalId: 'YOUR_ID',
-
-        // ...or you can use the customer's id in Plain:
-        // customerId: 'c_123'
-      },
-
-      components: [
-        uiComponent.text({
-          text: 'New API key was added with the fingerprint **3b7896975ee9fd15eeb7** with 4 associated roles.',
-        }),
-        uiComponent.spacer({
-          size: 'M',
-        }),
-        uiComponent.linkButton({
-          label: 'View in admin',
-          url: 'https://admin.your-app.com',
-        }),
-      ],
-
-      // Optional - if provided, this will ensure that this event can only
-      // be created once and fail on the second time. This external id acts
-      // as an idempotency key while also letting you correlate an event to
-      // something your systems.
-      externalId: 'XXX',
-
-      // Optional - if provided then the event will only be shown
-      // in a single thread vs all threads from a customer
-      threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',
-    });
-
-    if (res.error) {
-      console.error(res.error);
-    } else {
-      console.log(res.data);
-    }
-    ```
-        Which would console.log:
-    ```json
-    {
-      "__typename": "CustomerEvent",
-      "id": "ce_01HB924RWAW8H3Q8KZDFWYBJHZ",
-      "externalId": null,
-      "customer": {
-        "id": "c_01H14DFQ4PDYBH398J1E99TWSS"
-      },
-      "title": "API key generated",
-      "components": [
-        {
-          "__typename": "ComponentText",
-          "text": "New API key was added with the fingerprint **3b7896975ee9fd15eeb7** with 4 associated roles."
-        }
-        {
-          "__typename": "ComponentSpacer",
-          "spacerSize": "M"
-        }
-        {
-          "__typename": "ComponentLinkButton",
-          "linkButtonLabel": "View in admin",
-          "linkButtonUrl": "https://admin.your-app.com"
-        }
-      ],
-      "createdAt": {
-        "__typename": "DateTime",
-        "iso8601": "2023-09-26T15:36:23.690Z",
-        "unixTimestamp": "1695742583690"
-      },
-      "createdBy": {
-        "__typename": "MachineUserActor",
-        "machineUserId": "mu_01HBZM0TZAKAZPJ47NX7X7XMDY"
-      },
-      "updatedAt": {
-        "__typename": "DateTime",
-        "iso8601": "2023-10-05T10:10:04.785Z",
-        "unixTimestamp": "1696500604785"
-      },
-      "updatedBy": {
-        "__typename": "MachineUserActor",
-        "machineUserId": "mu_01HBZM0TZAKAZPJ47NX7X7XMDY"
-      }
-    }
-    ```
+    <Snippet  file="typescript-sdk/create-customer-event-response.mdx"/>
 
   </Tab>
+  
   <Tab title="GraphQL">
     For this you'll need an API key with the following permissions:
     - `customerEvent:create`
     - `customerEvent:read`
 
-<Snippet file="graphql/create-customer-event.mdx" />
+    <Snippet file="graphql/create-customer-event.mdx" />
 
   </Tab>
 </Tabs>

@@ -1,7 +1,9 @@
 ---
 title: 'Upserting customers'
-description: 'Creating and updating customers is handled via a single API called `upsertCustomer`. You will find this name in both our API and our SDKs.'
+description: 'Learn how to create and update customers programatically.'
 ---
+
+Creating and updating customers is handled via a single API called `upsertCustomer`. You will find this name in both our API and our SDKs.
 
 When you upsert a customer, you define:
 
@@ -20,6 +22,8 @@ This operation requires the following permissions:
 
 - `customer:create`
 - `customer:edit`
+- `customerGroup:read` (Typescript SDK only)
+- `customerGroupMembership:read` (Typescript SDK only)
 
 This will:
 

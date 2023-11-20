@@ -2,8 +2,6 @@ import DeleteCustomerTypescriptSDK from '../../../snippets/typescript-sdk/delete
 import DeleteCustomerGraphQL from '../../../snippets/graphql/delete-customer.mdx';
 import { Tab, Tabs } from 'nextra-theme-docs';
 
-# Delete customers
-
 You can delete customers with the `deleteCustomer` API, you will find this name in both our API and our SDKs.
 
 To delete a customer you will need the customer's ID from within Plain. You can get this ID in the UI by going to a thread from that customer and pressing the 'Copy ID' button from the customer details panel on the right, or via our [fetch API](/graphql/customers/get).
@@ -15,12 +13,11 @@ This operation requires the following permissions:
 - `customer:delete`
 
 <Tabs>
-    <Tab title="Typescript SDK">
-      <Snippet file="typescript-sdk/delete-customer.mdx" />
-    </Tab>
+  <Tab title="Typescript SDK">
+    <Snippet file="typescript-sdk/delete-customer.mdx" />
+  </Tab>
 
-    <Tab title="GraphQL">
-      <Snippet file="graphql/delete-customer.mdx" />
-    </Tab>
-
+  <Tab title="GraphQL">
+    <Snippet file="graphql/delete-customer.mdx" />
+  </Tab>
 </Tabs>

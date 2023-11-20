@@ -3,11 +3,10 @@ import { PlainClient } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
-const res = await client.replyToEmail({
-  customerId: 'c_01GTC6ZHCMAGR06FMPN9VY5J95',
-  inReplyToEmailId: 'em_01GM2X8K7D3RZ7ZFGHZ2AYG3SA',
+const res = await client.replyToThread({
+  threadId: 'th_01HD44FHMCDSSWE38N14FSYV6K',
   textContent: 'The plain text version of your reply goes here.',
-  markdownContent: 'The markdown **version** of your _reply_ goes here.',
+  markdownContent: 'The markdown **version** of your reply goes here.',
 });
 
 if (res.error) {
