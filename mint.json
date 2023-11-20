@@ -50,17 +50,42 @@
   ],
   "navigation": [
     {
-      "group": "Overview",
+      "group": "Plain 101",
+      "pages": ["docs/quickstart", "docs/data-model", "docs/security"]
+    },
+    {
+      "group": "Channels",
       "pages": [
-        "docs/introduction",
-        "docs/labels-setup",
-        "docs/linear-integration-setup",
-        "docs/contact-forms-setup"
+        {
+          "group": "Email",
+          "pages": [
+            "docs/email",
+            "docs/email/receiving",
+            "docs/email/sending",
+            "docs/email/alternate-emails"
+          ]
+        },
+        "docs/contact-forms",
+        "docs/slack"
       ]
     },
     {
-      "group": "Adding context",
-      "pages": ["docs/customer-cards-setup", "docs/events-setup", "docs/security"]
+      "group": "Add context",
+      "pages": ["docs/customer-cards", "docs/customer-groups", "docs/events"]
+    },
+    {
+      "group": "Using Plain",
+      "pages": [
+        "docs/notifications",
+        "docs/assignment",
+        "docs/priorities",
+        "docs/labels",
+        "docs/linear",
+        "docs/syntax-highlighting",
+        "docs/reporting",
+        "docs/snippets",
+        "docs/shortcuts"
+      ]
     },
     {
       "group": "GraphQL",
