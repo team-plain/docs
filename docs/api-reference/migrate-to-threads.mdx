@@ -86,11 +86,11 @@ Customers no longer have a status. If you were snoozing or changing the customer
 
 ## Breaking webhook changes
 
-#### `customer.customer_status_transitioned`
+### `customer.customer_status_transitioned`
 
 The customer no longer has a status so this webhook event has been deprecated. Depending on your intentions you may want to swap this out for the [thread status transitioned event](/pages/webhooks/thread-status-transitioned).
 
-#### `timeline.timeline_entry_changed`
+### `timeline.timeline_entry_changed`
 
 This event reported all timeline entry changes and made it very challenging to do even simple things like build an autoresponder. It was far too easy to misunderstand and create faulty integrations.
 
@@ -103,7 +103,7 @@ As a result we're fully deprecating this event and have replaced it with a list 
 - [Thread assignment transitioned](/pages/webhooks/thread-assignment-transitioned)
 - [Thread status transitioned](/pages/webhooks/thread-status-transitioned)
 
-#### `customer.customer_changed`
+### `customer.customer_changed`
 
 This event was deprecated and 'unbundled' into smaller, more specific events:
 

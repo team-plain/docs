@@ -116,9 +116,7 @@
         "docs/api-reference/graphql/error-handling",
         "docs/api-reference/graphql/error-codes",
         "docs/api-reference/graphql/api-explorer",
-        "docs/api-reference/graphql/typescript-sdk",
-
-        "docs/api-reference/migrate-to-threads"
+        "docs/api-reference/graphql/typescript-sdk"
       ]
     },
     {
@@ -169,6 +167,10 @@
         },
         "docs/api-reference/attachments"
       ]
+    },
+    {
+      "group": "Migration",
+      "pages": ["docs/api-reference/migrate-to-threads"]
     }
   ],
   "footerSocials": {
