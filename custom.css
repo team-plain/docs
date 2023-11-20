@@ -36,3 +36,8 @@ img[src^='/public/logo'] {
 html {
   overflow-y: scroll;
 }
+
+/* Hide sidebar scrollbar */
+#sidebar::-webkit-scrollbar {
+  display: none;
+}
