@@ -5,11 +5,11 @@
     "isHidden": true
   },
   "logo": {
-    "light": "/public/logo/light.png",
-    "dark": "/public/logo/dark.png",
+    "light": "public/logo/light.png",
+    "dark": "public/logo/dark.png",
     "url": "https://plain.com"
   },
-  "favicon": "/public/favicon/favicon.png",
+  "favicon": "public/favicon/favicon.png",
   "colors": {
     "primary": "#1349e8",
     "light": "#94a3b8",
@@ -28,7 +28,7 @@
   "tabs": [
     {
       "name": "API Reference",
-      "url": "docs/api-reference"
+      "url": "api-reference"
     }
   ],
   "anchors": [
@@ -51,97 +51,92 @@
   "navigation": [
     {
       "group": "Plain 101",
-      "pages": ["docs/quickstart", "docs/data-model", "docs/security"]
+      "pages": ["quickstart", "data-model", "security"]
     },
     {
       "group": "Channels",
       "pages": [
         {
           "group": "Email",
-          "pages": [
-            "docs/email",
-            "docs/email/receiving",
-            "docs/email/sending",
-            "docs/email/alternate-emails"
-          ]
+          "pages": ["email", "email/receiving", "email/sending", "email/alternate-emails"]
         },
-        "docs/contact-forms",
-        "docs/slack"
+        "contact-forms",
+        "slack"
       ]
     },
     {
       "group": "Add context",
-      "pages": ["docs/customer-cards", "docs/customer-groups", "docs/events"]
+      "pages": ["customer-cards", "customer-groups", "events"]
     },
     {
       "group": "Using Plain",
       "pages": [
-        "docs/notifications",
-        "docs/assignment",
-        "docs/priorities",
-        "docs/labels",
-        "docs/linear",
-        "docs/syntax-highlighting",
-        "docs/reporting",
-        "docs/snippets",
-        "docs/shortcuts"
+        "notifications",
+        "assignment",
+        "priorities",
+        "labels",
+        "linear",
+        "syntax-highlighting",
+        "reporting",
+        "snippets",
+        "shortcuts"
       ]
     },
     {
       "group": "GraphQL",
       "pages": [
-        "docs/api-reference/graphql/introduction",
-        "docs/api-reference/graphql/authentication",
-        "docs/api-reference/graphql/schema",
+        "api-reference/graphql/introduction",
+        "api-reference/graphql/authentication",
+        "api-reference/graphql/schema",
         {
           "group": "Customers",
           "pages": [
-            "docs/api-reference/graphql/customers",
-            "docs/api-reference/graphql/customers/get",
-            "docs/api-reference/graphql/customers/upsert",
-            "docs/api-reference/graphql/customers/delete",
-            "docs/api-reference/graphql/customers/customer-groups"
+            "api-reference/graphql/customers",
+            "api-reference/graphql/customers/get",
+            "api-reference/graphql/customers/upsert",
+            "api-reference/graphql/customers/delete",
+            "api-reference/graphql/customers/customer-groups"
           ]
         },
         {
           "group": "Events",
           "pages": [
-            "docs/api-reference/graphql/events",
-            "docs/api-reference/graphql/events/create-customer-event",
-            "docs/api-reference/graphql/events/create-thread-event"
+            "api-reference/graphql/events",
+            "api-reference/graphql/events/create-customer-event",
+            "api-reference/graphql/events/create-thread-event"
           ]
         },
         {
           "group": "Labels",
           "pages": [
-            "docs/api-reference/graphql/labels",
-            "docs/api-reference/graphql/labels/add",
-            "docs/api-reference/graphql/labels/remove"
+            "api-reference/graphql/labels",
+            "api-reference/graphql/labels/add",
+            "api-reference/graphql/labels/remove"
           ]
         },
         {
           "group": "Messaging",
           "pages": [
-            "docs/api-reference/graphql/messaging",
-            "docs/api-reference/graphql/messaging/reply-to-thread",
-            "docs/api-reference/graphql/messaging/send-email",
-            "docs/api-reference/graphql/messaging/reply-email"
+            "api-reference/graphql/messaging",
+            "api-reference/graphql/messaging/reply-to-thread",
+            "api-reference/graphql/messaging/send-email",
+            "api-reference/graphql/messaging/reply-email"
           ]
         },
         {
           "group": "Threads",
           "pages": [
-            "docs/api-reference/graphql/threads",
-            "docs/api-reference/graphql/threads/create",
-            "docs/api-reference/graphql/threads/assignment",
-            "docs/api-reference/graphql/threads/status-changes"
+            "api-reference/graphql/threads",
+            "api-reference/graphql/threads/create",
+            "api-reference/graphql/threads/assignment",
+            "api-reference/graphql/threads/status-changes"
           ]
         },
-        "docs/api-reference/graphql/pagination",
-        "docs/api-reference/graphql/error-handling",
-        "docs/api-reference/graphql/error-codes",
-        "docs/api-reference/graphql/api-explorer",
-        "docs/api-reference/graphql/typescript-sdk"
+        "api-reference/graphql/pagination",
+        "api-reference/graphql/error-handling",
+        "api-reference/graphql/error-codes",
+        "api-reference/graphql/api-explorer",
+        "api-reference/graphql/typescript-sdk"
       ]
     },
     {
@@ -150,52 +145,52 @@
         {
           "group": "Customer Cards",
           "pages": [
-            "docs/api-reference/customer-cards",
-            "docs/api-reference/customer-cards/documentation",
-            "docs/api-reference/customer-cards/playground",
-            "docs/api-reference/customer-cards/examples"
+            "api-reference/customer-cards",
+            "api-reference/customer-cards/documentation",
+            "api-reference/customer-cards/playground",
+            "api-reference/customer-cards/examples"
           ]
         },
         {
           "group": "Webhooks",
           "pages": [
-            "docs/api-reference/webhooks",
-            "docs/api-reference/webhooks/thread-created",
-            "docs/api-reference/webhooks/thread-status-transitioned",
-            "docs/api-reference/webhooks/thread-assignment-transitioned",
-            "docs/api-reference/webhooks/thread-labels-changed",
-            "docs/api-reference/webhooks/thread-priority-changed",
-            "docs/api-reference/webhooks/thread-note-created",
-            "docs/api-reference/webhooks/thread-email-received",
-            "docs/api-reference/webhooks/thread-email-sent",
-            "docs/api-reference/webhooks/thread-chat-sent",
-            "docs/api-reference/webhooks/customer-created",
-            "docs/api-reference/webhooks/customer-updated",
-            "docs/api-reference/webhooks/customer-deleted",
-            "docs/api-reference/webhooks/customer-group-membership-changed"
+            "api-reference/webhooks",
+            "api-reference/webhooks/thread-created",
+            "api-reference/webhooks/thread-status-transitioned",
+            "api-reference/webhooks/thread-assignment-transitioned",
+            "api-reference/webhooks/thread-labels-changed",
+            "api-reference/webhooks/thread-priority-changed",
+            "api-reference/webhooks/thread-note-created",
+            "api-reference/webhooks/thread-email-received",
+            "api-reference/webhooks/thread-email-sent",
+            "api-reference/webhooks/thread-chat-sent",
+            "api-reference/webhooks/customer-created",
+            "api-reference/webhooks/customer-updated",
+            "api-reference/webhooks/customer-deleted",
+            "api-reference/webhooks/customer-group-membership-changed"
           ]
         },
         {
           "group": "UI Components",
           "pages": [
-            "docs/api-reference/ui-components",
-            "docs/api-reference/ui-components/badge",
-            "docs/api-reference/ui-components/container",
-            "docs/api-reference/ui-components/copy-button",
-            "docs/api-reference/ui-components/divider",
-            "docs/api-reference/ui-components/link-button",
-            "docs/api-reference/ui-components/plain-text",
-            "docs/api-reference/ui-components/row",
-            "docs/api-reference/ui-components/spacer",
-            "docs/api-reference/ui-components/text"
+            "api-reference/ui-components",
+            "api-reference/ui-components/badge",
+            "api-reference/ui-components/container",
+            "api-reference/ui-components/copy-button",
+            "api-reference/ui-components/divider",
+            "api-reference/ui-components/link-button",
+            "api-reference/ui-components/plain-text",
+            "api-reference/ui-components/row",
+            "api-reference/ui-components/spacer",
+            "api-reference/ui-components/text"
           ]
         },
-        "docs/api-reference/attachments"
+        "api-reference/attachments"
       ]
     },
     {
       "group": "Migration",
-      "pages": ["docs/api-reference/migrate-to-threads"]
+      "pages": ["api-reference/migrate-to-threads"]
     }
   ],
   "footerSocials": {
