@@ -5,15 +5,15 @@ description: 'A quick run-through of how things are structured within Plain.'
 
 This page will give you a birds eye view of how Plain is structured. Whether you are using Plain's API or not, this is a quick way to get your bearings.
 
-Within Plain all data belongs to a **Workspace**. When you sign-up you create a workspace. Within a workspace you have **Users**, **Customers**, **Threads**, **Labels**, and **Events**.
+Within Plain all data belongs to a **Workspace**. Within a workspace you have **Users**, **Customers**, **Threads**, **Labels**, and **Events**.
 
 ## Workspace
 
-Everything within Plain happens in a workspace. Typically you will have one workspace using your company's name like you would in Slack or Discord.
+Everything within Plain happens in a workspace. Typically you will have one workspace like you would in Slack or Discord.
 
 If you want to just try Plain you can make a demo workspace. Demo workspaces have the full functionality of a real workspace but come with a pre-generated support email adress which you can not change. They are also free!
 
-If you have multiple sub-products or want to have a staging environment with which to build API integrations out you can also create multiple workspaces to do that. (e.g. "Acme Staging" and "Acme Production").
+You can also create multiple workspaces if you want a testing environment: e.g. "Acme Staging" and "Acme Production".
 
 ## Users
 
@@ -31,9 +31,7 @@ Customers can also belong to one or more customer groups. This let's you organis
 
 Threads are the core of Plain's data model and equivalent to tickets or conversations in other support platforms.
 
-Each thread belongs to one customer and has a status which is one of `Todo`, `Done` or `Snoozed`.
-
-When you use Plain to help a customer you assign yourself to a thread and then mark the thread as done once you're done helping.
+Each thread belongs to one customer and has a status which is one of `Todo`, `Done` or `Snoozed`. When you use Plain to help a customer you assign yourself to a thread and then mark the thread as done once you're done helping.
 
 Threads are created automatically by inbound communications or programatically via the API, for example when a contact form is submitted.
 
