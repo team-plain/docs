@@ -1,5 +1,5 @@
 /* Make logo smaller */
-img[src^='/public/logo'] {
+img[src*='public/logo'] {
   height: 22px;
 }
 
