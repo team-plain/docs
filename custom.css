@@ -24,7 +24,7 @@
 
 /* Remove tight leading on titles within the content */
 .prose :where(h1, h2, h3):not(:where([class~='not-prose'] *)) {
-  letter-spacing: auto;
+  letter-spacing: initial;
 }
 
 /* Links that are in the content of the page */

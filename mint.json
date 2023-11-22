@@ -1,9 +1,5 @@
 {
-  "name": "Plain",
-  "modeToggle": {
-    "default": "light",
-    "isHidden": true
-  },
+  "name": "Plain Docs",
   "logo": {
     "light": "public/logo/light.png",
     "dark": "public/logo/dark.png",
@@ -14,6 +10,13 @@
     "primary": "#1349e8",
     "light": "#94a3b8",
     "dark": "#3e7cff"
+  },
+  "metadata": {
+    "og:image": "/docs/images/social-image.png",
+    "twitter:card": "summary_large_image",
+    "twitter:image": "/docs/images/social-image.png",
+    "twitter:site:domain": "plain.com",
+    "apple-mobile-web-app-title": "Plain Docs"
   },
   "topbarCtaButton": {
     "name": "Sign in",
