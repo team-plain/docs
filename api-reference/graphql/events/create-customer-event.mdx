@@ -5,16 +5,16 @@ title: 'Create a customer event'
 <Info>
   A customer event will be created in all threads that belong to the provided customer ID. If you
   want an event to appear in a specific thread use a [thread
-  event](/graphql/events/create-thread-event).
+  event](/api-reference/graphql/events/create-thread-event).
 </Info>
 
 To create an event you need a customer ID.
 
-You can get this by [upserting a customer](/graphql/customers/upsert) in Plain, from data in webhooks or other API calls you made. If you want to test this, press **⌘ + K** on any thread and then "Copy customer ID" to get an ID you can experiment with.
+You can get this by [upserting a customer](/api-reference/graphql/customers/upsert) in Plain, from data in webhooks or other API calls you made. If you want to test this, press **⌘ + K** on any thread and then "Copy customer ID" to get an ID you can experiment with.
 
 In this example we'll be creating the following event:
 
-<Frame>![Example event](/public/images/events/events-example.png)</Frame>
+<Frame>![Example event](/public/images/events-api-key-example.png)</Frame>
 
 <Tabs>
   <Tab title="Typescript SDK">

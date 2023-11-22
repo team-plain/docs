@@ -9,10 +9,11 @@ You can subscribe to this event **if you want to build an auto-responder**. To d
 <Warning>
   Every email you receive in your workspace is linked to a thread. If we cannot find a matching
   thread for an email, we will create one. When this happens, you may receive two events:
-  `thread.thread_created` and [`thread.email_received`](/webhooks/email-received) (depending on your
+  `thread.thread_created` and
+  [`thread.email_received`](/api-reference/webhooks/thread-email-received) (depending on your
   webhook target event subscriptions). If you do, and you only care about emails which are not the
   first message of the thread, please check the `isStartOfThread` in the
-  [`thread.email_received`](/webhooks/email-received) payload.
+  [`thread.email_received`](/api-reference/webhooks/thread-email-received) payload.
 </Warning>
 
 ## Schema

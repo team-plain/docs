@@ -6,7 +6,7 @@ description: "An overview of Plain's GraphQL API."
 
 Plain is built with this very GraphQL API we expose to you. This means that there are **no limitations** in what can be done via the API vs the UI.
 
-These docs just highlight the most interesting and most used APIs. If you want to do something beyond what is documented here, please [reach out to us](mailto:help@plain.com) or explore our [schema](/docs/api-reference/graphql/schema) on your own!
+These docs just highlight the most interesting and most used APIs. If you want to do something beyond what is documented here, please [reach out to us](mailto:help@plain.com) or explore our [schema](/api-reference/graphql/schema) on your own!
 
 ## Key details
 
@@ -16,7 +16,7 @@ Our API is compatible with all common GraphQL clients with the following details
 - **Allowed method**: POST
 - **Required headers:**
   - `Content-Type: application/json`
-  - `Authorization: Bearer <token>` where token is your API key. See [authentication](/graphql-api/authentication/) for more details.
+  - `Authorization: Bearer <token>` where token is your API key. See [authentication](/api-reference/graphql/authentication/) for more details.
 - **JSON body:**
   - `query`: the GraphQL query string
   - `variables`: a JSON object of variables used in the GraphQL query
@@ -29,7 +29,7 @@ from: `https://core-api.uk.plain.com/graphql/v1/schema.graphql`
 
 In this example, we're going to get a customer in your workspace by their email address. You can find a customer's email on the right-hand side when looking at one of their threads in Plain.
 
-You will need an API key with the `customer:read` permission. See [authentication](/graphql-api/authentication/) for details on how to get an API key
+You will need an API key with the `customer:read` permission. See [authentication](/api-reference/graphql/authentication/) for details on how to get an API key
 
 <Tabs>
 

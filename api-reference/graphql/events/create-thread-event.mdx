@@ -4,16 +4,17 @@ title: 'Create a thread event'
 
 <Info>
   A thread event will only be created in the thread ID provided. If you want an event to appear in
-  all threads for a customer please use a [customer event](/graphql/events/create-customer-event).
+  all threads for a customer please use a [customer
+  event](/api-reference/graphql/events/create-customer-event).
 </Info>
 
 To create a thread event you need a thread ID.
 
-You can get this by [creating a thread](/graphql/threads/create) in Plain, from data in webhooks or other API calls you made. If you want to test this, press **⌘ + K** on any thread and then "Copy thread ID" to get an ID you can experiment with.
+You can get this by [creating a thread](/api-reference/graphql/threads/create) in Plain, from data in webhooks or other API calls you made. If you want to test this, press **⌘ + K** on any thread and then "Copy thread ID" to get an ID you can experiment with.
 
 In this example we'll be creating the following event:
 
-<Frame>![Example event](/public/images/events/events-example.png)</Frame>
+<Frame>![Example event](/public/images/events-api-key-example.png)</Frame>
 
 <Tabs>
   <Tab title="Typescript SDK">

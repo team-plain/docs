@@ -4,7 +4,7 @@ title: 'Customer Cards Documentation'
 
 This page is intended for a technical audience that will be implementing a Customer Card API.
 
-Check out the [Customer Cards](/pages/customer-cards) page for an overview.
+Check out the [Customer Cards](/customer-cards) page for an overview.
 
 ## Protocol overview
 
@@ -20,7 +20,7 @@ The protocol is as follows:
    details).
 4. Your APIs are then called with the customer's details, so you can look up the customer's data in your systems
    (see [request](#request) section for details).
-5. Your APIs then return Customer Cards that consist of [Plain UI components](/ui-components)
+5. Your APIs then return Customer Cards that consist of [Plain UI components](/api-reference/ui-components)
    (see [response](#response) section for details).
 6. The cards are cached based on either an explicit TTL value in the response or the TTL in the card settings.
 7. Cards are shown to the user in Plain.
@@ -122,7 +122,7 @@ The response body must be a JSON object with:
   cards will be ignored.
   - `key`: the requested key
   - `timeToLiveSeconds` (optional, nullable): can either be omitted or `null`. If provided it will override the default time to live value. This allows you to control caching on a case-by-case basis.
-  - `components` (nullable): `null` to indicate that the card has no data or an array of [Plain UI Components](/ui-components/).
+  - `components` (nullable): `null` to indicate that the card has no data or an array of [Plain UI Components](/api-reference/ui-components/).
 
 Example response body for a card cached for 1 hour:
 
