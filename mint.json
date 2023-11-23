@@ -25,9 +25,9 @@
     }
   },
   "metadata": {
-    "og:image": "/docs/images/social-image.png",
+    "og:image": "public/images/social-image.png",
     "twitter:card": "summary_large_image",
-    "twitter:image": "/docs/images/social-image.png",
+    "twitter:image": "public/images/social-image.png",
     "twitter:site:domain": "plain.com",
     "apple-mobile-web-app-title": "Plain Docs"
   },
