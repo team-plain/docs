@@ -76,7 +76,7 @@
       ]
     },
     {
-      "group": "Add context",
+      "group": "Adding context",
       "pages": ["customer-cards", "customer-groups", "events"]
     },
     {
