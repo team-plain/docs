@@ -25,9 +25,9 @@
     }
   },
   "metadata": {
-    "og:image": "public/images/social-image.png",
+    "og:image": "https://mintlify.s3-us-west-1.amazonaws.com/plain/public/images/social-image.png",
     "twitter:card": "summary_large_image",
-    "twitter:image": "public/images/social-image.png",
+    "twitter:image": "https://mintlify.s3-us-west-1.amazonaws.com/plain/public/images/social-image.png",
     "twitter:site:domain": "plain.com",
     "apple-mobile-web-app-title": "Plain Docs"
   },
