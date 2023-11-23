@@ -1,6 +1,8 @@
 # Plain Documentation
 
-These are Plain's docs (https://plain.com/docs).
+This is the documentation for Plain and its API which you can find here:
+
+**https://plain.com/docs**
 
 They are built using [Mintlify](https://mintlify.com).
 
