@@ -5,6 +5,11 @@
     "dark": "public/logo/dark.png",
     "url": "https://plain.com"
   },
+  "feedback": {
+    "raiseIssue": true,
+    "suggestEdit": true,
+    "thumbsRating": true
+  },
   "favicon": "public/favicon/favicon.png",
   "colors": {
     "primary": "#1349e8",
@@ -206,6 +211,7 @@
   ],
   "footerSocials": {
     "twitter": "https://twitter.com/plainsupport",
-    "linkedin": "https://www.linkedin.com/company/plainsupport"
+    "linkedin": "https://www.linkedin.com/company/plainsupport",
+    "github": "https://github.com/team-plain/docs"
   }
 }
