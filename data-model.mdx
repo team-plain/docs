@@ -3,7 +3,7 @@ title: 'Data model'
 description: 'A quick overview of how Plain is structured.'
 ---
 
-Whether you are using Plain's API or not, this is a quick way to get your bearings.
+Whether you are using Plain's API or not, this page is a quick way to understand how Plain works.
 
 Within Plain, all data belongs to a **Workspace**. Within a workspace, you have **Users**, **Customers**, **Threads**, **Labels**, and **Events**.
 
@@ -17,25 +17,27 @@ You can also create multiple workspaces if you want to match different environme
 
 ## Users
 
-When you use Plain, you are a user. As a user, you have one or more roles which define what you are allowed to do within Plain.
+When you use Plain, you are a user. As a user, you have one or more roles that define what you are allowed to do within Plain.
 
 ## Customers
 
 Within Plain, you help customers. Each customer has a name ("Grace Hopper"), short name ("Grace"), and one email address. Email addresses are unique across all customers.
 
-Customers are created automatically based on inbound comms or can be created programmatically using our API. When created via the API, customers can also have an `externalId` which lets you correlate them to customers in your own system.
+Customers are created automatically by inbound communications (e.g. email) or can be created programmatically using our API.
 
 Customers can also belong to one or more customer groups. This lets you organize your customers into logical groups such as "Free-tier", "Enterprise", "Design partner", etc.
 
+Customers can also have an `externalId` which lets you correlate them to customers in your own systems, you can provide this when creating or updating them via the API.
+
 ## Threads
 
-Threads are the core of Plain's data model and equivalent to tickets or conversations in other support platforms.
+Threads are the core of Plain's data model and are equivalent to tickets or conversations in other support platforms.
 
 Each thread belongs to one customer and has a status which is one of `Todo`, `Done`, or `Snoozed`. When you use Plain to help a customer, you assign yourself to a thread and then mark the thread as done once you're done helping.
 
 Threads are created automatically by inbound communications or programmatically via the API, for example, when a contact form is submitted.
 
-Each thread has a timeline. The timeline contains all relevant communication and events as well as a log of all assignment changes, etc.
+Each thread has a timeline. The timeline contains all relevant communication, events and other updates such as assignment changes.
 
 ## Labels
 
@@ -45,6 +47,6 @@ You can filter threads by label in any queue.
 
 ## Events
 
-Events belong to a customer or thread and allow you to log important actions outside of Plain within Plain. Events provide you with additional context of the customer's actions when you are helping them.
+Events belong to a customer or thread and allow you to log important actions that happen outside of Plain within Plain. Events provide you with additional context of the customer's actions when you are helping them.
 
 For example, if you log an event when a customer deletes an API key in your systems, then if they reach out reporting 401 errors - you immediately know why.
