@@ -1,22 +1,25 @@
 ---
-title: 'Customer Cards'
+title: 'Customer cards'
 sidebarTitle: 'Overview'
+description: 'Live context straight from your own systems when helping customers.'
 ---
 
-Customer Cards are a powerful feature in Plain that let you show information from your own systems while looking at a customer in Plain. This makes sure you always have important context when helping customers.
+Customer cards are a powerful feature in Plain that let you show information from your own systems while looking at a customer in Plain. This makes sure you always have important context when helping customers.
 
-## How it works
+Customer cards are configured on Plain (see how to [how to create one](/api-reference/customer-cards/create-a-customer-card)) and requested by Plain from your APIs.
 
-1. A customer is viewed in Plain.
-2. Plain fires a request to your backend with:
+## How they work
 
-   - The customer's email and, if set, `externalId`
-   - The configured Customer Card `key`s
+1. A thread is viewed in Plain.
+2. Plain fires a request to your API with:
 
-3. Your backend responds with the JSON for each card
+   - The thread customer's email and, if set, `externalId`
+   - The configured customer card `key`s
+
+3. Your API responds with the JSON for each card
 4. Cards are shown to the user in Plain.
 
-Based on your Customer Card settings, Plain will send a request to your API like the below example:
+Based on your customer card settings, Plain will send a request to your API like the below example:
 
 <Snippet file="customer-cards/customer-cards-basic-request.mdx" />
 
@@ -24,29 +27,25 @@ Your API should then reply with a list of cards matching the requested keys wher
 
 <Snippet file="customer-cards/customer-cards-basic-response.mdx" />
 
+<Note>
+  For a more detailed description of the protocol, check the
+  [protocol](/api-reference/customer-cards/protocol) page.
+</Note>
+
 ## UI Components
 
 To define what each customer card should look like, you use the Plain UI components. All the components are documented in the [Plain UI Components](/api-reference/ui-components/) section.
 
-You can find example Customer Cards and an example API you can check out [team-plain/example-customer-cards](https://github.com/team-plain/example-customer-cards). Feel free to try these out in your workspace!
-
-## Caching of cards
-
-Caching of Customer Cards is controlled via two properties:
-
-1. A time to live value (in seconds) in the Customer Card's settings. This can be changed under **Settings** → **Customer Cards**. Any changes will only apply to newly loaded Customer Cards.
-2. An explicit time to live value (in seconds) in your API response with the key `timeToLiveSeconds`. This overrides the value from settings and allows your API to dynamically set the TTL using custom logic.
-
-Any card that is past its expiry time will usually be deleted within a few minutes but no later than 48 hours after expiry.
+You can find example customer cards and an example API you can check out [team-plain/example-customer-cards](https://github.com/team-plain/example-customer-cards). Feel free to try these out in your workspace!
 
 ## Example cards
 
-To demonstrate what you can build with Customer Cards we've built some examples you can view and which are open source.
+To demonstrate what you can build with customer cards we've built some examples you can view and which are open source.
 
-[**Customer Cards Examples →**](https://github.com/team-plain/example-customer-cards)
+[**Customer cards Examples →**](https://github.com/team-plain/example-customer-cards)
 
 ## Playground
 
-The Customer Cards Playground lets you build and preview the component JSON needed to create a Customer Card. Use this to prototype a Customer Card before starting to build your integration.
+The customer cards playground lets you build and preview the component JSON needed to create a customer card. Use this to prototype a customer card before starting to build your integration.
 
-[**Customer Cards Playground →**](https://app.plain.com/developer/customer-cards-playground/)
+[**Customer cards playground →**](https://app.plain.com/developer/customer-cards-playground/)

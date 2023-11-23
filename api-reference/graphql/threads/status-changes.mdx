@@ -17,7 +17,7 @@ To change a threads status you need an API key with the following permissions:
 - `thread:edit`
 - `thread:read`
 
-### Mark thread as done
+### Mark thread as `Done`
 
 When any activity happens in a thread, it will move back to `Todo`.
 
@@ -36,7 +36,7 @@ Unlike traditional ticketing software, we expect a ticket to move between `Todo`
 
 You can snooze threads for a duration of time defined in seconds.
 
-When any activity happens in a thread, it will be automatically unsnoozed and move to **Todo**. Otherwise threads will be unsnoozed when the timer runs out.
+When any activity happens in a thread, it will be automatically unsnoozed and move to `Todo`. Otherwise threads will be unsnoozed when the timer runs out.
 
 <Tabs>
   <Tab title="Typescript SDK">
@@ -47,9 +47,9 @@ When any activity happens in a thread, it will be automatically unsnoozed and mo
   </Tab>
 </Tabs>
 
-### Mark thread as Todo
+### Mark thread as `Todo`
 
-This is useful if you mistakenly marked a thread as done or snoozed a thread and want to unsnooze it. Otherwise just write a message or do what you want to do and the thread will be automatically moved back to do **Todo**.
+This is useful if you mistakenly marked a thread as `Done` or snoozed a thread and want to unsnooze it. Otherwise just write a message or do what you want to do and the thread will be automatically moved back to do **Todo**.
 
 <Tabs items={['Typescript SDK', 'GraphQL']}>
   <Tab>
