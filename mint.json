@@ -154,10 +154,11 @@
       "group": "Reference",
       "pages": [
         {
-          "group": "Customer Cards",
+          "group": "Customer cards",
           "pages": [
             "api-reference/customer-cards",
-            "api-reference/customer-cards/documentation",
+            "api-reference/customer-cards/create-a-customer-card",
+            "api-reference/customer-cards/protocol",
             "api-reference/customer-cards/playground",
             "api-reference/customer-cards/examples"
           ]
