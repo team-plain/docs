@@ -1,8 +1,8 @@
 {
-  "name": "@team-plain/docs-mintlify",
+  "name": "@team-plain/docs",
   "version": "1.0.0",
   "description": "Documentation for plain.com",
-  "main": "index.js",
+  "main": ".",
   "engines": {
     "node": "18.x",
     "pnpm": "8.x"
