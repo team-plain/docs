@@ -1,6 +1,6 @@
 # Plain Documentation
 
-This is the documentation for Plain and its API which you can find here:
+This is the documentation for [Plain](https://plain.com) and its API which you can find here:
 
 **https://plain.com/docs**
 
