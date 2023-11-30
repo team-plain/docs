@@ -95,7 +95,8 @@
         "syntax-highlighting",
         "reporting",
         "snippets",
-        "shortcuts"
+        "shortcuts",
+        "company-support"
       ]
     },
     {
