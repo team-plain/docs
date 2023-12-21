@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   mintlify:
-    specifier: ^4.0.58
-    version: 4.0.58(axios@1.6.2)(openapi-types@12.1.3)
+    specifier: ^4.0.82
+    version: 4.0.82(acorn@8.11.2)(openapi-types@12.1.3)
   prettier:
     specifier: ^3.1.0
     version: 3.1.0
@@ -54,54 +54,69 @@ packages:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
     dev: false
 
-  /@mintlify/cli@4.0.58(axios@1.6.2)(openapi-types@12.1.3):
-    resolution: {integrity: sha512-bWXn5OpG9YIY6p8Gacks9/nTQAZndxhdqHroewV0faMHt47OeuLU/IiGUF32hyE8NwWWziHOOpk3CVcKm9er6Q==}
+  /@mintlify/cli@4.0.82(acorn@8.11.2)(openapi-types@12.1.3):
+    resolution: {integrity: sha512-0G3eTtSB3F4VdkWZ1K9Sz5DeYrRv7IZ3XmsYdX3zTP6yzD3XjD6mjMaQpbFCR40mdv1dcmqKjLVCa0NU1kAMww==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
       '@apidevtools/swagger-parser': 10.1.0(openapi-types@12.1.3)
-      '@mintlify/link-rot': 3.0.80(@mintlify/models@0.0.54)(@mintlify/validation@0.1.101)(axios@1.6.2)
-      '@mintlify/models': 0.0.54(axios@1.6.2)(openapi-types@12.1.3)
-      '@mintlify/prebuild': 1.0.80(@apidevtools/swagger-parser@10.1.0)(@mintlify/models@0.0.54)(@mintlify/validation@0.1.101)(axios@1.6.2)(fs-extra@11.1.1)(gray-matter@4.0.3)(openapi-types@12.1.3)(unist-util-visit@4.1.2)
-      '@mintlify/previewing': 4.0.57(@mintlify/models@0.0.54)(@mintlify/validation@0.1.101)(axios@1.6.2)
-      '@mintlify/validation': 0.1.101(@mintlify/models@0.0.54)(openapi-types@12.1.3)
+      '@mintlify/link-rot': 3.0.101(acorn@8.11.2)
+      '@mintlify/models': 0.0.61
+      '@mintlify/prebuild': 1.0.101(acorn@8.11.2)
+      '@mintlify/previewing': 4.0.81(acorn@8.11.2)
+      '@mintlify/validation': 0.1.113
       chalk: 5.3.0
       detect-port: 1.5.1
       fs-extra: 11.1.1
       gray-matter: 4.0.3
+      ora: 6.3.1
       unist-util-visit: 4.1.2
       yargs: 17.7.2
     transitivePeerDependencies:
-      - axios
+      - acorn
       - bufferutil
+      - debug
       - encoding
       - openapi-types
       - supports-color
       - utf-8-validate
     dev: false
 
-  /@mintlify/common@1.0.15(axios@1.6.2)(openapi-types@12.1.3):
-    resolution: {integrity: sha512-9w5Km3UqdZXxzSgntab9vzuDW1vqWatk1xY2soc5e0fxVl4075JshSKBejm66SW8KABGyT00CLvQ7toNAWjO2Q==}
+  /@mintlify/common@1.0.35(acorn@8.11.2):
+    resolution: {integrity: sha512-rW3Cqh/kCSC2ggmAUXaR1+IMA4u3ex1QmbSWB+tLsktb/CoTBj1TnI2vOEwKM7YPxIa0ph5Vm0rMRoLUXPWS0Q==}
     dependencies:
-      '@mintlify/models': 0.0.54(axios@1.6.2)(openapi-types@12.1.3)
+      '@apidevtools/swagger-parser': 10.1.0(openapi-types@12.1.3)
+      '@mintlify/models': 0.0.61
+      '@mintlify/validation': 0.1.113
+      acorn-jsx: 5.3.2(acorn@8.11.2)
+      esast-util-from-js: 2.0.1
+      estree-util-to-js: 2.0.0
+      gray-matter: 4.0.3
+      lodash: 4.17.21
+      mdast-util-mdx: 2.0.1
+      mdast-util-mdx-jsx: 2.1.4
+      openapi-types: 12.1.3
       remark: 14.0.3
       remark-frontmatter: 4.0.1
       remark-gfm: 3.0.1
       remark-math: 5.1.1
       remark-mdx: 2.3.0
+      unist-util-remove: 3.1.1
+      unist-util-remove-position: 4.0.2
+      unist-util-visit: 4.1.2
     transitivePeerDependencies:
-      - axios
-      - openapi-types
+      - acorn
+      - debug
       - supports-color
     dev: false
 
-  /@mintlify/link-rot@3.0.80(@mintlify/models@0.0.54)(@mintlify/validation@0.1.101)(axios@1.6.2):
-    resolution: {integrity: sha512-ds49vEdhJIJdMZf5H/kf/0i2SuR4Ejpw3UdpEJIxgP1oPkal74nsTwsYYB1ldkrjtgLT8g7xdBM86+V+gsMszA==}
+  /@mintlify/link-rot@3.0.101(acorn@8.11.2):
+    resolution: {integrity: sha512-+O0sQAVWCUB1KoGTrdSSlaECMv9Nq0QVlzYLf2GRmfwc8tlIRXt02nRaXZcnaLUhM4S9DaPQTtZ6nr+jkXE/uA==}
     engines: {node: '>=18.0.0'}
     dependencies:
       '@apidevtools/swagger-parser': 10.1.0(openapi-types@12.1.3)
-      '@mintlify/common': 1.0.15(axios@1.6.2)(openapi-types@12.1.3)
-      '@mintlify/prebuild': 1.0.80(@apidevtools/swagger-parser@10.1.0)(@mintlify/models@0.0.54)(@mintlify/validation@0.1.101)(axios@1.6.2)(fs-extra@11.1.1)(gray-matter@4.0.3)(openapi-types@12.1.3)(unist-util-visit@4.1.2)
+      '@mintlify/common': 1.0.35(acorn@8.11.2)
+      '@mintlify/prebuild': 1.0.101(acorn@8.11.2)
       chalk: 5.3.0
       fs-extra: 11.1.1
       gray-matter: 4.0.3
@@ -109,57 +124,48 @@ packages:
       openapi-types: 12.1.3
       unist-util-visit: 4.1.2
     transitivePeerDependencies:
-      - '@mintlify/models'
-      - '@mintlify/validation'
-      - axios
+      - acorn
+      - debug
       - supports-color
     dev: false
 
-  /@mintlify/models@0.0.54(axios@1.6.2)(openapi-types@12.1.3):
-    resolution: {integrity: sha512-iMIxGKqD8VT4rxYFcD7RlOlKrjkbtwERRSk0T7FURvWh+vi8iTCLoLphHyp+ML5h3JMOH3m/FcHtCcvHklmmQw==}
+  /@mintlify/models@0.0.61:
+    resolution: {integrity: sha512-nflq7hhjGfHAfK+Xe+9XMyvFYu0Xn5wxT8CAme0vryQaznON4jud2JqAD1HIo3x1JpUvkaBbs80h8WCFPblv7g==}
     engines: {node: '>=18.0.0'}
-    peerDependencies:
-      axios: ^1.4.0
-      openapi-types: 12.x
     dependencies:
       axios: 1.6.2
       openapi-types: 12.1.3
+    transitivePeerDependencies:
+      - debug
     dev: false
 
-  /@mintlify/prebuild@1.0.80(@apidevtools/swagger-parser@10.1.0)(@mintlify/models@0.0.54)(@mintlify/validation@0.1.101)(axios@1.6.2)(fs-extra@11.1.1)(gray-matter@4.0.3)(openapi-types@12.1.3)(unist-util-visit@4.1.2):
-    resolution: {integrity: sha512-d6MvLKNmMst3tvZ5cU4FYWmHnWmG6+NLt7VPpXfvZmLsAZDwmSLRhqn7O8/f+LDH1xj2Fq+yBzMPj6h2Z8Rtaw==}
-    peerDependencies:
-      '@apidevtools/swagger-parser': 10.x
-      '@mintlify/models': '>= 0.0.15 < 1'
-      '@mintlify/validation': '>= 0.1.57 < 1'
-      fs-extra: 11.x
-      gray-matter: ^4.0.3
-      openapi-types: 12.x
-      unist-util-visit: ^4.1.1
+  /@mintlify/prebuild@1.0.101(acorn@8.11.2):
+    resolution: {integrity: sha512-FYuYKlk7oEm3AEqS57PJlD4hkiwL6+UfJt8TiIL4h08iJ28Rtwo9TdXjdVXqb8ymVPgJjMnyEtsNGVLRQk8+9Q==}
     dependencies:
       '@apidevtools/swagger-parser': 10.1.0(openapi-types@12.1.3)
-      '@mintlify/common': 1.0.15(axios@1.6.2)(openapi-types@12.1.3)
-      '@mintlify/models': 0.0.54(axios@1.6.2)(openapi-types@12.1.3)
-      '@mintlify/validation': 0.1.101(@mintlify/models@0.0.54)(openapi-types@12.1.3)
+      '@mintlify/common': 1.0.35(acorn@8.11.2)
+      '@mintlify/validation': 0.1.113
       favicons: 7.1.4
       fs-extra: 11.1.1
       gray-matter: 4.0.3
+      is-absolute-url: 4.0.1
+      js-yaml: 4.1.0
       openapi-types: 12.1.3
       unist-util-visit: 4.1.2
     transitivePeerDependencies:
-      - axios
+      - acorn
+      - debug
       - supports-color
     dev: false
 
-  /@mintlify/previewing@4.0.57(@mintlify/models@0.0.54)(@mintlify/validation@0.1.101)(axios@1.6.2):
-    resolution: {integrity: sha512-EduErRmmFnWYsBqzwoBhSa4yYXnwaqfOvXaZZIhCoQKYQOhdCg7fZkOpojHcQ0caVV8hSE8Qv4YRQsAGiuHMjw==}
+  /@mintlify/previewing@4.0.81(acorn@8.11.2):
+    resolution: {integrity: sha512-15eWXrSuJWiES/jPFN29RYXNZjry/FHAp1aaOBzuA55hO92DjwC2eIF15sNLIY+2dgXP3wk3yzrGUG5iT0IhBw==}
     engines: {node: '>=18.0.0'}
-    peerDependencies:
-      '@mintlify/validation': '>= 0.1.48 < 1'
     dependencies:
       '@apidevtools/swagger-parser': 10.1.0(openapi-types@12.1.3)
-      '@mintlify/prebuild': 1.0.80(@apidevtools/swagger-parser@10.1.0)(@mintlify/models@0.0.54)(@mintlify/validation@0.1.101)(axios@1.6.2)(fs-extra@11.1.1)(gray-matter@4.0.3)(openapi-types@12.1.3)(unist-util-visit@4.1.2)
-      '@mintlify/validation': 0.1.101(@mintlify/models@0.0.54)(openapi-types@12.1.3)
+      '@mintlify/common': 1.0.35(acorn@8.11.2)
+      '@mintlify/prebuild': 1.0.101(acorn@8.11.2)
+      '@mintlify/validation': 0.1.113
       '@octokit/rest': 19.0.13
       chalk: 5.3.0
       chokidar: 3.5.3
@@ -177,26 +183,25 @@ packages:
       unist-util-visit: 4.1.2
       yargs: 17.7.2
     transitivePeerDependencies:
-      - '@mintlify/models'
-      - axios
+      - acorn
       - bufferutil
+      - debug
       - encoding
       - supports-color
       - utf-8-validate
     dev: false
 
-  /@mintlify/validation@0.1.101(@mintlify/models@0.0.54)(openapi-types@12.1.3):
-    resolution: {integrity: sha512-ylrL881NmjewoX9mos1PAujmrD3mWiBjZuO4ffJ6cvoQMFvDbJgyNFttvdCqA4jIl4A2SkZ0JW3RlcaFeJ7Gzg==}
-    peerDependencies:
-      '@mintlify/models': '>= 0.0.36 < 1'
-      openapi-types: 12.x
+  /@mintlify/validation@0.1.113:
+    resolution: {integrity: sha512-8QS5zZZipJmbuyGznrxJiJrKaSnNXG8tcJf/dn/f2Ef0O7d+ldJhzVWuQfifpncuBznqEdwHgySw6znSOCE6dw==}
     dependencies:
-      '@mintlify/models': 0.0.54(axios@1.6.2)(openapi-types@12.1.3)
+      '@mintlify/models': 0.0.61
       lcm: 0.0.3
       lodash: 4.17.21
       openapi-types: 12.1.3
       zod: 3.22.4
       zod-to-json-schema: 3.21.4(zod@3.22.4)
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /@octokit/auth-token@3.0.4:
@@ -405,6 +410,10 @@ packages:
     resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
     dev: false
 
+  /@types/unist@3.0.2:
+    resolution: {integrity: sha512-dqId9J8K/vGi5Zr7oo212BGii5m3q5Hxlkwy3WpYuKPklmBEvsbMYYyLxAQpSffdLl/gdW0XUpKWFvYmyoWCoQ==}
+    dev: false
+
   /accepts@1.3.8:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
     engines: {node: '>= 0.6'}
@@ -491,8 +500,17 @@ packages:
       sprintf-js: 1.0.3
     dev: false
 
+  /argparse@2.0.1:
+    resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+    dev: false
+
   /array-flatten@1.1.1:
     resolution: {integrity: sha512-PCVAQswWemu6UdxsDFFX/+gVeYqKAod3D3UVm91jHwynguOwAvYPhx8nNlM++NqRcK6CxxpUafjmhIdKiHibqg==}
+    dev: false
+
+  /astring@1.8.6:
+    resolution: {integrity: sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==}
+    hasBin: true
     dev: false
 
   /asynckit@0.4.0:
@@ -886,6 +904,12 @@ packages:
       - supports-color
     dev: false
 
+  /devlop@1.1.0:
+    resolution: {integrity: sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA==}
+    dependencies:
+      dequal: 2.0.3
+    dev: false
+
   /diff@5.1.0:
     resolution: {integrity: sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==}
     engines: {node: '>=0.3.1'}
@@ -949,6 +973,24 @@ packages:
       - utf-8-validate
     dev: false
 
+  /esast-util-from-estree@2.0.0:
+    resolution: {integrity: sha512-4CyanoAudUSBAn5K13H4JhsMH6L9ZP7XbLVe/dKybkxMO7eDyLsT8UHl9TRNrU2Gr9nz+FovfSIjuXWJ81uVwQ==}
+    dependencies:
+      '@types/estree-jsx': 1.0.3
+      devlop: 1.1.0
+      estree-util-visit: 2.0.0
+      unist-util-position-from-estree: 2.0.0
+    dev: false
+
+  /esast-util-from-js@2.0.1:
+    resolution: {integrity: sha512-8Ja+rNJ0Lt56Pcf3TAmpBZjmx8ZcK5Ts4cAzIOjsjevg9oSXJnl6SUQ2EevU8tv3h6ZLWmoKL5H4fgWvdvfETw==}
+    dependencies:
+      '@types/estree-jsx': 1.0.3
+      acorn: 8.11.2
+      esast-util-from-estree: 2.0.0
+      vfile-message: 4.0.2
+    dev: false
+
   /escalade@3.1.1:
     resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
     engines: {node: '>=6'}
@@ -973,11 +1015,26 @@ packages:
     resolution: {integrity: sha512-bEN9VHRyXAUOjkKVQVvArFym08BTWB0aJPppZZr0UNyAqWsLaVfAqP7hbaTJjzHifmB5ebnR8Wm7r7yGN/HonQ==}
     dev: false
 
+  /estree-util-to-js@2.0.0:
+    resolution: {integrity: sha512-WDF+xj5rRWmD5tj6bIqRi6CkLIXbbNQUcxQHzGysQzvHmdYG2G7p/Tf0J0gpxGgkeMZNTIjT/AoSvC9Xehcgdg==}
+    dependencies:
+      '@types/estree-jsx': 1.0.3
+      astring: 1.8.6
+      source-map: 0.7.4
+    dev: false
+
   /estree-util-visit@1.2.1:
     resolution: {integrity: sha512-xbgqcrkIVbIG+lI/gzbvd9SGTJL4zqJKBFttUl5pP27KhAjtMKbX/mQXJ7qgyXpMgVy/zvpm0xoQQaGL8OloOw==}
     dependencies:
       '@types/estree-jsx': 1.0.3
       '@types/unist': 2.0.10
+    dev: false
+
+  /estree-util-visit@2.0.0:
+    resolution: {integrity: sha512-m5KgiH85xAhhW8Wta0vShLcUvOsh3LLPI2YVwcbio1l7E09NTLL1EyMZFM1OyWowoH0skScNbhOPl4kcBgzTww==}
+    dependencies:
+      '@types/estree-jsx': 1.0.3
+      '@types/unist': 3.0.2
     dev: false
 
   /etag@1.8.1:
@@ -1447,6 +1504,13 @@ packages:
     dependencies:
       argparse: 1.0.10
       esprima: 4.0.1
+    dev: false
+
+  /js-yaml@4.1.0:
+    resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
+    hasBin: true
+    dependencies:
+      argparse: 2.0.1
     dev: false
 
   /json-buffer@3.0.1:
@@ -2133,15 +2197,16 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /mintlify@4.0.58(axios@1.6.2)(openapi-types@12.1.3):
-    resolution: {integrity: sha512-gY8NeU0Vrx30q0WLkN77oMEd99inVoa6xQeSeg8yCJwN4oNEr60PaDwygOxB9g1ev16CSh4au5XLhj7KZFi1+g==}
+  /mintlify@4.0.82(acorn@8.11.2)(openapi-types@12.1.3):
+    resolution: {integrity: sha512-j9c06yjhd27vhawgoAWmU9Q+QAgnOi7qcBWA9MBh8YwOXbQdQ4BzJhvGFOCtmIIy9ydRKDL/XOD3KyHgkQpvog==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
-      '@mintlify/cli': 4.0.58(axios@1.6.2)(openapi-types@12.1.3)
+      '@mintlify/cli': 4.0.82(acorn@8.11.2)(openapi-types@12.1.3)
     transitivePeerDependencies:
-      - axios
+      - acorn
       - bufferutil
+      - debug
       - encoding
       - openapi-types
       - supports-color
@@ -2701,6 +2766,11 @@ packages:
       - utf-8-validate
     dev: false
 
+  /source-map@0.7.4:
+    resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
+    engines: {node: '>= 8'}
+    dev: false
+
   /sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
     dev: false
@@ -2880,6 +2950,12 @@ packages:
       '@types/unist': 2.0.10
     dev: false
 
+  /unist-util-position-from-estree@2.0.0:
+    resolution: {integrity: sha512-KaFVRjoqLyF6YXCbVLNad/eS4+OfPQQn2yOd7zF/h5T/CSL2v8NpN6a5TPvtbXthAGw5nG+PuTtq+DdIZr+cRQ==}
+    dependencies:
+      '@types/unist': 3.0.2
+    dev: false
+
   /unist-util-remove-position@4.0.2:
     resolution: {integrity: sha512-TkBb0HABNmxzAcfLf4qsIbFbaPDvMO6wa3b3j4VcEzFVaw1LBKwnW4/sRJ/atSLSzoIg41JWEdnE7N6DIhGDGQ==}
     dependencies:
@@ -2887,10 +2963,24 @@ packages:
       unist-util-visit: 4.1.2
     dev: false
 
+  /unist-util-remove@3.1.1:
+    resolution: {integrity: sha512-kfCqZK5YVY5yEa89tvpl7KnBBHu2c6CzMkqHUrlOqaRgGOMp0sMvwWOVrbAtj03KhovQB7i96Gda72v/EFE0vw==}
+    dependencies:
+      '@types/unist': 2.0.10
+      unist-util-is: 5.2.1
+      unist-util-visit-parents: 5.1.3
+    dev: false
+
   /unist-util-stringify-position@3.0.3:
     resolution: {integrity: sha512-k5GzIBZ/QatR8N5X2y+drfpWG8IDBzdnVj6OInRNWm1oXrzydiaAT2OQiA8DPRRZyAKb9b6I2a6PxYklZD0gKg==}
     dependencies:
       '@types/unist': 2.0.10
+    dev: false
+
+  /unist-util-stringify-position@4.0.0:
+    resolution: {integrity: sha512-0ASV06AAoKCDkS2+xw5RXJywruurpbC4JZSm7nr7MOt1ojAzvyyaO+UxZf18j8FCF6kmzCZKcAgN/yu2gm2XgQ==}
+    dependencies:
+      '@types/unist': 3.0.2
     dev: false
 
   /unist-util-visit-parents@5.1.3:
@@ -2958,6 +3048,13 @@ packages:
     dependencies:
       '@types/unist': 2.0.10
       unist-util-stringify-position: 3.0.3
+    dev: false
+
+  /vfile-message@4.0.2:
+    resolution: {integrity: sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==}
+    dependencies:
+      '@types/unist': 3.0.2
+      unist-util-stringify-position: 4.0.0
     dev: false
 
   /vfile@5.3.7:
