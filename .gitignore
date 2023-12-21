@@ -1,4 +1,5 @@
 node_modules
+.next
 
 # Misc
 .DS_Store
