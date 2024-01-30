@@ -77,7 +77,10 @@
           "pages": ["email", "email/receiving", "email/sending", "email/alternate-emails"]
         },
         "contact-forms",
-        "slack"
+        {
+          "group": "Slack",
+          "pages": ["slack", "slack/how-slack-messages-create-threads"]
+        }
       ]
     },
     {
