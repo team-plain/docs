@@ -11,8 +11,8 @@ You can subscribe to this event **if you want to build an auto-responder**. To d
   thread for an email, we will create one. When this happens, you may receive two events:
   `thread.thread_created` and
   [`thread.email_received`](/api-reference/webhooks/thread-email-received) (depending on your
-  webhook target event subscriptions). If you do, and you only care about emails which are not the
-  first message of the thread, please check the `isStartOfThread` in the
+  webhook target event subscriptions). In order to avoid replying to the same thread twice if you
+  subscribe to both events, please check the `isStartOfThread` field in the
   [`thread.email_received`](/api-reference/webhooks/thread-email-received) payload.
 </Warning>
 
