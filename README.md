@@ -2,7 +2,7 @@
 
 This is the documentation for [Plain](https://plain.com) and its API which you can find here:
 
-**<https://plain.com/docs>**
+[**plain.com/docs**](https://plain.com/docs)
 
 They are built using [Mintlify](https://mintlify.com).
 
