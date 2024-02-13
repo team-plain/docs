@@ -2,7 +2,7 @@
 
 This is the documentation for [Plain](https://plain.com) and its API which you can find here:
 
-**https://plain.com/docs**
+[**plain.com/docs**](https://plain.com/docs)
 
 They are built using [Mintlify](https://mintlify.com).
 
@@ -24,5 +24,5 @@ There are some key language/style choices you should follow (and add to):
 - URL is uppercase
 - 'backend' not 'back-end'
 - Be consistent in which words are used for different groups of people:
-  - When refering to people who are helped via Plain use the name "customer"
-  - When refering to people who use Plain to help other people use the name "user"
+  - When referring to people who are helped via Plain use the name "customer"
+  - When referring to people who use Plain to help other people use the name "user"
