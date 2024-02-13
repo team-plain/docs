@@ -82,13 +82,13 @@ The request deduplication logic for customer card configs is:
 
 ## Response
 
-<Callout type="warning" emoji="⚠️">
+<Warning>
 
 For each key requested a corresponding card **MUST** be returned in the response, otherwise an integration error will be returned for that card.
 
 Any extra cards in the response will be ignored.
 
-</Callout>
+</Warning>
 
 Your API must respond with a **`200` status code** or the response body won't be processed and will be treated as an error.
 
