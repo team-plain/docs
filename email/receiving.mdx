@@ -6,12 +6,12 @@ To receive emails, you need to set up email forwarding from your company's suppo
 to your Plain workspace's inbound email address. Your workspace's inbound email address ends with `@inbound.postmark.app` and
 can be found in under **Settings** → **Email**.
 
-<Callout type="info" emoji="️✋">
+<Note>
 This assumes you use Google Workspace (formerly called Google Apps) to manage your domain's emails.
 
 If your email provider is not Google, you can still set up email forwarding in different ways, such as with your domain registrar (e.g. [DNSimple](https://support.dnsimple.com/articles/email-forwarding/)) or your email provider (e.g. [Microsoft 365](https://learn.microsoft.com/en-us/microsoft-365/admin/email/configure-email-forwarding)).
 
-</Callout>
+</Note>
 
 <Steps>
   <Step title="Go to your Gmail routing configuration">
@@ -55,3 +55,8 @@ If your email provider is not Google, you can still set up email forwarding in d
     ...and That's it! 💅
   </Step>
 </Steps>
+
+<Tip>
+  If you have existing email routing rules they can sometimes conflict with ones you add for Plain.
+  For optimal reliability always reorder the Plain ones to apply first.
+</Tip>
