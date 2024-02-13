@@ -4,9 +4,9 @@ Autoresponders
 
 Plain provides a native [workspace level autoresponder](/autoresponders), however for more complex cases you may want to implement your own custom autoresponder.
 
-To achieve this you can set up endpoint(s) to be notified of one or more [Webhooks](/api-reference/webhooks) from Plain. We would typically recommend listening for the [Thread created](/api-reference/webhooks/thread-created) webhook as this will allow you the option of responding to any Thread whether it was created via email, Slack or a contact form.
+To achieve this you can set up endpoint(s) to be notified of one or more [webhooks](/api-reference/webhooks) from Plain. We would typically recommend listening for the [thread created](/api-reference/webhooks/thread-created) webhook as this will allow you the option of responding to any Thread whether it was created via email, Slack or a contact form.
 
-If you want to only reply to emails, you can use the [Email received](/api-reference/webhooks/thread-email-received) webhook. This will trigger for all emails, not just the first one in a thread, so you should check the `isStartOfThread` field provided in the webhook payload to ensure you only reply to the first message.
+If you want to only reply to emails, you can use the [email received](/api-reference/webhooks/thread-email-received) webhook. This will trigger for all emails, not just the first one in a thread, so you should check the `isStartOfThread` field provided in the webhook payload to ensure you only reply to the first message.
 
 <Warning>
   Note that if you subscribe to both `thread.thread_created` and `thread.email_received` you may
