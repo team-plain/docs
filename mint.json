@@ -151,7 +151,8 @@
             "api-reference/graphql/threads",
             "api-reference/graphql/threads/create",
             "api-reference/graphql/threads/assignment",
-            "api-reference/graphql/threads/status-changes"
+            "api-reference/graphql/threads/status-changes",
+            "api-reference/graphql/threads/autoresponders"
           ]
         },
         "api-reference/graphql/pagination",
