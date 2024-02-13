@@ -4,14 +4,6 @@ title: 'Email received'
 
 This event is fired when an email is received in your workspace.
 
-<Warning>
-  An important field that might go unnoticed is `isStartOfThread` which tells you if this email is
-  the first message of a thread or not. This is useful if you want to build some auto-reply logic
-  but note that this will only work for responding to threads received via email. If you want to
-  reply to all threads (including Slack messages and anything received via the API) please check
-  [`thread.thread_created`](/api-reference/webhooks/thread-created) instead.
-</Warning>
-
 ## Schema
 
 [**View JSON Schema →**](https://json-schema.app/view/%23%2Fdefinitions%2FcustomerCreatedPayload?url=https%3A%2F%2Fcore-api.uk.plain.com%2Fwebhooks%2Fschema.json)
