@@ -1,0 +1,18 @@
+---
+title: 'Manual Ingestion Mode'
+---
+
+By default, Plain ingests and groups slack messages automatically for you.
+
+However, there are use-cases where certain channels are too noisy and you don't want all the messages to go into Plain.
+Or perhaps you want more granular control over which slack threads end up in Plain.
+
+For that purpose, you have the option to enable **Manual Ingestion Mode**. When enabled, Plain will only pick up the slack threads you specify by adding an emoji reaction.
+
+You can configure this by going into **`Settings`** > **`Slack`** and selecting `Manual` ingestion mode. You also have the option to specify which emoji reaction you want to use.
+
+Some considerations to have in mind:
+
+- A message will be added to Plain only if the reaction is by a Plain workspace user
+- You need to add the reaction on the channel message, rather than any of the messages in the slack thread
+- Removing the reaction will not delete the thread in Plain. Furthermore, adding it multiple times will not create multiple threads.
