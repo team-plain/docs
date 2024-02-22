@@ -1,0 +1,17 @@
+```tsx
+import { PlainClient } from '@team-plain/typescript-sdk';
+
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
+
+const res = await client.replyToThread({
+  threadId: 'th_01HD1G6649R1DK061W27VBT7QB',
+  textContent: 'The plain text version of your reply goes here.',
+  markdownContent: 'The markdown **version** of your _reply_ goes here.',
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```
