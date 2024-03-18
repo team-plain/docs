@@ -25,13 +25,13 @@ When messages come in, they will be triaged by OpenAI's GPT-4 model for similari
 If messages are determined to be part of the same conversation, they will be grouped into the same thread.
 Otherwise, new threads will be created for each of the messages.
 
-# Single-Message Mode
+# One-to-one
 
-If you want to always associate a Plain thread to a single slack thread, you can enable Single-Message mode.
+If you want to always associate a Plain thread to a single slack thread, you can enable One-to-one mode.
 
 Every new message on a channel will start a new Plain thread. Any subsequent messages within the slack thread will be appended to the Plain thread.
 
-# Manual Ingestion
+# Manual
 
 There are use-cases where certain channels are too noisy and you don't want all the messages to go into Plain.
 Or perhaps you want more granular control over which slack threads end up in Plain.
