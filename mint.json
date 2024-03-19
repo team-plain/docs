@@ -79,11 +79,7 @@
         "contact-forms",
         {
           "group": "Slack",
-          "pages": [
-            "slack",
-            "slack/how-slack-messages-create-threads",
-            "slack/manual-ingestion-mode"
-          ]
+          "pages": ["slack", "slack/how-slack-messages-create-threads", "slack/ingestion-modes"]
         }
       ]
     },
