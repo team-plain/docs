@@ -8,7 +8,12 @@ Customer cards are a powerful feature in Plain that let you show information fro
 
 Customer cards are configured on Plain (see how to [how to create one](/api-reference/customer-cards/create-a-customer-card)) and requested by Plain from your APIs.
 
-## How they work
+## High-level flow
+
+<Note>
+  For a more detailed description of the protocol, check out the [full
+  spec](/api-reference/customer-cards/protocol).
+</Note>
 
 1. A thread is viewed in Plain.
 2. Plain fires a request to your API with:
@@ -26,11 +31,6 @@ Based on your customer card settings, Plain will send a request to your API like
 Your API should then reply with a list of cards matching the requested keys where each card contains the components you want to display:
 
 <Snippet file="customer-cards/customer-cards-basic-response.mdx" />
-
-<Note>
-  For a more detailed description of the protocol, check the
-  [protocol](/api-reference/customer-cards/protocol) page.
-</Note>
 
 ## UI Components
 
