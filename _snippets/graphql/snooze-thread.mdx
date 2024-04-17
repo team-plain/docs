@@ -2,7 +2,6 @@
 mutation snoozeThread($input: SnoozeThreadInput!) {
   snoozeThread(input: $input) {
     thread {
-      __typename
       id
       externalId
       customer {
@@ -10,7 +9,6 @@ mutation snoozeThread($input: SnoozeThreadInput!) {
       }
       status
       statusChangedAt {
-        __typename
         iso8601
         unixTimestamp
       }
@@ -19,7 +17,6 @@ mutation snoozeThread($input: SnoozeThreadInput!) {
       priority
     }
     error {
-      __typename
       message
       type
       code

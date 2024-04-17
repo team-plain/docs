@@ -5,6 +5,16 @@ mutation assignThread($input: AssignThreadInput!) {
       id
       status
     }
+    error {
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
   }
 }
 ```

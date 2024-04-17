@@ -1,0 +1,28 @@
+```tsx
+const res = await client.removeCustomerFromTenants({
+  customerIdentifier: {
+    // You can use the customer email
+    emailAddress: 'jane@aol.com',
+
+    // ... or Plain's customer ID
+    // customerId: 'c_123',
+
+    // ... or the customer's external ID if you have set it
+    // externalId: 'XXX',
+  },
+  tenantIdentifiers: [
+    {
+      externalId: 'team_123',
+    },
+    {
+      externalId: 'team_456',
+    },
+  ],
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```

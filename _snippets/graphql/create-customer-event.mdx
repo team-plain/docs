@@ -2,17 +2,14 @@
 mutation createCustomerEvent($input: CreateCustomerEventInput!) {
   createCustomerEvent(input: $input) {
     customerEvent {
-      __typename
       id
       title
       createdAt {
-        __typename
         iso8601
         unixTimestamp
       }
     }
     error {
-      __typename
       message
       type
       code

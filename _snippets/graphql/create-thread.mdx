@@ -2,7 +2,6 @@
 mutation createThread($input: CreateThreadInput!) {
   createThread(input: $input) {
     thread {
-      __typename
       id
       externalId
       customer {
@@ -10,7 +9,6 @@ mutation createThread($input: CreateThreadInput!) {
       }
       status
       statusChangedAt {
-        __typename
         iso8601
         unixTimestamp
       }
@@ -19,7 +17,6 @@ mutation createThread($input: CreateThreadInput!) {
       priority
     }
     error {
-      __typename
       message
       type
       code

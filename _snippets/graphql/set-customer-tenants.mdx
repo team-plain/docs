@@ -1,0 +1,34 @@
+```graphql Mutation 
+mutation setCustomerTenants($input: SetCustomerTenantsInput!) {
+  setCustomerTenants(input: $input) {
+    error {
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```graphql Variables
+{
+  "input": {
+    "customerIdentifier": {
+      "emailAddress": "jane@aol.com"
+    },
+    "tenantIdentifiers": [
+      {
+        "externalId": "team_123"
+      },
+      {
+        "externalId": "team_456"
+      }
+    ]
+  }
+}
+```
