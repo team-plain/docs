@@ -85,13 +85,14 @@
     },
     {
       "group": "Adding context",
-      "pages": ["customer-cards", "customer-groups", "events"]
+      "pages": ["company-support", "tenant-support", "customer-cards", "customer-groups", "events"]
     },
     {
       "group": "Using Plain",
       "pages": [
         "notifications",
         "assignment",
+        "tiers",
         "priorities",
         "labels",
         "linear",
@@ -99,7 +100,6 @@
         "reporting",
         "snippets",
         "shortcuts",
-        "company-support",
         "autoresponders",
         "plain-ai"
       ]
