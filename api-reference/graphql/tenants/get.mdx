@@ -1,0 +1,40 @@
+---
+title: "Get tenants"
+---
+
+We provide two of methods for fetching tenants:
+
+1. [Get tenants](#get-tenants) to fetch more than one tenant at a time.
+1. [Get tenant by ID](#get-tenant-by-id)
+
+For all of these queries you need the following permissions:
+
+- `tenant:read`
+
+### Get tenants
+
+Our API allows you to fetch teanants as a collection using `getTenants` in our SDKs or the `tenants` query in GraphQL. In both cases this endpoint supports [Pagination](/api-reference/graphql/pagination).
+
+<Tabs>
+  <Tab title="Typescript SDK">
+    <Snippet file="typescript-sdk/get-tenants.mdx" />
+  </Tab>
+
+  <Tab title="GraphQL">
+    <Snippet file="graphql/get-tenants.mdx" />
+  </Tab>
+</Tabs>
+
+### Get tenant by ID
+
+If you know the tenant's ID in Plain you can use this method to fetch the tenant. Generally speaking it's preferable to use [upsert](./upsert) when you have the full details of the tenant.
+
+<Tabs>
+  <Tab title="Typescript SDK">
+    <Snippet file="typescript-sdk/get-tenant-by-id.mdx" />
+  </Tab>
+
+  <Tab title="GraphQL">
+    <Snippet file="graphql/get-tenant-by-id.mdx" />
+  </Tab>
+</Tabs>

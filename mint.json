@@ -125,6 +125,7 @@
           "pages": [
             "api-reference/graphql/tenants",
             "api-reference/graphql/tenants/upsert",
+            "api-reference/graphql/tenants/get",
             "api-reference/graphql/tenants/add-customers",
             "api-reference/graphql/tenants/remove-customers",
             "api-reference/graphql/tenants/set-customer-tenants"
