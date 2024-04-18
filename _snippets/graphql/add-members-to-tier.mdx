@@ -1,0 +1,30 @@
+```graphql Query
+mutation addMembersToTier($input: AddMembersToTierInput!) {
+  addMembersToTier(input: $input) {
+    error {
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "memberIdentifiers": [
+    {
+      "tenantId": "te_123"
+    },
+    {
+      "companyId": "co_123"
+    }
+  ],
+  "tierId": "tier_123"
+}
+```

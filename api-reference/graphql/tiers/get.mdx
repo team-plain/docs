@@ -1,0 +1,38 @@
+---
+title: 'Get tiers'
+sidebarTitle: 'Get tiers'
+---
+
+For all of these queries you need the following permission:
+
+- `tier:read`
+
+
+## Get tiers
+
+Our API allows you to fetch tiers as a collection using `getTiers` in our SDKs or the `tiers` query in GraphQL. In both cases this endpoint supports [Pagination](/api-reference/graphql/pagination).
+
+<Tabs>
+  <Tab title="Typescript SDK">
+    <Snippet file="typescript-sdk/get-tiers.mdx" />
+  </Tab>
+
+  <Tab title="GraphQL">
+    <Snippet file="graphql/get-tiers.mdx" />
+  </Tab>
+</Tabs>
+
+### Get tier by ID
+
+If you know the tiers's ID in Plain you can use this method to fetch the tier.
+
+<Tabs>
+  <Tab title="Typescript SDK">
+    <Snippet file="typescript-sdk/get-tier-by-id.mdx" />
+  </Tab>
+
+  <Tab title="GraphQL">
+    <Snippet file="graphql/get-tier-by-id.mdx" />
+  </Tab>
+</Tabs>
+

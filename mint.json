@@ -140,6 +140,15 @@
           ]
         },
         {
+          "group": "Tiers",
+          "pages": [
+            "api-reference/graphql/tiers",
+            "api-reference/graphql/tiers/get",
+            "api-reference/graphql/tiers/add-members",
+            "api-reference/graphql/tiers/remove-members"
+          ]
+        },
+        {
           "group": "Events",
           "pages": [
             "api-reference/graphql/events",
