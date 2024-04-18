@@ -3,20 +3,21 @@ title: 'Update customer company'
 sidebarTitle: 'Update customer company'
 ---
 
-You can add a customer to multiple tenants.
+Plain automatically derived a customer's company for you, but you can also update it manually.
 
-When selecting the customer you can chose how to identify them. You can use the customer's email, externalId or id.
+Both customer and company are identified by their Plain ids (respectively, `c_...` and `co_...`).
+
+If you wish to only remove the customer's associated company, then you can pass `null` as the `companyIdentifier`.
 
 For this mutation you need the following permissions:
 
-- `TODO`
-- `TODO`
+- `customer:edit`
 
 <Tabs>
   <Tab title="Typescript SDK">
-    <Snippet file="typescript-sdk/add-customer-to-tenants.mdx" />
+    <Snippet file="typescript-sdk/update-customer-company.mdx" />
   </Tab>
   <Tab title="GraphQL">
-    <Snippet file="graphql/add-customer-to-tenants.mdx" />
+    <Snippet file="graphql/update-customer-company.mdx" />
   </Tab>
 </Tabs>

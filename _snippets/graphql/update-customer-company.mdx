@@ -1,0 +1,40 @@
+```graphql Mutation
+mutation updateCustomerCompany(
+  $customerId: ID!, 
+  $companyId: ID!, 
+  $companyDomainName: String!
+) {
+  updateCustomerCompany(
+    input: {
+      customerId: $customerId, 
+      companyIdentifier: {
+        companyId: $companyId, 
+        companyDomainName: $companyDomainName
+      }
+    }
+  ) {
+    customer {
+      id
+      company {
+        id
+        name
+        logoUrl
+        domainName
+      }
+    }
+    error {
+      message
+      type
+      code
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "customerId": "c_01H14DFQ4PDYBH398J1E99TWSS",
+  "companyId": "co_01HRRMRPERZCK42HTPD4JQ57NB",
+  "companyDomainName": "nike.com"
+}
+```
