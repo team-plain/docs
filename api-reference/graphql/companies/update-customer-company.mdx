@@ -3,9 +3,11 @@ title: 'Update customer company'
 sidebarTitle: 'Update customer company'
 ---
 
-Plain automatically derived a customer's company for you, but you can also update it manually.
+Plain automatically derives a customer's company for you, but you can also update it manually.
 
-Both customer and company are identified by their Plain ids (respectively, `c_...` and `co_...`).
+The customer in question is identified by their id (ie `c_...`).
+
+With regards to the company, you can either specify an existing company using the ID we've generated (ie `co_...`), or pass the company domain, which we'll use to derive the rest of the company's info.
 
 If you wish to only remove the customer's associated company, then you can pass `null` as the `companyIdentifier`.
 
