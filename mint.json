@@ -121,6 +121,14 @@
           ]
         },
         {
+          "group": "Companies",
+          "pages": [
+            "api-reference/graphql/companies",
+            "api-reference/graphql/companies/get-companies",
+            "api-reference/graphql/companies/update-customer-company"
+          ]
+        },
+        {
           "group": "Tenants",
           "pages": [
             "api-reference/graphql/tenants",

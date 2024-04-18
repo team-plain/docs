@@ -1,0 +1,11 @@
+```tsx
+const res = await client.getCompanies({
+  first: 25,
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```
