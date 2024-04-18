@@ -2,13 +2,13 @@
 const res = await client.removeMembersFromTier({
   memberIdentifiers: [
     {
-      tenantId: 'te_123'
+      tenantId: 'te_123',
     },
     {
-      companyId: 'co_123'
-    }
+      companyId: 'co_123',
+    },
   ],
-  tierId: 'tier_123'
+  tierId: 'tier_123',
 });
 
 if (res.error) {
