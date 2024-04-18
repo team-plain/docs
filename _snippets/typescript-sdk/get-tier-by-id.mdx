@@ -1,0 +1,11 @@
+```tsx
+const res = await client.getTierById({
+  tierId: 'tier_123',
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```

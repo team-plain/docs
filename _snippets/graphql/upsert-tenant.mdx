@@ -1,0 +1,37 @@
+```graphql Mutation
+mutation upsertTenant($input: UpsertTenantInput!) {
+  upsertTenant(input: $input) {
+    tenant {
+      id
+      externalId
+      name
+      url
+    }
+    error {
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "identifier": {
+      "externalId": "team_123"
+    },
+    "name": "Acme",
+    "externalId": "team_123",
+    "url": {
+      "value": "acme.com"
+    }
+  }
+}
+```

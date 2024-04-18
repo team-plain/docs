@@ -1,0 +1,21 @@
+---
+title: 'Upserting tenants'
+---
+
+When upserting a tenant you need to specify an `externalId` which matches the id of the tenant in your own backend.
+
+For example if your product is structured in teams, then when creating a tenant for a team you'd use the team's id as the `externalId`.
+
+To upsert a tenant you need the following permissions:
+
+- `tenant:read`
+- `tenant:create`
+
+<Tabs>
+  <Tab title="Typescript SDK">
+    <Snippet file="typescript-sdk/upsert-tenant.mdx" />
+  </Tab>
+  <Tab title="GraphQL">
+    <Snippet file="graphql/upsert-tenant.mdx" />
+  </Tab>
+</Tabs>

@@ -1,0 +1,26 @@
+```graphql Query
+query getCompanies($cursor: String!) {
+  companies(after: $cursor, first: 50) {
+    edges {
+      node {
+        id
+        name
+        logoUrl
+        domainName
+      }
+    }
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "cursor": "eyJjb21wYW5pZXMubmFtZSI6IuyYpOuIhOydtCIsImNvbXBhbmllcy5pZCI6ImNvXzAxSFJSTVJQRVJaQ0s0MkhUUEQ0SlE1N05CIn0"
+}
+```

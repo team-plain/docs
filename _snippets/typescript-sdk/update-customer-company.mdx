@@ -1,0 +1,14 @@
+```tsx
+const res = await client.updateCustomerCompany({
+  customerId: 'c_01H14DFQ4PDYBH398J1E99TWSS',
+  companyIdentifier: {
+    companyDomainName: 'nike.com',
+  },
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```

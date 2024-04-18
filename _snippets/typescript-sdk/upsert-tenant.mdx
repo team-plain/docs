@@ -1,0 +1,20 @@
+```tsx
+const res = await client.upsertTenant({
+  identifier: {
+    externalId: 'team_123',
+  },
+  externalId: 'team_123',
+  name: 'Acme',
+
+  // URL is optional and can be null
+  url: {
+    value: 'acme.com',
+  },
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```

@@ -1,0 +1,19 @@
+```tsx
+const res = await client.addMembersToTier({
+  memberIdentifiers: [
+    {
+      tenantId: 'te_123',
+    },
+    {
+      companyId: 'co_123',
+    },
+  ],
+  tierId: 'tier_123',
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```

@@ -85,13 +85,14 @@
     },
     {
       "group": "Adding context",
-      "pages": ["customer-cards", "customer-groups", "events"]
+      "pages": ["company-support", "tenant-support", "customer-cards", "customer-groups", "events"]
     },
     {
       "group": "Using Plain",
       "pages": [
         "notifications",
         "assignment",
+        "tiers",
         "priorities",
         "labels",
         "linear",
@@ -99,7 +100,6 @@
         "reporting",
         "snippets",
         "shortcuts",
-        "company-support",
         "autoresponders",
         "plain-ai"
       ]
@@ -118,6 +118,34 @@
             "api-reference/graphql/customers/upsert",
             "api-reference/graphql/customers/delete",
             "api-reference/graphql/customers/customer-groups"
+          ]
+        },
+        {
+          "group": "Companies",
+          "pages": [
+            "api-reference/graphql/companies",
+            "api-reference/graphql/companies/get-companies",
+            "api-reference/graphql/companies/update-customer-company"
+          ]
+        },
+        {
+          "group": "Tenants",
+          "pages": [
+            "api-reference/graphql/tenants",
+            "api-reference/graphql/tenants/upsert",
+            "api-reference/graphql/tenants/get",
+            "api-reference/graphql/tenants/add-customers",
+            "api-reference/graphql/tenants/remove-customers",
+            "api-reference/graphql/tenants/set-customer-tenants"
+          ]
+        },
+        {
+          "group": "Tiers",
+          "pages": [
+            "api-reference/graphql/tiers",
+            "api-reference/graphql/tiers/get",
+            "api-reference/graphql/tiers/add-members",
+            "api-reference/graphql/tiers/remove-members"
           ]
         },
         {

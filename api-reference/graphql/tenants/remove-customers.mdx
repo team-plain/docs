@@ -1,0 +1,22 @@
+---
+title: 'Remove customers to tenants'
+sidebarTitle: 'Remove customers'
+---
+
+You can remove customers from multiple tenants in one API call.
+
+When selecting the customer you can chose how to identify them. You can use the customer's email, externalId or id.
+
+For this mutation you need the following permissions:
+
+- `customer:edit`
+- `customerTenantMembership:delete`
+
+<Tabs>
+  <Tab title="Typescript SDK">
+    <Snippet file="typescript-sdk/remove-customer-from-tenants.mdx" />
+  </Tab>
+  <Tab title="GraphQL">
+    <Snippet file="graphql/remove-customer-from-tenants.mdx" />
+  </Tab>
+</Tabs>

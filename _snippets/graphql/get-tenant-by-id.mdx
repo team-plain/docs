@@ -1,0 +1,16 @@
+```graphql Query
+query tenant($tenantId: ID!) {
+  tenant(tenantId: $tenantId) {
+    id
+    externalId
+    name
+    url
+  }
+}
+```
+
+```json Variables
+{
+  "tenantId": "te_123"
+}
+```

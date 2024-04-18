@@ -7,6 +7,16 @@ mutation addLabels($input: AddLabelsInput!) {
         iso8601
       }
     }
+    error {
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
   }
 }
 ```

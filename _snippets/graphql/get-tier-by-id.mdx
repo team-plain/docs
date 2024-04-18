@@ -1,0 +1,16 @@
+```graphql Query
+query tier($tierId: ID!) {
+  tier(tierId: $tierId) {
+    id
+    externalId
+    name
+    defaultPriority
+  }
+}
+```
+
+```json Variables
+{
+  "tierId": "tier_123"
+}
+```
