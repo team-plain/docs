@@ -1,16 +1,9 @@
 ```graphql Mutation
-mutation updateCustomerCompany(
-  $customerId: ID!, 
-  $companyId: ID!, 
-  $companyDomainName: String!
-) {
+mutation updateCustomerCompany($customerId: ID!, $companyId: ID!, $companyDomainName: String!) {
   updateCustomerCompany(
     input: {
-      customerId: $customerId, 
-      companyIdentifier: {
-        companyId: $companyId, 
-        companyDomainName: $companyDomainName
-      }
+      customerId: $customerId
+      companyIdentifier: { companyId: $companyId, companyDomainName: $companyDomainName }
     }
   ) {
     customer {
