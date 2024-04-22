@@ -1,9 +1,7 @@
 ```tsx
 import { PlainClient } from '@team-plain/typescript-sdk';
 
-const client = new PlainClient({
-  apiKey: 'XXX',
-});
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
 const res = await client.markThreadAsTodo({
   threadId: 'th_01HB924RWAW8H3Q8KZDFWYBJHZ',

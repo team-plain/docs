@@ -1,10 +1,7 @@
 ```tsx
 import { PlainClient, uiComponent } from '@team-plain/typescript-sdk';
 
-const client = new PlainClient({
-  apiKey: 'XXX',
-  debug: true,
-});
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
 const res = await client.createThreadEvent({
   title: 'API key generated',

@@ -1,4 +1,8 @@
 ```tsx
+import { PlainClient } from '@team-plain/typescript-sdk';
+
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
+
 const res = await client.getTierById({
   tierId: 'tier_123',
 });

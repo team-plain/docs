@@ -3,8 +3,8 @@ import { PlainClient } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
-const res = await client.getTenantById({
-  tenantId: 'te_123',
+const res = await client.deleteThreadField({
+  threadFieldId: 'tf_01HVTN2VTNYP91P5XGDQ57M2ZX',
 });
 
 if (res.error) {

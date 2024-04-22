@@ -1,0 +1,24 @@
+```graphql Mutation
+mutation deleteThreadField($input: DeleteThreadFieldInput!) {
+  deleteThreadField(input: $input) {
+    error {
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "threadFieldId": "th_01HVNWFJS395XVPPBJNE6A8BHP"
+  }
+}
+```

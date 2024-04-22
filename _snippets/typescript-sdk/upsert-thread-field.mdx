@@ -1,13 +1,15 @@
-```tsx
+```ts
 import { PlainClient } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
-const res = await client.updateCustomerCompany({
-  customerId: 'c_01H14DFQ4PDYBH398J1E99TWSS',
-  companyIdentifier: {
-    companyDomainName: 'nike.com',
+const res = await client.upsertThreadField({
+  identifier: {
+    key: 'product_area',
+    threadId: 'th_01HVNWFJS395XVPPBJNE6A8BHP',
   },
+  type: ThreadFieldSchemaType.String,
+  stringValue: 'security',
 });
 
 if (res.error) {
