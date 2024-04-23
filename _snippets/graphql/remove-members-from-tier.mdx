@@ -17,14 +17,16 @@ mutation removeMembersFromTier($input: RemoveMembersFromTierInput!) {
 
 ```json Variables
 {
-  "memberIdentifiers": [
-    {
-      "tenantId": "te_123"
-    },
-    {
-      "companyId": "co_123"
-    }
-  ],
-  "tierId": "tier_123"
+  "input": {
+    "memberIdentifiers": [
+      {
+        "tenantId": "te_123"
+      },
+      {
+        "companyId": "co_123"
+      }
+    ],
+    "tierId": "tier_123"
+  }
 }
 ```

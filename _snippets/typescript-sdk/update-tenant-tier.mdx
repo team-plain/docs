@@ -1,0 +1,27 @@
+```ts
+import { PlainClient } from '@team-plain/typescript-sdk';
+
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
+
+const res = await client.updateTenantTier({
+  tenantIdentifier: {
+    externalId: 'XXX',
+
+    // Or the tenant id if you prefer
+    // tenantId: 'te_123',
+  },
+
+  tierIdentifier: {
+    externalId: 'XXX',
+
+    // Or the tier id:
+    // tierId: "tier_123"
+  },
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```

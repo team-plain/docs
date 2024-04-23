@@ -1,0 +1,19 @@
+---
+title: 'Update tenant tier'
+---
+
+If you want to explicitly set the tier for a tenant you can do so using this mutation. If you want to instead add many tenants to a tier you can use the [add members mutation](./add-members).
+
+For this mutation you need the following permissions:
+
+- `tierMembership:read`
+- `tierMembership:create`
+
+<Tabs>
+  <Tab title="Typescript SDK">
+    <Snippet file="typescript-sdk/update-tenant-tier.mdx" />
+  </Tab>
+  <Tab title="GraphQL">
+    <Snippet file="graphql/update-tenant-tier.mdx" />
+  </Tab>
+</Tabs>

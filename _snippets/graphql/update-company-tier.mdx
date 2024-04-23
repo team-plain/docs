@@ -1,0 +1,33 @@
+```graphql Mutation
+mutation updateCompanyTier($input: UpdateCompanyTierInput!) {
+  updateCompanyTier(input: $input) {
+    companyTierMembership {
+      id
+      tierId
+    }
+    error {
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "companyIdentifier": {
+      "companyDomainName": "acme.com"
+    },
+    "tierIdentifier": {
+      "externalId": "XXX"
+    }
+  }
+}
+```
