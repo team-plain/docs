@@ -3,11 +3,8 @@ import { PlainClient } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
-const res = await client.updateCustomerCompany({
-  customerId: 'c_01H14DFQ4PDYBH398J1E99TWSS',
-  companyIdentifier: {
-    companyDomainName: 'nike.com',
-  },
+const res = await client.deleteThreadField({
+  threadFieldId: 'tf_01HVTN2VTNYP91P5XGDQ57M2ZX',
 });
 
 if (res.error) {

@@ -85,7 +85,14 @@
     },
     {
       "group": "Adding context",
-      "pages": ["company-support", "tenant-support", "customer-cards", "customer-groups", "events"]
+      "pages": [
+        "company-support",
+        "tenant-support",
+        "customer-cards",
+        "thread-fields",
+        "customer-groups",
+        "events"
+      ]
     },
     {
       "group": "Using Plain",
@@ -140,6 +147,17 @@
           ]
         },
         {
+          "group": "Threads",
+          "pages": [
+            "api-reference/graphql/threads",
+            "api-reference/graphql/threads/create",
+            "api-reference/graphql/threads/assignment",
+            "api-reference/graphql/threads/thread-fields",
+            "api-reference/graphql/threads/status-changes",
+            "api-reference/graphql/threads/autoresponders"
+          ]
+        },
+        {
           "group": "Tiers",
           "pages": [
             "api-reference/graphql/tiers",
@@ -171,16 +189,6 @@
             "api-reference/graphql/messaging/reply-to-thread",
             "api-reference/graphql/messaging/send-email",
             "api-reference/graphql/messaging/reply-email"
-          ]
-        },
-        {
-          "group": "Threads",
-          "pages": [
-            "api-reference/graphql/threads",
-            "api-reference/graphql/threads/create",
-            "api-reference/graphql/threads/assignment",
-            "api-reference/graphql/threads/status-changes",
-            "api-reference/graphql/threads/autoresponders"
           ]
         },
         "api-reference/graphql/pagination",

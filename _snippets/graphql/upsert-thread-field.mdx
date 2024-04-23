@@ -1,0 +1,45 @@
+```graphql Mutation
+mutation upsertThreadField($input: UpsertThreadFieldInput!) {
+  upsertThreadField(input: $input) {
+    result
+    threadField {
+      id
+      key
+      type
+      threadId
+      stringValue
+      booleanValue
+      isAiGenerated
+      createdAt {
+        iso8601
+      }
+      updatedAt {
+        iso8601
+      }
+    }
+    error {
+      message
+      type
+      code
+      fields {
+        field
+        message
+        type
+      }
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "identifier": {
+      "threadId": "th_01HVNWFJS395XVPPBJNE6A8BHP",
+      "key": "product_area"
+    },
+    "type": "STRING",
+    "stringValue": "security"
+  }
+}
+```

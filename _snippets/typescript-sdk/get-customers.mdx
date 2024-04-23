@@ -1,7 +1,7 @@
-```tsx
-const client = new PlainClient({
-  apiKey: 'XXX',
-});
+```ts
+import { PlainClient } from '@team-plain/typescript-sdk';
+
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
 const res = await client.getCustomers({
   first: 50,

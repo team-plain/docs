@@ -1,9 +1,7 @@
-```tsx
+```ts
 import { PlainClient } from '@team-plain/typescript-sdk';
 
-const client = new PlainClient({
-  apiKey: 'XXX',
-});
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
 const res = await client.unassignThread({
   threadId: 'th_01H8H46YPB2S4MAJM382FG9423',

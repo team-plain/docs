@@ -5,7 +5,7 @@ const apiKey = 'XXX';
 const email = 'XXX';
 
 const client = new PlainClient({
-  apiKey: apiKey,
+  apiKey,
 });
 
 client.getCustomerByEmail({ email: email }).then((result) => {
