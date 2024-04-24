@@ -88,8 +88,8 @@
       "pages": [
         "company-support",
         "tenant-support",
-        "customer-cards",
         "thread-fields",
+        "customer-cards",
         "customer-groups",
         "events"
       ]
@@ -162,6 +162,8 @@
           "pages": [
             "api-reference/graphql/tiers",
             "api-reference/graphql/tiers/get",
+            "api-reference/graphql/tiers/update-company-tier",
+            "api-reference/graphql/tiers/update-tenant-tier",
             "api-reference/graphql/tiers/add-members",
             "api-reference/graphql/tiers/remove-members"
           ]

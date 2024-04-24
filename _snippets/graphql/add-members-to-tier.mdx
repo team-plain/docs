@@ -1,6 +1,17 @@
 ```graphql Query
 mutation addMembersToTier($input: AddMembersToTierInput!) {
   addMembersToTier(input: $input) {
+    memberships {
+      __typename
+      ... on TenantTierMembership {
+        id
+        tenantId
+      }
+      ... on CompanyTierMembership {
+        id
+        companyId
+      }
+    }
     error {
       message
       type
@@ -17,14 +28,16 @@ mutation addMembersToTier($input: AddMembersToTierInput!) {
 
 ```json Variables
 {
-  "memberIdentifiers": [
-    {
-      "tenantId": "te_123"
-    },
-    {
-      "companyId": "co_123"
-    }
-  ],
-  "tierId": "tier_123"
+  "input": {
+    "memberIdentifiers": [
+      {
+        "tenantId": "te_123"
+      },
+      {
+        "companyId": "co_123"
+      }
+    ],
+    "tierId": "tier_123"
+  }
 }
 ```
