@@ -12,7 +12,7 @@ const res = await client.addMembersToTier({
       companyId: 'co_123',
     },
   ],
-  tierId: 'tier_123',
+  tierIdentifier: { tierId: 'tier_123' },
 });
 
 if (res.error) {
