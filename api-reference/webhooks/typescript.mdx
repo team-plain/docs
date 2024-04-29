@@ -7,7 +7,6 @@ When using webhooks with Typescript, you can use a utility called `parsePlainWeb
 
 This makes sure your code is 100% type safe and that all requests are correctly validated.
 
-
 ```ts
 import Express from 'express';
 import { parsePlainWebhook } from '@team-plain/typescript-sdk';
@@ -35,6 +34,3 @@ app.post('/handler/', function (req: Express.Request, res: Express.Response) {
   res.status(200);
 });
 ```
-
-
-
