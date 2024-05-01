@@ -230,6 +230,7 @@
             "api-reference/webhooks/thread-field-created",
             "api-reference/webhooks/thread-field-updated",
             "api-reference/webhooks/thread-field-deleted",
+            "api-reference/webhooks/thread-service-level-agreement-status-transitioned",
             "api-reference/webhooks/customer-created",
             "api-reference/webhooks/customer-updated",
             "api-reference/webhooks/customer-deleted",

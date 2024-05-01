@@ -22,6 +22,8 @@ SLAs can also be driven by priority of threads. This allows you to have a differ
 
 If you want to create a 'default' SLA then you can need to first create a tier and make that the default in your settings. Then you can configure SLAs like you would on any other tier.
 
+When an SLA is about to breach or it is breaching, you will be notified via the mechanism you configure in your SLA settings. We also provide the [Thread SLA status transitioned](/api-reference/webhooks/thread-service-level-agreement-status-transitioned/) Plain event. This event will be fired when the status of an SLA linked to a thread changes (e.g. about to breach, breaching, achieved, etc.)
+
 ### Business hours
 
 By default SLAs apply at all times. They can be configured to only count working hours by toggling on **Only during business hours**.
