@@ -33,6 +33,20 @@ const res = await client.createThread({
     type: ThreadFieldSchemaType.String,
     stringValue: 'any value',
   }],
+
+  // You can also set other thread field types like boolean or enum.
+  // threadFields: [{
+  //   key: 'my_enum_field',
+  //   type: ThreadFieldSchemaType.Enum,
+  //   stringValue: 'any specified value',
+  // }]
+  //
+  // threadFields: [{
+  //   key: 'my_bool_field',
+  //   type: ThreadFieldSchemaType.Bool,
+  //   booleanValue: true,
+  // }],
+
 });
 
 if (res.error) {
