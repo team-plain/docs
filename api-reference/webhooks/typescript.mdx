@@ -1,0 +1,36 @@
+---
+title: 'Webhooks and Typescript'
+sidebarTitle: 'Using Typescript'
+---
+
+When using webhooks with Typescript, you can use a utility called `parsePlainWebhook` in the Typescript SDK to parse the webhook requests.
+
+This makes sure your code is 100% type safe and that all requests are correctly validated.
+
+```ts
+import Express from 'express';
+import { parsePlainWebhook } from '@team-plain/typescript-sdk';
+
+const app = Express();
+
+app.post('/handler/', function (req: Express.Request, res: Express.Response) {
+  const parseResult = parsePlainWebhook(req.body);
+
+  // If this errors it means the request is not valid
+  // you can safely ignore it!
+  if (parseResult.error) {
+    res.status(400);
+    return;
+  }
+
+  // This is now fully typed and safe to use.
+  const webhookBody = parseResult.data;
+
+  // You can use the eventType to filter down to a specific event type
+  if (webhookBody.payload.eventType === 'thread.thread_created') {
+    console.log(webhookBody.payload.thread.id);
+  }
+
+  res.status(200);
+});
+```

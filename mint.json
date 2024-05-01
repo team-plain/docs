@@ -217,6 +217,7 @@
           "group": "Webhooks",
           "pages": [
             "api-reference/webhooks",
+            "api-reference/webhooks/typescript",
             "api-reference/webhooks/thread-created",
             "api-reference/webhooks/thread-status-transitioned",
             "api-reference/webhooks/thread-assignment-transitioned",
