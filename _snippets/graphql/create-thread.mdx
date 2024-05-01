@@ -15,6 +15,13 @@ mutation createThread($input: CreateThreadInput!) {
       title
       previewText
       priority
+      threadFields {
+        id
+        key
+        type
+        stringValue
+        booleanValue
+      }
     }
     error {
       message
@@ -44,7 +51,26 @@ mutation createThread($input: CreateThreadInput!) {
         }
       }
     ],
-    "labelTypeIds": ["lt_01HB924PME9C0YWKW1N4AK3BZA"]
+    "labelTypeIds": ["lt_01HB924PME9C0YWKW1N4AK3BZA"],
+    "threadFields": [
+      {
+        "key": "my_string_field",
+        "type": "STRING",
+        "stringValue": "any value"
+      }
+    ]
+    // You can also set other thread field types like boolean or enum.
+    // "threadFields": [{
+    //   "key": "my_enum_field",
+    //   "type": "ENUM",
+    //   "stringValue": "any specified value",
+    // }],
+    //
+    // "threadFields": [{
+    //   "key": "my_bool_field",
+    //   "type": "BOOL",
+    //   "booleanValue": true,
+    // }],
   }
 }
 ```

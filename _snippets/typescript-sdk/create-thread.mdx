@@ -1,5 +1,5 @@
 ```ts
-import { PlainClient } from '@team-plain/typescript-sdk';
+import { PlainClient, ThreadFieldSchemaType } from '@team-plain/typescript-sdk';
 
 const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
 
@@ -25,6 +25,29 @@ const res = await client.createThread({
   // Label types are created in settings where you can also copy
   // their ID.
   labelTypeIds: ['lt_01HB924PME9C0YWKW1N4AK3BZA'],
+
+  // Thread fields are created in settings where you can also copy
+  // their key.
+  threadFields: [
+    {
+      key: 'my_string_field',
+      type: ThreadFieldSchemaType.String,
+      stringValue: 'any value',
+    },
+  ],
+
+  // You can also set other thread field types like boolean or enum.
+  // threadFields: [{
+  //   key: 'my_enum_field',
+  //   type: ThreadFieldSchemaType.Enum,
+  //   stringValue: 'any specified value',
+  // }]
+  //
+  // threadFields: [{
+  //   key: 'my_bool_field',
+  //   type: ThreadFieldSchemaType.Bool,
+  //   booleanValue: true,
+  // }],
 });
 
 if (res.error) {
