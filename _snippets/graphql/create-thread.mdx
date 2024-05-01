@@ -15,6 +15,13 @@ mutation createThread($input: CreateThreadInput!) {
       title
       previewText
       priority
+      threadFields {
+        id
+        key
+        type
+        stringValue
+        booleanValue
+      }
     }
     error {
       message
@@ -44,7 +51,12 @@ mutation createThread($input: CreateThreadInput!) {
         }
       }
     ],
-    "labelTypeIds": ["lt_01HB924PME9C0YWKW1N4AK3BZA"]
+    "labelTypeIds": ["lt_01HB924PME9C0YWKW1N4AK3BZA"],
+    "threadFields": [{
+      "key": "my_string_field",
+      "type": "ThreadFieldSchemaType.String",
+      "stringValue": "any value",
+    }],
   }
 }
 ```
