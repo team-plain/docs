@@ -2,10 +2,7 @@
 title: 'Reply to threads'
 ---
 
-You can reply to a thread using the `replyToThread` mutation. The call to this mutation will be successful if:
-
-- the last message in the thread is an email from the customer OR
-- the thread was just created with [`createThread`](/api-reference/graphql/threads/create)
+You can reply to a thread using the `replyToThread` mutation.
 
 If it is not possible to reply to this thread, you will get the mutation error code [`cannot_reply_to_thread`](/api-reference/graphql/error-codes#cannot_reply_to_thread) and a message indicating why.
 
