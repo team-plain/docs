@@ -20,19 +20,19 @@ When a thread is created Plain will automatically assign a tier, with varying lo
 
 #### Threads created via API
 
-For threads created via the API they can have a tenant specified, which Plain will use to assign the tier.
+When a threads is created via the API for a specific tenant, this is how the tier is selected:
 
 - If the tenant is a member of a single tier we will use that tier
 - If the tenant is a member of multiple tiers, we will use the tier with the highest default priority
 - If the tenant is a member of no tiers we will use the default tier if one exists, or the thread will have no tier
 
-If a thread was created with no tenant we will fall back to the logic below.
+If a thread is created with no tenant we will fall back to the logic below.
 
-#### Other channels
+#### Email & Slack
 
-Threads created via any other channel do not have a tenant specified, so the tier is applied based on characteristics of the customer. We look at all the tiers that customer is part of based on their company and tenants
+For all email and Slack threads, the tier is applied based on the customer the thread belongs to. We look at all tenants and company the customer is part of, to determine the tier.
 
-- If that gives a single tier we use it
+- If there is a single tier which is possible given the customer, that tier is used
 - If there are multiple tiers we pick the one with the highest default priority
 - If there are no tiers we will use the default tier if one exists, or the thread will have no tier
 
@@ -54,12 +54,14 @@ By default SLAs apply at all times. They can be configured to only count working
 
 To configure business hours go to **Settings** → **Business hours**
 
-When an SLA is configured to use business hours the timer on the SLA will be paused outside of business hours. For example, if:
+When an SLA is configured to use business hours the timer on the SLA will be paused outside of business hours. 
+
+For example, if:
 
 - Your business hours are Monday - Friday, 9am - 5pm
 - An enterprise customer sends in a support email on Friday at 4.30pm
 - Your enterprise First Response Time SLA is 1 hour
 
-then the SLA would breach if you don't reply by 9.30am on Monday.
+... then the SLA would breach if you don't reply by 9.30am on Monday.
 
 This is because there are 30 minutes of business hours on Friday afternoon, after which your SLA is paused over the weekend. This is followed by a remaining 30 minutes of business hours from 9 - 9.30 am on Monday.
