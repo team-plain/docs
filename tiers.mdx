@@ -4,7 +4,7 @@ title: 'Tiers & SLAs'
 
 <Frame>![Tiers and SLAs within Plain](/public/images/tiers-introduction.png)</Frame>
 
-Within Plain you can organise companies and tenants to match your pricing tiers (e.g. Enterprise, Pro, Free etc.).
+Within Plain you can organize companies and tenants to match your pricing tiers (e.g. Enterprise, Pro, Free, etc.).
 
 To manage your tiers go to **Settings** → **Tiers**.
 
@@ -14,18 +14,54 @@ Tiers can be managed manually or [via the API](/api-reference/graphql/tiers/).
 
 Tiers can have a default priority. This allows you to, for example, set all Enterprise support requests to have a priority of "High". This means you can encourage prioritisation by tier (e.g. "Enterprise first, then Pro, then everyone else").
 
+### Tier assignment
+
+When a thread is created Plain will automatically assign a tier, with varying logic depending on the channel.
+
+#### Threads created via API
+
+When a threads is created via the API for a specific tenant, this is how the tier is selected:
+
+- If the tenant is a member of a single tier we will use that tier
+- If the tenant is a member of multiple tiers, we will use the tier with the highest default priority
+- If the tenant is a member of no tiers we will use the default tier if one exists, or the thread will have no tier
+
+If a thread is created with no tenant we will fall back to the logic below.
+
+#### Email & Slack
+
+For all email and Slack threads, the tier is applied based on the customer the thread belongs to. We look at all tenants and company the customer is part of, to determine the tier.
+
+- If there is a single tier which is possible given the customer, that tier is used
+- If there are multiple tiers we pick the one with the highest default priority
+- If there are no tiers we will use the default tier if one exists, or the thread will have no tier
+
 ### SLAs
 
 When configuring an SLA you can set when you want to be warned of a breach. For example if your first response time SLA is 4 hours, you might want to be notified 30 minutes before a breach so you can still reply in time.
 
-SLAs can also be driven by priority of threads. This allows you to have a different SLAs for "Urgent" vs "Normal" priority threads. If you have configure multiple SLAs for the same priority then only the first SLA will apply.
+SLAs can also be driven by priority of threads. This allows you to have a different SLAs for "Urgent" vs "Normal" priority threads. If you have configured multiple SLAs for the same priority then only the first SLA will apply.
 
-If you want to create a 'default' SLA then you can need to first create a tier and make that the default in your settings. Then you can configure SLAs like you would on any other tier.
+If you want to create a 'default' SLA then you should first create a tier and make that the default in your settings. Then you can configure SLAs like you would on any other tier.
 
-When an SLA is about to breach or it is breaching, you will be notified via the mechanism you configure in your SLA settings. We also provide the [Thread SLA status transitioned](/api-reference/webhooks/thread-service-level-agreement-status-transitioned/) Plain event. This event will be fired when the status of an SLA linked to a thread changes (e.g. about to breach, breaching, achieved, etc.)
+When an SLA is about to breach or is breaching, you will be notified via the mechanism you configure in your workspace notification settings.
 
-### Business hours
+We also provide the [Thread SLA status transitioned](/api-reference/webhooks/thread-service-level-agreement-status-transitioned/) webhook so that you can be notified programatically. This event will be fired when the status of an SLA linked to a thread changes (e.g. about to breach, breaching, achieved, etc.)
+
+#### Business hours
 
 By default SLAs apply at all times. They can be configured to only count working hours by toggling on **Only during business hours**.
 
 To configure business hours go to **Settings** → **Business hours**
+
+When an SLA is configured to use business hours the timer on the SLA will be paused outside of business hours.
+
+For example, if:
+
+- Your business hours are Monday - Friday, 9am - 5pm
+- An enterprise customer sends in a support email on Friday at 4.30pm
+- Your enterprise First Response Time SLA is 1 hour
+
+... then the SLA would breach if you don't reply by 9.30am on Monday.
+
+This is because there are 30 minutes of business hours on Friday afternoon, after which your SLA is paused over the weekend. This is followed by a remaining 30 minutes of business hours from 9 - 9.30 am on Monday.
