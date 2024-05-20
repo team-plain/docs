@@ -84,6 +84,10 @@
       ]
     },
     {
+      "group": "Integrations",
+      "pages": ["integrations/linear", "integrations/salesforce", "integrations/zendesk"]
+    },
+    {
       "group": "Adding context",
       "pages": [
         "company-support",
@@ -102,7 +106,6 @@
         "tiers",
         "priorities",
         "labels",
-        "linear",
         "syntax-highlighting",
         "reporting",
         "snippets",
