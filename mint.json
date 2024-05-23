@@ -84,6 +84,22 @@
       ]
     },
     {
+      "group": "Using Plain",
+      "pages": [
+        "notifications",
+        "assignment",
+        "tiers",
+        "priorities",
+        "labels",
+        "syntax-highlighting",
+        "insights",
+        "snippets",
+        "shortcuts",
+        "autoresponders",
+        "plain-ai"
+      ]
+    },
+    {
       "group": "Integrations",
       "pages": ["integrations/linear", "integrations/salesforce", "integrations/zendesk"]
     },
@@ -96,22 +112,6 @@
         "customer-cards",
         "customer-groups",
         "events"
-      ]
-    },
-    {
-      "group": "Using Plain",
-      "pages": [
-        "notifications",
-        "assignment",
-        "tiers",
-        "priorities",
-        "labels",
-        "syntax-highlighting",
-        "reporting",
-        "snippets",
-        "shortcuts",
-        "autoresponders",
-        "plain-ai"
       ]
     },
     {
