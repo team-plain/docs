@@ -50,7 +50,9 @@ Plain will make the following request to your backend:
   - `cardKeys`: an array of card keys being requested
   - `customer`: an object with the customer's core details
     - `email`: the email of the customer
-    - `externalId` (optional): if the customer has an `externalId` then it will be sent, otherwise it is `null`.
+    - [`externalId`](https://www.plain.com/docs/api-reference/graphql/customers/upsert) (optional): string if the customer has an `externalId`, otherwise it is `null`.
+  - `thread` (optional): an object with the thread's details, if this customer card is being requested in the context of a thread
+    - `externalId` (optional): string if the thread has an `externalId`, otherwise it is `null`.
 
 Example request body:
 

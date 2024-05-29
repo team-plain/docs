@@ -4,7 +4,7 @@ sidebarTitle: 'Overview'
 description: 'Live context straight from your own systems when helping customers.'
 ---
 
-Customer cards are a powerful feature in Plain that let you show information from your own systems while looking at a customer in Plain. This makes sure you always have important context when helping customers.
+Customer cards are a powerful feature in Plain that let you show information from your own systems while looking at a customer or thread in Plain. This makes sure you always have important context when helping customers.
 
 Customer cards are configured on Plain (see how to [how to create one](/api-reference/customer-cards/create-a-customer-card)) and requested by Plain from your APIs.
 
@@ -19,6 +19,7 @@ Customer cards are configured on Plain (see how to [how to create one](/api-refe
 2. Plain fires a POST request to your API with:
 
    - The thread customer's email and, if set, `externalId`
+   - The thread's `externalId` (if set, otherwise `null`)
    - The configured customer card `key`s
 
 3. Your API responds with the JSON for each card
