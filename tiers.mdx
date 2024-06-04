@@ -38,6 +38,11 @@ For all email and Slack threads, the tier is applied based on the customer the t
 
 ### SLAs
 
+We currently support SLAs for:
+
+- **First response time** - applied when a first customer communication is created within a thread
+- **Next response time** - applied for subsequent customer communications (note: a first response time SLA must be configured to create a next response time SLA)
+
 When configuring an SLA you can set when you want to be warned of a breach. For example if your first response time SLA is 4 hours, you might want to be notified 30 minutes before a breach so you can still reply in time.
 
 SLAs can also be driven by priority of threads. This allows you to have a different SLAs for "Urgent" vs "Normal" priority threads. If you have configured multiple SLAs for the same priority then only the first SLA will apply.
@@ -50,7 +55,7 @@ We also provide the [Thread SLA status transitioned](/api-reference/webhooks/thr
 
 #### Business hours
 
-By default SLAs apply at all times. They can be configured to only count working hours by toggling on **Only during business hours**.
+By default, SLAs apply at all times. They can be configured to only count working hours by toggling on **Only during business hours**.
 
 To configure business hours go to **Settings** → **Business hours**
 
