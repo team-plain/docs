@@ -67,19 +67,32 @@
   "navigation": [
     {
       "group": "Plain 101",
-      "pages": ["quickstart", "data-model", "security"]
+      "pages": [
+        "quickstart",
+        "data-model",
+        "security"
+      ]
     },
     {
       "group": "Channels",
       "pages": [
         {
           "group": "Email",
-          "pages": ["email", "email/receiving", "email/sending", "email/alternate-emails"]
+          "pages": [
+            "email",
+            "email/receiving",
+            "email/sending",
+            "email/alternate-emails"
+          ]
         },
         "contact-forms",
         {
           "group": "Slack",
-          "pages": ["slack", "slack/how-slack-messages-create-threads", "slack/ingestion-modes"]
+          "pages": [
+            "slack",
+            "slack/how-slack-messages-create-threads",
+            "slack/ingestion-modes"
+          ]
         }
       ]
     },
@@ -101,7 +114,11 @@
     },
     {
       "group": "Integrations",
-      "pages": ["integrations/linear", "integrations/salesforce", "integrations/zendesk"]
+      "pages": [
+        "integrations/linear",
+        "integrations/salesforce",
+        "integrations/zendesk"
+      ]
     },
     {
       "group": "Adding context",
@@ -109,6 +126,7 @@
         "company-support",
         "tenant-support",
         "thread-fields",
+        "thread-discussions",
         "customer-cards",
         "customer-groups",
         "events"
