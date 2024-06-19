@@ -1,283 +1,270 @@
 {
-	"name": "Plain Docs",
-	"logo": {
-		"light": "public/logo/light.png",
-		"dark": "public/logo/dark.png",
-		"url": "https://plain.com"
-	},
-	"feedback": {
-		"raiseIssue": true,
-		"suggestEdit": true,
-		"thumbsRating": true
-	},
-	"favicon": "public/favicon/favicon.png",
-	"colors": {
-		"primary": "#1349e8",
-		"light": "#94a3b8",
-		"dark": "#3e7cff"
-	},
-	"analytics": {
-		"plausible": {
-			"domain": "plain.com"
-		},
-		"koala": {
-			"publicApiKey": "pk_1265b1eedbd2343a0237ec75da9ce61f9096"
-		}
-	},
-	"metadata": {
-		"og:image": "https://mintlify.s3-us-west-1.amazonaws.com/plain/public/images/social-image.png",
-		"twitter:card": "summary_large_image",
-		"twitter:image": "https://mintlify.s3-us-west-1.amazonaws.com/plain/public/images/social-image.png",
-		"twitter:site:domain": "plain.com",
-		"apple-mobile-web-app-title": "Plain Docs"
-	},
-	"topbarCtaButton": {
-		"name": "Sign in",
-		"url": "https://app.plain.com/"
-	},
-	"topbarLinks": [
-		{
-			"name": "@plainsupport",
-			"url": "https://twitter.com/plainsupport"
-		}
-	],
-	"tabs": [
-		{
-			"name": "API Reference",
-			"url": "api-reference"
-		}
-	],
-	"anchors": [
-		{
-			"name": "Changelog",
-			"icon": "code-commit",
-			"url": "https://plain.com/changelog"
-		},
-		{
-			"name": "Blog",
-			"icon": "quote-right",
-			"url": "https://plain.com/blog"
-		},
-		{
-			"name": "Book a demo",
-			"icon": "calendar",
-			"url": "https://cal.com/team/plain/demo"
-		}
-	],
-	"navigation": [
-		{
-			"group": "Plain 101",
-			"pages": ["quickstart", "data-model", "security"]
-		},
-		{
-			"group": "Channels",
-			"pages": [
-				{
-					"group": "Email",
-					"pages": [
-						"email",
-						"email/receiving",
-						"email/sending",
-						"email/alternate-emails"
-					]
-				},
-				"contact-forms",
-				{
-					"group": "Slack",
-					"pages": [
-						"slack",
-						"slack/how-slack-messages-create-threads",
-						"slack/ingestion-modes"
-					]
-				}
-			]
-		},
-		{
-			"group": "Using Plain",
-			"pages": [
-				"notifications",
-				"assignment",
-				"tiers",
-				"priorities",
-				"labels",
-				"syntax-highlighting",
-				"insights",
-				"snippets",
-				"shortcuts",
-				"autoresponders",
-				"plain-ai"
-			]
-		},
-		{
-			"group": "Integrations",
-			"pages": [
-				"integrations/linear",
-				"integrations/salesforce",
-				"integrations/zendesk"
-			]
-		},
-		{
-			"group": "Adding context",
-			"pages": [
-				"company-support",
-				"tenant-support",
-				"thread-fields",
-				"thread-discussions",
-				"customer-cards",
-				"customer-groups",
-				"events"
-			]
-		},
-		{
-			"group": "GraphQL",
-			"pages": [
-				"api-reference/graphql/introduction",
-				"api-reference/graphql/authentication",
-				"api-reference/graphql/schema",
-				{
-					"group": "Customers",
-					"pages": [
-						"api-reference/graphql/customers",
-						"api-reference/graphql/customers/get",
-						"api-reference/graphql/customers/upsert",
-						"api-reference/graphql/customers/delete",
-						"api-reference/graphql/customers/customer-groups"
-					]
-				},
-				{
-					"group": "Companies",
-					"pages": [
-						"api-reference/graphql/companies",
-						"api-reference/graphql/companies/get-companies",
-						"api-reference/graphql/companies/update-customer-company"
-					]
-				},
-				{
-					"group": "Tenants",
-					"pages": [
-						"api-reference/graphql/tenants",
-						"api-reference/graphql/tenants/upsert",
-						"api-reference/graphql/tenants/get",
-						"api-reference/graphql/tenants/add-customers",
-						"api-reference/graphql/tenants/remove-customers",
-						"api-reference/graphql/tenants/set-customer-tenants"
-					]
-				},
-				{
-					"group": "Threads",
-					"pages": [
-						"api-reference/graphql/threads",
-						"api-reference/graphql/threads/create",
-						"api-reference/graphql/threads/assignment",
-						"api-reference/graphql/threads/thread-fields",
-						"api-reference/graphql/threads/status-changes",
-						"api-reference/graphql/threads/autoresponders"
-					]
-				},
-				{
-					"group": "Tiers",
-					"pages": [
-						"api-reference/graphql/tiers",
-						"api-reference/graphql/tiers/get",
-						"api-reference/graphql/tiers/update-company-tier",
-						"api-reference/graphql/tiers/update-tenant-tier",
-						"api-reference/graphql/tiers/add-members",
-						"api-reference/graphql/tiers/remove-members"
-					]
-				},
-				{
-					"group": "Events",
-					"pages": [
-						"api-reference/graphql/events",
-						"api-reference/graphql/events/create-customer-event",
-						"api-reference/graphql/events/create-thread-event"
-					]
-				},
-				{
-					"group": "Labels",
-					"pages": [
-						"api-reference/graphql/labels",
-						"api-reference/graphql/labels/add",
-						"api-reference/graphql/labels/remove"
-					]
-				},
-				{
-					"group": "Messaging",
-					"pages": [
-						"api-reference/graphql/messaging",
-						"api-reference/graphql/messaging/reply-to-thread",
-						"api-reference/graphql/messaging/send-email",
-						"api-reference/graphql/messaging/reply-email"
-					]
-				},
-				"api-reference/graphql/pagination",
-				"api-reference/graphql/error-handling",
-				"api-reference/graphql/error-codes",
-				"api-reference/graphql/api-explorer",
-				"api-reference/graphql/typescript-sdk"
-			]
-		},
-		{
-			"group": "Reference",
-			"pages": [
-				{
-					"group": "Customer cards",
-					"pages": [
-						"api-reference/customer-cards",
-						"api-reference/customer-cards/create-a-customer-card",
-						"api-reference/customer-cards/protocol",
-						"api-reference/customer-cards/playground",
-						"api-reference/customer-cards/examples"
-					]
-				},
-				{
-					"group": "Webhooks",
-					"pages": [
-						"api-reference/webhooks",
-						"api-reference/webhooks/typescript",
-						"api-reference/webhooks/thread-created",
-						"api-reference/webhooks/thread-status-transitioned",
-						"api-reference/webhooks/thread-assignment-transitioned",
-						"api-reference/webhooks/thread-labels-changed",
-						"api-reference/webhooks/thread-priority-changed",
-						"api-reference/webhooks/thread-note-created",
-						"api-reference/webhooks/thread-email-received",
-						"api-reference/webhooks/thread-email-sent",
-						"api-reference/webhooks/thread-slack-message-received",
-						"api-reference/webhooks/thread-slack-message-sent",
-						"api-reference/webhooks/thread-chat-sent",
-						"api-reference/webhooks/thread-field-created",
-						"api-reference/webhooks/thread-field-updated",
-						"api-reference/webhooks/thread-field-deleted",
-						"api-reference/webhooks/thread-service-level-agreement-status-transitioned",
-						"api-reference/webhooks/customer-created",
-						"api-reference/webhooks/customer-updated",
-						"api-reference/webhooks/customer-deleted",
-						"api-reference/webhooks/customer-group-membership-changed"
-					]
-				},
-				{
-					"group": "UI Components",
-					"pages": [
-						"api-reference/ui-components",
-						"api-reference/ui-components/badge",
-						"api-reference/ui-components/container",
-						"api-reference/ui-components/copy-button",
-						"api-reference/ui-components/divider",
-						"api-reference/ui-components/link-button",
-						"api-reference/ui-components/plain-text",
-						"api-reference/ui-components/row",
-						"api-reference/ui-components/spacer",
-						"api-reference/ui-components/text"
-					]
-				},
-				"api-reference/attachments"
-			]
-		}
-	],
-	"footerSocials": {
-		"twitter": "https://twitter.com/plainsupport",
-		"linkedin": "https://www.linkedin.com/company/plainsupport",
-		"github": "https://github.com/team-plain/docs"
-	}
+  "name": "Plain Docs",
+  "logo": {
+    "light": "public/logo/light.png",
+    "dark": "public/logo/dark.png",
+    "url": "https://plain.com"
+  },
+  "feedback": {
+    "raiseIssue": true,
+    "suggestEdit": true,
+    "thumbsRating": true
+  },
+  "favicon": "public/favicon/favicon.png",
+  "colors": {
+    "primary": "#1349e8",
+    "light": "#94a3b8",
+    "dark": "#3e7cff"
+  },
+  "analytics": {
+    "plausible": {
+      "domain": "plain.com"
+    },
+    "koala": {
+      "publicApiKey": "pk_1265b1eedbd2343a0237ec75da9ce61f9096"
+    }
+  },
+  "metadata": {
+    "og:image": "https://mintlify.s3-us-west-1.amazonaws.com/plain/public/images/social-image.png",
+    "twitter:card": "summary_large_image",
+    "twitter:image": "https://mintlify.s3-us-west-1.amazonaws.com/plain/public/images/social-image.png",
+    "twitter:site:domain": "plain.com",
+    "apple-mobile-web-app-title": "Plain Docs"
+  },
+  "topbarCtaButton": {
+    "name": "Sign in",
+    "url": "https://app.plain.com/"
+  },
+  "topbarLinks": [
+    {
+      "name": "@plainsupport",
+      "url": "https://twitter.com/plainsupport"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Changelog",
+      "icon": "code-commit",
+      "url": "https://plain.com/changelog"
+    },
+    {
+      "name": "Blog",
+      "icon": "quote-right",
+      "url": "https://plain.com/blog"
+    },
+    {
+      "name": "Book a demo",
+      "icon": "calendar",
+      "url": "https://cal.com/team/plain/demo"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Plain 101",
+      "pages": ["quickstart", "data-model", "security"]
+    },
+    {
+      "group": "Channels",
+      "pages": [
+        {
+          "group": "Email",
+          "pages": ["email", "email/receiving", "email/sending", "email/alternate-emails"]
+        },
+        "contact-forms",
+        {
+          "group": "Slack",
+          "pages": ["slack", "slack/how-slack-messages-create-threads", "slack/ingestion-modes"]
+        }
+      ]
+    },
+    {
+      "group": "Using Plain",
+      "pages": [
+        "notifications",
+        "assignment",
+        "tiers",
+        "priorities",
+        "labels",
+        "syntax-highlighting",
+        "insights",
+        "snippets",
+        "shortcuts",
+        "autoresponders",
+        "plain-ai"
+      ]
+    },
+    {
+      "group": "Integrations",
+      "pages": ["integrations/linear", "integrations/salesforce", "integrations/zendesk"]
+    },
+    {
+      "group": "Adding context",
+      "pages": [
+        "company-support",
+        "tenant-support",
+        "thread-fields",
+        "thread-discussions",
+        "customer-cards",
+        "customer-groups",
+        "events"
+      ]
+    },
+    {
+      "group": "GraphQL",
+      "pages": [
+        "api-reference/graphql/introduction",
+        "api-reference/graphql/authentication",
+        "api-reference/graphql/schema",
+        {
+          "group": "Customers",
+          "pages": [
+            "api-reference/graphql/customers",
+            "api-reference/graphql/customers/get",
+            "api-reference/graphql/customers/upsert",
+            "api-reference/graphql/customers/delete",
+            "api-reference/graphql/customers/customer-groups"
+          ]
+        },
+        {
+          "group": "Companies",
+          "pages": [
+            "api-reference/graphql/companies",
+            "api-reference/graphql/companies/get-companies",
+            "api-reference/graphql/companies/update-customer-company"
+          ]
+        },
+        {
+          "group": "Tenants",
+          "pages": [
+            "api-reference/graphql/tenants",
+            "api-reference/graphql/tenants/upsert",
+            "api-reference/graphql/tenants/get",
+            "api-reference/graphql/tenants/add-customers",
+            "api-reference/graphql/tenants/remove-customers",
+            "api-reference/graphql/tenants/set-customer-tenants"
+          ]
+        },
+        {
+          "group": "Threads",
+          "pages": [
+            "api-reference/graphql/threads",
+            "api-reference/graphql/threads/create",
+            "api-reference/graphql/threads/assignment",
+            "api-reference/graphql/threads/thread-fields",
+            "api-reference/graphql/threads/status-changes",
+            "api-reference/graphql/threads/autoresponders"
+          ]
+        },
+        {
+          "group": "Tiers",
+          "pages": [
+            "api-reference/graphql/tiers",
+            "api-reference/graphql/tiers/get",
+            "api-reference/graphql/tiers/update-company-tier",
+            "api-reference/graphql/tiers/update-tenant-tier",
+            "api-reference/graphql/tiers/add-members",
+            "api-reference/graphql/tiers/remove-members"
+          ]
+        },
+        {
+          "group": "Events",
+          "pages": [
+            "api-reference/graphql/events",
+            "api-reference/graphql/events/create-customer-event",
+            "api-reference/graphql/events/create-thread-event"
+          ]
+        },
+        {
+          "group": "Labels",
+          "pages": [
+            "api-reference/graphql/labels",
+            "api-reference/graphql/labels/add",
+            "api-reference/graphql/labels/remove"
+          ]
+        },
+        {
+          "group": "Messaging",
+          "pages": [
+            "api-reference/graphql/messaging",
+            "api-reference/graphql/messaging/reply-to-thread",
+            "api-reference/graphql/messaging/send-email",
+            "api-reference/graphql/messaging/reply-email"
+          ]
+        },
+        "api-reference/graphql/pagination",
+        "api-reference/graphql/error-handling",
+        "api-reference/graphql/error-codes",
+        "api-reference/graphql/api-explorer",
+        "api-reference/graphql/typescript-sdk"
+      ]
+    },
+    {
+      "group": "Reference",
+      "pages": [
+        {
+          "group": "Customer cards",
+          "pages": [
+            "api-reference/customer-cards",
+            "api-reference/customer-cards/create-a-customer-card",
+            "api-reference/customer-cards/protocol",
+            "api-reference/customer-cards/playground",
+            "api-reference/customer-cards/examples"
+          ]
+        },
+        {
+          "group": "Webhooks",
+          "pages": [
+            "api-reference/webhooks",
+            "api-reference/webhooks/typescript",
+            "api-reference/webhooks/thread-created",
+            "api-reference/webhooks/thread-status-transitioned",
+            "api-reference/webhooks/thread-assignment-transitioned",
+            "api-reference/webhooks/thread-labels-changed",
+            "api-reference/webhooks/thread-priority-changed",
+            "api-reference/webhooks/thread-note-created",
+            "api-reference/webhooks/thread-email-received",
+            "api-reference/webhooks/thread-email-sent",
+            "api-reference/webhooks/thread-slack-message-received",
+            "api-reference/webhooks/thread-slack-message-sent",
+            "api-reference/webhooks/thread-chat-sent",
+            "api-reference/webhooks/thread-field-created",
+            "api-reference/webhooks/thread-field-updated",
+            "api-reference/webhooks/thread-field-deleted",
+            "api-reference/webhooks/thread-service-level-agreement-status-transitioned",
+            "api-reference/webhooks/customer-created",
+            "api-reference/webhooks/customer-updated",
+            "api-reference/webhooks/customer-deleted",
+            "api-reference/webhooks/customer-group-membership-changed"
+          ]
+        },
+        {
+          "group": "UI Components",
+          "pages": [
+            "api-reference/ui-components",
+            "api-reference/ui-components/badge",
+            "api-reference/ui-components/container",
+            "api-reference/ui-components/copy-button",
+            "api-reference/ui-components/divider",
+            "api-reference/ui-components/link-button",
+            "api-reference/ui-components/plain-text",
+            "api-reference/ui-components/row",
+            "api-reference/ui-components/spacer",
+            "api-reference/ui-components/text"
+          ]
+        },
+        "api-reference/attachments"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/plainsupport",
+    "linkedin": "https://www.linkedin.com/company/plainsupport",
+    "github": "https://github.com/team-plain/docs"
+  }
 }
