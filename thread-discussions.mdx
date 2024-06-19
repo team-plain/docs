@@ -13,6 +13,14 @@ For your convenience, the discussion will also be visible in the Plain thread.
 
 To enable this functionality, you will need to setup your [Slack integration](/slack) and add the Plain bot to your channel.
 
+<Warning>
+  When Plain is added to a channel, we automatically classify it as a [Customer channel](/slack/how-slack-messages-create-threads) if it's a slack connect channel or one for internal discussions otherwise.
+
+  For customer channels, we treat messages from non-Plain users as support requests, which are ingested as threads into Plain.
+
+  In discussion channels, on the other hand, we only ingest messages related to an on-going discussion.
+</Warning>
+
 For good data hygiene, we don't start discussions on all links to a Plain thread.
 We will not start a discussion if:
 
