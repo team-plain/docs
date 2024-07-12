@@ -18,8 +18,8 @@ Customer cards are configured on Plain (see how to [how to create one](/api-refe
 1. A thread is viewed in Plain.
 2. Plain fires a POST request to your API with:
 
-   - The thread customer's email and, if set, `externalId`
-   - The thread's `externalId` (if set, otherwise `null`)
+   - The thread customer's `email`, `id` and, if set, `externalId`
+   - The thread's `id` and, if set, `externalId`.
    - The configured customer card `key`s
 
 3. Your API responds with the JSON for each card
