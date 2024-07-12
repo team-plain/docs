@@ -176,7 +176,7 @@
             "api-reference/graphql/threads/assignment",
             "api-reference/graphql/threads/thread-fields",
             "api-reference/graphql/threads/status-changes",
-            "api-reference/graphql/threads/auto-responses"
+            "api-reference/graphql/threads/autoresponders"
           ]
         },
         {
