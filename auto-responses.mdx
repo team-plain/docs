@@ -1,0 +1,21 @@
+---
+title: 'Auto-responses'
+---
+
+To set up an auto-response go to **Settings** → **Auto-responses**
+
+An auto-response can be useful in situations of acute support load, such as during incidents, or to confirm you received a support request and manage expectations with customers.
+
+Auto-response messages are best kept short and personable without too many links or formatting. Messages which are too long and scripted will often just be ignored as they are too obviously automated.
+
+When you configure an auto-responses, you can choose which channels it will be used in:
+
+- `Slack`: threads started from Slack
+- `Api`: threads that you create programmatically
+- `Email`: threads created from an inbound email
+
+An auto-response will trigger when a new thread is created. Plain adds a little delay (approximately one minute) before sending the message to give your users a chance to reply.
+
+Auto-responses can also be configured to only trigger for specific **tiers** and inside or outside **business hours**. If multiple auto-responses are configured for the same channel, tier and business hours, we will pick the **first one** according to the order they show up under settings.
+
+You can also leverage Plain's powerful API and webhooks to build custom interactive auto-responses, see [Thread autoresponders](/api-reference/graphql/threads/autoresponders) for more details.
