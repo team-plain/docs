@@ -22,6 +22,8 @@ To display a list of support requests you will need to fetch the appropriate thr
   });
 ```
 
+Tenants allow you to structure your customers in Plain in the same way as they are structured in your product. For example if within your product customers are organised in a ‘team’ then you would create one tenant per team in your product.
+
 <Note>
   When filtering by tenants, if you want to display threads which were created by incoming emails or
   Slack messages you will need to set the correct tenant id on those threads. This is best done by
@@ -34,6 +36,8 @@ Alternatively you can filter threads by [company](/api-reference/graphql/compani
   const threads = await plainClient.getThreads({
     filters: {
       companyIdentifiers: [{ companyId: customerCompanyId }],
+      // You can also query company by its domain name
+      // companyIdentifiers: [{ companyDomainName }],
       statuses: [ThreadStatus.Todo, ThreadStatus.Snoozed],
     },
   });
