@@ -1,0 +1,74 @@
+```graphql query
+query threadTimeline($threadId: ID!, $first: Int, $after: String, $last: Int, $before: String) {
+  thread(threadId: $threadId) {
+    title
+    description
+    priority
+    status
+    createdAt {
+      __typename
+      iso8601
+    }
+    customer {
+      fullName
+    }
+    updatedAt {
+      __typename
+      iso8601
+    }
+    timelineEntries(first: $first, after: $after, last: $last, before: $before) {
+      edges {
+        cursor
+        node {
+          id
+          timestamp {
+            __typename
+            iso8601
+          }
+          actor {
+            __typename
+            ... on UserActor {
+              user {
+                fullName
+              }
+            }
+            ... on CustomerActor {
+              customer {
+                fullName
+              }
+            }
+            ... on MachineUserActor {
+              machineUser {
+                fullName
+              }
+            }
+          }
+          entry {
+            __typename
+            ... on CustomEntry {
+              title
+              components {
+                __typename
+                ... on ComponentText {
+                  text
+                }
+              }
+            }
+            ... on ChatEntry {
+              chatId
+              text
+            }
+          }
+        }
+      }
+      pageInfo {
+        __typename
+        hasPreviousPage
+        hasNextPage
+        startCursor
+        endCursor
+      }
+    }
+  }
+}
+```
