@@ -1,0 +1,62 @@
+---
+title: 'Headless Portal'
+description: 'Give your customers visibility over their support requests.'
+---
+
+Customer support portals empower your customers to view, create and reply to support requests as well as share visibility of issues with their team.
+
+Pre-built support portals can be hard to customize or theme and have to be separate from your product. Instead Plain provides a set of powerful APIs as well as an [example repository](https://github.com/team-plain/plain-headless-portal) which allows you to easily create a fully custom support portal.
+
+In order to use the Plain API you will need an API key, see [Getting Started](https://github.com/team-plain/plain-headless-portal?tab=readme-ov-file#getting-started) for full instructions. This API key should be kept secret since it will allow access to data from your whole Plain workspace. Calls to Plain's API **should be made from a server** rather than the client.
+
+## Fetching threads
+
+To display a list of support requests you will need to fetch the appropriate threads from your workspace. The recommended way to do this is to filter by [tenant](/api-reference/graphql/tenants).
+
+```Javascript
+  const threads = await plainClient.getThreads({
+    filters: {
+      tenantIdentifiers: [{ externalId: tenantExternalId }],
+      statuses: [ThreadStatus.Todo, ThreadStatus.Snoozed],
+    },
+  });
+```
+
+_Tenants allow you to structure your customers in Plain in the same way as they are structured in your product. For example if within your product customers are organised in a ‘team’ then you would create one tenant per team in your product._
+
+<Note>
+  When filtering by tenants, if you want to display threads which were created by incoming emails or
+  Slack messages you will need to set the correct tenant id on those threads. This is best done by
+  using the [Thread Created Webhook](/api-reference/webhooks/thread-created).
+</Note>
+
+Alternatively you can filter threads by [company](/api-reference/graphql/companies) if you don't need to break access down by tenant.
+
+```Javascript
+  const threads = await plainClient.getThreads({
+    filters: {
+      companyIdentifiers: [{ companyId: customerCompanyId }],
+      // You can also query company by its domain name
+      // companyIdentifiers: [{ companyDomainName }],
+      statuses: [ThreadStatus.Todo, ThreadStatus.Snoozed],
+    },
+  });
+```
+
+## Authenticating
+
+In order to pass in the `tenantExternalId` or `customerCompanyId` shown above you will need to authenticate the user of the support portal. This is not shown in the example repository since it will be different for every application.
+
+Once you have authenticated you may be able to get the id of their tenant directly from the claims, or you may need to query your backend systems.
+
+## Submitting a request
+
+You can allow customers to submit a new support request by [Creating a thread](/api-reference/graphql/threads/create). Be sure to set the tenant id when creating the thread if you're querying by tenant.
+
+## Viewing a request
+
+In order for customers to view a support request you will want to provide the content by querying that thread's timeline. You can use the GraphQL API to query the exact combination of fields you need for your application, see the [API explorer](https://app.plain.com/developer/api-explorer/) for full details.
+
+Example query:
+
+<Snippet file="graphql/get-thread-timeline.mdx" />
