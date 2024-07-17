@@ -1,0 +1,18 @@
+---
+title: 'Data Retention'
+---
+
+When you add Plain to a Slack channel, Plain stores information from that Slack channel. This is to enable you to provide support on Slack through Plain.
+
+Plain only stores information from Slack channels you add the Plain bot to, so you are in control of what gets added to Plain.
+
+When the Plain app is added to a channel, Plain will begin to store the following Slack data:
+
+- Message contents
+- Message metadata (e.g. timestamps, ids, reactions etc.)
+- Channel members (used for @ mentioning and showing the author of messages)
+- Channel metadata (e.g. name, id, connected team ids etc.)
+
+Any additional data that Plain receives from Slack's APIs but that is not required for the operation of the service is automatically deleted after a 7 day period. The 7 day period allows us to recover messages in the case of an incident.
+
+When a message is deleted within Slack, Plain will delete the corresponding message content in Plain. Plain will keep a record that there was a message and who wrote it, but not its contents. This ensures that there remains an audit trail for every support request, even if a message is deleted.
