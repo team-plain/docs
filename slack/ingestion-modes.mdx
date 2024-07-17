@@ -2,13 +2,13 @@
 title: 'Ingestion Modes'
 ---
 
-There are multiple ingestion modes you can choose from for each of your Slack workspaces.
+There are multiple ingestion modes you can choose from for each of your Slack workspaces. Ingestion modes control how and which messages in Slack are added to Plain.
 
 You can configure them by going into **`Settings`** > **`Slack`**, choosing any of your Slack integrations and selecting one of the ingestion modes we have available.
 
 Here's a brief description on what they are and how they differ.
 
-# Time-Based (Default)
+## Time-Based (Default)
 
 Plain ingests and groups Slack messages automatically for you based on the time between them.
 
@@ -16,7 +16,7 @@ If two messages are sent less than two hours apart by the same user, they are gr
 
 On the contrary, if messages are sent by different users, they will be grouped if they are at most one hour part.
 
-# AI-Based
+## AI-Based
 
 If you're looking for a more intelligent grouping logic, you can enable AI Grouping.
 
@@ -25,13 +25,13 @@ When messages come in, they will be triaged by OpenAI's GPT-4 model for similari
 If messages are determined to be part of the same conversation, they will be grouped into the same thread.
 Otherwise, new threads will be created for each of the messages.
 
-# One-to-one
+## One-to-one
 
 If you want to always associate a Plain thread to a single Slack thread, you can enable One-to-one mode.
 
 Every new message on a channel will start a new Plain thread. Any subsequent messages within the Slack thread will be appended to the Plain thread.
 
-# Manual
+## Manual
 
 There are use-cases where certain channels are too noisy and you don't want all the messages to go into Plain.
 Or perhaps you want more granular control over which Slack threads end up in Plain.
