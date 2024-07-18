@@ -60,3 +60,19 @@ In order for customers to view a support request you will want to provide the co
 Example query:
 
 <Snippet file="graphql/get-thread-timeline.mdx" />
+
+## Replying
+
+Replying to a thread is done with `replyToThread`.
+
+```Typescript
+  const replyRes = await plainClient.replyToThread({
+    textContent: body.message,
+    threadId: body.threadId,
+    impersonation: TODO
+  });
+```
+
+Note the impersonation field, without it this reply would show up in Plain as being sent by the machine user your backend is authenticated with.
+
+When Plain sends an email reply as an impersonated user we send a real email with a from address of `messaging@noreply.plain.com` to the support email configured for the workspace. The reply to header of the email is set to the user's actual email address so that anyone who is CC'd or BCC'd can reply properly.
