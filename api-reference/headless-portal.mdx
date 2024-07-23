@@ -2,10 +2,12 @@
 title: 'Headless Support Portal'
 description: 'Give your customers visibility over their support requests.'
 ---
+
 <Warning>
-Headless Portal support is only available in our custom pricing tier. If you are interested in using this feature please reach out to use on sales@plain.com. 
+Headless Portal support is only available in our custom pricing tier. If you are interested in using this feature please reach out to use on sales@plain.com.
 
 When building a headless support portal, you will have access to our engineering team, who can advise and help you. These docs are primarily intended to give you a high-level overview of how the process works. They do not aim to be exhaustive or self-serve.
+
 </Warning>
 
 Customer support portals allow your customers to view, create, and reply to support requests directly from your product.
@@ -16,7 +18,7 @@ This means you can build a support portal tailored to your product, look 100% wh
 
 ### Security & architecture
 
-To build a support portal, you will make API calls to [Plain's GraphQL API using an API key](/api-reference/graphql/authentication). This API key needs fairly broad permissions to be able to read threads and customer details as well as perform other actions such as send emails. 
+To build a support portal, you will make API calls to [Plain's GraphQL API using an API key](/api-reference/graphql/authentication). This API key needs fairly broad permissions to be able to read threads and customer details as well as perform other actions such as send emails.
 
 For this reason it's **very very important to never make API calls to Plain directly from the client**. Doing so means you will be leaking the API key which is a big security risk.
 
@@ -24,8 +26,8 @@ You must always make Plain API calls from an API you control. This allows you to
 
 If you have leaked an API key by mistake, immediately delete it from your workspace settings and don't hesitate to reach out to us if we can help with any mitigation/investigations.
 
-
 ### How does it work
+
 Details can vary depending on the experience you'd like to offer but in essence to build a portal you have 4 separate piece of work:
 
 1. Creating a tenant for each of your customers in Plain
@@ -35,13 +37,14 @@ Details can vary depending on the experience you'd like to offer but in essence 
 
 <Steps>
 <Step title="Creating a tenant for each of your customers in Plain">
-When a customer signs up to your product you first have to create a tenant for that customer. You can [read more about tenants here](/api-reference/graphql/tenants), but in essence each tenant in Plain should 1:1 map to your own workspace/team/org concept in your product. 
+When a customer signs up to your product you first have to create a tenant for that customer. You can [read more about tenants here](/api-reference/graphql/tenants), but in essence each tenant in Plain should 1:1 map to your own workspace/team/org concept in your product.
 
 This is an essential first step so that you can make sure that when someone access the support portal they only see _their_ team's support requests. Without this it would be difficult/impossible to know which support requests belong to the customer's workspace/team/org.
 
 To create tenants in Plain [you can upsert them](/api-reference/graphql/tenants/upsert). After that you can [add individual customers to that tenant](/api-reference/graphql/tenants/add-customers).
 
 You can, if you are prototyping this, skip this step and instead just fetch support requests for the customer that is logged in. This means that if John and Lucy are both part of the same team in your product, John will only see his own tickets vs also being able to see Lucy's latest support requests. Depending on your product this might work fine but for most B2B SaaS this is not the ideal experience.
+
 </Step>
 
 <Step title="Fetching threads for a customer's tenant">
@@ -68,28 +71,28 @@ This will give you back a list of threads but not give you back the content of a
 <Step title="Allow customers to submit new threads">
 To submit new support requests from your portal you can create a contact form which, when submitted, create a thread within Plain.
 
-What is important is that when you create the thread you pre-fill the customer's tenant id. This ensures that the support request they create is then visible in the support portal. 
+What is important is that when you create the thread you pre-fill the customer's tenant id. This ensures that the support request they create is then visible in the support portal.
 
 You can read more on [how to create a thread here](/api-reference/graphql/threads/create).
 
-One thing to not is that you are not constrained at all here by the data you want to gather. Although a simple form with just a message and a title does work, it's typically much more useful and powerful to ask structured questions such as what the support request is about, how urgent it is and much more. 
+One thing to not is that you are not constrained at all here by the data you want to gather. Although a simple form with just a message and a title does work, it's typically much more useful and powerful to ask structured questions such as what the support request is about, how urgent it is and much more.
 
 You can [read more on contact forms, as well as see some real examples here](/contact-forms).
+
 </Step>
 
 <Step title="Allowing customer to reply within a thread.">
-To reply to threads directly from your support portal is probably the most difficult part of building a good support portal from the UI side of things. 
+To reply to threads directly from your support portal is probably the most difficult part of building a good support portal from the UI side of things.
 
 In terms of the interaction with Plain however, it's as simple as calling the [`replyToThread` mutation](http://localhost:3000/api-reference/graphql/messaging/reply-to-thread).
 
 Depending on the channels you support your UI here might vary. For example if you want to not support email communication here you don't need to allow for specifying Cc and Bcc addresses.
+
 </Step>
 </Steps>
 
 ---
 
-There is a lot of more nuanced detail that these docs do not cove such as rich formatting, attachments etc. Our team can help you plan and scope out the necessary work depending on your exact requirements and stack, debug technical issues as well as actually help with the implementation. 
+There is a lot of more nuanced detail that these docs do not cove such as rich formatting, attachments etc. Our team can help you plan and scope out the necessary work depending on your exact requirements and stack, debug technical issues as well as actually help with the implementation.
 
-If based on this high-level overview you are interested in building a headless support portal, please reach out to us on sales@plain.com. 
-
-
+If based on this high-level overview you are interested in building a headless support portal, please reach out to us on sales@plain.com.
