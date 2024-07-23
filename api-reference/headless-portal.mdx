@@ -1,15 +1,58 @@
 ---
-title: 'Headless Portal'
+title: 'Headless Support Portal'
 description: 'Give your customers visibility over their support requests.'
 ---
 
-Customer support portals empower your customers to view, create and reply to support requests as well as share visibility of issues with their team.
+<Warning>
+Headless Portal support is only available in our [Scale pricing tier](https://plain.com/pricing). If you are interested in using this feature please reach out to use on sales@plain.com.
 
-Pre-built support portals can be hard to customize or theme and have to be separate from your product. Instead Plain provides a set of powerful APIs as well as an [example repository](https://github.com/team-plain/plain-headless-portal) which allows you to easily create a fully custom support portal.
+When building a headless support portal, you will have access to our engineering team, who can advise and help you. These docs are primarily intended to give you a high-level overview of how the process works. They do not aim to be exhaustive or self-serve.
 
-In order to use the Plain API you will need an API key, see [Getting Started](https://github.com/team-plain/plain-headless-portal?tab=readme-ov-file#getting-started) for full instructions. This API key should be kept secret since it will allow access to data from your whole Plain workspace. Calls to Plain's API **should be made from a server** rather than the client.
+</Warning>
 
-## Fetching threads
+Customer support portals allow your customers to view, create, and reply to support requests directly from your product.
+
+Plain provides a set of powerful APIs to do this, and you build the UI.
+
+This means you can build a support portal tailored to your product, look 100% white-label, and not require separate login credentials from your product.
+
+### Security & architecture
+
+To build a support portal, you will make API calls to [Plain's GraphQL API using an API key](/api-reference/graphql/authentication). This API key needs fairly broad permissions to be able to read threads and customer details as well as perform other actions such as send emails.
+
+For this reason it's **very very important to never make API calls to Plain directly from the client**. Doing so means you will be leaking the API key which is a big security risk.
+
+You must always make Plain API calls from an API you control. This allows you to implement access controls so that for example, a customer can only access their support requests etc.
+
+If you have leaked an API key by mistake, immediately delete it from your workspace settings and don't hesitate to reach out to us if we can help with any mitigation/investigations.
+
+### How does it work
+
+<Note>
+  It's very helpful to first read our [data model documentation](/data-model) to get your bearings.
+</Note>
+
+Details can vary depending on the experience you'd like to offer but in essence to build a portal you have 4 separate piece of work:
+
+1. Creating a tenant for each of your customers in Plain
+2. Fetching threads for a customer's tenant
+3. Allow customers to submit new threads
+4. Allowing customer to reply within a thread.
+
+<Steps>
+<Step title="Creating a tenant for each of your customers in Plain">
+When a customer signs up to your product you first have to create a tenant for that customer. You can [read more about tenants here](/api-reference/graphql/tenants), but in essence each tenant in Plain should 1:1 map to your own workspace/team/org concept in your product.
+
+This is an essential first step so that you can make sure that when someone access the support portal they only see _their_ team's support requests. Without this it would be difficult/impossible to know which support requests belong to the customer's workspace/team/org.
+
+To create tenants in Plain [you can upsert them](/api-reference/graphql/tenants/upsert). After that you can [add individual customers to that tenant](/api-reference/graphql/tenants/add-customers).
+
+You can, if you are prototyping this, skip this step and instead just fetch support requests for the customer that is logged in. This means that if John and Lucy are both part of the same team in your product, John will only see his own tickets vs also being able to see Lucy's latest support requests. Depending on your product this might work fine but for most B2B SaaS this is not the ideal experience.
+
+</Step>
+
+<Step title="Fetching threads for a customer's tenant">
+Once you have set tenants & threads for all support requests you can fetch them via our API and show them to the customer
 
 To display a list of support requests you will need to fetch the appropriate threads from your workspace. The recommended way to do this is to filter by [tenant](/api-reference/graphql/tenants).
 
@@ -22,41 +65,38 @@ To display a list of support requests you will need to fetch the appropriate thr
   });
 ```
 
-_Tenants allow you to structure your customers in Plain in the same way as they are structured in your product. For example if within your product customers are organised in a ‘team’ then you would create one tenant per team in your product._
+If in Step 1 you opted for not using Tenants then you can also filter by customerId here in order to fetch just the threads belonging to a specific customer.
 
-<Note>
-  When filtering by tenants, if you want to display threads which were created by incoming emails or
-  Slack messages you will need to set the correct tenant id on those threads. This is best done by
-  using the [Thread Created Webhook](/api-reference/webhooks/thread-created).
-</Note>
-
-Alternatively you can filter threads by [company](/api-reference/graphql/companies) if you don't need to break access down by tenant.
-
-```Javascript
-  const threads = await plainClient.getThreads({
-    filters: {
-      companyIdentifiers: [{ companyId: customerCompanyId }],
-      // You can also query company by its domain name
-      // companyIdentifiers: [{ companyDomainName }],
-      statuses: [ThreadStatus.Todo, ThreadStatus.Snoozed],
-    },
-  });
-```
-
-## Authenticating
-
-In order to pass in the `tenantExternalId` or `customerCompanyId` shown above you will need to authenticate the user of the support portal. This is not shown in the example repository since it will be different for every application.
-
-Once you have authenticated you may be able to get the id of their tenant directly from the claims, or you may need to query your backend systems.
-
-## Submitting a request
-
-You can allow customers to submit a new support request by [Creating a thread](/api-reference/graphql/threads/create). Be sure to set the tenant id when creating the thread if you're querying by tenant.
-
-## Viewing a request
-
-In order for customers to view a support request you will want to provide the content by querying that thread's timeline. You can use the GraphQL API to query the exact combination of fields you need for your application, see the [API explorer](https://app.plain.com/developer/api-explorer/) for full details.
-
-Example query:
+This will give you back a list of threads but not give you back the content of a thread. To do so you must use this query. This will fetch all relevant message timeline entries. This example is showing how to do this via GraphQL directly but this can also be done with our SDK using the `rawRequest` method.
 
 <Snippet file="graphql/get-thread-timeline.mdx" />
+</Step>
+
+<Step title="Allow customers to submit new threads">
+To submit new support requests from your portal you can create a contact form which, when submitted, create a thread within Plain.
+
+What is important is that when you create the thread you pre-fill the customer's tenant id. This ensures that the support request they create is then visible in the support portal.
+
+You can read more on [how to create a thread here](/api-reference/graphql/threads/create).
+
+One thing to note is that you are not constrained at all here by the data you want to gather. Although a simple form with just a message and a title does work, it's typically much more useful and powerful to ask structured questions such as what the support request is about, how urgent it is and much more.
+
+You can [read more on contact forms, as well as see some real examples here](/contact-forms).
+
+</Step>
+
+<Step title="Allowing customer to reply within a thread.">
+To reply to threads directly from your support portal is probably the most difficult part of building a good support portal from the UI side of things.
+
+In terms of the interaction with Plain, however, it's as simple as calling the [`replyToThread` mutation](/api-reference/graphql/messaging/reply-to-thread).
+
+Depending on the channels you support your UI here might vary. For example if you want to not support email communication here you don't need to allow for specifying Cc and Bcc addresses.
+
+</Step>
+</Steps>
+
+---
+
+There is a lot of more nuanced detail that these docs do not cove such as rich formatting, attachments etc. Our team can help you plan and scope out the necessary work depending on your exact requirements and stack, debug technical issues as well as actually help with the implementation.
+
+If based on this high-level overview you are interested in building a headless support portal, please reach out to us on sales@plain.com.
