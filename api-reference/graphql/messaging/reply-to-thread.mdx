@@ -2,15 +2,16 @@
 title: 'Reply to threads'
 ---
 
-You can reply to a thread using the `replyToThread` mutation. This will work regardless if the last email in the thread is from a user or a customer.
+You can reply to a thread using the `replyToThread` mutation, as long as the thread's communication channel is either `EMAIL` or `SLACK`. This information is available in the thread as the `channel` field.
 
-If it is not possible to reply to this thread, you will get the mutation error code [`cannot_reply_to_thread`](/api-reference/graphql/error-codes#cannot_reply_to_thread) and a message indicating why.
+If it is not possible to reply to a thread, you will get the mutation error code [`cannot_reply_to_thread`](/api-reference/graphql/error-codes#cannot_reply_to_thread) and a message indicating why.
+
+This operation requires the following permission:
+
+- `thread:reply`
 
 <Tabs>
   <Tab title="Typescript SDK">
-      Only one permission is needed:
-
-      - `thread:reply`
 
       <Snippet file="typescript-sdk/reply-to-thread.mdx" />
 
@@ -18,15 +19,84 @@ If it is not possible to reply to this thread, you will get the mutation error c
 
       <Snippet file="typescript-sdk/reply-to-thread-response.mdx" />
 
-      </Tab>
+</Tab>
 
   <Tab title="GraphQL">
-    Only one permission is needed:
-
-    - `thread:reply`
 
     <Snippet file="graphql/reply-to-thread.mdx" />
 
   </Tab>
 
+</Tabs>
+
+## Impersonation
+
+<Note>
+  Impersonation is exclusively available in our `Scale` plan. You can see all available plans in our
+  [pricing page](https://www.plain.com/pricing).
+</Note>
+
+This feature allows you to bring native messaging between your customers and Plain, straight into [your own product](/api-reference/headless-portal).
+
+With impersonation, you can reply to a thread on behalf of one of your customers: impersonated messages will show up as if they were sent by the customers themselves.
+
+In order to impersonate a customer, provide the `impersonation` parameter in the `replyToThread` mutation, specifying the identifier of the customer you want to impersonate. You can pick any of the available customer identifiers (`emailAddress`, `customerId` or `externalId`)
+
+```graphql
+{
+  "impersonation": {
+    "asCustomer": {
+      "customerIdentifier": {
+        "emailAddress": "blanca@example.com"
+      }
+    }
+  }
+}
+```
+
+The customer message will be processed differently based on the thread's channel:
+
+- `SLACK`: a new Slack message will be sent to the thread, using the customer's details
+- `EMAIL`: an email will be sent to the thread, where the sender will be your customer
+
+When replying to an `EMAIL` thread, you can optionally add 'CC' and 'BCC' recipients by using the `channelSpecificOptions` parameter:
+
+```graphql
+{
+  "channelSpecificOptions": {
+    "email": {
+      // For CC'd recipients
+      "additionalRecipients": [
+        {
+          "email": "peter@example.com",
+          "name": "Peter"
+        },
+      ],
+      // For BCC'd recipients
+      "hiddenRecipients": [
+        {
+          "email": "finance@example.com"
+        }
+      ]
+    }
+  }
+}
+```
+
+This operation requires the following permissions:
+
+- `thread:reply`
+- `customer:impersonate`
+
+<Tabs>
+  <Tab title="Typescript SDK">
+
+      <Snippet file="typescript-sdk/reply-to-thread-impersonation.mdx" />
+
+</Tab>
+  
+    <Tab title="GraphQL">
+  
+      <Snippet file="graphql/reply-to-thread-impersonation.mdx" />
+      </Tab>
 </Tabs>
