@@ -1,0 +1,37 @@
+```graphql Mutation
+mutation replyToThread($input: ReplyToThreadInput!) {
+  replyToThread(input: $input) {
+    error {
+      message
+      type
+      code
+    }
+  }
+}
+```
+
+```json Variables
+{
+  "input": {
+    "threadId": "th_01H8H46YPB2S4MAJM382FG9423",
+    "textContent": "Hi, I ran out of compute credits, how can I top them up?",
+    "markdownContent": "Hi, I ran out of compute credits, how can I top them up?",
+    "impersonation": {
+      "asCustomer": {
+        "customerIdentifier": {
+          "emailAddress": "blanca@example.com"
+        }
+      }
+    },
+    "channelSpecificOptions": {
+      "email": {
+        "hiddenRecipients": [
+          {
+            "email": "finance@company.org"
+          }
+        ]
+      }
+    }
+  }
+}
+```
