@@ -1,0 +1,33 @@
+```ts
+import { PlainClient } from '@team-plain/typescript-sdk';
+
+const client = new PlainClient({ apiKey: 'plainApiKey_xxx' });
+
+const res = await client.replyToThread({
+  threadId: 'th_01HD1G6649R1DK061W27VBT7QB',
+  textContent: 'Hi, I ran out of compute credits, how can I top them up?',
+  markdownContent: 'Hi, I ran out of compute credits, how can I top them up?',
+  impersonation: {
+    asCustomer: {
+      customerIdentifier: {
+        emailAddress: 'blanca@example.com',
+      },
+    },
+  },
+  additionalChannelOptions: {
+    email: {
+      hiddenRecipients: [
+        {
+          email: 'customer-success@company.org',
+        },
+      ],
+    },
+  },
+});
+
+if (res.error) {
+  console.error(res.error);
+} else {
+  console.log(res.data);
+}
+```
