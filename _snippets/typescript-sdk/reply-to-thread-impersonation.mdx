@@ -10,19 +10,19 @@ const res = await client.replyToThread({
   impersonation: {
     asCustomer: {
       customerIdentifier: {
-        emailAddress: 'blanca@example.com'
-      }
-    }
+        emailAddress: 'blanca@example.com',
+      },
+    },
   },
   additionalChannelOptions: {
     email: {
       hiddenRecipients: [
         {
-          email: 'customer-success@company.org'
-        }
-      ]
-    }
-  }
+          email: 'customer-success@company.org',
+        },
+      ],
+    },
+  },
 });
 
 if (res.error) {

@@ -32,7 +32,8 @@ This operation requires the following permission:
 ## Impersonation
 
 <Note>
-Impersonation is exclusively available in our `Scale` plan. You can see all available plans in our [pricing page](https://www.plain.com/pricing).
+  Impersonation is exclusively available in our `Scale` plan. You can see all available plans in our
+  [pricing page](https://www.plain.com/pricing).
 </Note>
 
 This feature allows you to bring native messaging between your customers and Plain, straight into [your own product](/api-reference/headless-portal).
@@ -53,8 +54,8 @@ In order to impersonate a customer, provide the `impersonation` parameter in the
 }
 ```
 
-
 The customer message will be processed differently based on the thread's channel:
+
 - `SLACK`: a new Slack message will be sent to the thread, using the customer's details
 - `EMAIL`: an email will be sent to the thread, where the sender will be your customer
 
