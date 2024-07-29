@@ -81,11 +81,12 @@
 						"email/alternate-emails"
 					]
 				},
-				"contact-forms",
 				{
 					"group": "Slack",
 					"pages": ["slack", "slack/ingestion-modes", "slack/data-retention"]
-				}
+				},
+				"contact-forms",
+				"headless-support-portal"
 			]
 		},
 		{
@@ -111,7 +112,8 @@
 			"pages": [
 				"integrations/linear",
 				"integrations/salesforce",
-				"integrations/zendesk"
+				"integrations/zendesk",
+				"integrations/discourse"
 			]
 		},
 		{
@@ -269,7 +271,6 @@
 						"api-reference/ui-components/text"
 					]
 				},
-				"api-reference/headless-portal",
 				"api-reference/attachments"
 			]
 		}
@@ -278,5 +279,11 @@
 		"twitter": "https://twitter.com/plainsupport",
 		"linkedin": "https://www.linkedin.com/company/plainsupport",
 		"github": "https://github.com/team-plain/docs"
-	}
+	},
+	"redirects": [
+		{
+			"source": "/api-reference/headless-portal",
+			"destination": "/headless-support-portal"
+		}
+	]
 }
