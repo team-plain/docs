@@ -50,6 +50,8 @@ If you want, you can include basic authentication credentials in your webhook ta
 Authorization: Basic cGxhaW46cm9ja3M=
 ```
 
+Plain also supports [request signing](/api-reference/request-signing) to verify that the request was made by Plain and not a third party.
+
 ## Delivery semantics
 
 Plain guarantees **at-least-once** delivery of webhook requests. As such, you should make sure your webhook endpoint is idempotent. The `id` field in the [webhook request body](#body) can be used as an idempotency key.

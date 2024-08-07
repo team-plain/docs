@@ -26,6 +26,10 @@ Obtain a copy of the report by emailing us at [help@plain.com](mailto:help@plain
   - Administrator privileges are only used in the case of serious incidents, for routine maintenance tasks we provision IAM roles with fine-grained permissions.
 - We carefully evaluate 3rd party vendors before using them, regularly review them and the data they can access. Please see the [Data Processing Addendum](https://www.plain.com/legal/dpa/) for the full list of vendors we use.
 
+## Request signing
+
+Outbound requests we make to your target urls provide a HMAC signature with a shared secret key. Please see the [Request signing](/api-reference/request-signing) documentation for more information.
+
 ## Vulnerability disclosure
 
 Security is a core value of Plain, and we value the input of all external security researchers acting in good faith

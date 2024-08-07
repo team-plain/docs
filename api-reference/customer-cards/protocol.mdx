@@ -46,6 +46,7 @@ Plain will make the following request to your backend:
   - `Accept`: `application/json`
   - `Plain-Workspace-Id`: the ID of the workspace the customer is in. This is useful for logging or request routing.
   - `User-Agent`: `Plain/1.0 (plain.com; help@plain.com)`
+  - `Plain-Request-Signature`: `XXX` (see [request signing](/api-reference/request-signing) for details)
 - **Body:**
   - `cardKeys`: an array of card keys being requested
   - `customer`: an object with the customer's core details
