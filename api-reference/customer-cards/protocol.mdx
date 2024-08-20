@@ -30,7 +30,7 @@ The protocol is as follows:
 
 A **few limits** to be aware of:
 
-- Your API must **respond within 4 seconds**, or it will time out. See [retry strategy](#retry-strategy) for details on how timed-out requests are retried.
+- Your API must **respond within 15 seconds**, or it will time out. See [retry strategy](#retry-strategy) for details on how timed-out requests are retried.
 - You can configure a **maximum of 25 customer cards per workspace**.
 - **Card keys must be unique within a workspace**. A key can only contain **alphanumeric**, **hyphen**, and **underscore** characters (regex: `[a-zA-Z0-9_-]+`).
 
@@ -135,7 +135,7 @@ The following errors are **retried once** after a **1-second delay**:
 
 - HTTP `5xx` response status code
 - HTTP `429` Too Many Requests response status code
-- The request times out after 4 seconds.
+- The request times out after 15 seconds.
 - Plain fails to perform the request for some reason
 
 Retriable errors are not cached, therefore if the cards are requested again via the Support App they will be re-requested.
