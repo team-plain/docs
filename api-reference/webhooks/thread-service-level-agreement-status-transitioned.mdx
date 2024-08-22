@@ -12,7 +12,7 @@ As part of the `serviceLevelAgreementStatusDetail` field threads can have a stat
 | `IMMINENT_BREACH` | For SLAs where an alert has been set up to notify the team before it breaches. The SLA will be in this status after the alert period and before the SLA breaches |
 | `BREACHING`       | Applies to SLAs while their conditions are not met e.g if a thread with a first response time (FRT) SLA has not been replied to after the time period specified  |
 | `ACHIEVED`        | A thread where the SLA conditions were met e.g a thread was replied to within the FRT SLA period                                                                 |
-| `BREACHED`        | A thread where the SLA conditions were not met (and so entered `BREACHING`) e.g a thread which was replied to after the FRT SLA period                           |
+| `BREACHED`        | A thread where the SLA conditions were not met (and so entered `BREACHING`) but action has been taken that would have resolved the SLA e.g a thread breached the FRT SLA and breached the SLA, but then first reply was sent
 | `CANCELLED`       | An SLA which no longer applies e.g if a thread is marked as done with no reply the SLA is cancelled since we don't want it to affect metrics                     |
 
 ## Schema
