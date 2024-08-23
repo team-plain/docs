@@ -67,7 +67,11 @@
 	"navigation": [
 		{
 			"group": "Plain 101",
-			"pages": ["quickstart", "data-model", "security"]
+			"pages": [
+				"quickstart",
+				"data-model",
+				"security"
+			]
 		},
 		{
 			"group": "Channels",
@@ -83,7 +87,11 @@
 				},
 				{
 					"group": "Slack",
-					"pages": ["slack", "slack/ingestion-modes", "slack/data-retention"]
+					"pages": [
+						"slack",
+						"slack/ingestion-modes",
+						"slack/data-retention"
+					]
 				},
 				"contact-forms",
 				"headless-support-portal"
@@ -113,7 +121,8 @@
 				"integrations/linear",
 				"integrations/salesforce",
 				"integrations/zendesk",
-				"integrations/discourse"
+				"integrations/discourse",
+				"integrations/helpscout"
 			]
 		},
 		{
