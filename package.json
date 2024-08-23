@@ -9,9 +9,10 @@
 	},
 	"scripts": {
 		"dev": "mintlify dev",
-		"lint": "pnpm run lint:links && pnpm run lint:prettier",
+		"lint": "pnpm run lint:prettier && pnpm run lint:links",
 		"lint:links": "mintlify broken-links",
 		"lint:prettier": "prettier --check './**/*.{js,ts,tsx,md,mdx}'",
+		"lint:fix": "prettier --write './**/*.{js,ts,tsx,md,mdx}'",
 		"format": "prettier --write './**/*.{js,ts,tsx,md,mdx}'"
 	},
 	"dependencies": {
