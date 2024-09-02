@@ -1,52 +1,108 @@
 ---
-title: 'Slack'
-sidebarTitle: 'Overview'
+title: 'Microsoft Teams'
 ---
 
-**Never miss another message from a customer in Slack**
+**Never miss another message from a customer in Microsoft Teams**
 
-Our Slack integration lets you sync messages from selected Slack channels to Plain and respond directly to customers from the platform.
+<Warning>
+    Microsoft Teams integration is currently in beta. The integration won't currently be available for your workspace until we've enabled the feature flag.
 
-You will also be able to [add context to Slack messages with customer cards](/customer-cards), [set labels](/labels) and priorities, [create Linear tickets](/integrations/linear), and much more.
+    If you need any assistance or have feedback on the installation process please [reach out to us](mailto:help@plain.com)!
 
-Here’s how to get started:
+</Warning>
+
+Our Microsoft Teams integration lets you sync messages from selected Teams channels to Plain and respond directly to customers from the platform.
+
+### Prerequisites
+
+For the integration you'll need:
+
+- A Teams account with at least one seat
+- The installation of the app for teams can only be perfomed by an admin as you may need to change settings to:
+  - [Allow external apps to be installed](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/external-app-setup?view=o365-worldwide)
+  - [Allow external users to be added as guests to be invited to Teams](https://learn.microsoft.com/en-us/microsoft-365/solutions/collaborate-as-team)
+
+## Installation
+
+<Warning>
+  {' '}
+  🚧 As we're still building the integration, some features may not work as expected or be missing, and
+  some functionality may change. There is a list below of known issues and limitations!
+</Warning>
+In the Plain workspace you want to connect to Teams, navigate to `Settings`
+
+Option 1: Via Microsoft Teams
 
 <Steps>
-    <Step title="Connect your workspaces">
-        - In Plain, navigate to **`Settings`** > **`Slack`**.
-        - Press **`Connect to Slack`**.
-        - Follow Slack’s instructions to make sure the correct Slack workspace is selected.
-        - Authorize replies from your Slack profile to respond directly from Plain.
+    <Step title="Connect your Plain workspace to Teams">
+        - In Plain, navigate to **`Settings`** > **`Microsoft Teams`**.
+        - Press **`Connect to Teams`**.
+        - Follow the instructions in the pop-up window to sign in to your Microsoft account, make sure you've selected the correct
+        microsoft account if you have multiple.
+        - Once the authorisation is complete, you can download the Plain app for Teams (used in the next step).
+        - Optional: Authorize replies from your Teams profile to respond directly from Plain as yourself.
     </Step>
-    <Step title="Add the Plain app to the channels you want to track">
 
-        Once you’ve set up the integration in Plain, go to the Slack channels you want to track and invite the Plain app. You can do this by typing **`/invite`**, selecting **`Add apps to this channel`** and then choosing Plain.
-
-        <video
-            controls
-            className="w-full aspect-video"
-            src="https://static-assets.plain.com/docs/slack/add-to-slack.mp4"
-        ></video>
-
+    <Step title="Add the Plain app to Teams">
         <Warning>
-            When Plain is added to a channel, we automatically classify it as a Customer channel if it's a _Slack Connect_ channel or one for [internal discussions](/thread-discussions) otherwise.
-
-            For customer channels, we treat messages from non-Plain users as support requests, which are ingested as threads into Plain.
-
-            In discussion channels, on the other hand, we only ingest messages related to an on-going discussion.
-
+            The method of installation here will depend on how Teams is setup for your organisation. If you are having trouble
+            with setting this up, please get in touch so we can help!
         </Warning>
 
-    </Step>
+        #### Option 1 - Install via Teams App
+        - Navigate to the Apps tab
+        - Click Manage your apps
+        - Click Upload an app
+        - As a Teams admin, you should be able to 'Upload an app to your organisation's app catalogue' and upload the app you downloaded in the previous step
 
-    <Step title="Try it out">
-
-        Slack messages from the authorized channels will begin appearing as threads in Plain. To respond, press `R` and begin typing in Plain. Your responses will appear in Slack as if you are responding directly in the app.
-
-        Emojis ( **`:`** to search for the right one), syntax highlighting, and attachments are all supported in Plain.
-
-        **Note -** Slack messages sent by a Slack user that does **not** have an account in Plain (i.e. a customer) will create threads in Plain.
-
+        #### Option 2 - Install via the [Teams Admin Dashboard](https://admin.teams.microsoft.com/dashboard)
+        - In the left sidebar, navigate to Teams apps -> Manage Apps
+        - Under Actions, click on 'Upload new app'
+        - Upload the app you downloaded in the previous step
     </Step>
 
 </Steps>
+
+## Using the app
+
+The app must be added to a channel that allows guests where you would like to provide customer support. To start helping customers, you need to do a few things:
+
+[//]: # ' Video to be exported from screentudio'
+
+Once you've set up your channel, you need to add guests to the channel. To do this directly from teams, by right-clicking on the Team name in the teams list, and clicking 'Add member'.
+
+## How threads are created from Teams
+
+You should now have a channel with the Plain app installed, with _users_ and _guests_. The integration works as follows
+
+- Only posts **created by guests** will create a new thread in Plain
+- Reply messages to threads **created by guests** will be ingested by both **users and guests**
+
+## Responding to customers
+
+To respond to customers, you can do so directly from the Plain app in Teams.
+
+If the user has a personal Teams integration (see below) then the message will be sent as that user:
+
+![User Reply](/public/images/ms-teams-int-user-reply.png)
+
+If the user does not have a personal Teams integration, we will send the message as the bot, impersonating the user, which will look something like the below:
+
+![Impersonated Reply](/public/images/ms-teams-int-impersonated-reply.png)
+
+## Authorise Teams users in Plain
+
+Its recommended that anyone with a Teams seat follows the below steps to allow Plain to reply as their teams user. It also allows attributing any messages they send in the Teams channel to be associated with their Plain user.
+
+To link a Teams account with a Plain user account, navigate to  **`Settings`** > **`Microsoft Teams`** and click, **`Authorise replies`** to start the authorisation flow.
+
+
+##  🚧 Beta work in progress
+ The integration is currently in beta, and some features may not work as expected or be missing:
+
+- Notifications
+- Attachment support
+- Discussions
+- Webhooks
+- Plain AI features
+- Insights
