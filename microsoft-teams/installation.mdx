@@ -1,0 +1,52 @@
+---
+title: 'Slack'
+sidebarTitle: 'Overview'
+---
+
+**Never miss another message from a customer in Slack**
+
+Our Slack integration lets you sync messages from selected Slack channels to Plain and respond directly to customers from the platform.
+
+You will also be able to [add context to Slack messages with customer cards](/customer-cards), [set labels](/labels) and priorities, [create Linear tickets](/integrations/linear), and much more.
+
+Here’s how to get started:
+
+<Steps>
+    <Step title="Connect your workspaces">
+        - In Plain, navigate to **`Settings`** > **`Slack`**.
+        - Press **`Connect to Slack`**.
+        - Follow Slack’s instructions to make sure the correct Slack workspace is selected.
+        - Authorize replies from your Slack profile to respond directly from Plain.
+    </Step>
+    <Step title="Add the Plain app to the channels you want to track">
+
+        Once you’ve set up the integration in Plain, go to the Slack channels you want to track and invite the Plain app. You can do this by typing **`/invite`**, selecting **`Add apps to this channel`** and then choosing Plain.
+
+        <video
+            controls
+            className="w-full aspect-video"
+            src="https://static-assets.plain.com/docs/slack/add-to-slack.mp4"
+        ></video>
+
+        <Warning>
+            When Plain is added to a channel, we automatically classify it as a Customer channel if it's a _Slack Connect_ channel or one for [internal discussions](/thread-discussions) otherwise.
+
+            For customer channels, we treat messages from non-Plain users as support requests, which are ingested as threads into Plain.
+
+            In discussion channels, on the other hand, we only ingest messages related to an on-going discussion.
+
+        </Warning>
+
+    </Step>
+
+    <Step title="Try it out">
+
+        Slack messages from the authorized channels will begin appearing as threads in Plain. To respond, press `R` and begin typing in Plain. Your responses will appear in Slack as if you are responding directly in the app.
+
+        Emojis ( **`:`** to search for the right one), syntax highlighting, and attachments are all supported in Plain.
+
+        **Note -** Slack messages sent by a Slack user that does **not** have an account in Plain (i.e. a customer) will create threads in Plain.
+
+    </Step>
+
+</Steps>
