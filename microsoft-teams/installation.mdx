@@ -1,0 +1,125 @@
+---
+title: 'Microsoft Teams'
+---
+
+**Never miss another message from a customer in Microsoft Teams**
+
+<Warning>
+    Microsoft Teams integration is currently in beta. The integration won't currently be available for your workspace until we've enabled it for you.
+
+    If you need any assistance or have feedback on the installation process please [reach out to us](mailto:help@plain.com)!
+
+</Warning>
+
+Our Microsoft Teams integration lets you sync messages from selected Teams channels to Plain and respond directly to customers from the platform.
+
+### Prerequisites
+
+For the integration you'll need:
+
+- A Teams account with at least one seat
+- The installation of the app for Teams can only be performed by an admin as you may need to change settings to:
+  - [Allow external apps to be installed](https://learn.microsoft.com/en-us/microsoft-365/admin/manage/external-app-setup?view=o365-worldwide)
+  - [Allow external users to be added as guests to be invited to Teams](https://learn.microsoft.com/en-us/microsoft-365/solutions/collaborate-as-team)
+
+## Installation
+
+<Warning>
+  🚧 As we're still building the integration, some features may not work as expected or be missing,
+  and some functionality may change. There is a [list below of known issues and
+  limitations](#beta-work-in-progress).
+</Warning>
+
+<Steps>
+    <Step title="Connect your Plain workspace to Teams">
+        - In Plain, navigate to **`Settings`** > **`Microsoft Teams`**.
+        - Press **`Connect to Teams`**.
+        - Follow the instructions in the pop-up window to sign in to your Microsoft account, make sure you've selected the correct
+        Microsoft account if you have multiple.
+        - Once the authorization is complete, you can download the Plain app for Teams (used in the next step).
+        - Optional: Authorize replies from your Teams profile to respond directly from Plain as yourself.
+    </Step>
+
+    <Step title="Add the Plain app to Teams">
+        <Warning>
+            The method of installation here will depend on how Teams is set up for your organisation. If you are having trouble
+            with setting this up, please [get in touch so we can help](mailto:help@plain.com)!
+        </Warning>
+
+        #### Option 1 - Install via Teams App
+        - Navigate to the Apps tab
+        - Click **Manage your apps**
+        - Click **Upload an app**
+        - As a Teams admin, you should be able to **Upload an app to your organization's app catalogue** and upload the .zip file you downloaded in the previous step
+
+        #### Option 2 - Install via the [Teams Admin Dashboard](https://admin.teams.microsoft.com/dashboard)
+        - In the left sidebar, navigate to **Teams apps → Manage Apps**
+        - Under Actions, click **Upload new app**
+        - Upload the .zip file you downloaded in the previous step
+    </Step>
+
+</Steps>
+
+## Using the Plain app in Microsoft Teams
+
+The Plain app must be added to a Team and channel that allows guests where you can provide customer support. To start helping customers, you need to do a few things:
+
+<Warning>
+  If the app was installed via the Teams admin dashboard, it can take upto 24 hours to appear in the
+  Teams client
+</Warning>
+
+- Create a new Team
+- Create a new channel in the Team
+- Add the Plain app to the Channel (see below)
+- [Invite guests to the channel](https://support.microsoft.com/en-gb/office/add-guests-to-a-team-in-microsoft-teams-fccb4fa6-f864-4508-bdde-256e7384a14f)
+
+Setting up the app:
+
+<video
+  controls
+  className="w-full aspect-video"
+  src="https://static-assets.plain.com/docs/ms-teams/app-installation.mp4"
+  aria-label={`Setting up the app demo`}
+></video>
+
+## How threads are created from Teams
+
+You should now have a channel with the Plain app installed, with _users_ and _guests_. The integration works as follows
+
+- Only posts **created by guests** will create a new thread in Plain
+- Reply messages to threads **created by guests** will be ingested by both **users and guests**
+
+## Responding to customers
+
+To respond to customers, you can do so directly from the Plain app in Teams.
+
+If the user has a personal Teams integration (see below) then the message will be sent as that user:
+
+![User Reply](/public/images/ms-teams-int-user-reply.png)
+
+If the user does not have a personal Teams integration, we will send the message as the bot, impersonating the user, which will look like the below:
+
+![Impersonated Reply](/public/images/ms-teams-int-impersonated-reply.png)
+
+## Authorize Teams users in Plain
+
+Its recommended that anyone with a Teams seat follows the below steps to allow Plain to reply as their teams user. It also allows attributing any messages they send in the Teams channel to be associated with their Plain user.
+
+To link a Teams account with a Plain user account, navigate to  **`Settings`** > **`Microsoft Teams`** and click, **`Authorise replies`** to start the authorization flow.
+
+## 🚧 Beta work in progress
+
+The integration is currently in beta, so you may see a few things labeled "Dev" or "Beta" but this will go away when we launch.
+
+Some features that you'd expect from a Plain integration are currently under development and may not work as expected or be missing including:
+
+- Notifications
+- Attachment support
+- Discussions
+- Webhooks
+- Plain AI features
+- Insights
+- Microsoft flavour emoji and Mentions
+
+If there's anything else that you think is missing or could be improved, please let us know!
