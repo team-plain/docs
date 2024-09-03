@@ -67,11 +67,7 @@
 	"navigation": [
 		{
 			"group": "Plain 101",
-			"pages": [
-				"quickstart",
-				"data-model",
-				"security"
-			]
+			"pages": ["quickstart", "data-model", "security"]
 		},
 		{
 			"group": "Channels",
@@ -87,11 +83,7 @@
 				},
 				{
 					"group": "Slack",
-					"pages": [
-						"slack",
-						"slack/ingestion-modes",
-						"slack/data-retention"
-					]
+					"pages": ["slack", "slack/ingestion-modes", "slack/data-retention"]
 				},
 				"contact-forms",
 				"headless-support-portal"
@@ -100,6 +92,7 @@
 		{
 			"group": "Using Plain",
 			"pages": [
+				"statuses",
 				"notifications",
 				"assignment",
 				"tiers",
