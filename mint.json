@@ -19,9 +19,6 @@
 	"analytics": {
 		"plausible": {
 			"domain": "plain.com"
-		},
-		"koala": {
-			"publicApiKey": "pk_1265b1eedbd2343a0237ec75da9ce61f9096"
 		}
 	},
 	"metadata": {
@@ -67,11 +64,7 @@
 	"navigation": [
 		{
 			"group": "Plain 101",
-			"pages": [
-				"quickstart",
-				"data-model",
-				"security"
-			]
+			"pages": ["quickstart", "data-model", "security"]
 		},
 		{
 			"group": "Channels",
@@ -87,11 +80,7 @@
 				},
 				{
 					"group": "Slack",
-					"pages": [
-						"slack",
-						"slack/ingestion-modes",
-						"slack/data-retention"
-					]
+					"pages": ["slack", "slack/ingestion-modes", "slack/data-retention"]
 				},
 				"contact-forms",
 				"headless-support-portal"
