@@ -19,9 +19,6 @@
 	"analytics": {
 		"plausible": {
 			"domain": "plain.com"
-		},
-		"koala": {
-			"publicApiKey": "pk_1265b1eedbd2343a0237ec75da9ce61f9096"
 		}
 	},
 	"metadata": {
