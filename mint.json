@@ -82,6 +82,10 @@
 					"group": "Slack",
 					"pages": ["slack", "slack/ingestion-modes", "slack/data-retention"]
 				},
+				{
+					"group": "Microsoft Teams",
+					"pages": ["microsoft-teams", "microsoft-teams/installation"]
+				},
 				"contact-forms",
 				"headless-support-portal"
 			]
