@@ -1,0 +1,63 @@
+In Plain all support requests are organised in threads, and every thread has a status.
+
+This page explains each status, its purpose and best practices for how each fits into your workflow.
+
+## Needs First Response
+
+<Frame>![Todo / Needs First Response](/public/images/statuses/todo-needs-first-response.png)</Frame>
+
+When a thread is first created it will be in this status. This means that the customer has never received a reply. Any [First Response Time SLAs](/tiers#slas) you have set up apply to these threads.
+
+## Needs Next Response
+
+<Frame>![Todo / Needs Next Response](/public/images/statuses/todo-needs-next-response.png)</Frame>
+
+When a customer replies to you, threads will automatically move to this status. Any [Next Response Time SLAs](/tiers#slas) you have set up apply to these threads.
+
+## Investigating
+
+<Frame>![Todo / Investigating](/public/images/statuses/todo-investigating.png)</Frame>
+
+When you have a support request that requires further\*\* \*\*work on your side, you can choose to set a thread to this status.
+
+This is particularly useful when you have support request that requires longer technical investigation or research before getting back to the customer or marking it as done.
+
+## Close the Loop
+
+<Frame>![Todo / Close the Loop](/public/images/statuses/todo-close-the-loop.png)</Frame>
+
+If you use our [Linear Integration](/integrations/linear) then threads will move to this status when there was an update to a linked Linear issue.
+
+If you use [Discussions](/thread-discussions), then threads will move to this status when a discussion is resolved.
+
+## Waiting for Customer
+
+<Frame>
+  ![Snoozed / Waiting for Customer](/public/images/statuses/snoozed-waiting-for-customer.png)
+</Frame>
+
+Threads in this status are waiting for the customer to reply. By default, threads will be automatically moved to this status when you reply to them. You can control this behaviour by going to **Settings** → **Workflow**
+
+When a customer replies, threads in this status will be moved to Needs Next Response.
+
+## Paused for Later
+
+<Frame>![Snoozed / Paused for Later](/public/images/statuses/snoozed-paused-for-later.png)</Frame>
+
+When you need to pick up a thread later, you can pause it for any amount of time. Once paused, threads will have this status.
+
+When the pause duration you set runs out, or if the customer sends a new message, the thread will be moved back to its previous status.
+
+## Done
+
+<Frame>![Done](/public/images/statuses/done.png)</Frame>
+
+When a customer issue is resolved, you can mark a thread as done. If a customer sends a new message the thread will move back to Needs Next Response.
+
+## Ignored
+
+<Frame>![Ignored](/public/images/statuses/ignored.png)</Frame>
+
+When a thread in Plain is not a support request, you can ignore it with this status. This will silence further notifications and status changes.
+
+This is useful when there are non-support conversations (e.g. sales, social) happening in Slack channels where you provide support.
