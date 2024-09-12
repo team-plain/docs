@@ -116,7 +116,8 @@
 				"integrations/salesforce",
 				"integrations/zendesk",
 				"integrations/discourse",
-				"integrations/helpscout"
+				"integrations/helpscout",
+				"integrations/hubspot"
 			]
 		},
 		{
