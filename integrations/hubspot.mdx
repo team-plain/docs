@@ -1,0 +1,26 @@
+---
+title: 'Hubspot importer'
+---
+
+To connect your Hubspot account, head to **Settings** → **Hubspot importer** and follow the instructions. It will take a couple of clicks.
+
+When you connect your Hubspot account with Plain, we will import:
+
+- all your contacts as Plain **customers**
+- the companies linked to those contacts as Plain [**tenants**](/tenant-support)
+
+After you connect for the first time, we will import all your existing data. From that point, any new connection or account that you create in your Hubspot account, will be automatically synced into Plain.
+
+<Info>
+  The data created through the Hubspot importer will not trigger any webhooks or auto-responders.
+</Info>
+
+To stop syncing data from Hubspot, click on _Disconnect_ in **Settings** → **Hubspot importer**.
+
+<Note>
+We will only **create** new records in Plain, we will **never update** existing ones:
+
+- once a contact is synced into Plain, further changes to that contact in Hubspot (e.g. changing their name) will not be synced into Plain
+- if a customer or tenant is modified **on Plain** after syncing them from Hubspot, further syncs from Hubspot will not override your changes on Plain
+
+</Note>
