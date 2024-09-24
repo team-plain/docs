@@ -10,13 +10,21 @@
 	"scripts": {
 		"dev": "mintlify dev",
 		"lint": "pnpm run lint:prettier && pnpm run lint:links",
+		"lint:snippets": "tsx scripts/validateWebhookSnippets.ts",
 		"lint:links": "mintlify broken-links",
 		"lint:prettier": "prettier --check './**/*.{js,ts,tsx,md,mdx}'",
 		"lint:fix": "prettier --write './**/*.{js,ts,tsx,md,mdx}'",
 		"format": "prettier --write './**/*.{js,ts,tsx,md,mdx}'"
 	},
 	"dependencies": {
+		"ajv-formats": "^3.0.1",
 		"mintlify": "^4.0.82",
 		"prettier": "^3.1.0"
+	},
+	"devDependencies": {
+		"@types/ajv": "^1.0.0",
+		"@types/node": "^22.5.5",
+		"ajv": "^8.17.1",
+		"tsx": "^4.19.1"
 	}
 }
