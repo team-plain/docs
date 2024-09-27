@@ -97,7 +97,7 @@ Webhook requests are sent as an `HTTP POST` request to the webhook target URL.
 - `User-Agent`: `Plain-Webhooks/1.0 (plain.com; help@plain.com)`
 - `Plain-Workspace-Id`: The ID of the workspace where the Plain event originated
 - `Plain-Webhook-Target-Id`: The ID of the webhook target this webhook request is being sent to
-- `Plain-Webhook-Target-Version`: The version of the webhook target this webhook request is being sent to
+- `Plain-Webhook-Target-Version`: The [version](/api-reference/webhooks/versions.mdx) of the webhook target this webhook request is being sent to
 - `Plain-Webhook-Delivery-Attempt-Id`: The ID of the delivery attempt. It will be different on every delivery attempt
 - `Plain-Webhook-Delivery-Attempt-Number`: The current delivery attempt number (starts at 1)
 - `Plain-Webhook-Delivery-Attempt-Timestamp`: The time at which the delivery attempt was made. In UTC and formatted as
@@ -129,7 +129,7 @@ All the following fields are also sent as [HTTP headers](#headers).
 | Field                             | Type     | Description                                                                                                                                             |
 | --------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `webhookTargetId`                 | `string` | The ID of the webhook target this webhook request is being sent to. This is the ID that you will find under **Settings -> Webhooks** in the Support App |
-| `webhookTargetVersion`            | `string` | The version of the webhook target this webhook request is being sent to.                                                                                |
+| `webhookTargetVersion`            | `string` | The [version](/api-reference/webhooks/versions.mdx) of the webhook target this webhook request is being sent to.                                        |
 | `webhookDeliveryAttemptId`        | `string` | The ID of the delivery attempt. It will be different on every delivery attempt                                                                          |
 | `webhookDeliveryAttemptNumber`    | `string` | The current delivery attempt number (starts at 1)                                                                                                       |
 | `webhookDeliveryAttemptTimestamp` | `string` | The time at which the delivery attempt was made. In UTC and formatted as ISO8601. E.g. `1989-10-28T17:30:00.000Z`                                       |
