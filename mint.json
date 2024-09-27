@@ -117,6 +117,7 @@
 				"auto-responses",
 				"workflow-rules",
 				"plain-ai",
+				"digests",
 				"broadcasts",
 				"roles-in-plain"
 			]
