@@ -3,34 +3,70 @@ title: 'Webhooks and Typescript'
 sidebarTitle: 'Using Typescript'
 ---
 
-When using webhooks with Typescript, you can use a utility called `parsePlainWebhook` in the Typescript SDK to parse the webhook requests.
+Our [TypeScript SDK](https://github.com/team-plain/typescript-sdk) provide utilities to [verify the webhook signature](https://www.plain.com/docs/api-reference/request-signing#request-signing) and parse the webhook body into a typed object.
 
-This makes sure your code is 100% type safe and that all requests are correctly validated.
+```typescript
+import express from 'express';
 
-```ts
-import Express from 'express';
-import { parsePlainWebhook } from '@team-plain/typescript-sdk';
+import {
+  PlainWebhookSignatureVerificationError,
+  PlainWebhookVersionMismatchError,
+  verifyPlainWebhook,
+} from '@team-plain/typescript-sdk';
 
-const app = Express();
+// Plain HMAC Secret. You can find this in Plain's settings.
+const PLAIN_SIGNATURE_SECRET = process.env.PLAIN_SIGNATURE_SECRET;
+if (!PLAIN_SIGNATURE_SECRET) {
+  throw new Error('PLAIN_SIGNATURE_SECRET environment variable is required');
+}
 
-app.post('/handler/', function (req: Express.Request, res: Express.Response) {
-  const parseResult = parsePlainWebhook(req.body);
+const app = express();
+app.use(express.text());
 
-  // If this errors it means the request is not valid
-  // you can safely ignore it!
-  if (parseResult.error) {
-    res.status(400);
+app.post('/handler', function (req: Express.Request, res: Express.Response) {
+  // Please note that you must pass the raw request body, exactly as received from Plain,
+  const payload = req.body;
+
+  // Plain's computed signature for the request.
+  const signature = req.get('Plain-Request-Signature');
+
+  const webhookResult = verifyPlainWebhook(payload, signature, secret);
+  if (webhookResult.error instanceof PlainWebhookSignatureVerificationError) {
+    res.status(401).send('Failed to verify the webhook signature');
     return;
   }
 
-  // This is now fully typed and safe to use.
-  const webhookBody = parseResult.data;
+  if (webhookResult.error instanceof PlainWebhookVersionMismatchError) {
+    // The SDK is not compatible with the received webhook version.
+    // This can happen if you upgrade the SDK but not the webhook target, or vice versa.
+    // We recommend setting up alerts to notify you when this happens.
+    // Consult https://plain.com/docs/api-reference/webhooks/versions for more information.
+    console.error('Webhook version mismatch:', webhookResult.error.message);
+
+    // Respond with a non-2XX status code to trigger a retry from Plain.
+    res.status(400).send('Webhook version mismatch');
+    return;
+  }
+
+  if (webhookResult.error) {
+    // Unexpected error. Most likely due to an error in Plain's webhook server or a bug in the SDK.
+    // Treat this as a 500 response from Plain.
+    console.error('Unexpected error:', webhookResult.error.message);
+    res.status(500).send('Unexpected error');
+    return;
+  }
+
+  // webhookResult.data is now a typed object.
+  const webhookBody = webhookResult.data;
 
   // You can use the eventType to filter down to a specific event type
   if (webhookBody.payload.eventType === 'thread.thread_created') {
-    console.log(webhookBody.payload.thread.id);
+    console.log(`Thread created: ${webhookBody.payload.thread.id}`);
   }
 
-  res.status(200);
+  // Respond with a 200 status code.
+  res.status(200).send('Webhook received');
 });
 ```
+
+We strongly recommend verifying the webhook signature before processing the webhook body. This ensures that the webhook was sent by Plain and not a malicious third party. However, if you want to skip the verification, you can use the [`parsePlainWebhook` function](https://plain-typescript-sdk-docs.vercel.app/functions/parsePlainWebhook.html) instead.
