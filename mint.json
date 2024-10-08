@@ -79,7 +79,8 @@
 						"email",
 						"email/receiving",
 						"email/sending",
-						"email/alternate-emails"
+						"email/alternate-emails",
+						"email/email-avatars"
 					]
 				},
 				{
