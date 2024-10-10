@@ -2,7 +2,7 @@
 title: 'Reply to threads'
 ---
 
-You can reply to a thread using the `replyToThread` mutation, as long as the thread's communication channel is either `EMAIL` or `SLACK`. This information is available in the thread as the `channel` field.
+You can reply to a thread using the `replyToThread` mutation, as long as the thread's communication channel is either `EMAIL`, `SLACK` or 'MS_TEAMS'. This information is available in the thread as the `channel` field.
 
 If it is not possible to reply to a thread, you will get the mutation error code [`cannot_reply_to_thread`](/api-reference/graphql/error-codes#cannot_reply_to_thread) and a message indicating why.
 
