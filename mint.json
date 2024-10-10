@@ -276,6 +276,7 @@
 					]
 				},
 				"api-reference/request-signing",
+				"api-reference/mtls",
 				{
 					"group": "UI Components",
 					"pages": [
