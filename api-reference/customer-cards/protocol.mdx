@@ -129,6 +129,10 @@ Errors are classified into two categories:
 1. **Retriable errors**: these are transient issues where retrying once is appropriate
 2. **Integration errors**: these are typically programming or configuration errors. These errors won't be retried and cached for 5 minutes.
 
+## Security
+
+Plain supports [request signing](/api-reference/request-signing) and [mTLS](/api-reference/mtls) to verify that the request was made by Plain and not a third party.
+
 ### Retriable errors
 
 The following errors are **retried once** after a **1-second delay**:
