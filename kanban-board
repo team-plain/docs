@@ -1,0 +1,28 @@
+---
+title: 'Kanban board'
+---
+
+The kanban board queue view gives your team better visibility into all your open customer requests. With the kanban board, you can view all threads from all your customer channels, at once. 
+
+Once turned on, the kanban board will be enabled across your queue on all your queue and status pages, tier page, and label page. 
+
+### Add filters 
+
+You can filter your kanban board by any property to get a detailed of the threads you need. Filter by assignee, tier, label, SLA, status, and more – by hitting “Filters” on the top right hand side of your queue view (keyboard shortcut: F).
+
+### Drag and drop 
+
+You can quickly drag and drop individual customer requests to change their status, tier, or label. 
+
+### Bulk actions 
+
+To change the status, tier, or label of multiple threads at once, hit “shift+cmd+click” to individually select the threads you want to bulk action.You can then simply drag and drop them into the column you want to move them to. 
+
+### Update assignee 
+
+You can easily update the assignee of a thread straight from the kanban view. Just hit the avatar of the current assignee to change it to another person. 
+
+### How to enable kanban view 
+
+You can turn on the kanban view for your own personal workspace by hitting “Display” (keyboard shortcut: V) on the top right hand side of your queue view. Select “Board” and you’ll see the kanban view appear. Once you turn it on, this will be your personal default view – it’s not possible to enable kanban at a workspace level.
+
