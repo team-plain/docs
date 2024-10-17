@@ -92,6 +92,12 @@
 					]
 				},
 				{
+					"group": "Chat",
+					"pages": [
+						"chat"
+					]
+				},
+				{
 					"group": "Microsoft Teams",
 					"pages": [
 						"microsoft-teams",
