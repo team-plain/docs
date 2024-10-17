@@ -2,21 +2,30 @@
 Plain.init({
   appId: '<YOUR_CHAT_APP_ID>',
 
-  // Hides the launcher, you can manually show it by calling `Plain.open()` (default: false)
+  // Optional. Hides the launcher, you can manually show it by calling `Plain.open()` (default: false)
   hideLauncher: false,
 
-  // The title of the chat window shown on the Welcome screen
+  // Optional. The title of the chat window shown on the Welcome screen
   title: 'Chat with us',
 
-  // A collection of links shown on the Welcome screen
+  // Optional. A collection of links shown on the Welcome screen
   links: [
     {
+      icon: 'book', // Optional, we also support 'discord' and 'slack' as icons
       text: 'View our docs',
       url: 'https://www.plain.com/docs',
     },
   ],
 
-  // The color of your brand which will be used in parts of the Chat as well as the launcher color
+  // Optional. The color of your brand which will be used in parts of the Chat as well as the launcher color
   brandColor: '#000000',
+
+  // Optional. The entry point of the Chat, is either 'default' or 'chat'
+  // 'chat' will open the last conversation the user had. (default: 'default')
+  entryPoint: 'default',
+
+  // Optional. The color scheme of the Chat, is either 'auto', 'light', or 'dark'.
+  // 'auto' uses the user's browser preference to decide between light and dark mode (default: 'auto')
+  theme: 'light',
 });
 ```
