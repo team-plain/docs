@@ -16,7 +16,7 @@ jobs:
           node-version: '18'
 
       - name: Install CLI
-        run: npm install -g @team-plain/cli
+        run: npm install -g @team-plain/cli@latest
         
       - name: Index Docs
         run: plain index-sitemap https://www.plain.com/docs/sitemap.xml
