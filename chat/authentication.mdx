@@ -1,0 +1,42 @@
+---
+title: 'Authentication'
+---
+
+## Providing customer details
+
+By default, customers chatting with you will be anonymous. You can pass customer details, if you know them, by calling `Plain.setCustomerDetails`:
+
+```typescript
+Plain.setCustomerDetails({
+  fullName: 'John Doe', // Optional
+  shortName: 'John', // Optional
+  chatAvatarUrl: 'https://picsum.photos/32/32', // Optional
+});
+```
+
+These details will be shown to you in the Plain app when you are chatting with the customer but they will not be matched to an existing customer even if they have the same details.
+
+## Matching chat users to existing customers
+
+If you want to match the customer to an existing customer in your workspace, you will need to pass their email. To avoid security issues around impersonation you will also need to
+provide a hashed email address using a shared secret. You can generate this secret in the Chat settings page in the Plain app.
+
+Once you have this secret, you can calculate the hash and pass it to the `Plain.setCustomerDetails` function:
+
+```typescript
+import * as crypto from 'node:crypto';
+
+const secret = '<YOUR_SECRET>';
+const email = 'johndoe@example.com';
+const hmac = crypto.createHmac('sha256', secret);
+hmac.update(email);
+const hash = hmac.digest('hex');
+
+Plain.setCustomerDetails({
+  fullName: 'John Doe',
+  shortName: 'John',
+  chatAvatarUrl: 'https://picsum.photos/32/32',
+  email: email,
+  emailHash: hash,
+});
+```
