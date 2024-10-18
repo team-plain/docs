@@ -94,7 +94,8 @@
 				{
 					"group": "Chat",
 					"pages": [
-						"chat"
+						"chat",
+						"chat/authentication"
 					]
 				},
 				{
