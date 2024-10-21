@@ -4,13 +4,16 @@ title: 'Authentication'
 
 ## Providing customer details
 
-By default, customers chatting with you will be anonymous. You can pass customer details, if you know them, by calling `Plain.setCustomerDetails`:
+By default, customers chatting with you will be anonymous. You can pass customer details, if you know them, in the `Plain.init` function call:
 
 ```typescript
-Plain.setCustomerDetails({
-  fullName: 'John Doe', // Optional
-  shortName: 'John', // Optional
-  chatAvatarUrl: 'https://picsum.photos/32/32', // Optional
+Plain.init({
+  // ... Other options
+  customerDetails: {
+    fullName: 'John Doe', // Optional
+    shortName: 'John', // Optional
+    chatAvatarUrl: 'https://picsum.photos/32/32', // Optional
+  }
 });
 ```
 
@@ -19,9 +22,9 @@ These details will be shown to you in the Plain app when you are chatting with t
 ## Matching chat users to existing customers
 
 If you want to match the customer to an existing customer in your workspace, you will need to pass their email. To avoid security issues around impersonation you will also need to
-provide a hashed email address using a shared secret. You can generate this secret in the Chat settings page in the Plain app.
+provide the email address hashed using a shared secret. You can generate this secret in the Chat settings page in the Plain app.
 
-Once you have this secret, you can calculate the hash and pass it to the `Plain.setCustomerDetails` function:
+Once you have this secret, you can calculate the hash and pass it to the `Plain.init` function:
 
 ```typescript
 import * as crypto from 'node:crypto';
@@ -32,11 +35,12 @@ const hmac = crypto.createHmac('sha256', secret);
 hmac.update(email);
 const hash = hmac.digest('hex');
 
-Plain.setCustomerDetails({
-  fullName: 'John Doe',
-  shortName: 'John',
-  chatAvatarUrl: 'https://picsum.photos/32/32',
-  email: email,
-  emailHash: hash,
+Plain.init({
+  customerDetails: {
+    email: email,
+    emailHash: hash,
+    // If you pass other customer details (e.g. fullName), this will also update their customer details within Plain
+    // If you don't pass any other customer details, we will use their existing details within Plain
+  }
 });
 ```
