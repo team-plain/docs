@@ -3,16 +3,16 @@ title: 'Smart AI Replies (Beta)'
 ---
 
 <Info>
-  This feature is currently in Beta and is not available to all customers.
-  If you are interested in trying this feature, please reach out to us at [help@plain.com](mailto:help@plain.com) or via our shared Slack channel.
+  This feature is currently in Beta and is not available to all customers. If you are interested in
+  trying this feature, please reach out to us at [help@plain.com](mailto:help@plain.com) or via our
+  shared Slack channel.
 </Info>
 
-
-<IMG>
-</IMG>
+<IMG></IMG>
 
 <Info>
-  All AI features in Plain are opt-in. More information on our use of OpenAI and our data processing policies can be found in our DPA.
+  All AI features in Plain are opt-in. More information on our use of OpenAI and our data processing
+  policies can be found in our DPA.
 </Info>
 
 Smart AI Responses allows you to generate responses to support requests based on your documentation and the contents of a thread.
@@ -22,6 +22,7 @@ Responses are not automatically sent, the composer will be populated with the su
 ### Indexing documentation for use with Smart AI Responses
 
 Documentation can be indexed by using the [Plain CLI](https://github.com/team-plain/cli). With it you can index:
+
 - a single URL
 - a sitemap URL (each entry in the sitemap is indexed)
 
@@ -34,6 +35,7 @@ To keep indexed documents upto date, you can automate the indexing process the P
 #### Github Actions example
 
 Here is an example Github Action to re-index the documents using the [Plain CLI](https://github.com/team-plain/cli) run on a schedule.
+
 - The action runs every 3 hours
 - The action uses the `PLAIN_API_KEY` secret to authenticate with the Plain API
 - The action indexes all URLs in the sitemap
@@ -43,7 +45,7 @@ name: Index docs
 
 on:
   schedule:
-    - cron: "0 */3 * * *"
+    - cron: '0 */3 * * *'
 
 jobs:
   lint:
