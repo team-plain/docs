@@ -17,15 +17,19 @@ Plain.init({
     },
   ],
 
-  // Optional. The color of your brand which will be used in parts of the Chat as well as the launcher color
-  brandColor: '#000000',
-
   // Optional. The entry point of the Chat, is either 'default' or 'chat'
-  // 'chat' will open the last conversation the user had. (default: 'default')
+  // 'chat' will open the last conversation the user had (default: 'default')
   entryPoint: 'default',
 
-  // Optional. The color scheme of the Chat, is either 'auto', 'light', or 'dark'.
+  // Optional. The color scheme of the Chat, is either 'auto', 'light', or 'dark'
   // 'auto' uses the user's browser preference to decide between light and dark mode (default: 'auto')
   theme: 'light',
+
+  // Optional. Various styling options
+  // Colors can also be passed in this format { light: '#FFFFFF', dark: '#000000' }. Based on the theme chosen by you or browser preference
+  style: {
+    chatButtonColor: '#000000'; // These can also be passed in this foramt { light: '#FFFFFF', dark: '#000000' }
+    chatButtonIconColor: '#FFFFFF';
+  }
 });
 ```
