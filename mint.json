@@ -40,11 +40,20 @@
 	],
 	"tabs": [
 		{
+			"name": "Knowledge Base",
+			"url": "knowledge-base"
+		},
+		{
 			"name": "API Reference",
 			"url": "api-reference"
 		}
 	],
 	"anchors": [
+		{
+			"name": "Knowledge Base",
+			"icon": "books",
+			"url": "knowledge-base"
+		},
 		{
 			"name": "Changelog",
 			"icon": "code-commit",
@@ -54,11 +63,6 @@
 			"name": "Blog",
 			"icon": "quote-right",
 			"url": "https://plain.com/blog"
-		},
-		{
-			"name": "Book a demo",
-			"icon": "calendar",
-			"url": "https://cal.com/team/plain/demo"
 		}
 	],
 	"navigation": [
@@ -300,6 +304,16 @@
 					]
 				},
 				"api-reference/attachments"
+			]
+		},
+		{
+			"group": "Knowledge Base",
+			"pages": [
+				"knowledge-base",
+				"knowledge-base/kb-personal-email",
+				"knowledge-base/kb-setup-time",
+				"knowledge-base/kb-soc2",
+				"knowledge-base/kb-forwarding-emails"
 			]
 		}
 	],
