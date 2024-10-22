@@ -1,0 +1,67 @@
+---
+title: 'Smart AI Replies'
+---
+
+<Info>
+  This feature is currently in Beta and is not available to all customers. If you are interested in
+  trying this feature, please reach out to us at [help@plain.com](mailto:help@plain.com) or via our
+  shared Slack channel.
+</Info>
+
+Smart AI Replies allow you to generate replies to support requests based on your documentation and the contents of a thread.
+
+<Frame>![Smart AI Replies](/public/images/smart-ai-replies.png)</Frame>
+
+Replies are not automatically sent, the composer will be populated with the suggested reply, which you can either send as is, or edit as you wish.
+
+To enable Smart AI Replies go to **Settings** → **Workflow** and toggle the **Smart AI Replies** setting.
+
+All AI features in Plain are opt-in. More information on our use of OpenAI and our data processing
+policies can be found in our DPA.
+
+### Indexing documentation for use with Smart AI Replies
+
+Documentation can be indexed by using the [Plain CLI](https://github.com/team-plain/cli). With it you can index:
+
+- a single URL
+- a sitemap URL (each entry in the sitemap is indexed)
+
+For installation and usage instructions, please see the [Plain CLI docs](https://github.com/team-plain/cli).
+
+### Automation
+
+To keep indexed documents up to date, you can automate the indexing process the Plain CLI on a schedule.
+
+#### Github Actions example
+
+Here is an example Github Action to re-index the documents using the [Plain CLI](https://github.com/team-plain/cli) run on a schedule.
+
+- The action runs every 3 hours
+- The action uses the `PLAIN_API_KEY` secret to authenticate with the Plain API
+- The action indexes all URLs in the sitemap
+
+```yaml
+name: Index docs
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+
+jobs:
+  lint:
+    name: Index Documents
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install CLI
+        run: npm install -g @team-plain/cli@latest
+
+      - name: Index Documents
+        run: plain index-sitemap https://www.plain.com/docs/sitemap.xml
+        env:
+          PLAIN_API_KEY: ${{ secrets.PLAIN_API_KEY }}`
+```
