@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+permissions:
+  checks: write
+  contents: write
+
 jobs:
   lint:
     name: Lint
@@ -44,5 +48,11 @@ jobs:
       - name: Install deps
         run: pnpm i
         
-      - name: Lint
-        run: pnpm run lint
+      - name: Lint links
+        run: pnpm run lint:links
+
+      - name: Lint format
+        uses: wearerequired/lint-action@v2
+        with:
+          prettier: true
+          auto_fix: true

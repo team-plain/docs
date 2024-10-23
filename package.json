@@ -10,11 +10,11 @@
 	"scripts": {
 		"dev": "mintlify dev",
 		"lint": "pnpm run lint:prettier && pnpm run lint:links",
-		"lint:snippets": "tsx scripts/validateWebhookSnippets.ts",
 		"lint:links": "mintlify broken-links",
 		"lint:prettier": "prettier --check './**/*.{js,ts,tsx,md,mdx}'",
 		"lint:fix": "prettier --write './**/*.{js,ts,tsx,md,mdx}'",
-		"format": "prettier --write './**/*.{js,ts,tsx,md,mdx}'"
+		"format": "prettier --write './**/*.{js,ts,tsx,md,mdx}'",
+		"check-webhooks": "tsx scripts/validateWebhookSnippets.ts"
 	},
 	"dependencies": {
 		"ajv-formats": "^3.0.1",
