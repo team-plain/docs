@@ -309,7 +309,7 @@
 		{
 			"group": "Knowledge Base",
 			"pages": [
-				"knowledge-base",
+				"knowledge-base/overview",
 				"knowledge-base/kb-personal-email",
 				"knowledge-base/kb-setup-time",
 				"knowledge-base/kb-soc2",
