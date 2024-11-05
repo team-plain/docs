@@ -8,22 +8,27 @@ Digests are a way to get a summary of activity in your Plain workspace. They are
 
 Digests are configured in settings, and you can specify a time (in UTC) when you would like to receive them. They are **only sent on weekdays**.
 
+## Available Digests
+
+### Daily Standup
+
+The Daily Standup Digest aims to give you a brief, cohesive overview of your outstanding threads in “Todo”, and tags the members of your team that have threads assigned to them. 
+
+This Digest is tailored towards the members of your team who are actively responding to support requests – we recommend using it in the mornings so you get a quick overview first thing about the threads that need to be actioned. 
+
+### Daily Summary
+
+The Daily Summary Digest is aimed at giving you a high-level view into the health of your support queue. Threads that need high priority actions will be listed here – e.g. threads that have breached or are about to breach their SLAs, and threads that have been waiting for action for a long time. 
+
+This Digest will be useful for Heads of Support, or team members who mightn’t be in the support weeds every day, but need to know about the high-level state of your support queue. We recommend turning it on at the end of the day so you get an idea of how your support team has performed throughout the day. 
+
 ## Setup
 
 - Navigate to **Settings → Notifications → Slack**
 - Setup or choose an existing Slack integration
-- Digests section contains settings for each digest
+- Choose the Digest you want to turn on and specify the time (in UTC) that you’d like it to be delivered
+- Turn on the toggle 
 
-## Available Digests
+## What if I want to send different Digests to different Slack channels? 
 
-### Daily Workspace Digest
-
-This digest includes:
-
-- Count of threads waiting for first response and the 3 most recent threads title and link
-- Count of threads waiting for next response and the 3 most recent threads title and link
-- Counts of threads being investigated, waiting for close the loop and paused threads
-
-### Workspace Topics Digest (Plain AI)
-
-🚧 Coming Soon 🚧
+To set up a digest to send to a different Slack channel (e.g. if you want the Daily Summary to be sent to #support-leads, but the Daily Standup Digest to send to #support) – just repeat the steps above and add a new Slack channel integration in your Notifications settings. 
