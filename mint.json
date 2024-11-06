@@ -125,6 +125,7 @@
 			"group": "Integrations",
 			"pages": [
 				"integrations/linear",
+                "integrations/jira"
 				"integrations/salesforce",
 				"integrations/zendesk",
 				"integrations/discourse",
