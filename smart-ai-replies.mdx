@@ -40,6 +40,9 @@ Here is an example Github Action to re-index the documents using the [Plain CLI]
 - The action uses the `PLAIN_API_KEY` secret to authenticate with the Plain API
 - The action indexes all URLs in the sitemap
 
+The `PLAIN_API_KEY` requires the following permissions:
+- `indexedDocument:create`
+
 ```yaml
 name: Index docs
 
