@@ -105,6 +105,15 @@
 				"statuses",
 				"notifications",
 				"assignment",
+				{
+					"group": "Plain AI",
+					"pages": [
+						"plain-ai",
+						"plain-ai/workflow",
+						"plain-ai/smart-ai-replies",
+						"plain-ai/knowledge-sources"
+					]
+				},
 				"tiers",
 				"priorities",
 				"labels",
@@ -112,10 +121,8 @@
 				"insights",
 				"snippets",
 				"shortcuts",
-				"smart-ai-replies",
 				"auto-responses",
 				"workflow-rules",
-				"plain-ai",
 				"digests",
 				"broadcasts",
 				"roles-in-plain"
