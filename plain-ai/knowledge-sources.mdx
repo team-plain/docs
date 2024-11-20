@@ -1,32 +1,20 @@
 ---
-title: 'Smart AI Replies'
+title: 'Knowledge Sources'
 ---
-
-<Info>
-  This feature is currently in Beta and is not available to all customers. If you are interested in
-  trying this feature, please reach out to us at [help@plain.com](mailto:help@plain.com) or via our
-  shared Slack channel.
-</Info>
-
-Smart AI Replies allow you to generate replies to support requests based on your documentation and the contents of a thread.
-
-<Frame>![Smart AI Replies](/public/images/smart-ai-replies.png)</Frame>
-
-Replies are not automatically sent, the composer will be populated with the suggested reply, which you can either send as is, or edit as you wish.
-
-To enable Smart AI Replies go to **Settings** → **Plain AI** and toggle the **Smart AI Replies** setting.
-
-All AI features in Plain are opt-in. More information on our use of OpenAI and our data processing
-policies can be found in our DPA.
-
-### Indexing documentation for use with Smart AI Replies
 
 Documentation can be indexed by using the [Plain CLI](https://github.com/team-plain/cli). With it you can index:
 
 - a single URL
 - a sitemap URL (each entry in the sitemap is indexed)
+- Optional: add a [label type ID](/labels) to associate the document with
 
 For installation and usage instructions, please see the [Plain CLI docs](https://github.com/team-plain/cli).
+
+### Labels
+
+If you provide a label type ID when indexing a document, Smart AI Replies will only use the documentation when the thread has the specified label type also associated.
+
+This is useful for example if you have different products that you support, with different documentation.
 
 ### Automation
 
@@ -64,7 +52,7 @@ jobs:
         run: npm install -g @team-plain/cli@latest
 
       - name: Index Documents
-        run: plain index-sitemap https://www.plain.com/docs/sitemap.xml
+        run: plain index-sitemap https://www.plain.com/docs/sitemap.xml --labelTypeIds lt_01G0EZ1XTM37C643SQTDNXR1
         env:
           PLAIN_API_KEY: ${{ secrets.PLAIN_API_KEY }}`
 ```
