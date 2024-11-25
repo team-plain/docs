@@ -24,7 +24,9 @@ These details will be shown to you in the Plain app when you are chatting with t
 If you want to match the customer to an existing customer in your workspace, you will need to pass their email. To avoid security issues around impersonation you will also need to
 provide the email address hashed using a shared secret. You can generate this secret in the Chat settings page in the Plain app.
 
-Once you have this secret, you can calculate the hash and pass it to the `Plain.init` function:
+Once you have this secret, you can calculate the hash. This must be done in backend code to avoid leaking the secret. If your secret is leaked malicious users will be able to impersonate your customers in chats.
+
+Backend code:
 
 ```typescript
 import * as crypto from 'node:crypto';
@@ -34,6 +36,13 @@ const email = 'johndoe@example.com';
 const hmac = crypto.createHmac('sha256', secret);
 hmac.update(email);
 const hash = hmac.digest('hex');
+```
+
+Then you can request the hash from your backend and init Plain:
+
+```typescript
+const email = 'johndoe@example.com';
+const hash = fetchHashFromBackend(email);
 
 Plain.init({
   customerDetails: {

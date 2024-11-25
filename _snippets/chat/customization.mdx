@@ -5,21 +5,43 @@ Plain.init({
   // Optional. Hides the launcher, you can manually show it by calling `Plain.open()` (default: false)
   hideLauncher: false,
 
-  // Optional. The title of the chat window shown on the Welcome screen
-  title: 'Chat with us',
-
   // Optional. A collection of links shown on the Welcome screen
   links: [
     {
-      icon: 'book', // Optional, we also support 'discord' and 'slack' as icons
+      // Optional, supported icons are:
+      //   'bell',
+      //   'book',
+      //   'bug',
+      //   'bulb',
+      //   'chat',
+      //   'integration',
+      //   'discord',
+      //   'email',
+      //   'slack',
+      //   'link',
+      //   'pencil',
+      //   'send',
+      //   'support',
+      //   'error'
+      icon: 'book', 
       text: 'View our docs',
       url: 'https://www.plain.com/docs',
     },
   ],
 
-  // Optional. The entry point of the Chat, is either 'default' or 'chat'
-  // 'chat' will open the last conversation the user had (default: 'default')
-  entryPoint: 'default',
+  // Optional. The entry point of the Chat.
+  entryPoint: {
+    // Type is either 'default' or 'chat'. 'default' will open the intro screen, 'chat' opens up straight into a chat.
+    type: 'chat',
+    //  Optional. The external ID of which chat to open. If not provided it will default to the last conversation the user had
+    externalId: 'example_external_id',
+    // Optional. Prevents the user from going back to the intro screen to start a new chat
+    singleChatMode?: false,
+  },
+
+  // Optional. Lets you specify which HTML element to insert the chat into.
+  // When specified, launcher will be hidden by default.
+  embedAt: '#embed',
 
   // Optional. The color scheme of the Chat, is either 'auto', 'light', or 'dark'
   // 'auto' uses the user's browser preference to decide between light and dark mode (default: 'auto')
@@ -28,8 +50,80 @@ Plain.init({
   // Optional. Various styling options
   // Colors can also be passed in this format { light: '#FFFFFF', dark: '#000000' }. Based on the theme chosen by you or browser preference
   style: {
-    chatButtonColor: '#000000'; // These can also be passed in this foramt { light: '#FFFFFF', dark: '#000000' }
-    chatButtonIconColor: '#FFFFFF';
+    launcherBackgroundColor: '#000000'; // These can also be passed in this format { light: '#FFFFFF', dark: '#000000' }
+    launcherIconColor: '#FFFFFF';
   }
+
+  // Optional. Logo which is shown in the header of the chat intro screen
+  logo: {
+    // url to get the logo from
+    url: 'http://example.com';
+    // Optional. Alt text which is displayed on hover of the logo
+    alt: 'An example logo';
+  };
+
+  // Optional. Allows you to set fields for the threads which are created from chats
+  threadDetails: {
+
+    // Optional. Labels to be set on created threads. 
+    // To find a label id open the Plain app and go to 'Settings' -> 'Labels', you can select `Copy label ID` from the overflow menu on each label
+    labelTypeIds: ['lt_01JDAB92EBHP3DSXS43DW96WBS'],
+
+    // Optional. A tier to be set on created threads.
+    // To find a tier ID open the Plain app and go to 'Settings' -> 'Tiers'. Select a tier and then copy the ID from the URL.
+    // You can also specify a tier by its external ID e.g { externalId: 'example_external_id' }
+    tierIdentifier: { tierId: 'tier_01JDABCAZBDFKH7WA6WNBDSA2F' },
+
+    // Optional. A tenant to be set on created threads.
+    // To find a tenant ID open the Plain app and click 'Tenants' under 'Browse' in the left sidebar. Select a tenant and then copy the ID from the URL.
+    // You can also specify a tenant by its external ID e.g { externalId: 'example_external_id' }
+    tenantIdentifier: { tenantId: 'te_01HT539973HNVZFSDXWHPT8FH1' },
+
+    // Optional. An external ID to be set on created threads.
+    externalId: 'example_external_id';
+  };
+
+  // Optional. Lets you customize the buttons which are used to start a new chat on the intro screen
+  chatButtons: [
+    {
+      // Optional. The name of the icon to display, see above for full options
+      icon: 'bulb',
+
+      // The text to display on the button
+      text: 'Give feedback',
+
+      // Optional. Allows you to set fields for the threads which are created with this button. See above for full options.
+      threadDetails: {};
+
+      // Optional. Form elements which the user must fill out before sending a chat message
+      form: {
+
+        // The fields which make up the form. All form fields must be filled in for a user to send a chat message
+        fields: [
+          {
+            // Currently only dropdown form fields are supported
+            type: 'dropdown',
+
+            // Optional. The placeholder text displayed on the dropdown
+            placeholder: 'Select a topic...',
+
+            // The options which are available in the dropdown, minimum of 1 required.
+            options: [
+              {
+                // Optional. An icon to be displayed on the dropdown option. See above for full options.
+                icon: 'bug',
+
+                // The text which is displayed for this dropdown option
+                text: 'Bug report',
+
+                // Optional. Enables setting values on threads when this option is selected by the user. See above for full options
+                threadDetails: {},
+              }
+            ],
+          }
+        ]
+      },
+    }
+  ];
 });
 ```
