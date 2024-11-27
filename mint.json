@@ -110,7 +110,7 @@
 					"pages": [
 						"plain-ai",
 						"plain-ai/workflow",
-						"plain-ai/smart-ai-replies",
+						"plain-ai/suggested-responses",
 						"plain-ai/knowledge-sources"
 					]
 				},
