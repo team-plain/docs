@@ -1,0 +1,51 @@
+---
+title: 'Customization'
+---
+
+## General customization
+
+You can customize the chat widget to match your brand and user experience. You can change various aspects of the chat widget including both the appearance and behavior.
+
+<Accordion title="General customization code">
+  <Snippet file="chat/customization.mdx" />
+</Accordion>
+
+## Enhance your chat flows with Plain’s data model
+
+Plain’s chat widget is designed to be flexible and powerful. You can use Plain’s data model to enhance your chat flows, providing a more tailored experience for your users and 
+improving your ability to triage and respond.
+
+You can currently set the following fields on threads created from the chat widget:
+* Labels
+* Tiers
+* Tenants
+* External IDs
+
+There are several places in the configuration you can add these with varying effects:
+
+### All threads
+
+Providing a top-level `threadDetails` object in the `Plain.init` function will set these fields on all threads created from the chat widget. You could, for example,
+set a label based on the page the user is on.
+
+<Accordion title="Thread details code">
+  <Snippet file="chat/thread-details.mdx" />
+</Accordion>
+
+### Chat buttons
+
+Aside from being able to customize the text and icon of the chat button, you can also provide a set of fields that will be set on the thread when the user clicks that specific button. 
+
+You can add these by providing a `threadDetails` object to an item within `chatButtons` array. For example, you could add a button for users to report a bug, which would set a label on the thread to `Bug report`.
+
+<Accordion title="Chat buttons code">
+  <Snippet file="chat/chat-buttons.mdx" />
+</Accordion>
+
+### Chat forms
+
+Similar to chat buttons, chat forms allow you to set fields on the thread when the user creates a chat. These are specific to each `chatButton`.
+
+<Accordion title="Chat forms code">
+  <Snippet file="chat/chat-forms.mdx" />
+</Accordion>

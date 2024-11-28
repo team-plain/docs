@@ -1,0 +1,39 @@
+```typescript
+
+Plain.init({
+  // ...Other options
+  chatButtons: [{
+    {
+      // ...Other chat button options
+      form: {
+        // The fields which make up the form. All form fields must be filled in for a user to send a chat message
+        fields: [
+          {
+            // Currently only dropdown form fields are supported
+            type: 'dropdown',
+
+            // Optional. The placeholder text displayed on the dropdown
+            placeholder: 'Select a topic...',
+
+            // The options which are available in the dropdown, minimum of 1 required.
+            options: [
+              {
+                // Optional. An icon to be displayed on the dropdown option. See above for full options.
+                icon: 'bug',
+
+                // The text which is displayed for this dropdown option
+                text: 'Bug report',
+
+                // Optional. Enables setting values on threads when this option is selected by the user. See above for full options
+                threadDetails: {},
+              }
+            ],
+          }
+        ]
+      },
+    }
+  }]
+})
+
+        
+```
