@@ -34,9 +34,10 @@ set a label based on the page the user is on.
 
 ### Chat buttons
 
-Aside from being able to customize the text and icon of the chat button, you can also provide a set of fields that will be set on the thread when the user clicks that specific button. 
+You can configure the primary chat button and any additional chat buttons that appear on the intro screen with text and an icon using the `chatButtons` array.
 
-You can add these by providing a `threadDetails` object to an item within `chatButtons` array. For example, you could add a button for users to report a bug, which would set a label on the thread to `Bug report`.
+You can also pass `threadDetails` to a chat button to set fields on the thread when the user creates a chat from that specific button. If you provide the same field
+in both the top-level `threadDetails` and a chat button, any single value fields will be overridden by the chat button and any multi-value fields will be appended to.
 
 <Accordion title="Chat buttons code">
   <Snippet file="chat/chat-buttons.mdx" />
