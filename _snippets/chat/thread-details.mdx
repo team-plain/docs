@@ -1,0 +1,24 @@
+```typescript
+Plain.init({
+  // ...Other options
+
+  threadDetails: {
+    // Optional. Labels to be set on created threads. 
+    // To find a label id open the Plain app and go to 'Settings' -> 'Labels', you can select `Copy label ID` from the overflow menu on each label
+    labelTypeIds: ['lt_01JDAB92EBHP3DSXS43DW96WBS'],
+
+    // Optional. A tier to be set on created threads.
+    // To find a tier ID open the Plain app and go to 'Settings' -> 'Tiers'. Select a tier and then copy the ID from the URL.
+    // You can also specify a tier by its external ID e.g { externalId: 'example_external_id' }
+    tierIdentifier: { tierId: 'tier_01JDABCAZBDFKH7WA6WNBDSA2F' },
+
+    // Optional. A tenant to be set on created threads.
+    // To find a tenant ID open the Plain app and click 'Tenants' under 'Browse' in the left sidebar. Select a tenant and then copy the ID from the URL.
+    // You can also specify a tenant by its external ID e.g { externalId: 'example_external_id' }
+    tenantIdentifier: { tenantId: 'te_01HT539973HNVZFSDXWHPT8FH1' },
+
+    // Optional. An external ID to be set on created threads.
+    externalId: 'example_external_id';
+  }
+});
+```

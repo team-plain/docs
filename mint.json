@@ -89,7 +89,7 @@
 				},
 				{
 					"group": "Chat",
-					"pages": ["chat", "chat/authentication"]
+					"pages": ["chat", "chat/customization", "chat/authentication"]
 				},
 				{
 					"group": "Microsoft Teams",
