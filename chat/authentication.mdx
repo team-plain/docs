@@ -53,3 +53,20 @@ Plain.init({
   },
 });
 ```
+
+## Customer verification
+
+If you want to see the name and email of customers who get in touch via chat you can require them to provide their details 
+by setting `requireAuthentication` to true in Plain init:
+
+```typescript
+Plain.init({
+  requireAuthentication: true
+});
+```
+
+When enabled, any customer getting in touch will first be presented with a form allowing them to enter their name and email address. 
+
+The customer will then receive a verification code to that email which they can enter to start a chat.
+
+If an `emailHash` is already set in `customerDetails`, then the verification screen will not appear since the customer has already been authenticated.
