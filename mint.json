@@ -68,7 +68,11 @@
 	"navigation": [
 		{
 			"group": "Plain 101",
-			"pages": ["quickstart", "data-model", "security"]
+			"pages": [
+				"quickstart",
+				"data-model",
+				"security"
+			]
 		},
 		{
 			"group": "Channels",
@@ -85,15 +89,26 @@
 				},
 				{
 					"group": "Slack",
-					"pages": ["slack", "slack/ingestion-modes", "slack/data-retention"]
+					"pages": [
+						"slack",
+						"slack/ingestion-modes",
+						"slack/data-retention"
+					]
 				},
 				{
 					"group": "Chat",
-					"pages": ["chat", "chat/customization", "chat/authentication"]
+					"pages": [
+						"chat",
+						"chat/customization",
+						"chat/authentication"
+					]
 				},
 				{
 					"group": "Microsoft Teams",
-					"pages": ["microsoft-teams", "microsoft-teams/installation"]
+					"pages": [
+						"microsoft-teams",
+						"microsoft-teams/installation"
+					]
 				},
 				"contact-forms",
 				"headless-support-portal"
@@ -271,6 +286,7 @@
 						"api-reference/webhooks/thread-slack-message-received",
 						"api-reference/webhooks/thread-slack-message-sent",
 						"api-reference/webhooks/thread-chat-sent",
+						"api-reference/webhooks/thread-chat-received",
 						"api-reference/webhooks/thread-field-created",
 						"api-reference/webhooks/thread-field-updated",
 						"api-reference/webhooks/thread-field-deleted",
