@@ -43,6 +43,9 @@ Plain.init({
   // When specified, launcher will be hidden by default.
   embedAt: '#embed',
 
+  // Optional. Hides the 'Powered by Plain' branding
+  hideBranding: false,
+
   // Optional. The color scheme of the Chat, is either 'auto', 'light', or 'dark'
   // 'auto' uses the user's browser preference to decide between light and dark mode (default: 'auto')
   theme: 'light',
@@ -63,6 +66,13 @@ Plain.init({
     alt: 'An example logo';
   };
 
+  // Optional. Position of the chat widget when it is floating.
+  // See https://developer.mozilla.org/en-US/docs/Web/CSS/position for more information - only bottom and right are supported
+  position: {
+    right: '10px',
+    bottom: '10px',
+  }
+
   // Optional. Allows you to set fields for the threads which are created from chats
   threadDetails: {
     // See the data model documentation [asdasd](/chat/customization#all-threads) for more information on these fields
@@ -70,7 +80,7 @@ Plain.init({
 
   // Optional. Lets you customize the buttons which are used to start a new chat on the intro screen
   chatButtons: [
-    // See the chat buttons documentation (https://localhost:3000/chat/customization#chat-buttons) for more information on these fields
+    // See the chat buttons documentation for more information on these fields
   ];
 });
 ```

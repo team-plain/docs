@@ -1,0 +1,30 @@
+```typescript
+// This takes the same arguments as Plain.init. It will update the chat widget in-place with the new configuration.
+// Only top-level fields are updated, nested fields are not merged.
+Plain.update({ ... });
+
+// This takes the same arguments as `customerDetails` in Plain.init.
+// This will update just the customer details in the chat widget. This may be useful if you have asynchronous authentication state
+Plain.setCustomerDetails({ ...})
+
+// Opens and closes the widget if using the default, floating mode
+Plain.open();
+Plain.close();
+
+// These are event listeners that will be fired when the chat widget is opened or closed respectively
+// These return a function that can be called to remove the listener
+Plain.onOpen(() =>{ 
+  // Opened
+});
+Plain.onClose(() => {
+  // Closed
+});
+
+// Returns whether or not the chat widget is initialized
+Plain.isInitialized();
+
+// This returns an array with debug logs that have been collected by the chat widget
+// This is useful if you contacting Plain support with an issue regarding the chat widget
+// This will redact sensitive information such as customer details
+Plain.exportDebugLogs();
+```
