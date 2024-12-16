@@ -118,7 +118,15 @@
 				"priorities",
 				"labels",
 				"syntax-highlighting",
-				"reporting",
+				{
+					"group": "Reporting",
+					"pages": [
+						"reporting",
+						"reporting/using-reporting",
+						"reporting/team-reporting",
+						"reporting/metrics"
+					]
+				},
 				"snippets",
 				"shortcuts",
 				"auto-responses",
