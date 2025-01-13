@@ -10,8 +10,19 @@ This lets you easily link a Linear issue to a thread – and ensures you're alwa
 
 To do this, head to **Settings** → **Linear integration** and connect your workspace.
 
-Once you've linked your Linear workspace to Plain, you can create a Linear issue (or link an existing Linear issue) directly to a customer request in the sidebar on the right hand side of a thread – or by pressing the shortcut:`i`.
+Once you've linked your Linear workspace to Plain, you can create a Linear issue (or link an existing Linear issue) directly to a thread in the sidebar on the right hand side of a thread – or by pressing the shortcut:`i`.
 
 Once a Linear issue is linked, the thread will move back to `Close the loop` when the Linear issue is completed or canceled.
 
 Once you connect your Linear account and start linking issues to customer requests, you'll get access to a new Product insights page in Plain – where you'll be able to get a ranked view of your top customer requests from Linear directly in Plain. You can also dig into each request, to understand which customers requested each feature, the tier breakdown of these customers and when the request was initially made.
+
+### Customer Requests
+
+If your Linear workspace supports Customer Requests, we'll create a Customer and a Customer Request when linking a Plain thread to a Linear issue.
+
+Linear Customers are created by looking at the Customer's company domain on the thread. If a Plain thread has no company domain, we won't create a Linear Customer or Customer Request.
+
+If Linear Customer requests is disabled in your workspace, our linear integration will still create Customers and Customer Requests in the background, so if you decide to enable it, they'll be ready to go.
+
+If your workspace has been using our Linear integration for a while and you'd like us to backfill your existing thread links into Linear Customers and Customer Requests, please reach out to us at
+[help@plain.com](mailto:help@plain.com).
