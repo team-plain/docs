@@ -68,7 +68,11 @@
 	"navigation": [
 		{
 			"group": "Plain 101",
-			"pages": ["quickstart", "data-model", "security"]
+			"pages": [
+				"quickstart",
+				"data-model",
+				"security"
+			]
 		},
 		{
 			"group": "Channels",
@@ -85,15 +89,26 @@
 				},
 				{
 					"group": "Slack",
-					"pages": ["slack", "slack/ingestion-modes", "slack/data-retention"]
+					"pages": [
+						"slack",
+						"slack/ingestion-modes",
+						"slack/data-retention"
+					]
 				},
 				{
 					"group": "Chat",
-					"pages": ["chat", "chat/customization", "chat/authentication"]
+					"pages": [
+						"chat",
+						"chat/customization",
+						"chat/authentication"
+					]
 				},
 				{
 					"group": "Microsoft Teams",
-					"pages": ["microsoft-teams", "microsoft-teams/installation"]
+					"pages": [
+						"microsoft-teams",
+						"microsoft-teams/installation"
+					]
 				},
 				"contact-forms",
 				"headless-support-portal"
@@ -133,7 +148,9 @@
 				"workflow-rules",
 				"digests",
 				"broadcasts",
-				"roles-in-plain"
+				"roles-in-plain",
+				"saved-views",
+				"favorite-pages"
 			]
 		},
 		{
