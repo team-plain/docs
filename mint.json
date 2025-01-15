@@ -133,7 +133,9 @@
 				"workflow-rules",
 				"digests",
 				"broadcasts",
-				"roles-in-plain"
+				"roles-in-plain",
+				"saved-views",
+				"favorite-pages"
 			]
 		},
 		{
