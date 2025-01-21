@@ -57,12 +57,17 @@
 		{
 			"name": "Changelog",
 			"icon": "code-commit",
-			"url": "https://plain.com/changelog"
+			"url": "https://plain.com/changelog/?utm_source=docs"
 		},
 		{
 			"name": "Blog",
 			"icon": "quote-right",
-			"url": "https://plain.com/blog"
+			"url": "https://plain.com/blog/?utm_source=docs"
+		},
+		{
+			"name": "Book a demo",
+			"icon": "calendar",
+			"url": "https://plain.com/lets-chat/?utm_source=docs"
 		}
 	],
 	"navigation": [
