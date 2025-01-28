@@ -19,6 +19,9 @@
 	"analytics": {
 		"plausible": {
 			"domain": "plain.com"
+		},
+		"gtm": {
+			"tagId": "GTM-M9JGV3MQ"
 		}
 	},
 	"metadata": {
