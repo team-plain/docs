@@ -4,36 +4,36 @@ sidebarTitle: 'Introduction'
 description: "An overview of Plain's GraphQL API."
 ---
 
-Plain is built with this very GraphQL API we expose to you. This means that there are **no limitations** in what can be done via the API vs the UI.
+Plain is built with this very GraphQL API that we expose to you. This means there are **no limitations** between what can be done via the API versus the UI.
 
-These docs just highlight the most interesting and most used APIs. If you want to do something beyond what is documented here, please [reach out to us](mailto:help@plain.com) or explore our [schema](/api-reference/graphql/schema) on your own!
+These docs highlight the most interesting and commonly used APIs. If you want to do something beyond what is documented here, please [reach out to us](mailto:help@plain.com) or explore our [schema](/api-reference/graphql/schema) on your own!
 
-## Key details
+## Key Details
 
-Our API is compatible with all common GraphQL clients with the following details:
+Our API is compatible with all common GraphQL clients with the following specifications:
 
 - **API URL:** `https://core-api.uk.plain.com/graphql/v1`
-- **Allowed method**: POST
-- **Required headers:**
+- **Allowed Method**: POST
+- **Required Headers:**
   - `Content-Type: application/json`
   - `Authorization: Bearer YOUR_TOKEN` where the token is your API key. See [authentication](/api-reference/graphql/authentication/) for more details.
-- **JSON body:**
+- **JSON Body:**
   - `query`: the GraphQL query string
   - `variables`: a JSON object of variables used in the GraphQL query
   - `operationName`: the name of your GraphQL operation (this is just for tracking and has no impact on the API call or result)
 
-If you'd like to use the **GraphQL schema to generate types** for your client code you can fetch the schema
+If you'd like to use the **GraphQL schema to generate types** for your client code, you can fetch the schema
 from: `https://core-api.uk.plain.com/graphql/v1/schema.graphql`
 
-## Your first API call
+## Your First API Call
 
-In this example, we're going to get a customer in your workspace by their email address. You can find a customer's email on the right-hand side when looking at one of their threads in Plain.
+In this example, we'll get a customer in your workspace by their email address. You can find a customer's email on the right-hand side when looking at one of their threads in Plain.
 
-You will need an API key with the `customer:read` permission. See [authentication](/api-reference/graphql/authentication/) for details on how to get an API key
+You will need an API key with the `customer:read` permission. See [authentication](/api-reference/graphql/authentication/) for details on how to get an API key.
 
 <Tabs>
 
-  <Tab title="CURL">
+  <Tab title="cURL">
     You'll need to set two shell variables:
 
     - `PLAIN_TOKEN`: The API key
@@ -50,13 +50,13 @@ You will need an API key with the `customer:read` permission. See [authenticatio
 
   </Tab>
 
-  <Tab title="Typescript SDK">
-    This assumes you've installed our Typescript SDK.
+  <Tab title="TypeScript SDK">
+    This assumes you've installed our TypeScript SDK.
 
 <Steps>
   <Step title="Install the SDK">```npm install @team-plain/typescript-sdk ```</Step>
   <Step title="Set up the code">
-    Make sure to replace the api key and email in the code:
+    Make sure to replace the API key and email in the code:
     <Snippet file="typescript-sdk/first-api-call.mdx" />
   </Step>
   <Step title="Run it">```node script.js ```</Step>

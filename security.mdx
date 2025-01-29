@@ -2,7 +2,7 @@
 title: 'Security'
 ---
 
-If you or your team have specific questions about how Plain is built, our processes or how we store and handle data please get in touch at help@plain.com.
+If you or your team have specific questions about how Plain is built, our processes, or how we store and handle data, please get in touch at help@plain.com.
 
 We are very happy to answer any questions you have.
 
@@ -10,29 +10,29 @@ We are very happy to answer any questions you have.
 
 Plain has completed a [SOC 2 Type II](https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2) certification.
 
-Achieving SOC 2 compliance means that Plain has implemented procedures, policies and controls necessary to meet AICPA's trust services criteria for security, availability, and confidentiality and that these processes and controls have been tested to ensure that they are operating effectively.
+Achieving SOC 2 compliance means that Plain has implemented procedures, policies, and controls necessary to meet AICPA's trust services criteria for security, availability, and confidentiality. These processes and controls have been tested to ensure they are operating effectively.
 
 Obtain a copy of the report by emailing us at [help@plain.com](mailto:help@plain.com).
 
 ## Data security
 
-- We use Amazon Web Services to host Plain
-- All data is stored in Amazon Web Services `eu-west-2` (London) region
+- We use Amazon Web Services (AWS) to host Plain
+- All data is stored in AWS `eu-west-2` (London) region
 - All data is encrypted in transit and at rest
 - All data is backed up regularly and encrypted at rest
 - We apply the following security best practices:
   - All changes to our infrastructure, permissions, and code happen via code reviews
-  - We grant the least amount of privileges to IAM roles, systems, and engineers to perform their duties
-  - Administrator privileges are only used in the case of serious incidents, for routine maintenance tasks we provision IAM roles with fine-grained permissions.
-- We carefully evaluate 3rd party vendors before using them, regularly review them and the data they can access. Please see the [Data Processing Addendum](https://www.plain.com/legal/dpa/) for the full list of vendors we use.
+  - We grant the least amount of privileges to AWS Identity and Access Management (IAM) roles, systems, and engineers to perform their duties
+  - Administrator privileges are only used in case of serious incidents. For routine maintenance tasks, we provision IAM roles with fine-grained permissions
+- We carefully evaluate third-party vendors before using them and regularly review them and the data they can access. Please see the [Data Processing Addendum](https://www.plain.com/legal/dpa/) for the full list of vendors we use.
 
 ## Request signing
 
-Outbound requests we make to your target urls provide a HMAC signature with a shared secret key. Please see the [Request signing](/api-reference/request-signing) documentation for more information.
+Outbound requests we make to your target URLs provide an HMAC signature with a shared secret key. Please see the [Request signing](/api-reference/request-signing) documentation for more information.
 
 ## Reporting an issue
 
-If you think you found a security issue or have any questions related to security please email us at **[security@plain.com](mailto:security@plain.com)**.
+If you think you have found a security issue or have any questions related to security, please email us at **[security@plain.com](mailto:security@plain.com)**.
 
 Please keep your report concise, add steps to reproduce, and include a proof of concept if possible.
 
@@ -45,21 +45,21 @@ We reward a bounty to security researchers who have adhered to this policy and f
 You must not:
 
 - Break any applicable law or regulation
-- Access unnecessary, excessive or significant amounts of data
+- Access unnecessary, excessive, or significant amounts of data
 - Modify data in Plain systems or services
 - Use high-intensity invasive or destructive scanning tools to find vulnerabilities
-- Attempt or report any form of denial of service, for example; overwhelming a service with a high volume of requests
+- Attempt or report any form of denial of service, for example, overwhelming a service with a high volume of requests
 - Disrupt the Plain services or systems
-- Submit reports detailing non-exploitable vulnerabilities, or reports indicating that the services do not fully align with “best practice”, for example missing security headers
-- Submit reports detailing TLS configuration weaknesses, for example “weak” cipher suite support or the presence of TLS1.0 support
+- Submit reports detailing non-exploitable vulnerabilities, or reports indicating that the services do not fully align with "best practice", for example missing security headers
+- Submit reports detailing TLS configuration weaknesses, for example "weak" cipher suite support or the presence of TLS 1.0 support
 - Communicate any vulnerabilities or associated details other than by means described in this policy
-- Social engineer, 'phish' or physically attack Plain staff or infrastructure
+- Social engineer, 'phish', or physically attack Plain staff or infrastructure
 - Demand financial compensation in order to disclose any vulnerabilities, **or threaten the public disclosure of a vulnerability unless payment is made**
 
 You must:
 
-- Always comply with data protection rules and must not violate the privacy of any data Plain holds. You must not, for example, share, redistribute or fail to properly secure data retrieved from the systems or services
-- Securely delete all data retrieved during your research as soon as it is no longer required or within 1 month of the vulnerability being resolved, whichever occurs first (or as otherwise required by data protection law).
+- Always comply with data protection rules and must not violate the privacy of any data Plain holds. You must not, for example, share, redistribute, or fail to properly secure data retrieved from the systems or services
+- Securely delete all data retrieved during your research as soon as it is no longer required or within 1 month of the vulnerability being resolved, whichever occurs first (or as otherwise required by data protection law)
 
 If you follow these guidelines when reporting an issue to us, we commit to:
 
