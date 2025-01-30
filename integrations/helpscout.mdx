@@ -1,5 +1,5 @@
 ---
-title: 'Help Scout Sync'
+title: "Help Scout Sync"
 ---
 
 To connect your Help Scout account, head to **Settings** → **Help Scout importer** and follow the instructions.
@@ -7,10 +7,13 @@ You can also sync multiple Help Scout mailboxes to Plain if you need to.
 
 When you connect your Help Scout account with Plain, we will import:
 
-- all your end users as Plain [**customers**](/api-reference/graphql/customers)
-- all your conversations as Plain [**threads**](/api-reference/graphql/threads). We will import all conversation threads as messages, and all internal notes. We'll map every HelpScout conversation status to an equivalent Plain thread status.
-- all the conversation tags as Plain [**labels**](/api-reference/graphql/labels)
-- all attachments that were previously added to conversations in Help Scout, will be added to threads in Plain
+* all your end users as Plain [**customers**](/api-reference/graphql/customers)
+
+* all your conversations as Plain [**threads**](/api-reference/graphql/threads). We will import all conversation threads as messages, and all internal notes. We'll map every HelpScout conversation status to an equivalent Plain thread status.
+
+* all the conversation tags as Plain [**labels**](/api-reference/graphql/labels)
+
+* all attachments that were previously added to conversations in Help Scout, will be added to threads in Plain
 
 After you connect Help Scout for the first time, we will import all your existing data.
 From that point, any new new end user, conversation, thread, note, or tag created in your
@@ -25,10 +28,11 @@ To stop syncing data from Help Scout, click on **Settings** → **Help Scout imp
 The Help Scout importer is available on [Scale tier](https://www.plain.com/pricing) only – please [reach out for a demo](https://38j36lhg2hq.typeform.com/to/zRvsFJPO) if your interested.
 
 <Note>
-We will only create new records in Plain, we will never update existing ones:
+  We will only create new records in Plain, we will never update existing ones:
 
-- once an end user is synced into Plain, further changes to that end user in Help Scout (e.g. changing their name) will not be synced into Plain.
-- if a customer or label is modified on Plain after syncing them from Help Scout, further syncs from Help Scout will not override your changes on Plain.
-- the same applies to threads and notes.
+  * once an end user is synced into Plain, further changes to that end user in Help Scout (e.g. changing their name) will not be synced into Plain.
 
+  * if a customer or label is modified on Plain after syncing them from Help Scout, further syncs from Help Scout will not override your changes on Plain.
+
+  * the same applies to threads and notes.
 </Note>

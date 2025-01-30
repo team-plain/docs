@@ -96,6 +96,10 @@
 					"pages": ["slack", "slack/ingestion-modes", "slack/data-retention"]
 				},
 				{
+					"group": "Discord",
+					"pages": ["discord/overview"]
+				},
+				{
 					"group": "Chat",
 					"pages": ["chat", "chat/customization", "chat/authentication"]
 				},
