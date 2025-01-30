@@ -1,8 +1,7 @@
 ---
 title: 'Authentication'
 ---
-
-## Providing customer details
+## Authentication options
 
 By default, customers chatting with you will be anonymous. You can pass customer details, if you know them, in the `Plain.init` function call:
 
@@ -17,16 +16,22 @@ Plain.init({
 });
 ```
 
-These details will be shown to you in the Plain app when you are chatting with the customer but they will not be matched to an existing customer even if they have the same details.
+If you want to provide an email address for the customer, you can do so by passing an `email` property in the `customerDetails` object. We will only accept email addresses **that have been verified**.
 
-## Matching chat users to existing customers
+In order to know that the email address that you provide has been verified, we require an `emailHash`, which is a hash of the email address and a secret.
 
-If you want to match the customer to an existing customer in your workspace, you will need to pass their email. To avoid security issues around impersonation you will also need to
-provide the email address hashed using a shared secret. You can generate this secret in the Chat settings page in the Plain app.
+This `emailHash` can be either manually provided by you or you can use our built-in email verification process to do it for you. Both methods are described below.
 
-Once you have this secret, you can calculate the hash. This must be done in backend code to avoid leaking the secret. If your secret is leaked malicious users will be able to impersonate your customers in chats.
+### Manual email verification - when you already know the user's identity
 
-Backend code:
+<Note>
+Use this when you have already authenticated the user in your application and you know their **verified** email address.
+</Note>
+
+If your chat widget is embedded within an authenticated application (e.g. behind a login), you already know the user's identity. In this case, you can directly match the authenticated user to their Plain customer record:
+
+1. Generate a secret in the Chat settings page on Plain
+2. Calculate the email hash **in your backend**:
 
 ```typescript
 import * as crypto from 'node:crypto';
@@ -38,26 +43,37 @@ hmac.update(email);
 const hash = hmac.digest('hex');
 ```
 
-Then you can request the hash from your backend and init Plain:
+3. Finally, pass both the email and email hash when initializing the Plain widget:
 
 ```typescript
 const email = 'johndoe@example.com';
-const hash = fetchHashFromBackend(email);
+const emailHash = await fetchHashFromBackend(email);
 
 Plain.init({
   customerDetails: {
-    email: email,
-    emailHash: hash,
-    // If you pass other customer details (e.g. fullName), this will also update their customer details within Plain
-    // If you don't pass any other customer details, we will use their existing details within Plain
+    email,
+    emailHash,
+    // Optional: additional customer details
+    fullName: 'John Doe',
+    shortName: 'John',
+    chatAvatarUrl: 'https://picsum.photos/32/32',
   },
 });
 ```
 
-## Customer verification
+<Warning>
+Always calculate the email hash **in your server** to avoid exposing your secret.
+</Warning>
 
-If you want to see the name and email of customers who get in touch via chat you can require them to provide their details 
-by setting `requireAuthentication` to true in Plain init:
+### Built-in email verification - when you don't know the user's identity
+
+<Note>
+Use this when you don't know who the user is and you want to make sure that all users writing through the widget have a verified email address. You can also use this within an authenticated application, if you don't want to provide the email hash yourself.
+</Note>
+
+If your chat widget is publicly accessible (e.g., on your marketing website), you should use Plain's built-in customer verification system. This ensures that customers can prove their identity through email verification.
+
+To enable this, set the `requireAuthentication` option to `true` when initializing the Plain widget:
 
 ```typescript
 Plain.init({
@@ -65,8 +81,7 @@ Plain.init({
 });
 ```
 
-When enabled, any customer getting in touch will first be presented with a form allowing them to enter their name and email address. 
-
-The customer will then receive a verification code to that email which they can enter to start a chat.
-
-If an `emailHash` is already set in `customerDetails`, then the verification screen will not appear since the customer has already been authenticated.
+When enabled:
+1. New customers will need to provide their email address
+2. They'll receive a verification code via email
+3. After verification, they can start chatting
