@@ -12,15 +12,15 @@ When you connect your Salesforce account with Plain, we will import:
 After you connect for the first time, we will import all your existing data. From that point, any new connection or account that you create in your Salesforce account, will be automatically synced into Plain.
 
 <Info>
-  The data created through the Salesforce importer will not trigger any webhooks or auto-responders.
+The data created through the Salesforce importer will not trigger any webhooks or auto-responders.
 </Info>
 
 To stop syncing data from Salesforce, click on _Disconnect_ in **Settings** → **Salesforce importer**.
 
 <Note>
-We will only **create** new records in Plain, we will **never update** existing ones:
+The following rules apply while syncing data from Salesforce:
 
-- once a contact or account is synced into Plain, further changes to that contact in Salesforce (e.g. changing their name) will not be synced into Plain
-- if a customer or tenant is modified **on Plain** after syncing them from Salesforce, further syncs from Salesforce will not override your changes on Plain
-
+- if a customer or tenant is modified **on Plain** (e.g. changing their name) after syncing them from Salesforce, further syncs from Salesforce will not override your changes on Plain
+- if a contact is added to an account in Salesforce, we will add the customer to the corresponding tenant in Plain
+- if a contact is removed from an account in Salesforce, we will *not* remove the customer from the corresponding tenant in Plain
 </Note>
