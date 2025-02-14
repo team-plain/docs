@@ -2,7 +2,7 @@ const script = document.createElement("script");
 script.async = false;
 script.onload = () => {
 	Plain.init({
-		appId: "liveChatApp_01JM26XC2MVM6E85G318TN1PDG",
+		appId: "liveChatApp_01JM26TWFWA42SD3HJPXN8PEPE",
 		requireAuthentication: true,
 	});
 };
