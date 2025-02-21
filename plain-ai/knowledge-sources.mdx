@@ -2,13 +2,15 @@
 title: 'Knowledge Sources'
 ---
 
-Documentation can be indexed by using the [Plain CLI](https://github.com/team-plain/cli). With it you can index:
+Documentation can be indexed in two ways: either by adding URLs by navigating to your workspace settings and selecting "Knowledge Sources", or by using the [Plain CLI](https://github.com/team-plain/cli). With it you can index:
 
-- a single URL
-- a sitemap URL (each entry in the sitemap is indexed)
-- Optional: add a [label type ID](/labels) to associate the document with
+* a single URL
 
-For installation and usage instructions, please see the [Plain CLI docs](https://github.com/team-plain/cli).
+* a sitemap URL (each entry in the sitemap is indexed)
+
+* Optional: add a [label type ID](/labels) to associate the document with
+
+For installation and usage instructions, please see the [Plain CLI docs](https://github.com/team-plain/cli). Note: to add files, you'll need to use the Plain CLI. For URLs only, you can use the Knowledge Sources setting.&#x20;
 
 ### Labels
 
@@ -24,12 +26,15 @@ To keep indexed documents up to date, you can automate the indexing process the 
 
 Here is an example Github Action to re-index the documents using the [Plain CLI](https://github.com/team-plain/cli) run on a schedule.
 
-- The action runs every 3 hours
-- The action uses the `PLAIN_API_KEY` secret to authenticate with the Plain API
-- The action indexes all URLs in the sitemap
+* The action runs every 3 hours
+
+* The action uses the `PLAIN_API_KEY` secret to authenticate with the Plain API
+
+* The action indexes all URLs in the sitemap
 
 The `PLAIN_API_KEY` requires the following permissions:
-- `indexedDocument:create`
+
+* `indexedDocument:create`
 
 ```yaml
 name: Index docs
