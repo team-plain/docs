@@ -5,137 +5,166 @@ description: 'Everything you need to know to start supporting your customers wit
 
 <Frame>![Plain.com](/public/images/quickstart.png)</Frame>
 
-Plain is the fastest, most powerful support platform for technical support teams. It's got everything you need to help your customers in a modern, consolidated, and collaborative platform.
+Plain is the most collaborative support platform for B2B support teams. It's got everything you need  to consolidate all your support channels, and help your customers in a modern, AI-powered platform.&#x20;
 
 This quickstart guide will walk you through how to set up your workspace and start helping your customers.
 
 ### The basics
 
 <AccordionGroup>
+  <Accordion title="Create a workspace" icon="seedling">
+    Everything in Plain happens in your team's workspace. If you've not yet created your workspace, or want to learn more about Plain, [book a demo](https://www.plain.com/signup/demo) with us so we can run you through your setup.&#x20;
 
-<Accordion title="Create a workspace" icon="seedling">
-Everything in Plain happens in your team's workspace. To create a workspace for your team, sign up at https://app.plain.com and click **Create a workspace**. Please note: you'll need to jump on a quick onboarding call with us before you can create a workspace.
 
-</Accordion>
 
-<Accordion title="Set up your channels" icon="comments">
-To start answering customer requests in Plain, you should begin by connecting your Slack, email, or Chat:
+    If you've already done your demo call – you can create your workspace at https://app.plain.com and click **Create a workspace**.&#x20;
+  </Accordion>
 
-**Slack** - Our Slack integration lets you sync messages from selected Slack channels to Plain and respond directly to customers from the platform. [Learn more about setting up Slack with Plain](/slack).
+  <Accordion title="Set up your channels" icon="comments">
+    To start answering customer requests in Plain, you should begin by connecting your Slack, email, Discord, or chat:
 
-**Email** – You can link your support email and start receiving customer request in minutes. For more information on how to connect your email addresses to Plain, [check out the docs](/email/)
+    * **Slack** - Our Slack integration lets you sync messages from selected Slack channels to Plain and respond directly to customers from the platform. [Learn more about setting up Slack with Plain](/slack).
 
-**Chat** – Our Chat widget lets you embed a live chat interface on your website or app, allowing your customers to reach out to you without leaving your site. [Learn how to set up Chat.](/chat)
+    * **Email** – You can link your support email and start receiving customer request in minutes. For more information on how to connect your email addresses to Plain, [check out the docs](/email/)
 
-You can also build a totally on-brand [support portal](/headless-support-portal/) and [in-app forms](/contact-forms/) to match your branding and UI, and structure your support queries.
+    * **Discord** – Enable seamless communication between your Discord server and Plain workspace. Check out the[ Discord docs](https://www.plain.com/docs/discord/overview) for setup instructions (it only takes a few minutes).&#x20;
 
-</Accordion>
+    * **Chat** – Our Chat widget lets you embed a live chat interface on your website or app, allowing your customers to reach out to you without leaving your site. [Learn how to set up Chat.](/chat)
 
-<Accordion title="Invite your team members" icon="user-plus">
-  To add team members to your Plain workspace and assign roles, navigate to **Settings** →
-  **Members** in your workspace. You can add your entire team to Plain for free - we'll only charge
-  you for users that actively send messages to customers.
-</Accordion>
+    You can also build a totally on-brand [support portal](/headless-support-portal/) and [in-app forms](/contact-forms/) to match your branding and UI, and structure your support queries.
+  </Accordion>
 
-<Accordion title="Set up notifications" icon="bell">
-To make sure your team gets notified of new support requests, [set up notifications](/notifications).
+  <Accordion title="Invite your team members" icon="user-plus">
+    To add team members to your Plain workspace and assign roles, navigate to **Settings** →
+    **Members** in your workspace. You can add your entire team to Plain for free – we'll only charge you for users that actively send messages to customers.
 
-We recommend, as a minimum, setting up one shared Slack or Discord channel where new support requests are posted. We also recommend setting up personal notifications so you can be notified of new replies and activity on threads you are assigned to.
+    Available roles include:&#x20;
 
-</Accordion>
+    * Owner: Full access to everything, including billing, deleting workspaces, managing workspace settings and API keys.&#x20;
 
-<Accordion title="Connect your Linear workspace" icon="link">
-[Connecting your Linear workspace](/integrations/linear) to Plain will let you quickly and seamlessly log bugs and feature requests to Linear without leaving Plain and then close the loop with the customer once they're completed.
+    * Admin: Access to everything in Plain except for billing and deleting workspaces.
 
-You can connect to Linear by selecting your workspace name in the top left hand side of your Plain workspace, and selecting **Settings** → **Linear**.
+    * Support: Can message customers and use all in-app features.
 
-</Accordion>
+    * Viewer: Can view all support requests and participate in internal discussions, but cannot send messages to customers via Plain. Viewer seats are completely free, and unlimited.
+  </Accordion>
 
+  <Accordion title="Set up notifications" icon="bell">
+    To make sure your team gets notified of new support requests, [set up notifications](/notifications).
+
+    We recommend, as a minimum, setting up one shared Slack or Discord channel where new support requests are posted.&#x20;
+
+    We also recommend setting up personal notifications so you can be notified of new replies and activity on threads you are assigned to. Personal notifications can be managed by clicking on your personal avatar in your Plain workspace.&#x20;
+  </Accordion>
+
+  <Accordion title="Connect your Linear workspace" icon="link">
+    [Connecting your Linear workspace](/integrations/linear) to Plain will let you quickly and seamlessly log bugs and feature requests to Linear without leaving Plain.&#x20;
+
+    Once a Linear issue is resolved, the linked customer thread will move to "Close the Loop" status, reminding you to update the customer on the fix.&#x20;
+
+    You can connect to Linear by selecting your workspace name in the top left hand side of your Plain workspace, and selecting **Settings** → **Linear**.
+  </Accordion>
+
+  <Accordion title="Connect your Jira workspace" defaultOpen={false} icon="link">
+    Connecting your Jira workspace will help your quickly and easily log bugs, issues, and feature requests to Jira, without ever leaving Plain.&#x20;
+
+    Once a Jira issue is resolved, the linked customer thread will move to "Close the Loop" status, reminding you to update the customer on the fix.&#x20;
+
+    Connect to Jira by navigating to your workspace settings, and selecting **Settings** → **Jira.**
+  </Accordion>
 </AccordionGroup>
 
 ### Speed up your workflow
 
 <AccordionGroup>
+  <Accordion title="Add labels" icon="tag">
+    Labels are a lightweight but powerful way to categorize threads in Plain. You can configure the labels that make sense for you in **Settings** → **Labels**.
 
-<Accordion title="Add labels" icon="tag">
- Labels are a lightweight but powerful way to categorize threads in Plain. You can configure the labels that make sense for you in **Settings** → **Labels**.
+    [**Add labels**](/labels/)
+  </Accordion>
 
-[**Add labels**](/labels/)
+  <Accordion title="Set up snippets" icon="feather">
+    Snippets are templated messages that allow you to pull common language to message customers more
+    quickly. You can configure them in **Settings** → **Snippets**
 
-</Accordion>
+    [**Set up snippets**](/snippets/)
+  </Accordion>
 
-<Accordion title="Set up snippets" icon="feather">
- Snippets are templated messages that allow you to pull common language to message customers more
- quickly. You can configure them in **Settings** → **Snippets**
+  <Accordion title="Add auto-responders" icon="reply">
+    An autoresponder can be useful in situations of acute support load, such as during incidents, or to confirm you received a support request and manage expectations with customers.
 
-[**Set up snippets**](/snippets/)
+    [**Set up auto-responses**](/auto-responses/)
+  </Accordion>
 
-</Accordion>
+  <Accordion title="Learn keyboard shortcuts" icon="keyboard">
+    We make it easy to fly through your workflow without ever needing to use a mouse. Learn about our
+    keyboard shortcuts here. We've also added hints throughout the app on which keyboard shortcuts to
+    use.
 
-<Accordion title="Add auto-responders" icon="reply">
- An autoresponder can be useful in situations of acute support load, such as during incidents, or to confirm you received a support request and manage expectations with customers.
+    [**View all shortcuts**](/shortcuts/)
+  </Accordion>
 
-[**Set up auto-responses**](/auto-responses/)
+  <Accordion title="Set up workflow rules" icon="computer">
+    Use workflow rules to help you automate common actions your team takes. With customizable conditions and actions, you can automate repetitive tasks and streamline your team’s processes.
 
-</Accordion>
+    [**Learn about workflow rules**](/workflow-rules/)
+  </Accordion>
 
-<Accordion title="Learn keyboard shortcuts" icon="keyboard">
- We make it easy to fly through your workflow without ever needing to use a mouse. Learn about our
- keyboard shortcuts here. We've also added hints throughout the app on which keyboard shortcuts to
- use.
+  <Accordion title="Enable Plain AI" defaultOpen={false} icon="sparkle">
+    Plain AI is built to remove repetitive tasks from your teams’ workload, and automate the responses to your support requests.
 
-[**View all shortcuts**](/shortcuts/)
+    * Speed up your team and your FRT with our [AI-powered workflow features. ](https://www.plain.com/docs/plain-ai/workflow)
 
-</Accordion>
+    * Get Plain AI to draft [suggested responses](https://www.plain.com/docs/plain-ai/suggested-responses) to support requests, based on your knowledge base or documentation.&#x20;
 
-<Accordion title="Set up workflow rules" icon="computer">
- Use workflow rules to help you automate common actions your team takes. With customizable conditions and actions, you can automate repetitive tasks and streamline your team’s processes.
-
-[**Learn about workflow rules**](/workflow-rules/)
-
-</Accordion>
-
+    * [Index your documentation](https://www.plain.com/docs/plain-ai/knowledge-sources) or knowledge base in your Plain settings or use the Plain CLI.&#x20;
+  </Accordion>
 </AccordionGroup>
 
 ### Organize your workspace
 
 <AccordionGroup>
+  <Accordion title="Companies" icon="building">
+    In Plain you can see what company a customer belongs to, so you have more context when providing support. You'll be able to dig into all support data around a customer on their individual company page.&#x20;
 
-<Accordion title="Companies" icon="building">
- In Plain you can see what company a customer belongs to, so you have more context when providing support.
+    [**Learn more about companies**](/company-support/)
+  </Accordion>
 
-[**Learn more about companies**](/company-support/)
+  <Accordion title="Tenants" icon="house">
+    You can organize your customers to mirror how your product is structured. For example, if in your product all of your customers belong to a team/org/account/workspace then you would create a tenant per team/org/account/workspace.
 
-</Accordion>
+    [**Learn more about tenants**](/tenant-support/)
+  </Accordion>
 
-<Accordion title="Tenants" icon="house">
- You can organize your customers to mirror how your product is structured. For example, if in your product all of your customers belong to a team/org/account/workspace then you would create a tenant per team/org/account/workspace.
+  <Accordion title="Tiers" icon="sort">
+    Tiers add support for defining SLAs so you can enforce a first-response time for different support tiers within your product or pricing.
 
-[**Learn more about tenants**](/tenant-support/)
+    [**Learn more about tiers**](/data-model/)
+  </Accordion>
 
-</Accordion>
+  <Accordion title="SLAs" icon="clock">
+    When configuring an SLA you can set when you want to be warned of a breach. For example if your first response time SLA is 4 hours, you might want to be notified 30 minutes before a breach so you can still reply in time. They can be set for first response time and next response time.
 
-<Accordion title="Tiers" icon="sort">
- Tiers add support for defining SLAs so you can enforce a first-response time for different support tiers within your product or pricing.
+    [**Learn more about SLAs**](/tiers#slas/)
+  </Accordion>
 
-[**Learn more about tiers**](/data-model/)
+  <Accordion title="Business Hours" icon="keyboard">
+    By default, SLAs apply at all times. They can be configured to only count working hours by toggling on Only during business hours. To configure business hours go to Settings → Business hours.
 
-</Accordion>
+    [**Learn more about business hours**](/tiers#business-hours/)
+  </Accordion>
 
-<Accordion title="SLAs" icon="clock">
- When configuring an SLA you can set when you want to be warned of a breach. For example if your first response time SLA is 4 hours, you might want to be notified 30 minutes before a breach so you can still reply in time. They can be set for first response time and next response time.
+  <Accordion title="Create Saved Views " defaultOpen={false} icon="download">
+    Our [saved views](https://www.plain.com/docs/saved-views) allows your team to create and save different views of your support queue at a workspace level (saved views are not currently available at an individual level).
 
-[**Learn more about SLAs**](/tiers#slas/)
 
-</Accordion>
 
-<Accordion title="Business Hours" icon="keyboard">
- By default, SLAs apply at all times. They can be configured to only count working hours by toggling on Only during business hours. To configure business hours go to Settings → Business hours.
+    With saved views, your team can customize and save different views based on various different properties.&#x20;
 
-[**Learn more about business hours**](/tiers#business-hours/)
 
-</Accordion>
 
+    These are powerful for a few different use cases: like account managers who need to stay tight on certain customer groups, support teams who split the ownership/management of their support queue by channel, and support teams where different customers get a different level of service (e.g. free and enterprise plans). 
+  </Accordion>
 </AccordionGroup>
 
 ### Adding context
@@ -143,37 +172,31 @@ You can connect to Linear by selecting your workspace name in the top left hand 
 To provide support more quickly, get more context into Plain from your own systems.
 
 <AccordionGroup>
-<Accordion title="Add customer cards" icon="address-card">
-Customer cards let you show live information from your own systems in Plain. This lets you bring important, business-specific context to Plain and makes it even easier to help customers without jumping through different tabs.
+  <Accordion title="Add customer cards" icon="address-card">
+    Customer cards let you show live information from your own systems in Plain. This lets you bring important, business-specific context to Plain and makes it even easier to help customers without jumping through different tabs.
 
-[**Set up customer cards**](/customer-cards/)
+    [**Set up customer cards**](/customer-cards/)
+  </Accordion>
 
-</Accordion>
+  <Accordion title="Log key events" icon="code">
+    Events let you log important customer actions, errors, releases, and other key events to Plain. This gives you the full picture in the context of a support request as to what happened and why.
 
-<Accordion title="Log key events" icon="code">
-Events let you log important customer actions, errors, releases, and other key events to Plain. This gives you the full picture in the context of a support request as to what happened and why.
+    [**Set up events**](/events/)
+  </Accordion>
 
-[**Set up events**](/events/)
+  <Accordion title="Thread fields" icon="code">
+    To be able to keep track of additional information related to a support request, you can configure additional custom fields you want to store on a thread (like product area, needs followup, Github issue etc.).
 
-</Accordion>
+    [**Learn more about thread fields**](/thread-fields/)
+  </Accordion>
 
-<Accordion title="Thread fields" icon="code">
-To be able to keep track of additional information related to a support request, you can configure additional custom fields you want to store on a thread (like product area, needs followup, Github issue etc.).
+  <Accordion title="Explore our API" icon="code">
+    Plain is built API first so that you can build countless other use cases into your support stack.
 
-[**Learn more about thread fields**](/thread-fields/)
-
-</Accordion>
-
-<Accordion title="Explore our API" icon="code">
-Plain is built API first so that you can build countless other use cases into your support stack.
-
-[Learn more about our API](/api-reference/graphql/) and make your first API call.
-
-</Accordion>
-
+    [Learn more about our API](/api-reference/graphql/) and make your first API call.
+  </Accordion>
 </AccordionGroup>
 
 ### Feedback & questions
 
-If you have any feedback on our docs, we'd love to hear it! Open an issue straight in [Github](https://github.com/team-plain/docs) or drop us an email
-at [help@plain.com](mailto:help@plain.com) and an engineer on the team will help you.
+If you have any feedback on our docs, we'd love to hear it! Open an issue straight in [Github](https://github.com/team-plain/docs) or drop us an email at [help@plain.com](mailto:help@plain.com) and an engineer on the team will help you.
