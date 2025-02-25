@@ -160,7 +160,7 @@
 				"integrations/discourse",
 				"integrations/helpscout",
 				"integrations/hubspot", 
-                "integrations/inkeep"
+				"integrations/inkeep"
 			]
 		},
 		{
