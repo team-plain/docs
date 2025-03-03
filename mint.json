@@ -155,6 +155,7 @@
 			"pages": [
 				"integrations/linear",
 				"integrations/jira",
+				"integrations/shortcut",
 				"integrations/salesforce",
 				"integrations/zendesk",
 				"integrations/discourse",
