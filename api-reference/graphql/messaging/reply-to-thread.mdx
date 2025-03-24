@@ -2,7 +2,7 @@
 title: 'Reply to threads'
 ---
 
-You can reply to a thread using the `replyToThread` mutation, as long as the thread's communication channel is either `EMAIL`, `SLACK` or 'MS_TEAMS'. This information is available in the thread as the `channel` field.
+You can reply to a thread using the `replyToThread` mutation, as long as the thread's communication channel is either `API`, `CHAT`, `EMAIL`, `SLACK` or 'MS_TEAMS'. This information is available in the thread as the `channel` field.
 
 If it is not possible to reply to a thread, you will get the mutation error code [`cannot_reply_to_thread`](/api-reference/graphql/error-codes#cannot_reply_to_thread) and a message indicating why.
 
@@ -54,12 +54,17 @@ In order to impersonate a customer, provide the `impersonation` parameter in the
 }
 ```
 
+<Note>
+Impersonation is only possible for `API`, `CHAT`, `EMAIL` and `SLACK` threads (based on the thread's `channel` field).
+</Note>
+
 The customer message will be processed differently based on the thread's channel:
 
-- `SLACK`: a new Slack message will be sent to the thread, using the customer's details
-- `EMAIL`: an email will be sent to the thread, where the sender will be your customer
+- `SLACK`: the message will appear in Slack as a new message from the impersonated customer, including their name and any other customer details
+- `API` and `EMAIL`: the message will be sent as an email with the impersonated customer's email address as the "From" address, making it appear as if they sent the email directly
+- `CHAT`: the message will appear in the thread as coming directly from the impersonated customer, with their name and avatar displayed
 
-When replying to an `EMAIL` thread, you can optionally add 'CC' and 'BCC' recipients by using the `channelSpecificOptions` parameter:
+When replying to an `EMAIL` or `API` thread, you can optionally add 'Cc' and 'Bcc' recipients by using the `channelSpecificOptions` parameter:
 
 ```graphql
 {
