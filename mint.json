@@ -163,6 +163,7 @@
 				"integrations/shortcut",
 				"integrations/salesforce",
 				"integrations/zendesk",
+				"integrations/intercom",
 				"integrations/discourse",
 				"integrations/helpscout",
 				"integrations/hubspot",
