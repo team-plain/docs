@@ -98,7 +98,7 @@
 						"slack/ingestion-modes",
 						"slack/data-retention",
 						"slack/how-to-customize-bot",
-                        "slack/in-slack-actions"
+						"slack/in-slack-actions"
 					]
 				},
 				{
