@@ -163,7 +163,8 @@
 				"integrations/jira",
 				"integrations/shortcut",
 				"integrations/salesforce",
-                "integrations/incident-io"
+                "integrations/incident-io",
+                "integrations/rootly",
 				"integrations/zendesk",
 				"integrations/intercom",
 				"integrations/discourse",
