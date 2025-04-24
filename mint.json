@@ -162,6 +162,7 @@
 				"integrations/linear",
 				"integrations/jira",
 				"integrations/shortcut",
+                "integrations/incident-io",
 				"integrations/salesforce",
 				"integrations/zendesk",
 				"integrations/intercom",
