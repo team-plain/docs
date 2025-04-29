@@ -44,4 +44,9 @@ If you are using a Content Security Policy on your website, you will need to add
 script-src https://chat.cdn-plain.com;
 connect-src https://chat.uk.plain.com;
 style-src https://fonts.googleapis.com;
+img-src https://prod-uk-services-workspac-workspacefilespublicbuck-vs4gjqpqjkh6.s3.amazonaws.com https://i0.wp.com;
 ```
+
+<Note>
+  The `img-src` directive URLs are required for the chat widget to display the workspace logo from a S3 bucket owned by Plain and the agents' profile images, which are powered by WordPress' Gravatar service.
+</Note>
