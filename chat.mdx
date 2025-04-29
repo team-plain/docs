@@ -42,11 +42,11 @@ If you are using a Content Security Policy on your website, you will need to add
 
 ```text
 script-src https://chat.cdn-plain.com;
-connect-src https://chat.uk.plain.com;
+connect-src https://chat.uk.plain.com https://prod-uk-services-attachm-attachmentsuploadbucket2-1l2e4906o2asm.s3.eu-west-2.amazonaws.com;
 style-src https://fonts.googleapis.com;
-img-src https://prod-uk-services-workspac-workspacefilespublicbuck-vs4gjqpqjkh6.s3.amazonaws.com https://i0.wp.com;
+img-src https://prod-uk-services-workspac-workspacefilespublicbuck-vs4gjqpqjkh6.s3.amazonaws.com https://prod-uk-services-attachm-attachmentsbucket28b3ccf-uwfssb4vt2us.s3.eu-west-2.amazonaws.com https://i0.wp.com;
 ```
 
 <Note>
-  The `img-src` directive URLs are required for the chat widget to display the workspace logo from a S3 bucket owned by Plain and the agents' profile images, which are powered by WordPress' Gravatar service.
+  The S3 bucket URLs are required for the chat widget to display the workspace logo, uploading and showing attachment files. All these S3 buckets are owned by Plain. Agent profile pictures are powered by Gravatar, hence the requirement for `i0.wp.com`.
 </Note>
