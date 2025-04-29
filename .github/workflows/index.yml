@@ -2,7 +2,7 @@ name: Index docs
 
 on:
   schedule:
-    - cron: "0 */3 * * *"  
+    - cron: "0 */3 * * *"
 
 jobs:
   lint:
@@ -13,11 +13,11 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "22"
 
       - name: Install CLI
         run: npm install -g @team-plain/cli@latest
-        
+
       - name: Index Docs
         run: plain index-sitemap https://www.plain.com/docs/sitemap.xml
         env:
