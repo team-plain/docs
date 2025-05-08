@@ -129,7 +129,8 @@
 						"plain-ai",
 						"plain-ai/workflow",
 						"plain-ai/suggested-responses",
-						"plain-ai/knowledge-sources"
+						"plain-ai/knowledge-sources",
+						"plain-ai/ai-slash-commands"
 					]
 				},
 				"tiers",
