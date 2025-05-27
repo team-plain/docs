@@ -11,7 +11,7 @@ Your workspace has a global HMAC secret, this secret can be viewed and (re)gener
 If you have a HMAC secret set up, when you receive a request from Plain you will see a header `Plain-Request-Signature` with the HMAC signature.
 You can verify this signature by hashing the request body with your HMAC secret and comparing it to the signature in the header.
 
-**The signature is a SHA-256 hash of the request body, encoded as a hexadecimal string.**
+**The signature is a HMAC-SHA256 hash of the request body, encoded as a hexadecimal string.**
 
 ### Node example
 
