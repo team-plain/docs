@@ -1,41 +1,50 @@
 ---
-title: 'Workflow Rules'
+title: "Workflow Rules"
 ---
 
-<Frame>![Workflow Rules](/public/images/workflow-rules.png)</Frame>
+<Frame>
+  ![Workflow Rules](/public/images/workflow-rules.png)
+</Frame>
 
-<br/>
+<br />
+
 <Info>
-Workflow Rules are available on the [Grow pricing plan](https://www.plain.com/pricing) and above.
+  Workflow Rules are available on the [Grow pricing plan](https://www.plain.com/pricing) and above.
 
-If you are interested in trying this feature, please reach out to us at sales@plain.com or via our shared Slack channel.
-
+  If you are interested in trying this feature, please reach out to us at [sales@plain.com](mailto:sales@plain.com) or via our shared Slack channel.
 </Info>
 
-You can use workflow rules to help you automate your team's processes.
+You can use workflow rules to help you automate your team's processes. You can either choose from pre-defined conditions, or use our "Matches AI prompt" field to trigger actions. 
 
 Some common use-cases include:
 
 - Assign someone to handle all support requests from a given company or tier (e.g. Enterprise)
+- Automatically ignore spam messages 
 - Set a threads' priority if it includes certain key phrases
+- Route demo requests or trial extension threads to your sales team 
 - Assign threads based on the used support email (e.g. Give all security@ emails to Jane)
 
 To manage your workflow rules go to **Settings** → **Workflow Rules**.
 
-When building a new rule, you can choose among a set of **conditions** which result in one or more **actions**.
+When building a new rule, you can choose among a set of **conditions** which result in one or more **actions**. You can also use the "AI match prompt" to write exactly what your trigger should be. 
 
-There are a couple of conditions you can choose from, based on the thread's attributes:
+There are a few conditions you can choose from, based on the thread's attributes:
+
 - a given label is applied
 - is from a given company
+- belongs to tenant
 - is from a given slack channel
 - is from a specific support channel (Slack, MS Teams, chat, API)
 - has a specific tier (ie Enterprise)
-- is for a specific support address (ie sales@yourcompany.com)
+- is for a specific support address (ie [sales@yourcompany.com](mailto:sales@yourcompany.com))
 - contains a certain keyword (ie vulnerability)
 
 When the chosen condition matches a thread, you can perform any of the following actions:
+
 - assign someone to the thread
+- set thread status 
+- set tier 
 - set the thread priority
 - apply a given label
-- add a customer to a customer group 
-- add a note to a thread 
+- add a customer to a customer group
+- add a note to a thread
