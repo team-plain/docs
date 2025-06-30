@@ -37,25 +37,15 @@
 	},
 	"topbarLinks": [
 		{
-			"name": "@plainsupport",
-			"url": "https://twitter.com/plainsupport"
-		}
-	],
-	"tabs": [
-		{
-			"name": "Knowledge Base",
-			"url": "knowledge-base"
-		},
-		{
-			"name": "API Reference",
-			"url": "api-reference"
+			"name": "↖ Back to Plain ",
+			"url": "https://plain.com"
 		}
 	],
 	"anchors": [
 		{
 			"name": "Knowledge Base",
 			"icon": "books",
-			"url": "knowledge-base"
+			"url": "https://plain.support.site"
 		},
 		{
 			"name": "Changelog",
@@ -66,214 +56,96 @@
 			"name": "Blog",
 			"icon": "quote-right",
 			"url": "https://plain.com/blog/?utm_source=docs"
-		},
-		{
-			"name": "Book a demo",
-			"icon": "calendar",
-			"url": "https://www.plain.com/signup/demo?utm_source=docs"
 		}
 	],
 	"navigation": [
 		{
-			"group": "Plain 101",
-			"pages": ["quickstart", "data-model", "security"]
-		},
-		{
-			"group": "Channels",
-			"pages": [
-				{
-					"group": "Email",
-					"pages": [
-						"email",
-						"email/receiving",
-						"email/sending",
-						"email/alternate-emails",
-						"email/email-avatars"
-					]
-				},
-				{
-					"group": "Slack",
-					"pages": [
-						"slack",
-						"slack/ingestion-modes",
-						"slack/data-retention",
-						"slack/how-to-customize-your-slack-bot",
-						"slack/in-slack-actions"
-					]
-				},
-				{
-					"group": "Discord",
-					"pages": ["discord/overview"]
-				},
-				{
-					"group": "Chat",
-					"pages": ["chat", "chat/customization", "chat/authentication"]
-				},
-				{
-					"group": "Microsoft Teams",
-					"pages": ["microsoft-teams", "microsoft-teams/installation"]
-				},
-				"contact-forms",
-				"headless-support-portal"
-			]
-		},
-		{
-			"group": "Using Plain",
-			"pages": [
-				"statuses",
-				"notifications",
-				"assignment",
-				{
-					"group": "Plain AI",
-					"pages": [
-						"plain-ai",
-						"plain-ai/workflow",
-						"plain-ai/suggested-responses",
-						"plain-ai/knowledge-sources",
-						"plain-ai/ai-slash-commands"
-					]
-				},
-				"tiers",
-				"priorities",
-				"labels",
-				"syntax-highlighting",
-				{
-					"group": "Reporting",
-					"pages": [
-						"reporting",
-						"reporting/using-reporting",
-						"reporting/team-reporting",
-						"reporting/metrics"
-					]
-				},
-				"snippets",
-				"shortcuts",
-				"auto-responses",
-				"workflow-rules",
-				"digests",
-				"broadcasts",
-				"roles-in-plain",
-				"saved-views",
-				"favorite-pages",
-				"customer-feedback"
-			]
-		},
-		{
-			"group": "Integrations",
-			"pages": [
-				"integrations/linear",
-				"integrations/jira",
-				"integrations/shortcut",
-				"integrations/salesforce",
-				"integrations/incident-io",
-				"integrations/rootly",
-				"integrations/zendesk",
-				"integrations/intercom",
-				"integrations/discourse",
-				"integrations/helpscout",
-				"integrations/hubspot",
-				"integrations/inkeep"
-			]
-		},
-		{
-			"group": "Adding context",
-			"pages": [
-				"company-support",
-				"tenant-support",
-				"thread-fields",
-				"thread-discussions",
-				"customer-cards",
-				"customer-groups",
-				"events"
-			]
-		},
-		{
 			"group": "GraphQL",
 			"pages": [
-				"api-reference/graphql/introduction",
-				"api-reference/graphql/authentication",
-				"api-reference/graphql/schema",
+				"graphql/introduction",
+				"graphql/authentication",
+				"graphql/schema",
 				{
 					"group": "Customers",
 					"pages": [
-						"api-reference/graphql/customers",
-						"api-reference/graphql/customers/get",
-						"api-reference/graphql/customers/upsert",
-						"api-reference/graphql/customers/delete",
-						"api-reference/graphql/customers/customer-groups"
+						"graphql/customers",
+						"graphql/customers/get",
+						"graphql/customers/upsert",
+						"graphql/customers/delete",
+						"graphql/customers/customer-groups"
 					]
 				},
 				{
 					"group": "Companies",
 					"pages": [
-						"api-reference/graphql/companies",
-						"api-reference/graphql/companies/get-companies",
-						"api-reference/graphql/companies/update-customer-company"
+						"graphql/companies",
+						"graphql/companies/get-companies",
+						"graphql/companies/update-customer-company"
 					]
 				},
 				{
 					"group": "Tenants",
 					"pages": [
-						"api-reference/graphql/tenants",
-						"api-reference/graphql/tenants/upsert",
-						"api-reference/graphql/tenants/get",
-						"api-reference/graphql/tenants/add-customers",
-						"api-reference/graphql/tenants/remove-customers",
-						"api-reference/graphql/tenants/set-customer-tenants"
+						"graphql/tenants",
+						"graphql/tenants/upsert",
+						"graphql/tenants/get",
+						"graphql/tenants/add-customers",
+						"graphql/tenants/remove-customers",
+						"graphql/tenants/set-customer-tenants"
 					]
 				},
 				{
 					"group": "Threads",
 					"pages": [
-						"api-reference/graphql/threads",
-						"api-reference/graphql/threads/create",
-						"api-reference/graphql/threads/assignment",
-						"api-reference/graphql/threads/thread-fields",
-						"api-reference/graphql/threads/status-changes",
-						"api-reference/graphql/threads/autoresponders"
+						"graphql/threads",
+						"graphql/threads/create",
+						"graphql/threads/assignment",
+						"graphql/threads/thread-fields",
+						"graphql/threads/status-changes",
+						"graphql/threads/autoresponders"
 					]
 				},
 				{
 					"group": "Tiers",
 					"pages": [
-						"api-reference/graphql/tiers",
-						"api-reference/graphql/tiers/get",
-						"api-reference/graphql/tiers/update-company-tier",
-						"api-reference/graphql/tiers/update-tenant-tier",
-						"api-reference/graphql/tiers/add-members",
-						"api-reference/graphql/tiers/remove-members"
+						"graphql/tiers",
+						"graphql/tiers/get",
+						"graphql/tiers/update-company-tier",
+						"graphql/tiers/update-tenant-tier",
+						"graphql/tiers/add-members",
+						"graphql/tiers/remove-members"
 					]
 				},
 				{
 					"group": "Events",
 					"pages": [
-						"api-reference/graphql/events",
-						"api-reference/graphql/events/create-customer-event",
-						"api-reference/graphql/events/create-thread-event"
+						"graphql/events",
+						"graphql/events/create-customer-event",
+						"graphql/events/create-thread-event"
 					]
 				},
 				{
 					"group": "Labels",
 					"pages": [
-						"api-reference/graphql/labels",
-						"api-reference/graphql/labels/add",
-						"api-reference/graphql/labels/remove"
+						"graphql/labels",
+						"graphql/labels/add",
+						"graphql/labels/remove"
 					]
 				},
 				{
 					"group": "Messaging",
 					"pages": [
-						"api-reference/graphql/messaging",
-						"api-reference/graphql/messaging/reply-to-thread",
-						"api-reference/graphql/messaging/send-email",
-						"api-reference/graphql/messaging/reply-email"
+						"graphql/messaging",
+						"graphql/messaging/reply-to-thread",
+						"graphql/messaging/send-email",
+						"graphql/messaging/reply-email"
 					]
 				},
-				"api-reference/graphql/pagination",
-				"api-reference/graphql/error-handling",
-				"api-reference/graphql/error-codes",
-				"api-reference/graphql/api-explorer",
-				"api-reference/graphql/typescript-sdk"
+				"graphql/pagination",
+				"graphql/error-handling",
+				"graphql/error-codes",
+				"graphql/api-explorer",
+				"graphql/typescript-sdk"
 			]
 		},
 		{
@@ -282,69 +154,59 @@
 				{
 					"group": "Customer cards",
 					"pages": [
-						"api-reference/customer-cards",
-						"api-reference/customer-cards/create-a-customer-card",
-						"api-reference/customer-cards/protocol",
-						"api-reference/customer-cards/playground",
-						"api-reference/customer-cards/examples"
+						"customer-cards",
+						"customer-cards/create-a-customer-card",
+						"customer-cards/protocol",
+						"customer-cards/playground",
+						"customer-cards/examples"
 					]
 				},
 				{
 					"group": "Webhooks",
 					"pages": [
-						"api-reference/webhooks",
-						"api-reference/webhooks/versions",
-						"api-reference/webhooks/typescript",
-						"api-reference/webhooks/thread-created",
-						"api-reference/webhooks/thread-status-transitioned",
-						"api-reference/webhooks/thread-assignment-transitioned",
-						"api-reference/webhooks/thread-labels-changed",
-						"api-reference/webhooks/thread-priority-changed",
-						"api-reference/webhooks/thread-note-created",
-						"api-reference/webhooks/thread-email-received",
-						"api-reference/webhooks/thread-email-sent",
-						"api-reference/webhooks/thread-slack-message-received",
-						"api-reference/webhooks/thread-slack-message-sent",
-						"api-reference/webhooks/thread-chat-sent",
-						"api-reference/webhooks/thread-chat-received",
-						"api-reference/webhooks/thread-field-created",
-						"api-reference/webhooks/thread-field-updated",
-						"api-reference/webhooks/thread-field-deleted",
-						"api-reference/webhooks/thread-service-level-agreement-status-transitioned",
-						"api-reference/webhooks/customer-created",
-						"api-reference/webhooks/customer-updated",
-						"api-reference/webhooks/customer-deleted",
-						"api-reference/webhooks/customer-group-membership-changed"
+						"webhooks",
+						"webhooks/versions",
+						"webhooks/typescript",
+						"webhooks/thread-created",
+						"webhooks/thread-status-transitioned",
+						"webhooks/thread-assignment-transitioned",
+						"webhooks/thread-labels-changed",
+						"webhooks/thread-priority-changed",
+						"webhooks/thread-note-created",
+						"webhooks/thread-email-received",
+						"webhooks/thread-email-sent",
+						"webhooks/thread-slack-message-received",
+						"webhooks/thread-slack-message-sent",
+						"webhooks/thread-chat-sent",
+						"webhooks/thread-chat-received",
+						"webhooks/thread-field-created",
+						"webhooks/thread-field-updated",
+						"webhooks/thread-field-deleted",
+						"webhooks/thread-service-level-agreement-status-transitioned",
+						"webhooks/customer-created",
+						"webhooks/customer-updated",
+						"webhooks/customer-deleted",
+						"webhooks/customer-group-membership-changed"
 					]
 				},
-				"api-reference/request-signing",
-				"api-reference/mtls",
+				"request-signing",
+				"mtls",
 				{
 					"group": "UI Components",
 					"pages": [
-						"api-reference/ui-components",
-						"api-reference/ui-components/badge",
-						"api-reference/ui-components/container",
-						"api-reference/ui-components/copy-button",
-						"api-reference/ui-components/divider",
-						"api-reference/ui-components/link-button",
-						"api-reference/ui-components/plain-text",
-						"api-reference/ui-components/row",
-						"api-reference/ui-components/spacer",
-						"api-reference/ui-components/text"
+						"ui-components",
+						"ui-components/badge",
+						"ui-components/container",
+						"ui-components/copy-button",
+						"ui-components/divider",
+						"ui-components/link-button",
+						"ui-components/plain-text",
+						"ui-components/row",
+						"ui-components/spacer",
+						"ui-components/text"
 					]
 				},
-				"api-reference/attachments"
-			]
-		},
-		{
-			"group": "Knowledge Base",
-			"pages": [
-				"knowledge-base/overview",
-				"knowledge-base/kb-personal-email",
-				"knowledge-base/kb-setup-time",
-				"knowledge-base/kb-soc2",
-				"knowledge-base/kb-forwarding-emails"
+				"attachments"
 			]
 		}
 	],
@@ -355,7 +217,7 @@
 	},
 	"redirects": [
 		{
-			"source": "/api-reference/headless-portal",
+			"source": "/headless-portal",
 			"destination": "/headless-support-portal"
 		}
 	]
