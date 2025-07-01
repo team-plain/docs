@@ -1,0 +1,18 @@
+---
+Autoresponders
+---
+
+Plain provides native [workspace level auto-responses](https://plain.support.site/article/auto-responses), however for more complex cases you may want to implement your own custom autoresponder.
+
+To achieve this you can set up endpoint(s) to be notified of one or more [webhooks](/webhooks) from Plain. We would typically recommend listening for the [thread created](/webhooks/thread-created) webhook as this will allow you the option of responding to any Thread whether it was created via email, Slack or a contact form.
+
+If you want to only reply to emails, you can use the [email received](/webhooks/thread-email-received) webhook. This will trigger for all emails, not just the first one in a thread, so you should check the `isStartOfThread` field provided in the webhook payload to ensure you only reply to the first message.
+
+<Warning>
+  Note that if you subscribe to both `thread.thread_created` and `thread.email_received` you may
+  receive two events for the same email, since we create a new thread for emails which don't belong
+  to an existing thread. In order to avoid replying to the same message twice please check the
+  `isStartOfThread` field in the `thread.email_received` payload.
+</Warning>
+
+Once you have received an event and decided how to respond you can use the `replyToThread` mutation to send a reply back to the customer. See our [API explorer](https://app.plain.com/developer/api-explorer/) or [Typescript SDK](https://github.com/team-plain/typescript-sdk/) for more details.

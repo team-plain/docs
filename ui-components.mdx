@@ -1,0 +1,28 @@
+---
+title: 'UI Components'
+sidebarTitle: 'Overview'
+---
+
+UI components are a way of describing some UI when creating threads or [events](https://plain.support.site/article/events) or building [customer cards](https://plain.support.site/article/customer-cards).
+
+For example - this is a button that links to Stripe.
+
+```json
+{
+  "componentLinkButton": {
+    "linkButtonUrl": "http://stripe.com/",
+    "linkButtonLabel": "View in Stripe"
+  }
+}
+```
+
+and it looks like this:
+
+<Frame>
+  ![Example button linking to stripe](/public/images/ui-component-link-button-stripe.png)
+</Frame>
+
+In the GraphQL API schema, we have two separate unions for Custom Timeline Entry Components and Customer Card
+Components, but both unions share the same types therefore they can be treated as the same.
+
+To see UI components in action you can experiment with them in the [UI components playground](https://app.plain.com/developer/ui-components-playground/)

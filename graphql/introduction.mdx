@@ -1,0 +1,66 @@
+---
+title: 'Introduction'
+sidebarTitle: 'Introduction'
+description: "An overview of Plain's GraphQL API."
+---
+
+Plain is built with this very GraphQL API we expose to you. This means that there are **no limitations** in what can be done via the API vs the UI.
+
+These docs just highlight the most interesting and most used APIs. If you want to do something beyond what is documented here, please [reach out to us](mailto:help@plain.com) or explore our [schema](/graphql/schema) on your own!
+
+## Key details
+
+Our API is compatible with all common GraphQL clients with the following details:
+
+- **API URL:** `https://core-api.uk.plain.com/graphql/v1`
+- **Allowed method**: POST
+- **Required headers:**
+  - `Content-Type: application/json`
+  - `Authorization: Bearer YOUR_TOKEN` where the token is your API key. See [authentication](/graphql/authentication/) for more details.
+- **JSON body:**
+  - `query`: the GraphQL query string
+  - `variables`: a JSON object of variables used in the GraphQL query
+  - `operationName`: the name of your GraphQL operation (this is just for tracking and has no impact on the API call or result)
+
+If you'd like to use the **GraphQL schema to generate types** for your client code you can fetch the schema
+from: `https://core-api.uk.plain.com/graphql/v1/schema.graphql`
+
+## Your first API call
+
+In this example, we're going to get a customer in your workspace by their email address. You can find a customer's email on the right-hand side when looking at one of their threads in Plain.
+
+You will need an API key with the `customer:read` permission. See [authentication](/graphql/authentication/) for details on how to get an API key
+
+<Tabs>
+
+  <Tab title="CURL">
+    You'll need to set two shell variables:
+
+    - `PLAIN_TOKEN`: The API key
+    - `PLAIN_CUSTOMER_EMAIL`: The email of the customer you want to fetch
+
+    ```shell
+    PLAIN_TOKEN=XXX
+    PLAIN_CUSTOMER_EMAIL=XXX
+    curl -X POST https://core-api.uk.plain.com/graphql/v1 \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer $PLAIN_TOKEN" \
+      -d '{"query":"query customerByEmail($email: String!) { customerByEmail(email: $email) { id fullName updatedAt { iso8601 } } }","variables":{"email":"'"$PLAIN_CUSTOMER_EMAIL"'"},"operationName":"customerByEmail"}'
+    ```
+
+  </Tab>
+
+  <Tab title="Typescript SDK">
+    This assumes you've installed our Typescript SDK.
+
+<Steps>
+  <Step title="Install the SDK">```npm install @team-plain/typescript-sdk ```</Step>
+  <Step title="Set up the code">
+    Make sure to replace the api key and email in the code:
+    <Snippet file="typescript-sdk/first-api-call.mdx" />
+  </Step>
+  <Step title="Run it">```node script.js ```</Step>
+</Steps>
+
+  </Tab>
+</Tabs>
