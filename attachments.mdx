@@ -19,9 +19,9 @@ To try this, you will need an [API key](/graphql/authentication/) with the follo
 
 <Steps>
   <Step title="Creating an upload url">
-    - `fileName` is the name under which the attachment will appear in the timeline, you can use whichever you want
-    - `fileSizeBytes` is the exact size of the attachment in bytes (specifically, `32318` bytes is the size of Bruce's picture above)
-    - `c_XXXXXXXXXXXXXXXXXXXXXXXXXX` is the customer id you are uploading the attachment for. **Remember to replace this!**
+    - `fileName` is the name under which the attachment will appear in the timeline
+    - `fileSizeBytes` is the exact size of the attachment in bytes
+    - `c_XXXXXXXXXXXXXXXXXXXXXXXXXX` is the customer id you are uploading the attachment for
 
     <Tabs>
       <Tab title="Typescript SDK">
@@ -64,11 +64,18 @@ To try this, you will need an [API key](/graphql/authentication/) with the follo
 
 ## Limitations
 
-- A maximum of **25 attachments** can be added to a message
-- The **combined** size of all attachments you add to a message cannot exceed **6MB** for emails and **50MB** for all other messages
+- A maximum of **100 attachments** can be added to a message
+- The **combined** size of all attachments you add to a message cannot exceed the following limits based on attachment type:
+  - **Email attachments**: 6MB
+  - **Chat attachments**: 100MB
+  - **Slack attachments**: 50MB
+  - **Microsoft Teams attachments**: 50MB
+  - **Discord attachments**: 50MB
+  - **Thread discussion attachments**: 50MB
+  - **Note attachments**: 50MB
 - The following file extensions are not allowed as attachments:
   `
 bat, bin, chm, com, cpl, crt, exe, hlp, hta, inf, ins, isp, jse, lnk, mdb, msc, msi, msp, mst, pcd, pif, reg, scr, sct, shs, vba, vbe, vbs, wsf, wsh, wsl`
-- Attachments uploaded, but never referenced by a Custom Timeline Entry or email, will be
+- Attachments uploaded, but never referenced by a message, will be
   **deleted after 24 hours**.
 - Upload URLs are only **valid for 2 hours** after which a new URL needs to be created.
