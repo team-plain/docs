@@ -171,10 +171,7 @@
 			{
 				"group": "Security",
 				"icon": "shield-check",
-				"pages": [
-					"request-signing",
-					"mtls"
-				]
+				"pages": ["request-signing", "mtls"]
 			}
 		]
 	},
