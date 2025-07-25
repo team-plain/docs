@@ -171,13 +171,16 @@
 			{
 				"group": "Security",
 				"icon": "shield-check",
-				"pages": ["request-signing", "mtls"]
+				"pages": [
+					"request-signing",
+					"mtls"
+				]
 			}
 		]
 	},
 	"logo": {
 		"light": "/public/logo/light.png",
-		"dark": "/logo/dark.png"
+		"dark": "/public/logo/dark.png"
 	},
 	"navbar": {
 		"links": [
