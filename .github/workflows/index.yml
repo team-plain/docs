@@ -17,13 +17,23 @@ jobs:
 
       - name: Install CLI
         run: npm install -g @team-plain/cli@latest
-        
+
       - name: Index Docs (prod)
         run: plain index-sitemap https://www.plain.com/docs/sitemap.xml
         env:
           PLAIN_API_KEY: ${{ secrets.PLAIN_API_KEY }}
 
+      - name: Index Help Center (prod)
+        run: plain index-sitemap https://plain.support.site/sitemap.xml
+        env:
+          PLAIN_API_KEY: ${{ secrets.PLAIN_API_KEY }}
+
       - name: Index Docs (demo workspace)
         run: plain index-sitemap https://www.plain.com/docs/sitemap.xml
+        env:
+          PLAIN_API_KEY: ${{ secrets.PLAIN_API_KEY_DEMO_WORKSPACE }}
+
+      - name: Index Help Center (demo workspace)
+        run: plain index-sitemap https://plain.support.site/sitemap.xml
         env:
           PLAIN_API_KEY: ${{ secrets.PLAIN_API_KEY_DEMO_WORKSPACE }}
