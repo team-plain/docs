@@ -114,9 +114,6 @@
 					{
 						"group": "Webhook events",
 						"pages": [
-							"webhooks",
-							"webhooks/versions",
-							"webhooks/typescript",
 							"webhooks/thread-created",
 							"webhooks/thread-status-transitioned",
 							"webhooks/thread-assignment-transitioned",
@@ -215,9 +212,6 @@
 	"integrations": {
 		"gtm": {
 			"tagId": "GTM-M9JGV3MQ"
-		},
-		"plausible": {
-			"domain": "plain.com"
 		}
 	},
 	"redirects": [
