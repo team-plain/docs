@@ -218,6 +218,10 @@
 		{
 			"source": "/headless-portal",
 			"destination": "/headless-support-portal"
+		},
+		{
+			"source": "/api-reference/:slug*",
+			"destination": "/:slug*"
 		}
 	]
 }
