@@ -15,13 +15,6 @@ const res = await client.createThread({
     // ...or you can use the customer's id in Plain:
     // customerId: 'c_123'
   },
-  components: [
-    {
-      componentText: {
-        text: "The login button is not working, it doesn't do anything.",
-      },
-    },
-  ],
   // Label types are created in settings where you can also copy
   // their ID.
   labelTypeIds: ['lt_01HB924PME9C0YWKW1N4AK3BZA'],
@@ -34,20 +27,19 @@ const res = await client.createThread({
       type: ThreadFieldSchemaType.String,
       stringValue: 'any value',
     },
-  ],
 
   // You can also set other thread field types like boolean or enum.
-  // threadFields: [{
+  // {
   //   key: 'my_enum_field',
   //   type: ThreadFieldSchemaType.Enum,
   //   stringValue: 'any specified value',
-  // }]
-  //
-  // threadFields: [{
+  // },
+  // {
   //   key: 'my_bool_field',
   //   type: ThreadFieldSchemaType.Bool,
   //   booleanValue: true,
-  // }],
+  // }
+  ],
 });
 
 if (res.error) {
