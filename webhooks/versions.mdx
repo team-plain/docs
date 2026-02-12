@@ -15,7 +15,27 @@ Every [webhook target](https://www.plain.com/docs/webhooks#receiving-events-from
 
 We recommend always using the latest version of the webhook payload schema to benefit from new features and improvements. Below are the currently available versions:
 
-### `2024-09-18` (Latest)
+### `2026-02-11` (Latest)
+
+- **What's New**:
+  - Added `numberValue` field to `threadField`.
+  - Added `NUMBER` to the `threadField.type` enum.
+- [View JSON Schema](https://core-api.uk.plain.com/webhooks/schema/2026-02-11.json)
+
+### `2025-08-06`
+
+- **What's New**:
+  - Added `additionalAssignees` to `thread`.
+  - Added `externalId` and `isExcludedFromAi` fields to `labelType`.
+- [View JSON Schema](https://core-api.uk.plain.com/webhooks/schema/2025-08-06.json)
+
+### `2025-07-30`
+
+- **What's New**:
+  - `threadField.createdBy` and `threadField.updatedBy` changed from `internalActor` to `actor` (now supports customer and other actor types).
+- [View JSON Schema](https://core-api.uk.plain.com/webhooks/schema/2025-07-30.json)
+
+### `2024-09-18`
 
 Our first official versioned webhook payload schema.
 
