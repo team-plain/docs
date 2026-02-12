@@ -14,7 +14,7 @@
 		"lint:links": "mintlify broken-links",
 		"lint:biome": "biome check",
 		"lint:fix": "biome check --write",
-		"format": "prettier --write './**/*.{js,ts,tsx,md,mdx}'"
+		"format:fix": "biome format --write ."
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
