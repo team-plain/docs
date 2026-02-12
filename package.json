@@ -16,15 +16,12 @@
 		"lint:fix": "biome check --write",
 		"format": "prettier --write './**/*.{js,ts,tsx,md,mdx}'"
 	},
-	"dependencies": {
-		"ajv-formats": "^3.0.1",
-		"mintlify": "^4.2.31"
-	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"@types/ajv": "^1.0.0",
-		"@types/node": "^22.5.5",
-		"ajv": "^8.17.1",
-		"tsx": "^4.19.1"
+		"@biomejs/biome": "1.9.4",
+		"mintlify": "4.2.342",
+		"@types/node": "22.5.5",
+		"ajv": "8.17.1",
+		"ajv-formats": "3.0.1",
+		"tsx": "4.21.0"
 	}
 }
