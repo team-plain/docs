@@ -1,0 +1,29 @@
+---
+title: 'WorkflowButton'
+description: 'Useful when you want to let agents trigger a workflow directly from a customer card'
+---
+
+<Frame>![Example workflow button](/public/images/ui-component-workflow-button.png)</Frame>
+
+A workflow button has the following properties:
+
+- `workflowButtonLabel`: the text of the button
+- `workflowButtonWorkflowIdentifier`: an object containing either:
+  - `workflowId`: the ID of the workflow to trigger
+
+When clicked, the button will trigger the specified workflow in the context of the current thread. The button shows a loading state while the workflow is being triggered and displays a tooltip with the latest execution status, including when it was run and how long it took.
+
+For example:
+
+<Tabs>
+    <Tab title="Typescript SDK">
+<Snippet file="typescript-sdk/ui-workflow-button.mdx" />
+    </Tab>
+
+    <Tab title="GraphQL">
+
+<Snippet file="graphql/ui-workflow-button.mdx" />
+
+    </Tab>
+
+</Tabs>
