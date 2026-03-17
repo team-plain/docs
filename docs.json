@@ -159,6 +159,7 @@
 					"ui-components/copy-button",
 					"ui-components/divider",
 					"ui-components/link-button",
+					"ui-components/workflow-button",
 					"ui-components/plain-text",
 					"ui-components/row",
 					"ui-components/spacer",
